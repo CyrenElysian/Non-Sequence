@@ -1,0 +1,59 @@
+You are an expert in event graph correction. Given a scenario, a set of events (unordered_nodes), and a list of directed edges (A->B means A must happen before B), your task is to **correct any logical errors** and output the COMPLETE corrected JSON object along with a change log.
+
+An event graph may contain AND‑JOIN structures with these properties:
+- Multiple unordered branches, each branch containing an ordered sequence of events
+- All branches must complete before any subsequent events
+- Branches themselves have no ordering constraints with respect to each other
+
+**Your job:**
+1. Check if the current edges form a connected directed acyclic graph.
+2. Find errors: missing necessary edges, reversed edges, incorrectly parallelized branches, or implausible ordering.
+3. Produce a CORRECTED version of the edges and the recalculated `script_graph` (as a nested "sequence" with optional "and_join" objects).
+4. Provide a change log that explains what you modified.
+
+**Output format (STRICT):**
+You must return a JSON object with exactly two fields:
+- `"corrected_data"`: the full corrected entry containing `id`, `scenario`, `unordered_nodes`, `edges`, and `script_graph`.
+- `"change_log"`: an array of strings, each describing a specific correction (e.g., "Added edge 4->0 because ...", "Removed edge 2->0 because ..."). **Only list actual modifications, do not describe unchanged parts.**
+
+Example of output structure:
+{{
+  "corrected_data": {{
+    "id": 20,
+    "scenario": "learn how to play tennis",
+    "unordered_nodes": {{ ... }},
+    "edges": ["2->3","2->4","3->1","4->1","1->0","0->5"],
+    "script_graph": {{
+      "type": "sequence",
+      "script": [
+        "2",
+        {{
+          "type": "and_join",
+          "branches_set": {{
+            "b1": ["3"],
+            "b2": ["4"]
+          }}
+        }},
+        "1",
+        "0",
+        "5"
+      ]
+    }}
+  }},
+  "change_log": [
+    "Added edge 2->3 because 'buy a tennis racket' should happen after 'look up rules'.",
+    "Added edge 2->4 because 'buy tennis shoes' should happen after 'look up rules'.",
+    "Removed incorrect edge 3->0 directly, placed intermediate step 1."
+  ]
+}}
+
+The `corrected_data` will be stored in the main dataset; the `change_log` will be extracted and saved separately.
+Only output valid JSON, no markdown fences, no explanations.
+
+**Input:**
+Scenario: {scenario}
+Events (unordered_nodes):
+{events_json}
+
+Current edges (may contain errors):
+{edges_json}

@@ -1,0 +1,91 @@
+{
+  "23": [
+    "Added edge 4->0 because ordering should happen after inputting Amazon.com URL.",
+    "Removed edge 2->0 because sitting at computer does not directly lead to ordering; inputting URL is a necessary intermediate step.",
+    "Removed edge 4->5 because inputting URL does not directly lead to waiting for delivery; ordering is required first."
+  ],
+  "733": [
+    "Removed edge 3->6 because it bypasses the repetition step.",
+    "Removed edge 5->4 because it incorrectly orders the repeat before the initial careful look.",
+    "Added edge 3->5 to sequence the emotional connection before the repeat of steps 1 and 2.",
+    "Added edge 5->6 to sequence the repeat before the final pick."
+  ],
+  "734": [
+    "Removed edge '5->3' because 'Carefully budget out expenses' should happen after 'continue to work and get a paycheck'.",
+    "Added edge '3->5' to establish correct ordering between work and budgeting."
+  ],
+  "738": [
+    "Removed edge 1->6 because waiting should occur after beginning the call, not before it.",
+    "Added edge 4->6 to indicate pressing call button leads to beginning the call.",
+    "Added edge 6->1 to ensure waiting for answer happens after the call has begun."
+  ],
+  "741": [
+    "Removed edge 1->5 because sitting before finding remote is illogical; you need to find the remote before sitting.",
+    "Removed edge 2->1 because sitting immediately after walking is not necessary; sitting should occur after turning on TV.",
+    "Removed edge 0->4 because searching channel should be after sitting down; replaced with path 0->1->4.",
+    "Added edge 2->5: walking to living room should happen before finding the remote.",
+    "Added edge 0->1: turning on TV should happen before sitting down to watch.",
+    "Added edge 1->4: sitting down should happen before searching for the news channel."
+  ],
+  "742": [
+    "Removed edge 1->4 because setting the pan should not be a prerequisite for grabbing oil; instead, grabbing oil can happen in parallel after opening cabinet.",
+    "Removed edge 4->0 because spreading oil requires both the pan set and the oil mixed, not just oil.",
+    "Removed edge 5->3 because mixing should not happen before opening cabinet; it should happen after grabbing oil.",
+    "Added edge 3->4 to allow grabbing oil after opening cabinet, enabling parallelism.",
+    "Added edge 4->5 to ensure mixing happens after grabbing oil.",
+    "Added edges 1->0 and 5->0 to establish that both setting the pan and mixing the oil must occur before spreading oil."
+  ],
+  "743": [
+    "Removed edge 2->4 because it reversed the logical order (remember criteria should come after decide criteria).",
+    "Added edge 4->2 because decide criteria must happen before remember criteria.",
+    "Removed edge 3->1 because match lipsticks should wait for both branches (criteria and list) to complete.",
+    "Removed edge 4->1 because match lipsticks should wait for both branches, not directly from decide criteria.",
+    "Added edge 2->1 because match lipsticks requires remembered criteria.",
+    "Removed edge 5->3 because navigating to other lipsticks should come after opening the list.",
+    "Added edge 3->5 because open list must happen before navigate to other lipsticks.",
+    "Removed edge 5->2 because navigating should not directly lead to remembering criteria; it should go through match lipsticks.",
+    "Added edge 5->1 because after navigating, you have more options to match with criteria."
+  ],
+  "745": [
+    "Removed edge 5->1 because getting ingredients should occur after obtaining the bowl, not before.",
+    "Removed edge 3->6 because bowl set down should be followed by getting ingredients before final goal.",
+    "Added edge 3->5 to connect set down to get ingredients.",
+    "Added edge 5->6 to connect get ingredients to goal."
+  ],
+  "746": [
+    "Reversed edge 0->1 to 1->0: 'add the amount of each ingredient needed' should occur after 'look in pantry'.",
+    "Added edge 5->1: 'go through list of ingredients and write each one down' must precede 'look in pantry'.",
+    "Added edge 2->0: 'cross off ingredients already owned' must precede 'add the amount of each ingredient needed'.",
+    "Added edge 0->7: 'add the amount of each ingredient needed' must precede the final 'Make a list of ingredients'.",
+    "Removed edge 2->7 because it incorrectly skipped steps (added intermediate path 2->0->7).",
+    "Removed edge 5->0 because it incorrectly placed adding amounts before looking in pantry (replaced with path 5->1->2->0)."
+  ],
+  "747": [
+    "Reversed edge 0->6 to 6->0 because operating buttons should happen after pulling up pants.",
+    "Added edge 4->6 because adjust pant position should be followed by pulling up pants.",
+    "Removed edge 4->0 because it incorrectly skipped the pull-up step between adjusting and buttoning."
+  ],
+  "748": [
+    "Removed edge 5->4 because sorting clothes should not precede picking up items; picking up must happen first.",
+    "Removed edge 1->6 because placing light items should not directly lead to the final step.",
+    "Removed edge 2->6 because placing dark items should not directly lead to the final step without the overall sorting step.",
+    "Added edge 2->5 to connect placing dark items to the sorting step.",
+    "Added edge 1->5 to connect placing light items to the sorting step.",
+    "Added edge 5->6 to indicate that after sorting, the final step is to put dark colors separate."
+  ],
+  "749": [
+    "Added edge 6->5 because research should also be a prerequisite for getting social security card.",
+    "Added edge 3->4 because making copies of bank statements requires the documents from the filing cabinet.",
+    "Added edge 1->0 because after locating W-2, it should lead to creating the folder.",
+    "Added edge 5->0 because getting social security card should lead to creating the folder.",
+    "Removed edge 1->5 because it imposed an unnecessary ordering between locating W-2 and getting social security card.",
+    "Removed edge 3->5 because it imposed an unnecessary ordering between looking in filing cabinet and getting social security card.",
+    "Removed edge 5->4 because it imposed an unnecessary ordering between getting social security card and making copies."
+  ],
+  "750": [
+    "Reversed edge 0->3 to 3->0 because walking towards shoes should happen before finding them.",
+    "Removed edges 3->1 and 3->4 because after walking, you find the shoes, then put them on.",
+    "Added edges 0->1 and 0->4 because after finding shoes, you put on each shoe.",
+    "Added edge 2->3 to ensure looking for shoes happens before walking towards them."
+  ]
+}

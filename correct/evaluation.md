@@ -1,7 +1,9 @@
 **id:733**：对于3$\to$5若理解为产生情感连接后，可能需要**再看一遍整体设计和上手效果**来确认，则标注可接受；但实际原因在于这条数据没有被标注为循环结构
 
-**id:747**：修改错误，将`"0": "operate the buttons"`放置在了`"6": "pull up protective pants and button"`之后，将数据改错了
+**id:747**：修改错误，将 `"0": "operate the buttons"`放置在了 `"6": "pull up protective pants and button"`之后，将数据改错了
 
 **id:749**：看不懂，无法评判
 
-**id:750**：修改错误，将`"3": "walk towards shoes"`置于`"1": "put right shoe on"`之前，将原数据改错了
+**id:750**：修改错误，将 `"3": "walk towards shoes"`置于 `"1": "put right shoe on"`之前，将原数据改错了
+
+总体来说效果尚可，20条数据中16条基本正确，仅2条有明显错误，2条暂不好评判

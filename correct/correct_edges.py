@@ -1,5 +1,5 @@
 # 调用API 修改 converted_dev.json等数据的逻辑错误
-# 这里截取20条数据进行测试(temp.json)
+# 已截取20条数据进行测试("../temp/temp.json)
 import json
 import os
 import time
@@ -15,16 +15,17 @@ client = OpenAI(
     base_url="https://api.deepseek.com"
 )
 
-PROMPT_TEMPLATE_FILE = "prompt_template.txt"
-INPUT_FILE = "temp.json"
-OUTPUT_FILE = "llm_fixed_temp.json"
-CHANGE_LOG_FILE = "change_logs.json"
+# 设置目标输入和输出
+PROMPT_TEMPLATE_FILE = "correct/prompt_template.txt"
+INPUT_FILE = "convert/converted_dev.json"
+OUTPUT_FILE = "convert/llm_fixed_dev.json"
+CHANGE_LOG_FILE = "convert/change_logs.json"
 SAVE_INTERVAL = 10
 
 # 使用 DeepSeek V4 Flash 模型
 MODEL = "deepseek-v4-flash"
 TEMPERATURE = 0.1
-MAX_TOKENS = 10000
+MAX_TOKENS = 8192
 RETRY_TIMES = 3
 RETRY_DELAY = 2
 
@@ -89,7 +90,7 @@ def call_llm(scenario, events, edges, item_id):
                     {"role": "user", "content": prompt}
                 ],
                 reasoning_effort="high",
-                extra_body={"thinking":{"type":"enable"}},
+                extra_body={"thinking":{"type":"enabled"}},
                 # temperature=TEMPERATURE,
                 max_tokens=MAX_TOKENS,
                 stream=False
@@ -167,15 +168,15 @@ def main():
         if len(finished) % SAVE_INTERVAL == 0:
             with open(OUTPUT_FILE, "w", encoding="utf-8") as f_out:
                 json.dump(finished, f_out, indent=2, ensure_ascii=False)
-            with open(CHANGE_LOG_FILE, "w", encoding="utf-8") as f_log:
-                json.dump(change_logs, f_log, indent=2, ensure_ascii=False)
+            # with open(CHANGE_LOG_FILE, "w", encoding="utf-8") as f_log:
+            #     json.dump(change_logs, f_log, indent=2, ensure_ascii=False)
             print(f"  Saved {len(finished)} results")
 
     # 最终保存
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f_out:
         json.dump(finished, f_out, indent=2, ensure_ascii=False)
-    with open(CHANGE_LOG_FILE, "w", encoding="utf-8") as f_log:
-        json.dump(change_logs, f_log, indent=2, ensure_ascii=False)
+    # with open(CHANGE_LOG_FILE, "w", encoding="utf-8") as f_log:
+    #     json.dump(change_logs, f_log, indent=2, ensure_ascii=False)
 
     print(f"\nDone! Output: {OUTPUT_FILE}, Change log: {CHANGE_LOG_FILE}")
 

@@ -783,7 +783,7 @@
       "1": "Search for butterflies",
       "2": "Sit down at computer",
       "3": "Travel to field near house",
-      "4": "Input Amazoncom into web bar",
+      "4": "Input Amazon.com into web bar",
       "5": "Wait for delivery",
       "6": "Receive package in mail",
       "7": "catch a butterfly for a pet"
@@ -2166,7 +2166,7 @@
       "2": "Sit down at computer",
       "3": "Search how-to videos on sport chosen",
       "4": "Watch how-to videos",
-      "5": "travel to youtubecom",
+      "5": "travel to youtube.com",
       "6": "start learning a sport"
     },
     "edges": [
@@ -2784,7 +2784,7 @@
     "id": 81,
     "scenario": "build a gym",
     "unordered_nodes": {
-      "0": "Travel to amazoncom",
+      "0": "Travel to amazon.com",
       "1": "Confirm purchase of items",
       "2": "Add all required gym items to cart",
       "3": "Sit down at computer",
@@ -2930,7 +2930,7 @@
     "scenario": "learn how to juggle",
     "unordered_nodes": {
       "0": "buy some juggling balls",
-      "1": "go to amazoncom",
+      "1": "go to amazon.com",
       "2": "wait for the package",
       "3": "practice every day",
       "4": "find an instructional video and watch",
@@ -9308,7 +9308,7 @@
     "id": 264,
     "scenario": "try making jewelry",
     "unordered_nodes": {
-      "0": "go to amazoncom",
+      "0": "go to amazon.com",
       "1": "check out with a credit card",
       "2": "add charms to cart",
       "3": "open the package",
@@ -9979,7 +9979,7 @@
     "unordered_nodes": {
       "0": "search for language courses",
       "1": "wait for courses to start",
-      "2": "go to googlecom",
+      "2": "go to google.com",
       "3": "sign up for course",
       "4": "go to courses for a semester",
       "5": "learn a different language"
@@ -11941,7 +11941,7 @@
       "0": "Sit down at computer",
       "1": "Decide on which sport is of interest",
       "2": "search how-to videos on desired sport",
-      "3": "go to youtubecom",
+      "3": "go to youtube.com",
       "4": "Watch all highest rated videos",
       "5": "learn a new sport"
     },
@@ -18917,7 +18917,7 @@
       "2": "search for bracelets",
       "3": "compare search results",
       "4": "click through search results",
-      "5": "go to amazoncom",
+      "5": "go to amazon.com",
       "6": "add plain bracelets to cart"
     },
     "edges": [
@@ -19444,7 +19444,7 @@
       "2": "go to checkout enter details",
       "3": "locate juggling ball section",
       "4": "look around website",
-      "5": "go to amazoncom",
+      "5": "go to amazon.com",
       "6": "buy some juggling balls"
     },
     "edges": [

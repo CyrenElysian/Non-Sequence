@@ -6,7 +6,7 @@ import time
 from openai import OpenAI
 
 # -------------------- 配置 --------------------
-MODEL = "deepseek-v4-pro"  # DeepSeek V4 Flash 模型
+MODEL = "deepseek-v4-flash"  # DeepSeek V4 Flash 模型
 BASE_URL = "https://api.deepseek.com"
 BATCH_SIZE = 5  # 每批处理的数据条数
 OVERWRITE_CHECKPOINT = False  # 是否从头开始（False 则从断点续传）

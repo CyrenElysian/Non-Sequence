@@ -1,57 +1,57 @@
 [
   {
-    "id": 733,
+    "id": 11,
+    "type": "spelling_fix",
+    "details": "corrected 'th' to 'the' in node 4: 'Put the pack inside th car' -> 'Put the pack inside the car'"
+  },
+  {
+    "id": 12,
+    "type": "spelling_fix",
+    "details": "corrected 'an' to 'and' in node 4: 'Mix sand an water' -> 'Mix sand and water'"
+  },
+  {
+    "id": 14,
     "type": "structure_added",
-    "details": "Added loop structure to correctly represent repeated ring observation; modified node 5 to become the loop entry decision, added edge 5->4, and updated script_graph accordingly."
+    "details": "added select structure for option to read instructions before buying parts"
   },
   {
-    "id": 735,
+    "id": 19,
     "type": "spelling_fix",
-    "details": "corrected 'discuss' to 'discuss' in node 2"
+    "details": "fixed 'chose' to 'choose' in node 3"
   },
   {
-    "id": 735,
-    "type": "spelling_fix",
-    "details": "corrected 'officiate' to 'officiant' in node 0"
-  },
-  {
-    "id": 735,
-    "type": "spelling_fix",
-    "details": "corrected 'officiate' to 'officiant' in node 4"
-  },
-  {
-    "id": 740,
-    "type": "spelling_fix",
-    "details": "corrected 'grip' to 'grasp' in node 0"
-  },
-  {
-    "id": 742,
-    "type": "spelling_fix",
-    "details": "fixed 'spread' to 'spread' in node 0"
-  },
-  {
-    "id": 746,
-    "type": "spelling_fix",
-    "details": "fixed 'RECI.EPE' to 'RECIPE' in node 6"
-  },
-  {
-    "id": 747,
-    "type": "spelling_fix",
-    "details": "fixed 'locate' to 'locate' in node 2 and 'undergarments' to 'undergarments' in node 5"
-  },
-  {
-    "id": 748,
-    "type": "spelling_fix",
-    "details": "fixed 'decide' to 'decide' in node 0"
-  },
-  {
-    "id": 748,
+    "id": 23,
     "type": "structure_added",
-    "details": "replaced and_join with select for dark/light decision"
+    "details": "Removed edge '2->0' because it created a shortcut bypassing the input step, inconsistent with the intended linear flow."
   },
   {
-    "id": 749,
+    "id": 31,
     "type": "spelling_fix",
-    "details": "fixed 'locate' to 'locate' in node 1"
+    "details": "corrected 'kindergarden' to 'kindergarten' in scenario and node5"
+  },
+  {
+    "id": 41,
+    "type": "structure_added",
+    "details": "added select structure to allow optionally turning on Netflix before starting movie, reflecting edges 0->2 and 0->4"
+  },
+  {
+    "id": 67,
+    "type": "spelling_fix",
+    "details": "corrected 'balooning' to 'ballooning' in node 0"
+  },
+  {
+    "id": 80,
+    "type": "spelling_fix",
+    "details": "corrected 'setup up a chess board' to 'set up a chess board'"
+  },
+  {
+    "id": 80,
+    "type": "structure_added",
+    "details": "introduced loop structure to represent the 'repeat until mastered' pattern; updated edges and script_graph accordingly"
+  },
+  {
+    "id": 92,
+    "type": "structure_added",
+    "details": "Restructured flat sequence to include a loop for repeating the activity. Modified node 1 from 'Repeat the activity whenver the time is right' to 'Decide whether to repeat the activity whenever time is right' (spelling corrected and meaning clarified for decision). Added loop structure with entry=1, retry=[2,0,3,continue], exit=6. Removed old edges and added new edges to support loop."
   }
 ]

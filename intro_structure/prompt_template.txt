@@ -8,7 +8,7 @@ The current event graphs have the following problems:
 
 Your task for every item in the dataset:
 - Correct spelling errors in scenario and unordered_nodes (only fix obvious misspellings, do not change the intended meaning).
-- Identify items in the underlying logic that indeed contain selection or loops. Modify the edges and script_graph of these items according to the subsequent examples (even allowing modifications to nodes) to make them correct, and record this in the modification log under the type "structure_added"; if modification is inconvenient, remove these items from the final processed dataset because they are incorrectly marked, and record this removal in the change log.
+- Identify items in the underlying logic that indeed contain selection or loops. Modify the edges and script_graph of these items according to the subsequent examples (even allowing modifications to nodes) to make them correct, and record this in the modification log under the type "structure_changed"; if modification is inconvenient, remove these items from the final processed dataset because they are incorrectly marked, and record this removal in the change log.
 - For the remaining items, you may optionally introduce at least one select or loop structure (not too many, to keep complexity low) by modifying original nodes and edges if necessary. Requirements:
   - The logic must be natural and not forced. It is acceptable to leave an item unchanged if no select/loop fits.
   - Select branches must be mutually exclusive and significantly different (e.g., choosing between chopsticks and spoon for eating is too trivial).
@@ -112,7 +112,7 @@ Example 3: and_join with internal order (replicate pasta)
   }
 }
 
-Example 4: select with nesting (solve dinner problem)
+Example 4: select with nested structure (solve dinner problem)
 {
   "id":4,
   "scenario":"solve the dinner problem",
@@ -141,7 +141,7 @@ Example 4: select with nesting (solve dinner problem)
   }
 }
 
-Example 5: loop with nested select (adjust coffee strength)
+Example 5: loop with nested structure (adjust coffee strength)
 {
   "id": 5,
   "scenario": "adjust coffee strength until perfect",
@@ -167,7 +167,7 @@ Example 5: loop with nested select (adjust coffee strength)
   }
 }
 
-Example 6: and_join with nested select (pasta with sauce choice)
+Example 6: and_join with nested structure (pasta with sauce choice)
 {
   "id": 6,
   "scenario": "replicate the pasta at the restaurant",
@@ -201,13 +201,13 @@ You must produce exactly two separate JSON objects.
 1. The first JSON is the processed dataset: an array containing all kept items after corrections and optional structure additions. Items that were removed should NOT appear in this array.
 2. The second JSON is the change log: an array of objects, each recording a modification made. If no modification was made to an item, do not include it in the log. Each log entry has:
     "id": the id of the item,
-    "type": one of "spelling_fix", "deletion", "structure_added",
+    "type": one of "spelling_fix", "deletion", "structure_changed",
     "details": a brief description of the change (e.g., "fixed 'balooning' to 'ballooning' in node 3", "deleted because original edges implied a loop", "added select structure for login methods"). Include deletion entries here instead of a separate deleted_ids list.
 
 Example change_log entries:
 {"id": 10, "type": "spelling_fix", "details": "corrected 'recieve' to 'receive' in scenario"}
 {"id": 554, "type": "deletion", "details": "removed due to implicit loop in edges (4->1)"}
-{"id": 25, "type": "structure_added", "details": "introduced loop for password retry"}
+{"id": 25, "type": "structure_changed", "details": "introduced loop for password retry"}
 
 Now, process the entire dataset according to all the above instructions. Output only the two JSON objects, clearly separated. For example:
 {

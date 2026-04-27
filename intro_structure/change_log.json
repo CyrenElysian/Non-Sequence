@@ -1,0 +1,57 @@
+[
+  {
+    "id": 733,
+    "type": "structure_added",
+    "details": "Added loop structure to correctly represent repeated ring observation; modified node 5 to become the loop entry decision, added edge 5->4, and updated script_graph accordingly."
+  },
+  {
+    "id": 735,
+    "type": "spelling_fix",
+    "details": "corrected 'discuss' to 'discuss' in node 2"
+  },
+  {
+    "id": 735,
+    "type": "spelling_fix",
+    "details": "corrected 'officiate' to 'officiant' in node 0"
+  },
+  {
+    "id": 735,
+    "type": "spelling_fix",
+    "details": "corrected 'officiate' to 'officiant' in node 4"
+  },
+  {
+    "id": 740,
+    "type": "spelling_fix",
+    "details": "corrected 'grip' to 'grasp' in node 0"
+  },
+  {
+    "id": 742,
+    "type": "spelling_fix",
+    "details": "fixed 'spread' to 'spread' in node 0"
+  },
+  {
+    "id": 746,
+    "type": "spelling_fix",
+    "details": "fixed 'RECI.EPE' to 'RECIPE' in node 6"
+  },
+  {
+    "id": 747,
+    "type": "spelling_fix",
+    "details": "fixed 'locate' to 'locate' in node 2 and 'undergarments' to 'undergarments' in node 5"
+  },
+  {
+    "id": 748,
+    "type": "spelling_fix",
+    "details": "fixed 'decide' to 'decide' in node 0"
+  },
+  {
+    "id": 748,
+    "type": "structure_added",
+    "details": "replaced and_join with select for dark/light decision"
+  },
+  {
+    "id": 749,
+    "type": "spelling_fix",
+    "details": "fixed 'locate' to 'locate' in node 1"
+  }
+]

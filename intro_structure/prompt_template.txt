@@ -1,4 +1,4 @@
-You are given a dataset . Each item contains: id (int), scenario (string), unordered_nodes (dictionary), edges (list of directed edges), and script_graph (textual description of the event graph).
+You are given a dataset. Each item contains: id (int), scenario (string), unordered_nodes (dictionary), edges (list of directed edges), and script_graph (textual description of the event graph).
 
 The current event graphs have the following problems:
 1) There may be spelling errors in scenario and unordered_nodes.
@@ -8,12 +8,12 @@ The current event graphs have the following problems:
 
 Your task for every item in the dataset:
 - Correct spelling errors in scenario and unordered_nodes (only fix obvious misspellings, do not change the intended meaning).
-- Identify items where the underlying logic truly contains a select or loop. Remove those items from the final processed dataset because they were wrongly labeled. Record this deletion in the change log.
+- Identify items in the underlying logic that indeed contain selection or loops. Modify the edges and script_graph of these items according to the subsequent examples (even allowing modifications to nodes) to make them correct, and record this in the modification log under the type "structure_added"; if modification is inconvenient, remove these items from the final processed dataset because they are incorrectly marked, and record this removal in the change log.
 - For the remaining items, you may optionally introduce at least one select or loop structure (not too many, to keep complexity low) by modifying original nodes and edges if necessary. Requirements:
   - The logic must be natural and not forced. It is acceptable to leave an item unchanged if no select/loop fits.
   - Select branches must be mutually exclusive and significantly different (e.g., choosing between chopsticks and spoon for eating is too trivial).
   - Loops must have a clear exit condition and no infinite loops.
-  - For loop specifically: there must be an edge from the node immediately before the loop to entry, an edge from exit to the node immediately after the loop, and an edge from entry to exit . Inside the loop body, the edge sequence must form a path from entry through retry back to entry.
+  - For loop specifically: there must be an edge from the node immediately before the loop to entry, an edge from exit to the node immediately after the loop, and an edge from entry to exit. Inside the loop body, the edge sequence must form a path from entry through retry back to entry.
   - For select specifically: each option's last node must have an edge to the same merge point after the select.
   - Remove all old edges that are no longer valid because the script_graph has been restructured. If a previous edge contradicts the new control flow, it must be deleted.
   - After generating the new script_graph and edges, double-check them together: verify that every transition implied by the script_graph (including entering/exiting substructures, loops, and select branches) has a corresponding edge in the edges list, and that no extra edges exist that would create bypasses or dangling nodes.

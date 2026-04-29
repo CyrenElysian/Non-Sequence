@@ -1182,6 +1182,171 @@
           "5"
         ]
       }
+    },
+    {
+      "id": 31,
+      "scenario": "go to college since kindergarten",
+      "unordered_nodes": {
+        "0": "Pass kindergarten level",
+        "1": "Pass Grade School level",
+        "2": "attend college orientations",
+        "3": "pass high school",
+        "4": "apply for colleges",
+        "5": "begin college"
+      },
+      "edges": [
+        "0->1",
+        "1->3",
+        "2->5",
+        "3->4",
+        "4->2"
+      ],
+      "script_graph": {
+        "type": "sequence",
+        "script": [
+          "0",
+          "1",
+          "3",
+          "4",
+          "2",
+          "5"
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "scenario": "play outside on a stormy day",
+      "unordered_nodes": {
+        "0": "go to the bathroom",
+        "1": "take a shower",
+        "2": "wake up from sleeping",
+        "3": "get dressed for the day",
+        "4": "open the front door to go outside",
+        "5": "play in the storm"
+      },
+      "edges": [
+        "0->1",
+        "1->3",
+        "2->0",
+        "3->4",
+        "4->5"
+      ],
+      "script_graph": {
+        "type": "sequence",
+        "script": [
+          "2",
+          "0",
+          "1",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "scenario": "play a game of squash",
+      "unordered_nodes": {
+        "0": "take gear to the car",
+        "1": "pick up squash gear from the garage",
+        "2": "wait for other players",
+        "3": "get out of the car and grab gear",
+        "4": "drive to squash field",
+        "5": "put gear in car",
+        "6": "get into car",
+        "7": "play squash"
+      },
+      "edges": [
+        "0->5",
+        "1->0",
+        "2->7",
+        "3->2",
+        "4->3",
+        "5->6",
+        "6->4"
+      ],
+      "script_graph": {
+        "type": "sequence",
+        "script": [
+          "1",
+          "0",
+          "5",
+          "6",
+          "4",
+          "3",
+          "2",
+          "7"
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "scenario": "wash some clothes",
+      "unordered_nodes": {
+        "0": "walk to the washing machine",
+        "1": "set the cycle",
+        "2": "put in the dirty clothes",
+        "3": "open the washing machine",
+        "4": "wait for the cycle",
+        "5": "add some detergent",
+        "6": "grab the bag of dirty clothes",
+        "7": "start washing"
+      },
+      "edges": [
+        "0->3",
+        "1->4",
+        "2->5",
+        "3->2",
+        "4->7",
+        "5->1",
+        "6->0"
+      ],
+      "script_graph": {
+        "type": "sequence",
+        "script": [
+          "6",
+          "0",
+          "3",
+          "2",
+          "5",
+          "1",
+          "4",
+          "7"
+        ]
+      }
+    },
+    {
+      "id": 35,
+      "scenario": "see an alligator",
+      "unordered_nodes": {
+        "0": "Ask staff where alligators are kept",
+        "1": "Get inside car",
+        "2": "Purchase zoo ticket",
+        "3": "Walk to alligator exhibit",
+        "4": "Start car and drive to zoo",
+        "5": "Walk outside of house",
+        "6": "view the alligators"
+      },
+      "edges": [
+        "0->3",
+        "1->4",
+        "2->0",
+        "3->6",
+        "4->2",
+        "5->1"
+      ],
+      "script_graph": {
+        "type": "sequence",
+        "script": [
+          "5",
+          "1",
+          "4",
+          "2",
+          "0",
+          "3",
+          "6"
+        ]
+      }
     }
   ],
   "change_log": [
@@ -1339,7 +1504,37 @@
       "id": 30,
       "type": "structure_changed",
       "details": "Added select structure for delivery method (in-store pickup vs home delivery)"
+    },
+    {
+      "id": 31,
+      "type": "spelling_fix",
+      "details": "corrected 'kindergarden' to 'kindergarten' in scenario"
+    },
+    {
+      "id": 31,
+      "type": "structure_changed",
+      "details": "modified node 5 from 'go to college since kindergarden' to 'begin college' to replace duplicate scenario end node with logical end node"
+    },
+    {
+      "id": 32,
+      "type": "structure_changed",
+      "details": "modified node 5 from 'play outside on a stormy day' to 'play in the storm' to replace duplicate scenario end node"
+    },
+    {
+      "id": 33,
+      "type": "structure_changed",
+      "details": "modified node 7 from 'play a game of squash' to 'play squash' to replace duplicate scenario end node"
+    },
+    {
+      "id": 34,
+      "type": "structure_changed",
+      "details": "modified node 7 from 'wash some clothes' to 'start washing' to replace duplicate scenario end node"
+    },
+    {
+      "id": 35,
+      "type": "structure_changed",
+      "details": "modified node 6 from 'see an alligator' to 'view the alligators' to replace duplicate scenario end node"
     }
   ],
-  "next_batch_index": 6
+  "next_batch_index": 7
 }

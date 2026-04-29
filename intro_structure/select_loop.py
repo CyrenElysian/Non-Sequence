@@ -21,7 +21,7 @@ if not API_KEY:
 
 # -------------------- 文件路径 --------------------
 PROMPT_FILE = "prompt_template.txt"
-INPUT_FILE = "llm_fixed_temp.json"
+INPUT_FILE = "../correct/llm_fixed_dev.json"
 OUTPUT_DATA = "processed_data.json"
 OUTPUT_LOG = "change_log.json"
 CHECKPOINT_FILE = "checkpoint.json"

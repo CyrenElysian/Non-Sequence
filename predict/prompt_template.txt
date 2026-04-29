@@ -1,0 +1,229 @@
+You are an expert in event graph inference. You will be given:
+- A scenario description (the goal of the event chain)
+- A set of unordered nodes, each with an ID and a textual description.
+
+Your task is to infer the most natural logical order and control flow among these events, and output a complete JSON object containing the original "id", "scenario", "unordered_nodes", and your inferred "edges" and "script_graph".
+
+The output must be a single JSON object with these fields: "id", "scenario", "unordered_nodes", "edges", "script_graph". The "id",""scenario" and "unordered_nodes" should be exactly the same as the input.
+
+Structure definitions for script_graph:
+
+1. sequence: { "type": "sequence", "script": [ ... ] }
+   - Contains an ordered list of elements (node IDs or substructures). Execution is strictly sequential.
+
+2. select: { "type": "select", "options": [ ... ] }
+   - Represents mutually exclusive branches. All branches must eventually merge to the same subsequent node.
+   - Each option can be a node ID or a nested structure (usually a sequence).
+   - Branches should differ substantially (e.g., different modes of transport, different recipes, not just a trivial tool choice).
+
+3. loop: { "type": "loop", "entry": "...", "retry": [ ... ], "exit": "..." }
+   - "entry" and "exit" are single node IDs.
+   - There must be a directed edge from entry to exit (the loop can be skipped when the exit condition is satisfied).
+   - "retry" is an array that represents the loop body. It can contain node IDs and substructures. The last element of the "retry" array MUST be the keyword "continue". After executing retry, control returns to the entry node.
+   - There must be a loop path of entry → retry → entry.
+
+4. and_join: { "type": "and_join", "branches_set": { "b1": [...], "b2": [...], ... } }
+   - Branches are unordered among themselves (can be interleaved or executed in any order), but all must complete before proceeding to the merge point.
+   - Each branch is an ordered list (can contain substructures).
+   - The "branches_set" object does NOT need a "type" field.
+
+General rules:
+- Every node in "unordered_nodes" must appear exactly once in the "script_graph".
+- The "edges" list must contain exactly the directed edges implied by the script_graph's control flow. Verify that every sequential transition, branch merge, loop entry→exit, entry→retry, retry→entry, etc. is represented.
+- The scenario description usually corresponds to a final goal node that should appear as the last event in the overall sequence, but it is not absolute.
+- Avoid introducing new nodes; only use the provided nodes.
+- Think about the most natural real-world progress. Loops are only used when repetition is clearly part of the process (e.g., trying multiple items, practicing until a level is reached). Select is used when there are genuinely alternative workflows with significant differences.
+
+Examples (input/output pairs):
+
+Example 1 (simple sequence)
+Input: {"id":1,"scenario":"ride a train","unordered_nodes":{"0":"walk to train to ride","1":"ask to buy ticket","2":"walk to ticket booth","3":"pay for ticket","4":"walk up to booth","5":"ride a train"}}
+Output:
+{
+  "id":1,
+  "scenario":"ride a train",
+  "unordered_nodes":{ ... same as input },
+  "edges":["2->4","4->1","1->3","3->0","0->5"],
+  "script_graph":{"type":"sequence","script":["2","4","1","3","0","5"]}
+}
+
+Example 2 (with and_join)
+Input: {"id":2,"scenario":"plan a weekend trip","unordered_nodes":{"0":"decide destination","1":"check weather forecast","2":"book hotel","3":"buy train tickets","4":"pack luggage based on weather and hotel conditions","5":"confirm final itinerary","6":"set alarm for departure","7":"head to station"}}
+Output:
+{
+  "id":2,
+  "scenario":"plan a weekend trip",
+  "unordered_nodes":{ ... },
+  "edges":["0->1","0->2","0->3","1->4","2->4","3->4","4->5","5->6","6->7"],
+  "script_graph":{
+    "type":"sequence",
+    "script":[
+      "0",
+      {"type":"and_join","branches_set":{"b1":["1"],"b2":["2"],"b3":["3"]}},
+      "4","5","6","7"
+    ]
+  }
+}
+
+Example 3 (select and loop)
+Input: {"id":3,"scenario":"online shopping","unordered_nodes":{"0":"search for products","1":"add to cart","2":"choose guest login","3":"choose account login (VIP)","4":"enter payment password","5":"incorrect password","6":"payment successful","7":"generate order"}}
+Output:
+{
+  "id":3,
+  "scenario":"online shopping",
+  "unordered_nodes":{ ... },
+  "edges":["0->1","1->2","1->3","2->4","3->4","4->5","4->6","5->4","6->7"],
+  "script_graph":{
+    "type":"sequence",
+    "script":[
+      "0","1",
+      {"type":"select","options":["2","3"]},
+      {"type":"loop","entry":"4","retry":["5","continue"],"exit":"6"},
+      "7"
+    ]
+  }
+}
+
+Example 4 (loop with nested structure)
+Input: {"id":4,"scenario":"adjust coffee strength until perfect","unordered_nodes":{"0":"grind coffee beans","1":"brew a test cup","2":"taste and evaluate strength","3":"strength is perfect","4":"add more ground coffee","5":"extend brewing time","6":"re-brew coffee","7":"enjoy coffee"}}
+Output:
+{
+  "id":4,
+  "scenario":"adjust coffee strength until perfect",
+  "unordered_nodes":{ ... },
+  "edges":["0->1","1->2","2->3","2->4","2->5","4->6","5->6","6->2","3->7"],
+  "script_graph":{
+    "type":"sequence",
+    "script":[
+      "0","1",
+      {"type":"loop","entry":"2","retry":[{"type":"select","options":["4","5"]},"6","continue"],"exit":"3"},
+      "7"
+    ]
+  }
+}
+
+Example 5 (select and nested structure)
+{
+  "id":5,
+  "scenario":"solve the dinner problem",
+  "unordered_nodes":{
+    "0":"visit the wet market",
+    "1":"cook by oneself",
+    "2":"open the food delivery app",
+    "3":"order from a 30-minute guaranteed fast-food chain",
+    "4":"choose a highly-rated yet remote internet-famous restaurant",
+    "5":"wait for the takeaway",
+    "6":"invite friends to go out for dinner",
+    "7":"queue up at the internet-famous restaurant",
+    "8":"solve the dinner problem"
+  },
+  "edges":[
+    "0->1",
+    "2->3",
+    "2->4",
+    "3->5",
+    "4->5",
+    "6->7",
+    "1->8",
+    "5->8",
+    "7->8"
+  ],
+  "script_graph":
+  {
+    "type":"sequence",
+    "script":
+    [
+      {
+        "type":"select",
+        "options":[
+          {
+            "type":"sequence",
+            "script":["0","1"]
+          },
+          {
+            "type":"sequence",
+            "script":[
+              "2",
+              {
+                "type":"select",
+                "options":["3","4"]
+              },
+              "5"
+            ]
+          },
+          {
+            "type":"sequence",
+            "script":["6","7"]
+          }
+        ]
+      },
+      "8"
+    ]
+  }
+}
+
+Example 6 (and_join and nested structure)
+{
+  "id": 6,
+  "scenario": "replicate the pasta at the restaurant",
+  "unordered_nodes": {
+    "0": "decide to replicate the pasta at the restaurant",
+    "1": "turn on the stove",
+    "2": "boil water for noodles",
+    "3": "heat sauce in a pot",
+    "4": "put noodles in the water",
+    "5": "combine noodles and sauce",
+    "6": "drain noodles over the sink",
+    "7": "plate noodles and sauce together",
+    "8": "choose red sauce",
+    "9": "choose white sauce",
+    "10": "replicate the pasta at the restaurant"
+  },
+  "edges": [
+    "0->1",
+    "1->2",
+    "1->3",
+    "2->4",
+    "4->6",
+    "6->5",
+    "3->5",
+    "5->7",
+    "7->10",
+    "3->8",
+    "3->9",
+    "8->5",
+    "9->5"
+  ],
+  "script_graph": {
+    "type": "sequence",
+    "script": [
+      "0",
+      "1",
+      {
+        "type": "and_join",
+        "branches_set": {
+          "b1": [
+            "2",
+            "4",
+            "6"
+          ],
+          "b2": [
+            "3",
+            {
+              "type": "select",
+              "options": [
+                "8",
+                "9"
+              ]
+            }
+          ]
+        }
+      },
+      "5",
+      "7",
+      "10"
+    ]
+  }
+}
+
+Remember: produce only the JSON object for the given input, no extra text.

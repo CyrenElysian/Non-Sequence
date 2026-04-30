@@ -1,0 +1,6583 @@
+[
+  {
+    "id": 886,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->3",
+      "3->4",
+      "4->1",
+      "1->0",
+      "0->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "4",
+        "1",
+        "0",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->3",
+      "3->1",
+      "3->2",
+      "1->4",
+      "2->0",
+      "4->6",
+      "0->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "0"
+            ],
+            "b2": [
+              "1",
+              "4"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 160,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "6->2",
+      "2->1",
+      "1->3",
+      "3->4",
+      "4->5",
+      "5->0",
+      "0->8",
+      "8->9",
+      "8->10",
+      "9->8",
+      "10->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "2",
+        "1",
+        "3",
+        "4",
+        "5",
+        "0",
+        {
+          "type": "loop",
+          "entry": "8",
+          "retry": [
+            "9",
+            "continue"
+          ],
+          "exit": "10"
+        },
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "1->3",
+      "2->1",
+      "3->4",
+      "4->0",
+      "4->5",
+      "5->7",
+      "6->2",
+      "0->8",
+      "8->9",
+      "9->8",
+      "8->10",
+      "10->7"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "2",
+        "1",
+        "3",
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              {
+                "type": "loop",
+                "entry": "8",
+                "retry": [
+                  "9",
+                  "continue"
+                ],
+                "exit": "10"
+              }
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 41,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->1",
+      "1->4",
+      "4->0",
+      "0->2",
+      "0->5",
+      "2->8",
+      "8->6",
+      "6->7",
+      "7->0"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "1",
+        "4",
+        {
+          "type": "loop",
+          "entry": "0",
+          "retry": [
+            "2",
+            "8",
+            "6",
+            "7",
+            "continue"
+          ],
+          "exit": "5"
+        }
+      ]
+    },
+    "reference_edges": [
+      "3->1",
+      "1->0",
+      "0->4",
+      "4->2",
+      "2->8",
+      "8->6",
+      "6->5",
+      "6->7",
+      "7->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "1",
+        "0",
+        "4",
+        "2",
+        "8",
+        {
+          "type": "loop",
+          "entry": "6",
+          "retry": [
+            "7",
+            "2",
+            "8",
+            "continue"
+          ],
+          "exit": "5"
+        }
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 997,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->3",
+      "3->1",
+      "1->4",
+      "4->7",
+      "7->2",
+      "2->0",
+      "0->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "1",
+        "4",
+        "7",
+        "2",
+        "0",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->3",
+      "3->1",
+      "1->0",
+      "1->4",
+      "0->2",
+      "4->7",
+      "7->2",
+      "2->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "1",
+        {
+          "type": "select",
+          "options": [
+            "0",
+            {
+              "type": "sequence",
+              "script": [
+                "4",
+                "7"
+              ]
+            }
+          ]
+        },
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 425,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->4",
+      "2->3",
+      "2->1",
+      "4->6",
+      "3->6",
+      "1->6",
+      "6->0",
+      "0->5",
+      "5->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4"
+            ],
+            "b2": [
+              "3"
+            ],
+            "b3": [
+              "1"
+            ]
+          }
+        },
+        "6",
+        "0",
+        "5",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "1->6",
+      "2->4",
+      "2->3",
+      "2->1",
+      "3->6",
+      "4->6",
+      "5->0",
+      "5->7",
+      "6->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "3"
+            ],
+            "b3": [
+              "4"
+            ]
+          }
+        },
+        "6",
+        {
+          "type": "loop",
+          "entry": "0",
+          "retry": [
+            "5",
+            "continue"
+          ],
+          "exit": "7"
+        }
+      ]
+    },
+    "error_tags": [
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 364,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->2",
+      "2->4",
+      "4->3",
+      "3->6",
+      "6->1",
+      "1->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "2",
+        "4",
+        "3",
+        "6",
+        "1",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "4->0",
+      "5->0",
+      "0->2",
+      "2->3",
+      "3->6",
+      "6->1",
+      "1->7"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "5"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "0",
+        "2",
+        "3",
+        "6",
+        "1",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 334,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->0",
+      "0->1",
+      "1->2",
+      "2->3",
+      "3->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "1",
+        "2",
+        "3",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "4->3",
+      "3->0",
+      "3->1",
+      "0->2",
+      "1->2",
+      "2->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "3",
+        {
+          "type": "select",
+          "options": [
+            "0",
+            "1"
+          ]
+        },
+        "2",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 189,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->5",
+      "5->6",
+      "3->4",
+      "6->0",
+      "4->0",
+      "0->8",
+      "8->9"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1",
+              "5",
+              "6"
+            ],
+            "b2": [
+              "3",
+              "4"
+            ]
+          }
+        },
+        "0",
+        "8",
+        "9"
+      ]
+    },
+    "reference_edges": [
+      "8->3",
+      "8->5",
+      "8->9",
+      "3->4",
+      "5->1",
+      "1->6",
+      "4->0",
+      "6->0",
+      "0->8"
+    ],
+    "reference_sg": {
+      "type": "loop",
+      "entry": "8",
+      "retry": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3",
+              "4"
+            ],
+            "b2": [
+              "5",
+              "1",
+              "6"
+            ]
+          }
+        },
+        "0",
+        "continue"
+      ],
+      "exit": "9"
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 994,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->2",
+      "2->0",
+      "0->4",
+      "4->5",
+      "5->1",
+      "1->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "2",
+        "0",
+        "4",
+        "5",
+        "1",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "1->2",
+      "2->4",
+      "3->1",
+      "4->0",
+      "3->5",
+      "5->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        {
+          "type": "select",
+          "options": [
+            "1",
+            {
+              "type": "sequence",
+              "script": [
+                "5",
+                "1"
+              ]
+            }
+          ]
+        },
+        "2",
+        "4",
+        "0",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 150,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->1",
+      "1->3",
+      "3->4",
+      "4->5",
+      "5->6",
+      "6->8",
+      "8->9",
+      "8->10",
+      "10->8",
+      "9->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "1",
+        "3",
+        "4",
+        "5",
+        "6",
+        {
+          "type": "loop",
+          "entry": "8",
+          "retry": [
+            "10",
+            "continue"
+          ],
+          "exit": "9"
+        },
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->4",
+      "3->4",
+      "5->6",
+      "6->0",
+      "4->8",
+      "8->9",
+      "8->10",
+      "10->8",
+      "9->7"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "3"
+            ],
+            "b3": [
+              "5",
+              "6",
+              "0"
+            ]
+          }
+        },
+        "4",
+        {
+          "type": "loop",
+          "entry": "8",
+          "retry": [
+            "10",
+            "continue"
+          ],
+          "exit": "9"
+        },
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 920,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->3",
+      "1->3",
+      "3->4",
+      "3->7",
+      "4->2",
+      "2->6",
+      "7->8",
+      "8->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "5",
+                "0"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "1"
+              ]
+            }
+          ]
+        },
+        "3",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "4",
+                "2"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "7",
+                "8"
+              ]
+            }
+          ]
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "1->3",
+      "2->6",
+      "3->4",
+      "3->7",
+      "4->2",
+      "5->0",
+      "7->8",
+      "8->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "1",
+        "3",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "4",
+                "2"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "7",
+                "8"
+              ]
+            }
+          ]
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 785,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->5",
+      "5->3",
+      "3->1",
+      "1->4",
+      "4->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "5",
+        "3",
+        "1",
+        "4",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "0->4",
+      "1->3",
+      "2->6",
+      "3->2",
+      "4->3",
+      "5->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "3",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 127,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "2->3",
+      "3->6",
+      "6->4",
+      "4->1",
+      "1->0",
+      "0->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "3",
+        "6",
+        "4",
+        "1",
+        "0",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "1->0",
+      "2->1",
+      "2->4",
+      "3->6",
+      "4->0",
+      "5->2",
+      "6->7",
+      "0->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "0",
+        "3",
+        "6",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 833,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->1",
+      "2->3",
+      "2->4",
+      "1->0",
+      "3->0",
+      "4->0",
+      "0->5",
+      "5->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "3"
+            ],
+            "b3": [
+              "4"
+            ]
+          }
+        },
+        "0",
+        "5",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "2->1",
+      "3->4",
+      "3->2",
+      "1->5",
+      "4->5",
+      "5->0",
+      "0->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "5",
+        "0",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 639,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "6->4",
+      "4->1",
+      "1->5",
+      "5->2",
+      "2->3",
+      "3->0",
+      "0->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "4",
+        "1",
+        "5",
+        "2",
+        "3",
+        "0",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->7",
+      "1->4",
+      "2->3",
+      "2->5",
+      "3->0",
+      "4->2",
+      "5->0",
+      "6->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "1",
+        "4",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "0",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 49,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->2",
+      "2->3",
+      "3->4",
+      "4->1",
+      "1->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        "3",
+        "4",
+        "1",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "2->3",
+      "3->0",
+      "3->4",
+      "0->1",
+      "4->1",
+      "1->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4"
+            ],
+            "b2": [
+              "0"
+            ]
+          }
+        },
+        "1",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 48,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->2",
+      "2->4",
+      "4->1",
+      "1->0",
+      "0->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "2",
+        "4",
+        "1",
+        "0",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "2->4",
+      "4->1",
+      "3->1",
+      "1->0",
+      "0->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "4"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "1",
+        "0",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 133,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->3",
+      "3->2",
+      "2->0",
+      "0->1",
+      "1->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "3",
+        "2",
+        "0",
+        "1",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "1->5",
+      "2->5",
+      "3->0",
+      "3->2",
+      "4->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              "1"
+            ],
+            "b2": [
+              "2"
+            ]
+          }
+        },
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 328,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->2",
+      "2->6",
+      "6->5",
+      "5->0",
+      "0->1",
+      "1->3",
+      "3->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "2",
+        "6",
+        "5",
+        "0",
+        "1",
+        "3",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->3",
+      "2->6",
+      "3->7",
+      "4->1",
+      "5->4",
+      "5->0",
+      "6->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "6",
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "4",
+              "1"
+            ]
+          }
+        },
+        "3",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 340,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "6->1",
+      "1->0",
+      "0->3",
+      "3->2",
+      "2->4",
+      "4->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "1",
+        "0",
+        "3",
+        "2",
+        "4",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->0",
+      "2->4",
+      "3->2",
+      "4->6",
+      "6->2",
+      "6->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "0",
+        "3",
+        "2",
+        "4",
+        {
+          "type": "loop",
+          "entry": "6",
+          "retry": [
+            "2",
+            "4",
+            "continue"
+          ],
+          "exit": "5"
+        }
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 738,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "2->3",
+      "3->0",
+      "0->4",
+      "4->1",
+      "1->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "3",
+        "0",
+        "4",
+        "1",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->6",
+      "2->0",
+      "3->0",
+      "4->1",
+      "5->3",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "0",
+        "4",
+        "1",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 849,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->1",
+      "1->2",
+      "2->3",
+      "3->0",
+      "5->6",
+      "0->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "5"
+            ],
+            "b2": [
+              "4",
+              "1",
+              "2",
+              "3",
+              "0"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "1->3",
+      "2->3",
+      "3->0",
+      "4->1",
+      "5->2",
+      "5->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4",
+              "1"
+            ]
+          }
+        },
+        "3",
+        "0",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 46,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->1",
+      "1->2",
+      "2->0",
+      "0->3",
+      "3->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "1",
+        "2",
+        "0",
+        "3",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "1->2",
+      "2->0",
+      "3->2",
+      "4->3",
+      "4->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "2",
+        "0",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 795,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->0",
+      "0->5",
+      "5->3",
+      "3->1",
+      "1->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "5",
+        "3",
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "1->6",
+      "2->6",
+      "3->1",
+      "3->2",
+      "4->0",
+      "5->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "5",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 294,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->2",
+      "3->4",
+      "4->5",
+      "5->0",
+      "0->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "3",
+              "4",
+              "5",
+              "0"
+            ]
+          }
+        },
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "0->4",
+      "1->6",
+      "2->6",
+      "3->0",
+      "4->2",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "3",
+              "0",
+              {
+                "type": "and_join",
+                "branches_set": {
+                  "b21": [
+                    "4"
+                  ],
+                  "b22": [
+                    "5"
+                  ]
+                }
+              },
+              "2"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 971,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->4",
+      "4->0",
+      "0->1",
+      "1->2",
+      "2->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "0",
+        "1",
+        "2",
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->2",
+      "2->3",
+      "3->6",
+      "4->1",
+      "4->0",
+      "5->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "2",
+        "3",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 897,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->3",
+      "3->4",
+      "4->1",
+      "1->7",
+      "7->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "3",
+        "4",
+        "1",
+        "7",
+        "8"
+      ]
+    },
+    "reference_edges": [
+      "5->0",
+      "0->7",
+      "7->8",
+      "7->3",
+      "3->4",
+      "4->1",
+      "1->7"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        {
+          "type": "loop",
+          "entry": "7",
+          "retry": [
+            "3",
+            "4",
+            "1",
+            "continue"
+          ],
+          "exit": "8"
+        }
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 946,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "6->1",
+      "1->0",
+      "0->3",
+      "3->5",
+      "5->2",
+      "2->4",
+      "4->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "1",
+        "0",
+        "3",
+        "5",
+        "2",
+        "4",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->4",
+      "1->0",
+      "2->5",
+      "3->7",
+      "4->7",
+      "5->3",
+      "6->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              "2",
+              "5",
+              "3"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 636,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->3",
+      "6->3",
+      "3->0",
+      "0->1",
+      "1->4",
+      "4->2",
+      "2->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "5"
+            ],
+            "b2": [
+              "6"
+            ]
+          }
+        },
+        "3",
+        "0",
+        "1",
+        "4",
+        "2",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->3",
+      "2->7",
+      "3->0",
+      "4->2",
+      "5->1",
+      "6->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "5"
+            ],
+            "b2": [
+              "6"
+            ]
+          }
+        },
+        "1",
+        "3",
+        "0",
+        "4",
+        "2",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 329,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->2",
+      "0->3",
+      "2->1",
+      "1->4",
+      "3->4",
+      "4->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "1"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "4",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "0->3",
+      "2->1",
+      "1->4",
+      "3->5",
+      "4->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "2",
+              "1",
+              "4"
+            ]
+          }
+        },
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 681,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->4",
+      "4->1",
+      "1->2",
+      "2->0",
+      "0->3",
+      "3->6",
+      "6->7",
+      "7->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "1",
+        "2",
+        "0",
+        "3",
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->2",
+      "2->0",
+      "3->6",
+      "3->7",
+      "4->1",
+      "5->4",
+      "6->3",
+      "7->8"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "1",
+        "2",
+        "0",
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "6",
+            "continue"
+          ],
+          "exit": "7"
+        },
+        "8"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 825,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->4",
+      "4->3",
+      "3->0",
+      "0->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "4",
+        "3",
+        "0",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->1",
+      "1->4",
+      "1->2",
+      "4->3",
+      "3->0",
+      "0->6",
+      "2->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4",
+              "3",
+              "0"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 428,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->5",
+      "5->2",
+      "2->1",
+      "1->4",
+      "4->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "5",
+        "2",
+        "1",
+        "4",
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "5->2",
+      "2->1",
+      "1->4",
+      "4->3",
+      "3->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "select",
+          "options": [
+            "0",
+            {
+              "type": "sequence",
+              "script": [
+                "5",
+                "2",
+                "1",
+                "4",
+                "3"
+              ]
+            }
+          ]
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 15,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->3",
+      "3->4",
+      "4->6",
+      "6->1",
+      "6->8",
+      "1->2",
+      "2->7",
+      "8->9",
+      "9->10",
+      "10->11"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "3",
+        "4",
+        "6",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "1",
+                "2",
+                "7"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "8",
+                "9",
+                "10",
+                "11"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->7",
+      "2->1",
+      "3->4",
+      "4->6",
+      "5->0",
+      "6->2",
+      "6->8",
+      "8->9",
+      "9->10",
+      "10->11",
+      "11->7"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "3",
+        "4",
+        "6",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "2",
+                "1"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "8",
+                "9",
+                "10",
+                "11"
+              ]
+            }
+          ]
+        },
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 1018,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->2",
+      "2->3",
+      "3->1",
+      "1->6",
+      "6->7",
+      "6->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "2",
+        "3",
+        "1",
+        {
+          "type": "loop",
+          "entry": "6",
+          "retry": [
+            "4",
+            "continue"
+          ],
+          "exit": "7"
+        }
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->4",
+      "2->3",
+      "3->1",
+      "3->7",
+      "4->3",
+      "5->2",
+      "5->0",
+      "7->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "2"
+            ]
+          }
+        },
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "1",
+            "4",
+            "continue"
+          ],
+          "exit": "7"
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 1082,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->2",
+      "2->3",
+      "3->5",
+      "5->0",
+      "0->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "0",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "1->2",
+      "1->3",
+      "2->0",
+      "3->0",
+      "5->1",
+      "6->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "0",
+        "6",
+        "4"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 225,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->0",
+      "0->5",
+      "5->4",
+      "4->2",
+      "2->1",
+      "1->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "0",
+        "5",
+        "4",
+        "2",
+        "1",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->2",
+      "2->6",
+      "3->0",
+      "3->5",
+      "3->4",
+      "3->1",
+      "4->2",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "5"
+            ],
+            "b3": [
+              "4"
+            ],
+            "b4": [
+              "1"
+            ]
+          }
+        },
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 944,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->3",
+      "3->4",
+      "4->2",
+      "2->1",
+      "1->0",
+      "0->6",
+      "0->7",
+      "7->3"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "4",
+        "2",
+        "1",
+        {
+          "type": "loop",
+          "entry": "0",
+          "retry": [
+            "7",
+            "3",
+            "4",
+            "2",
+            "1",
+            "continue"
+          ],
+          "exit": "6"
+        }
+      ]
+    },
+    "reference_edges": [
+      "5->3",
+      "3->0",
+      "3->4",
+      "0->2",
+      "4->2",
+      "2->1",
+      "1->6",
+      "1->7",
+      "7->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "2",
+        {
+          "type": "loop",
+          "entry": "1",
+          "retry": [
+            "7",
+            "continue"
+          ],
+          "exit": "6"
+        }
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 503,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->0",
+      "0->2",
+      "2->3",
+      "3->5",
+      "5->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "0",
+        "2",
+        "3",
+        "5",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "0->4",
+      "1->0",
+      "2->6",
+      "3->6",
+      "4->3",
+      "5->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4",
+              "3"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 220,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->4",
+      "4->0",
+      "0->2",
+      "2->3",
+      "3->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "4",
+        "0",
+        "2",
+        "3",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->4",
+      "2->3",
+      "3->5",
+      "4->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              "2"
+            ],
+            "b2": [
+              "1",
+              "4"
+            ]
+          }
+        },
+        "3",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 327,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "2->4",
+      "4->6",
+      "6->0",
+      "0->1",
+      "1->3",
+      "3->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "4",
+        "6",
+        "0",
+        "1",
+        "3",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->0",
+      "2->1",
+      "3->7",
+      "4->6",
+      "5->2",
+      "5->4",
+      "6->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "2",
+                "1"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "4",
+                "6"
+              ]
+            }
+          ]
+        },
+        "0",
+        "3",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 1030,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->4",
+      "4->3",
+      "3->1",
+      "1->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "3",
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "0->5",
+      "1->2",
+      "2->6",
+      "3->1",
+      "4->3",
+      "5->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "loop",
+          "entry": "0",
+          "retry": [
+            "5",
+            "continue"
+          ],
+          "exit": "4"
+        },
+        "3",
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 498,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "2->1",
+      "1->0",
+      "0->3",
+      "3->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "0",
+        "3",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->0",
+      "1->4",
+      "2->1",
+      "3->6",
+      "4->3",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "3",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 588,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->2",
+      "2->3",
+      "3->4",
+      "3->7",
+      "7->3",
+      "4->0",
+      "0->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "7",
+            "continue"
+          ],
+          "exit": "4"
+        },
+        "0",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->1",
+      "1->3",
+      "3->4",
+      "3->7",
+      "7->3",
+      "4->0",
+      "0->6",
+      "6->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "7",
+            "continue"
+          ],
+          "exit": "4"
+        },
+        "0",
+        "6",
+        "2"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 137,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "6->3",
+      "3->0",
+      "3->2",
+      "3->5",
+      "0->4",
+      "2->4",
+      "5->4",
+      "4->1",
+      "1->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "2"
+            ],
+            "b3": [
+              "5"
+            ]
+          }
+        },
+        "4",
+        "1",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->7",
+      "2->4",
+      "3->4",
+      "4->1",
+      "5->4",
+      "6->5",
+      "6->0",
+      "6->2",
+      "6->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "2"
+            ],
+            "b3": [
+              "5"
+            ],
+            "b4": [
+              "3"
+            ]
+          }
+        },
+        "4",
+        "1",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 539,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "6->4",
+      "4->1",
+      "1->3",
+      "3->5",
+      "5->0",
+      "0->2",
+      "2->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "4",
+        "1",
+        "3",
+        "5",
+        "0",
+        "2",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->5",
+      "2->7",
+      "3->0",
+      "4->5",
+      "4->3",
+      "5->0",
+      "6->4",
+      "6->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "0",
+        "2",
+        "7"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 514,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->2",
+      "2->4",
+      "4->3",
+      "3->7",
+      "3->1",
+      "1->5",
+      "7->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "2",
+        "4",
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "1",
+            "5",
+            "0",
+            "2",
+            "4",
+            "continue"
+          ],
+          "exit": "7"
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->0",
+      "0->1",
+      "1->2",
+      "2->4",
+      "4->3",
+      "3->2",
+      "2->7",
+      "7->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "1",
+        {
+          "type": "loop",
+          "entry": "2",
+          "retry": [
+            "4",
+            "3",
+            "continue"
+          ],
+          "exit": "7"
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 852,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->3",
+      "1->6",
+      "3->4",
+      "4->0",
+      "4->2",
+      "0->1",
+      "2->1"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "loop",
+          "entry": "1",
+          "retry": [
+            "3",
+            "4",
+            {
+              "type": "select",
+              "options": [
+                "0",
+                "2"
+              ]
+            },
+            "continue"
+          ],
+          "exit": "6"
+        }
+      ]
+    },
+    "reference_edges": [
+      "5->1",
+      "1->3",
+      "3->4",
+      "4->0",
+      "4->2",
+      "0->6",
+      "2->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "3",
+        "4",
+        {
+          "type": "select",
+          "options": [
+            "0",
+            "2"
+          ]
+        },
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 404,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "2->3",
+      "3->0",
+      "0->4",
+      "4->1",
+      "1->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "3",
+        "0",
+        "4",
+        "1",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "0->3",
+      "1->6",
+      "2->0",
+      "3->1",
+      "4->1",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "1",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 999,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->4",
+      "4->2",
+      "2->5",
+      "5->3",
+      "3->1",
+      "1->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "4",
+        "2",
+        "5",
+        "3",
+        "1",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->6",
+      "2->3",
+      "3->1",
+      "4->2",
+      "5->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "2",
+        "3",
+        "1",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 99,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->0",
+      "0->3",
+      "3->1",
+      "1->5",
+      "5->2"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "3",
+        "1",
+        "5",
+        "2"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->5",
+      "2->4",
+      "3->1",
+      "4->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "4",
+        "0",
+        "3",
+        "1",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 936,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->0",
+      "0->1",
+      "1->2",
+      "2->4",
+      "4->5",
+      "5->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "0",
+        "1",
+        "2",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "1->2",
+      "2->4",
+      "3->0",
+      "4->6",
+      "5->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "0",
+        "1",
+        "2",
+        "4",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 651,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->4",
+      "4->1",
+      "1->2",
+      "2->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "1",
+        "2",
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->2",
+      "2->6",
+      "3->0",
+      "4->1",
+      "5->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "0",
+        "4",
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 758,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->0",
+      "0->2",
+      "2->3",
+      "3->6",
+      "6->5",
+      "5->4"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "0",
+        "2",
+        "3",
+        "6",
+        "5",
+        "4"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "2->1",
+      "1->3",
+      "3->6",
+      "6->5",
+      "5->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        "1",
+        "3",
+        "6",
+        "5",
+        "4"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 206,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->1",
+      "1->2",
+      "2->5",
+      "5->3",
+      "3->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "1",
+        "2",
+        "5",
+        "3",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->5",
+      "2->1",
+      "3->0",
+      "4->6",
+      "5->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "1",
+        "5",
+        "3",
+        "0",
+        "4",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 574,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->3",
+      "3->1",
+      "1->4",
+      "4->2",
+      "2->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "3",
+        "1",
+        "4",
+        "2",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->2",
+      "2->5",
+      "3->4",
+      "4->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "3",
+        "4",
+        "1",
+        "2",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 146,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->0",
+      "0->1",
+      "1->3",
+      "3->5",
+      "5->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "1",
+        "3",
+        "5",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "2->0",
+      "0->3",
+      "3->1",
+      "1->5",
+      "5->4",
+      "4->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "3",
+        "1",
+        "5",
+        "4",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 776,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->4",
+      "4->3",
+      "3->0",
+      "0->2",
+      "2->5",
+      "5->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "4",
+        "3",
+        "0",
+        "2",
+        "5",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->4",
+      "2->6",
+      "3->0",
+      "4->3",
+      "5->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "4",
+        "3",
+        "0",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 466,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "7->2",
+      "2->6",
+      "6->5",
+      "5->0",
+      "0->1",
+      "1->4",
+      "4->3",
+      "3->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        "2",
+        "6",
+        "5",
+        "0",
+        "1",
+        "4",
+        "3",
+        "8"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "1->4",
+      "2->6",
+      "3->8",
+      "4->3",
+      "6->0",
+      "7->5",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        "5",
+        "2",
+        "6",
+        "0",
+        "1",
+        "4",
+        "3",
+        "8"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 1023,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->5",
+      "5->0",
+      "0->1",
+      "1->2",
+      "2->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "5",
+        "0",
+        "1",
+        "2",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "1->2",
+      "2->6",
+      "3->4",
+      "4->0",
+      "5->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "4",
+        "0",
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 850,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->2",
+      "2->4",
+      "4->0",
+      "0->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        "4",
+        "0",
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->4",
+      "2->1",
+      "3->6",
+      "4->0",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "4",
+        "0",
+        "3",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 842,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->5",
+      "5->3",
+      "3->0",
+      "0->4",
+      "4->1",
+      "1->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "5",
+        "3",
+        "0",
+        "4",
+        "1",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->2",
+      "2->3",
+      "3->0",
+      "0->4",
+      "4->1",
+      "1->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "3",
+        "0",
+        "4",
+        "1",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 547,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->2",
+      "2->0",
+      "0->3",
+      "3->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        "0",
+        "3",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->1",
+      "1->2",
+      "2->6",
+      "6->0",
+      "0->3",
+      "3->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        "6",
+        "0",
+        "3",
+        "4"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 802,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->5",
+      "5->1",
+      "1->3",
+      "3->0",
+      "0->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "5",
+        "1",
+        "3",
+        "0",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->3",
+      "2->6",
+      "3->0",
+      "4->1",
+      "5->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "1",
+        "3",
+        "0",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 314,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->4",
+      "4->3",
+      "3->5",
+      "5->0",
+      "0->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "4",
+        "3",
+        "5",
+        "0",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "1->3",
+      "3->4",
+      "4->5",
+      "5->0",
+      "0->2",
+      "2->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        "4",
+        "5",
+        "0",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 923,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->3",
+      "3->4",
+      "4->2",
+      "2->5",
+      "5->0",
+      "0->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        "4",
+        "2",
+        "5",
+        "0",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "1->5",
+      "5->3",
+      "3->4",
+      "4->2",
+      "2->0",
+      "0->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "5",
+        "3",
+        "4",
+        "2",
+        "0",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 126,
+    "edges_match": false,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->3",
+      "3->0",
+      "0->2",
+      "2->5",
+      "5->1",
+      "1->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "3",
+        "0",
+        "2",
+        "5",
+        "1",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "3->0",
+      "2->5",
+      "4->0",
+      "4->3",
+      "5->1",
+      "1->6",
+      "0->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "3",
+        "0",
+        "2",
+        "5",
+        "1",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "missing_edges"
+    ]
+  },
+  {
+    "id": 1083,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->4",
+      "4->3",
+      "3->1",
+      "1->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "3",
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->6",
+      "2->1",
+      "3->2",
+      "4->3",
+      "5->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "3",
+        "2",
+        "1",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 876,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->0",
+      "0->3",
+      "3->2",
+      "2->4"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "0",
+        "3",
+        "2",
+        "4"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->0",
+      "2->4",
+      "3->1",
+      "5->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "1",
+        "0",
+        "2",
+        "4"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 378,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->0",
+      "0->2",
+      "2->1",
+      "1->3",
+      "3->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "2",
+        "1",
+        "3",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->0",
+      "2->3",
+      "3->5",
+      "4->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "1",
+        "0",
+        "2",
+        "3",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 978,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->2",
+      "2->3",
+      "3->0",
+      "0->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        "3",
+        "0",
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "5->1",
+      "1->2",
+      "2->0",
+      "0->3",
+      "3->4",
+      "4->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        "0",
+        "3",
+        "4",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 457,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "7->4",
+      "4->1",
+      "1->0",
+      "0->3",
+      "3->5",
+      "5->2",
+      "2->6",
+      "6->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        "4",
+        "1",
+        "0",
+        "3",
+        "5",
+        "2",
+        "6",
+        "8"
+      ]
+    },
+    "reference_edges": [
+      "7->4",
+      "4->6",
+      "6->1",
+      "1->0",
+      "0->3",
+      "3->5",
+      "5->2",
+      "2->8"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        "4",
+        "6",
+        "1",
+        "0",
+        "3",
+        "5",
+        "2",
+        "8"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 1061,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "2->0",
+      "0->1",
+      "1->3",
+      "3->4"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "0",
+        "1",
+        "3",
+        "4"
+      ]
+    },
+    "reference_edges": [
+      "5->2",
+      "2->1",
+      "1->0",
+      "0->3",
+      "3->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "0",
+        "3",
+        "4"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 392,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->0",
+      "0->1",
+      "1->3",
+      "3->4",
+      "4->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "1",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->4",
+      "2->0",
+      "3->1",
+      "4->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "3",
+        "1",
+        "4",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 184,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->3",
+      "3->2",
+      "2->1",
+      "1->4",
+      "4->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "3",
+        "2",
+        "1",
+        "4",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->5",
+      "2->4",
+      "3->2",
+      "4->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "3",
+        "2",
+        "4",
+        "1",
+        "5"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 581,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->7",
+      "7->5",
+      "5->2",
+      "2->0",
+      "0->3",
+      "3->6",
+      "6->1",
+      "1->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "7",
+        "5",
+        "2",
+        "0",
+        "3",
+        "6",
+        "1",
+        "8"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->8",
+      "2->0",
+      "3->1",
+      "4->7",
+      "5->6",
+      "6->2",
+      "7->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "7",
+        "5",
+        "6",
+        "2",
+        "0",
+        "3",
+        "1",
+        "8"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 452,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->3",
+      "3->2",
+      "2->4",
+      "4->0",
+      "0->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        "2",
+        "4",
+        "0",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "1->2",
+      "2->4",
+      "3->1",
+      "4->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "1",
+        "2",
+        "4",
+        "0",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 649,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "7->5",
+      "5->3",
+      "3->2",
+      "2->4",
+      "4->6",
+      "6->1",
+      "1->0",
+      "0->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        "5",
+        "3",
+        "2",
+        "4",
+        "6",
+        "1",
+        "0",
+        "8"
+      ]
+    },
+    "reference_edges": [
+      "0->8",
+      "1->0",
+      "2->3",
+      "3->4",
+      "4->6",
+      "5->2",
+      "6->1",
+      "7->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        "5",
+        "2",
+        "3",
+        "4",
+        "6",
+        "1",
+        "0",
+        "8"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 855,
+    "edges_match": false,
+    "sg_match": false,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->0",
+      "0->1",
+      "1->2",
+      "2->5",
+      "5->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "1",
+        "2",
+        "5",
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->6",
+      "2->1",
+      "3->4",
+      "4->0",
+      "5->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "4",
+        "0",
+        "2",
+        "1",
+        "6"
+      ]
+    },
+    "error_tags": [
+      "extra_edges",
+      "missing_edges",
+      "sg_mismatch"
+    ]
+  },
+  {
+    "id": 480,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->2",
+      "2->4",
+      "4->0",
+      "0->1",
+      "1->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "loop",
+          "entry": "1",
+          "retry": [
+            "2",
+            "4",
+            "0",
+            "continue"
+          ],
+          "exit": "7"
+        }
+      ]
+    },
+    "reference_edges": [
+      "5->1",
+      "1->2",
+      "1->7",
+      "2->4",
+      "4->0",
+      "0->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "loop",
+          "entry": "1",
+          "retry": [
+            "2",
+            "4",
+            "0",
+            "continue"
+          ],
+          "exit": "7"
+        }
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 254,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->4",
+      "4->3",
+      "3->0",
+      "0->7",
+      "7->1",
+      "7->5",
+      "1->7",
+      "5->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "4",
+        "3",
+        "0",
+        {
+          "type": "loop",
+          "entry": "7",
+          "retry": [
+            "1",
+            "continue"
+          ],
+          "exit": "5"
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "2->4",
+      "4->3",
+      "3->0",
+      "0->7",
+      "7->5",
+      "7->1",
+      "1->7",
+      "5->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "4",
+        "3",
+        "0",
+        {
+          "type": "loop",
+          "entry": "7",
+          "retry": [
+            "1",
+            "continue"
+          ],
+          "exit": "5"
+        },
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 485,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->1",
+      "4->6",
+      "1->3",
+      "3->0",
+      "0->2",
+      "2->5",
+      "6->7",
+      "7->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "1",
+                "3",
+                "0",
+                "2"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "6",
+                "7"
+              ]
+            }
+          ]
+        },
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->3",
+      "2->5",
+      "3->0",
+      "4->1",
+      "4->6",
+      "6->7",
+      "7->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "1",
+                "3",
+                "0",
+                "2"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "6",
+                "7"
+              ]
+            }
+          ]
+        },
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 461,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "7->3",
+      "7->5",
+      "3->2",
+      "5->2",
+      "2->4",
+      "4->1",
+      "1->0",
+      "0->6",
+      "6->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "2",
+        "4",
+        "1",
+        "0",
+        "6",
+        "8"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "1->0",
+      "2->4",
+      "3->2",
+      "4->1",
+      "5->2",
+      "6->8",
+      "7->5",
+      "7->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "7",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "2",
+        "4",
+        "1",
+        "0",
+        "6",
+        "8"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 289,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "1->3",
+      "3->0",
+      "3->4",
+      "0->5",
+      "4->5",
+      "5->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "5",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "1->3",
+      "2->6",
+      "3->0",
+      "3->4",
+      "4->5",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "5",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 1085,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->4",
+      "0->1",
+      "4->5",
+      "1->5",
+      "5->2",
+      "2->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "5",
+        "2",
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "0->1",
+      "4->5",
+      "1->5",
+      "5->2",
+      "2->3",
+      "3->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "5",
+        "2",
+        "3",
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 369,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->6",
+      "6->3",
+      "3->1",
+      "1->0",
+      "1->5",
+      "5->2",
+      "0->7",
+      "2->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "6",
+        "3",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "5",
+              "2"
+            ]
+          }
+        },
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->7",
+      "1->0",
+      "1->5",
+      "2->7",
+      "3->1",
+      "4->6",
+      "5->2",
+      "6->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "6",
+        "3",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "5",
+              "2"
+            ]
+          }
+        },
+        "7"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 990,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->4",
+      "4->1",
+      "1->2",
+      "2->3",
+      "3->7",
+      "7->3",
+      "3->0",
+      "0->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "1",
+        "2",
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "7",
+            "continue"
+          ],
+          "exit": "0"
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "1->2",
+      "2->3",
+      "3->0",
+      "3->7",
+      "4->1",
+      "5->4",
+      "7->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "1",
+        "2",
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "7",
+            "continue"
+          ],
+          "exit": "0"
+        },
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 136,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->2",
+      "2->1",
+      "2->5",
+      "1->4",
+      "5->4",
+      "4->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "4",
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "1->4",
+      "2->5",
+      "2->1",
+      "3->6",
+      "4->3",
+      "5->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "4",
+        "3",
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 911,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->1",
+      "1->2",
+      "2->0",
+      "2->7",
+      "0->4",
+      "4->3",
+      "7->8",
+      "3->6",
+      "8->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "0",
+                "4",
+                "3"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "7",
+                "8"
+              ]
+            }
+          ]
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->2",
+      "2->0",
+      "2->7",
+      "3->6",
+      "4->3",
+      "5->1",
+      "7->8",
+      "8->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        {
+          "type": "select",
+          "options": [
+            {
+              "type": "sequence",
+              "script": [
+                "0",
+                "4",
+                "3"
+              ]
+            },
+            {
+              "type": "sequence",
+              "script": [
+                "7",
+                "8"
+              ]
+            }
+          ]
+        },
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 970,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "5->0",
+      "2->1",
+      "0->3",
+      "1->4",
+      "3->4",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "1"
+            ],
+            "b2": [
+              "0",
+              "3"
+            ]
+          }
+        },
+        "4",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->4",
+      "2->1",
+      "3->4",
+      "4->6",
+      "5->0",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "1"
+            ],
+            "b2": [
+              "0",
+              "3"
+            ]
+          }
+        },
+        "4",
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 264,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->2",
+      "0->6",
+      "2->1",
+      "6->1",
+      "1->5",
+      "5->3",
+      "3->4",
+      "4->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "6"
+            ]
+          }
+        },
+        "1",
+        "5",
+        "3",
+        "4",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "0->6",
+      "1->5",
+      "2->1",
+      "3->4",
+      "4->7",
+      "5->3",
+      "6->1"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "6"
+            ]
+          }
+        },
+        "1",
+        "5",
+        "3",
+        "4",
+        "7"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 688,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "5->1",
+      "5->2",
+      "5->3",
+      "5->4",
+      "0->6",
+      "1->6",
+      "2->6",
+      "3->6",
+      "4->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "1"
+            ],
+            "b3": [
+              "2"
+            ],
+            "b4": [
+              "3"
+            ],
+            "b5": [
+              "4"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->6",
+      "1->6",
+      "2->6",
+      "3->6",
+      "4->6",
+      "5->0",
+      "5->1",
+      "5->4",
+      "5->3",
+      "5->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "1"
+            ],
+            "b3": [
+              "2"
+            ],
+            "b4": [
+              "3"
+            ],
+            "b5": [
+              "4"
+            ]
+          }
+        },
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 342,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->1",
+      "3->1",
+      "1->2",
+      "2->4",
+      "4->5",
+      "5->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "1",
+        "2",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "3->1",
+      "1->2",
+      "2->4",
+      "4->5",
+      "5->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "1",
+        "2",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 563,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->1",
+      "1->0",
+      "0->3",
+      "3->7",
+      "3->8",
+      "7->6",
+      "8->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "1",
+        "0",
+        "3",
+        {
+          "type": "select",
+          "options": [
+            "7",
+            "8"
+          ]
+        },
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->0",
+      "2->1",
+      "3->7",
+      "3->8",
+      "7->6",
+      "8->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "1",
+        "0",
+        "3",
+        {
+          "type": "select",
+          "options": [
+            "7",
+            "8"
+          ]
+        },
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 490,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->0",
+      "0->1",
+      "1->2",
+      "2->3",
+      "3->4",
+      "4->7",
+      "7->4",
+      "4->8"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "1",
+        "2",
+        "3",
+        {
+          "type": "loop",
+          "entry": "4",
+          "retry": [
+            "7",
+            "continue"
+          ],
+          "exit": "8"
+        }
+      ]
+    },
+    "reference_edges": [
+      "5->0",
+      "0->1",
+      "1->2",
+      "2->3",
+      "3->4",
+      "4->7",
+      "7->4",
+      "4->8"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "1",
+        "2",
+        "3",
+        {
+          "type": "loop",
+          "entry": "4",
+          "retry": [
+            "7",
+            "continue"
+          ],
+          "exit": "8"
+        }
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 755,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->3",
+      "3->4",
+      "4->1",
+      "1->6",
+      "1->2",
+      "2->0",
+      "0->1"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "4",
+        {
+          "type": "loop",
+          "entry": "1",
+          "retry": [
+            "2",
+            "0",
+            "continue"
+          ],
+          "exit": "6"
+        }
+      ]
+    },
+    "reference_edges": [
+      "5->3",
+      "3->4",
+      "4->1",
+      "1->2",
+      "2->0",
+      "0->1",
+      "1->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "4",
+        {
+          "type": "loop",
+          "entry": "1",
+          "retry": [
+            "2",
+            "0",
+            "continue"
+          ],
+          "exit": "6"
+        }
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 296,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->2",
+      "2->3",
+      "3->4",
+      "4->1",
+      "4->6",
+      "6->4"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        "3",
+        {
+          "type": "loop",
+          "entry": "4",
+          "retry": [
+            "6",
+            "continue"
+          ],
+          "exit": "1"
+        }
+      ]
+    },
+    "reference_edges": [
+      "0->2",
+      "2->3",
+      "3->4",
+      "4->1",
+      "4->6",
+      "6->4"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        "3",
+        {
+          "type": "loop",
+          "entry": "4",
+          "retry": [
+            "6",
+            "continue"
+          ],
+          "exit": "1"
+        }
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 430,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "5->2",
+      "2->4",
+      "4->1",
+      "1->7",
+      "1->8",
+      "7->3",
+      "8->3",
+      "3->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "4",
+        "1",
+        {
+          "type": "select",
+          "options": [
+            "7",
+            "8"
+          ]
+        },
+        "3",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "2->4",
+      "3->6",
+      "4->1",
+      "5->2",
+      "1->7",
+      "1->8",
+      "7->3",
+      "8->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "4",
+        "1",
+        {
+          "type": "select",
+          "options": [
+            "7",
+            "8"
+          ]
+        },
+        "3",
+        "6"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 64,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->0",
+      "0->3",
+      "3->2",
+      "2->1",
+      "1->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "3",
+        "2",
+        "1",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->3",
+      "1->5",
+      "2->1",
+      "3->2",
+      "4->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "3",
+        "2",
+        "1",
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 290,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "6->5",
+      "5->1",
+      "1->3",
+      "3->2",
+      "2->0",
+      "0->4",
+      "4->7"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "5",
+        "1",
+        "3",
+        "2",
+        "0",
+        "4",
+        "7"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->3",
+      "2->0",
+      "3->2",
+      "4->7",
+      "5->1",
+      "6->5"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "5",
+        "1",
+        "3",
+        "2",
+        "0",
+        "4",
+        "7"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 40,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->0",
+      "0->4",
+      "4->3",
+      "3->1",
+      "1->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "4",
+        "3",
+        "1",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->5",
+      "2->0",
+      "3->1",
+      "4->3"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "4",
+        "3",
+        "1",
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 393,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->0",
+      "0->1",
+      "1->3",
+      "3->2",
+      "2->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "1",
+        "3",
+        "2",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->1",
+      "1->3",
+      "2->5",
+      "3->2",
+      "4->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "1",
+        "3",
+        "2",
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 538,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "0->4",
+      "4->2",
+      "2->3",
+      "3->1",
+      "1->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "4",
+        "2",
+        "3",
+        "1",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->4",
+      "1->5",
+      "2->3",
+      "3->1",
+      "4->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "4",
+        "2",
+        "3",
+        "1",
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 344,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "4->2",
+      "2->3",
+      "3->1",
+      "1->0",
+      "0->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "2",
+        "3",
+        "1",
+        "0",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "1->0",
+      "2->3",
+      "3->1",
+      "4->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "2",
+        "3",
+        "1",
+        "0",
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 69,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "2->3",
+      "3->1",
+      "1->4",
+      "4->0",
+      "0->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "3",
+        "1",
+        "4",
+        "0",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "1->4",
+      "2->3",
+      "3->1",
+      "4->0"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "3",
+        "1",
+        "4",
+        "0",
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 268,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->1",
+      "1->4",
+      "4->2",
+      "2->0",
+      "0->5"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "1",
+        "4",
+        "2",
+        "0",
+        "5"
+      ]
+    },
+    "reference_edges": [
+      "0->5",
+      "1->4",
+      "2->0",
+      "3->1",
+      "4->2"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "1",
+        "4",
+        "2",
+        "0",
+        "5"
+      ]
+    },
+    "error_tags": []
+  },
+  {
+    "id": 831,
+    "edges_match": true,
+    "sg_match": true,
+    "nodes_valid": true,
+    "generated_edges": [
+      "3->1",
+      "1->0",
+      "0->4",
+      "4->2",
+      "2->6"
+    ],
+    "generated_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "1",
+        "0",
+        "4",
+        "2",
+        "6"
+      ]
+    },
+    "reference_edges": [
+      "3->1",
+      "1->0",
+      "0->4",
+      "4->2",
+      "2->6"
+    ],
+    "reference_sg": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "1",
+        "0",
+        "4",
+        "2",
+        "6"
+      ]
+    },
+    "error_tags": []
+  }
+]

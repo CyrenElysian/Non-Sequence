@@ -1,18 +1,19 @@
 ### Non-Sequence
 
 1. 利用 **`cut.py`** 对proscript原始数据集进行修改，仅预留"scenario"，"events","gold_edges_for_prediction"
-1. 利用 `covert.py` 将proscript_simple中的数据转化为我们所定义的JSON结构（详见 `comprehensive.md`），其中已包含**sequence和and_join**结构
-1. 利用 **`correct_edges.py`** 调用大模型API 修改 converted_dev.json 等数据的逻辑错误，同时生成修改日志，目前对小批量数据集 `temp`（20条）进行了评估，详见 `temp\evaluate.md`
-1. **利用`correct_edges.py`调用大模型API对 converted_dev.json 数据集中的逻辑错误进行修改，得到**`convert/llm_fixed_dev.json`（近1100条数据，需要注意，逻辑依然可能存在错误）
-1. 利用`select_loop.py`调用大模型API对修改后的 llm_fixed_dev.json 进行筛选，判断哪些事件链适合引入选择和循环结构（或者都不合适），对合适的样本引入相应结构，具体情况如下：
+2. 利用 `covert.py` 将proscript_simple中的数据转化为我们所定义的JSON结构（详见 `Comprehensive.md`），其中已包含**sequence和and_join**结构
+3. 利用 **`correct_edges.py`** 调用大模型API 修改 converted_dev.json 等数据的逻辑错误，同时生成修改日志，目前对小批量数据集 `temp`（20条）进行了评估，详见 `temp\evaluate.md`
+4. **利用`correct_edges.py`调用大模型API对 converted_dev.json 数据集中的逻辑错误进行修改，得到**`correct/llm_fixed_dev.json`（近1100条数据，需要注意，逻辑依然可能存在错误）
+5. 利用`select_loop.py`调用大模型API对修改后的进行筛选，判断哪些事件链适合引入选择和循环结构（或者都不合适），对合适的样本引入相应结构，具体情况如下：
    - 修正**scenario**与**unordered_nodes**中的拼写错误（仅修正明显的拼写错误，不得改变原有语义）。
    - 识别底层逻辑中**确实包含选择结构或循环结构**的条目。参照后续示例，修改此类条目的关联节点与脚本关系图（必要时允许修改节点信息），确保逻辑正确，并在修改记录中以「structure_changed」类型备注；若修改操作难以执行，则判定此类条目标注错误，将其从最终处理数据集中移除，并在修改记录中备注删除信息。
-   - 对于其余所有条目，选择合适的脚本，通过添加事件节点（数量不宜过多，控制整体复杂度）以引入select 和 loop 结构，也可以修改原始事件节点含义具体，具体要求如下：
-     - 新增逻辑需自然合理，杜绝生硬堆砌；若无合适的选择 / 循环结构引入方案，条目可保持原样。
+   - 对于其余所有条目，选择合适的脚本，通过添加事件节点（数量不宜过多，控制整体复杂度）以引入 select 和 loop 结构，也可以修改原始事件节点含义具体，具体要求如下：
+     - 鼓励打开思维，但是新增逻辑需自然合理，杜绝生硬堆砌；若确实无合适的选择 / 循环结构引入方案，条目可保持原样。
      - 原则上选择结构的分支必须相互独立、逻辑差异显著（例如：选择筷子或勺子用餐这类细微差异，不太符合要求）。
-     - 对于选择结构，所有选择分支的末端节点，必须统一关联至选择结构后的同一合并节点。
+     - 对于选择结构，所有选择分支的末端节点，必须统一关联至选择结构后的同一合并节点；`options` 中节点按大小顺序排列，方便检验
      - 循环结构必须设置明确的终止条件，禁止出现无限循环。
-     - 对于循环结构，循环前置节点需连接至 `entry` 节点，循环出口节点 `exit` 需连接至循环后置节点，同时 `entry` 与 `exit` 之间需建立关联边；循环内部的节点链路，必须形成「entry-retry-exit」的完整路径。
+     - 对于循环结构，循环前置节点需连接至 `entry` 节点，循环出口节点 `exit` 需连接至循环后置节点，同时 `entry` 与 `exit` 之间需建立关联边；循环内部的节点链路，必须形成 $ entry \to retry \to exit $ 的完整路径。
      - 因脚本关系图重构而失效的原有关联关系，需全部删除；与新控制逻辑冲突的旧关联关系，必须移除。
      - 得到新版 `edges` 与 `script_graph`，统一复核校验，着重检查 `unordered_nodes`中的事件是否均唯一的出现在`script_graph`中，`edges` 是否存在少边，多边，悬挂边的问题，`script_graph`逻辑是否存在问题，结构是否满足约束规范
    - **注意事项**：以上所有操作需**一次性同步完成**，即对于一项数据，先修正拼写错误，再检查逻辑是否包含选择/循环结构，若包含则考虑是否修改，若不包含则考虑是否能引入
+6. `select_loop.py` 生成 `processed_data`，利用 `predict.py` 对读取其中的 `sceniro` 和 `unordered_nodes` 内容，预测 `edges` 和 `script_graph` ，与  `processed_data` 进行比较（ `edges` 采用集合相等，`script_graph` 采用字符串匹配）

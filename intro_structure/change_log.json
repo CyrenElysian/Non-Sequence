@@ -1,0 +1,3187 @@
+[
+  {
+    "id": 1,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'ride a train' to 'arrive at destination'"
+  },
+  {
+    "id": 2,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'win the minor league baseball' to 'celebrate the win'"
+  },
+  {
+    "id": 3,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'catch a big marlin' to 'bring the marlin aboard'"
+  },
+  {
+    "id": 4,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'make banana muffins' to 'enjoy freshly baked muffins'"
+  },
+  {
+    "id": 5,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'eat some food' to 'enjoy the pizza'"
+  },
+  {
+    "id": 6,
+    "type": "structure_changed",
+    "details": "Removed duplicate ending node 'travel across the country' (node 7) and added edge 0->4 to connect boarding to travel to location."
+  },
+  {
+    "id": 7,
+    "type": "structure_changed",
+    "details": "Renamed duplicate ending node 'join the rugby team' to 'officially join the rugby team' to make it a logical closing step."
+  },
+  {
+    "id": 8,
+    "type": "structure_changed",
+    "details": "Renamed duplicate ending node 'try sushi for the first time today' to 'taste the sushi for the first time' to make it a logical closing step."
+  },
+  {
+    "id": 9,
+    "type": "structure_changed",
+    "details": "Renamed duplicate ending node 'enter a marathon' to 'confirm marathon entry' to make it a logical closing step."
+  },
+  {
+    "id": 10,
+    "type": "structure_changed",
+    "details": "Renamed duplicate ending node 'meet some girls' to 'go on a date with a girl' and introduced a loop for retry when no response: added node 'send follow-up messages' and loop structure around 'wait for response' and 'set up meetings'."
+  },
+  {
+    "id": 11,
+    "type": "spelling_fix",
+    "details": "corrected 'th' to 'the' in node 4"
+  },
+  {
+    "id": 11,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'bring a water bottle to camp' to 'arrive at camp with water bottle' to fix duplicate end node"
+  },
+  {
+    "id": 12,
+    "type": "spelling_fix",
+    "details": "corrected 'an' to 'and' in node 4"
+  },
+  {
+    "id": 12,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'build the best sandcastle ever' to 'admire the sandcastle' to fix duplicate end node"
+  },
+  {
+    "id": 13,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'enter a salsa-making competition' to 'attend the competition' to fix duplicate end node"
+  },
+  {
+    "id": 14,
+    "type": "structure_changed",
+    "details": "removed duplicate end node 7 and edge 4->7, removed edge 2->3 that bypassed node 0, updated script_graph sequence accordingly"
+  },
+  {
+    "id": 15,
+    "type": "structure_changed",
+    "details": "added select structure with ATM branch (nodes 8-11) and corresponding edges and script_graph"
+  },
+  {
+    "id": 16,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'go to the county fair this weekend' to 'enjoy the county fair' for logical coherence"
+  },
+  {
+    "id": 17,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'run errands during a break in the rain' to 'finish all errands' for logical coherence"
+  },
+  {
+    "id": 18,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'learn another language' to 'gain basic proficiency in the language' for logical coherence"
+  },
+  {
+    "id": 19,
+    "type": "spelling_fix",
+    "details": "corrected 'chose' to 'choose' in node 3"
+  },
+  {
+    "id": 19,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'print a comic book series' to 'obtain printed comic book' for logical coherence"
+  },
+  {
+    "id": 20,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'learn how to play tennis' to 'become proficient in tennis' for logical coherence"
+  },
+  {
+    "id": 21,
+    "type": "structure_changed",
+    "details": "fixed scenario spelling (removed colon), changed duplicate end node to 'arrive at destination and start vacation', added select structure for booking methods (phone vs online)"
+  },
+  {
+    "id": 22,
+    "type": "structure_changed",
+    "details": "changed duplicate end node from 'go to this concert' to 'enjoy the concert'"
+  },
+  {
+    "id": 23,
+    "type": "structure_changed",
+    "details": "restructured graph with loop for butterfly search, added nodes 'butterfly not found, relocate' and 'catch the butterfly', changed end node to 'successfully catch a butterfly and bring it home'"
+  },
+  {
+    "id": 24,
+    "type": "structure_changed",
+    "details": "changed duplicate end node from 'go to a casino' to 'enter the casino'"
+  },
+  {
+    "id": 25,
+    "type": "structure_changed",
+    "details": "introduced loop for necktie selection dissatisfaction as per transformation example"
+  },
+  {
+    "id": 27,
+    "type": "structure_changed",
+    "details": "Corrected branches_set b1 to be an array as per specification"
+  },
+  {
+    "id": 29,
+    "type": "structure_changed",
+    "details": "Added select structure for sauce choice (red/white) to the pasta preparation"
+  },
+  {
+    "id": 30,
+    "type": "structure_changed",
+    "details": "Added select structure for delivery method (in-store pickup vs home delivery)"
+  },
+  {
+    "id": 31,
+    "type": "spelling_fix",
+    "details": "corrected 'kindergarden' to 'kindergarten' in scenario"
+  },
+  {
+    "id": 31,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'go to college since kindergarden' to 'begin college' to replace duplicate scenario end node with logical end node"
+  },
+  {
+    "id": 32,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'play outside on a stormy day' to 'play in the storm' to replace duplicate scenario end node"
+  },
+  {
+    "id": 33,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'play a game of squash' to 'play squash' to replace duplicate scenario end node"
+  },
+  {
+    "id": 34,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'wash some clothes' to 'start washing' to replace duplicate scenario end node"
+  },
+  {
+    "id": 35,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'see an alligator' to 'view the alligators' to replace duplicate scenario end node"
+  },
+  {
+    "id": 36,
+    "type": "structure_changed",
+    "details": "introduced loop for haircut inspection and adjustment, modified end node 5 to 'pay for haircut', added nodes 6-9"
+  },
+  {
+    "id": 37,
+    "type": "spelling_fix",
+    "details": "corrected 'add' to 'ad' in node 3"
+  },
+  {
+    "id": 37,
+    "type": "structure_changed",
+    "details": "introduced loop for testing singing ability and practice more, added nodes 7 and 8"
+  },
+  {
+    "id": 39,
+    "type": "structure_changed",
+    "details": "introduced select structure between two gun vendors, removed old nodes 1,2,4, added nodes 6-11"
+  },
+  {
+    "id": 41,
+    "type": "structure_changed",
+    "details": "introduced loop for watching multiple movies and modified duplicate end node to 'finished watching movies with friends'"
+  },
+  {
+    "id": 42,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'buy items on a video game' to 'complete purchase'"
+  },
+  {
+    "id": 43,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'attended the local basketball game' to 'enjoyed the basketball game'"
+  },
+  {
+    "id": 44,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'go on a boating trip' to 'depart on boating trip'"
+  },
+  {
+    "id": 45,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'try the new froyo place' to 'enjoy froyo'"
+  },
+  {
+    "id": 55,
+    "type": "spelling_fix",
+    "details": "removed trailing comma from node 6 text"
+  },
+  {
+    "id": 56,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'dig a hole with some friends' to 'hole is dug' for logical closure"
+  },
+  {
+    "id": 57,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'learn how to dance in college' to 'become proficient in dancing' for logical closure"
+  },
+  {
+    "id": 58,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'put up a poster' to 'poster is displayed' for logical closure"
+  },
+  {
+    "id": 59,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'go to college in another state' to 'enroll in college' for logical closure"
+  },
+  {
+    "id": 60,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'learn about the planets' to 'have learned about the planets' for logical closure"
+  },
+  {
+    "id": 61,
+    "type": "structure_changed",
+    "details": "Added node 6 'sell lemonade to customers', modified node 5 from duplicate scenario to 'make a profit from lemonade sales', updated edges and script_graph accordingly."
+  },
+  {
+    "id": 62,
+    "type": "structure_changed",
+    "details": "Modified node 6 from duplicate scenario 'try high diving' to 'perform the high dive'."
+  },
+  {
+    "id": 63,
+    "type": "structure_changed",
+    "details": "Modified node 6 from duplicate scenario 'start learning a sport' to 'begin practicing the sport'."
+  },
+  {
+    "id": 64,
+    "type": "structure_changed",
+    "details": "Modified node 5 from duplicate scenario 'eat a really good tomato' to 'savor the tomato'."
+  },
+  {
+    "id": 65,
+    "type": "structure_changed",
+    "details": "Modified node 7 from duplicate scenario 'bake an apple pie' to 'enjoy the baked apple pie'."
+  },
+  {
+    "id": 67,
+    "type": "spelling_fix",
+    "details": "corrected 'air balooning' to 'air ballooning' in node 0"
+  },
+  {
+    "id": 76,
+    "type": "structure_changed",
+    "details": "modified the duplicate scenario node 5 to 'read the election poll results' to make it a logical final action"
+  },
+  {
+    "id": 77,
+    "type": "structure_changed",
+    "details": "modified the duplicate scenario node 6 to 'relax on the beach'"
+  },
+  {
+    "id": 78,
+    "type": "structure_changed",
+    "details": "modified the duplicate scenario node 5 to 'receive payment for completed HITs'"
+  },
+  {
+    "id": 79,
+    "type": "structure_changed",
+    "details": "modified the duplicate scenario node 5 to 'enjoy the circus performance'"
+  },
+  {
+    "id": 80,
+    "type": "spelling_fix",
+    "details": "corrected 'setup up a chess board' to 'set up a chess board' in node 2"
+  },
+  {
+    "id": 80,
+    "type": "structure_changed",
+    "details": "restructured to include loop for tournament participation, added nodes 6 and 7, deleted node 1"
+  },
+  {
+    "id": 85,
+    "type": "structure_changed",
+    "details": "added loop for juggling practice, removed node 'practice every day', added nodes 'attempt to juggle', 'practice juggling again', 'juggling mastered'"
+  },
+  {
+    "id": 86,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'get some ice cream' to 'enjoy the ice cream' for logical coherence"
+  },
+  {
+    "id": 87,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'build bird houses' to 'complete the bird house' for logical coherence"
+  },
+  {
+    "id": 88,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'ride a tractor' to 'drive the tractor around' for logical coherence"
+  },
+  {
+    "id": 89,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'make a new playlist of songs' to 'create the new playlist' for logical coherence"
+  },
+  {
+    "id": 90,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'learn to kick' to 'practice kicking techniques' for logical coherence"
+  },
+  {
+    "id": 91,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 'go to college after high school' to 'arrive at college'"
+  },
+  {
+    "id": 92,
+    "type": "deletion",
+    "details": "removed due to implicit loop structure that could not be cleanly restructured without node duplication"
+  },
+  {
+    "id": 93,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 'buy a moped' to 'own a moped'"
+  },
+  {
+    "id": 94,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 'throw a huge birthday party' to 'enjoy the party'"
+  },
+  {
+    "id": 95,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 'save money on water' to 'reduce water bill'"
+  },
+  {
+    "id": 96,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'learn a new recipe' to 'cook the recipe' to make logical closing event"
+  },
+  {
+    "id": 97,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'join the soccer team' to 'become a team member' to make logical closing event"
+  },
+  {
+    "id": 98,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'ride the bus' to 'enjoy the bus ride' to make logical closing event"
+  },
+  {
+    "id": 99,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'buy some sunscreen' to 'purchase sunscreen' to make logical closing event"
+  },
+  {
+    "id": 100,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'earn a lot of money this summer' to 'collect your earnings' to make logical closing event"
+  },
+  {
+    "id": 101,
+    "type": "structure_changed",
+    "details": "introduced loop for practice; changed end node 'learn to play violin' to 'master the violin'; added node 'assess skill level'"
+  },
+  {
+    "id": 102,
+    "type": "structure_changed",
+    "details": "added select structure for learning method (watch tutorials vs ask friend); changed end node 'learn to play a new game' to 'understand the game fully'; added node 'ask a friend to teach you'"
+  },
+  {
+    "id": 103,
+    "type": "structure_changed",
+    "details": "changed end node from 'nap in the car on a road trip' to 'fall asleep in the car' to improve logical flow"
+  },
+  {
+    "id": 104,
+    "type": "spelling_fix",
+    "details": "corrected 'thru' to 'through' in node 6; changed end node from 'go to new york' to 'arrive in New York'"
+  },
+  {
+    "id": 105,
+    "type": "structure_changed",
+    "details": "introduced loop for revision after drafting; added nodes 'evaluate the draft', 'revise the draft', and 'complete the play'; changed node 5 from 'write a play for school' to 'write a draft of the play'"
+  },
+  {
+    "id": 106,
+    "type": "structure_changed",
+    "details": "Modified node 5 from 'print some papers for school' to 'collect the printed papers' to make it a logical closing event."
+  },
+  {
+    "id": 107,
+    "type": "structure_changed",
+    "details": "Introduced loop for buoyancy testing: added node 6 'raft passes buoyancy test', modified edges (added 1->6, 1->0, removed 1->5), and restructured script_graph to include a loop with entry 1, retry [0, continue], exit 6."
+  },
+  {
+    "id": 108,
+    "type": "structure_changed",
+    "details": "Modified node 7 from 'move to a new apartment' to 'settle into the new apartment' to make it a logical closing event."
+  },
+  {
+    "id": 109,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'enter the county fair' to 'enter the fairgrounds' to make it a logical closing event."
+  },
+  {
+    "id": 110,
+    "type": "structure_changed",
+    "details": "Modified node 5 from 'have a memorable vacation' to 'depart for the vacation destination' to make it a logical closing event."
+  },
+  {
+    "id": 116,
+    "type": "structure_changed",
+    "details": "introduced loop for proofreading message; removed edge 2->1, added edges 4->1 and 2->4"
+  },
+  {
+    "id": 118,
+    "type": "structure_changed",
+    "details": "restructured to add loop for multiple spots; deleted node 1, added edges 4->6 and 4->3, removed edges 4->1 and 1->6"
+  },
+  {
+    "id": 121,
+    "type": "spelling_fix",
+    "details": "corrected 'resaurant' to 'restaurant' in node 3"
+  },
+  {
+    "id": 121,
+    "type": "structure_changed",
+    "details": "modified redundant scenario node from 'try something different this weekend' to 'enjoy the new dining experience'"
+  },
+  {
+    "id": 122,
+    "type": "structure_changed",
+    "details": "modified redundant scenario node from 'make the track team' to 'qualify for the track team'"
+  },
+  {
+    "id": 123,
+    "type": "structure_changed",
+    "details": "modified redundant scenario node from 'write a movie' to 'complete the movie script'"
+  },
+  {
+    "id": 124,
+    "type": "structure_changed",
+    "details": "modified redundant scenario node from 'travel the world' to 'embark on the journey'"
+  },
+  {
+    "id": 125,
+    "type": "structure_changed",
+    "details": "introduced loop for speech preparation (practice -> memorize -> confidence) and modified end node from 'speak at our club' to 'deliver the speech'"
+  },
+  {
+    "id": 126,
+    "type": "spelling_fix",
+    "details": "corrected 'But a movie ticket' to 'Buy a movie ticket' in node 3"
+  },
+  {
+    "id": 126,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'see the new movie playing' to 'leave the theater' as logical end node"
+  },
+  {
+    "id": 127,
+    "type": "structure_changed",
+    "details": "Modified node 7 from 'get married in secret' to 'sign the marriage license' as logical end node"
+  },
+  {
+    "id": 128,
+    "type": "spelling_fix",
+    "details": "corrected scenario from 'play in the leafs' to 'play in the leaves'"
+  },
+  {
+    "id": 128,
+    "type": "structure_changed",
+    "details": "Modified node 5 from 'play in the leafs' to 'have fun in the leaves' as logical end node"
+  },
+  {
+    "id": 129,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'try a new tv show' to 'watch the show' and added select structure with new node 7 'start show on computer'"
+  },
+  {
+    "id": 130,
+    "type": "structure_changed",
+    "details": "Modified node 5 from 'tryout for cheerleader' to 'perform the tryout routine' as logical end node"
+  },
+  {
+    "id": 131,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'learn the Russian language' to 'become proficient in Russian' to serve as logical end point"
+  },
+  {
+    "id": 132,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'eat a kale salad' to 'finish the kale salad' to serve as logical end point"
+  },
+  {
+    "id": 133,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'make a short film' to 'finish the short film' to serve as logical end point"
+  },
+  {
+    "id": 134,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'try some new tea' to 'enjoy the new tea' to serve as logical end point"
+  },
+  {
+    "id": 135,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'try rock climbing' to 'attempt the rock climb' to serve as logical end point"
+  },
+  {
+    "id": 141,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 'have a bonfire' to 'enjoy the bonfire' for coherence."
+  },
+  {
+    "id": 142,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 'go to the bars with friends' to 'enjoy at the bars with friends'."
+  },
+  {
+    "id": 143,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 'take horse riding classes' to 'complete horse riding class'."
+  },
+  {
+    "id": 144,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 'adopt some children' to 'complete the adoption process'; added loop structure for paperwork rejection (added node 8 'paperwork rejected' and edges 3->8, 8->3, updated script_graph)."
+  },
+  {
+    "id": 145,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 'buy a book to read on the plane' to 'leave with the purchased book'."
+  },
+  {
+    "id": 150,
+    "type": "structure_changed",
+    "details": "Replaced node 'revise until composition is perfect' with loop structure (nodes 8,9,10) to model the revision loop properly."
+  },
+  {
+    "id": 151,
+    "type": "spelling_fix",
+    "details": "corrected scenario from 'have some a homemade banana split' to 'have a homemade banana split'"
+  },
+  {
+    "id": 151,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'have some a homemade banana split' to 'enjoy banana split' to resolve duplicate end node"
+  },
+  {
+    "id": 152,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'captain a boat' to 'start captaining the boat' to resolve duplicate end node"
+  },
+  {
+    "id": 153,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'open up a convenience store' to 'open for business' to resolve duplicate end node"
+  },
+  {
+    "id": 154,
+    "type": "structure_changed",
+    "details": "introduced loop structure for repeated studying: added node 6 'take a practice test', changed node 5 to 'feel prepared for the test', modified edges to create loop path from 6 to 4 to 2 to 1 and back to 6, with exit to 5"
+  },
+  {
+    "id": 155,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'go off roading' to 'start off roading' to resolve duplicate end node"
+  },
+  {
+    "id": 156,
+    "type": "structure_changed",
+    "details": "Added select structure between searching fashion trends online and asking friends for fashion advice."
+  },
+  {
+    "id": 157,
+    "type": "structure_changed",
+    "details": "Added select structure between looking up places online and asking friends for places."
+  },
+  {
+    "id": 158,
+    "type": "structure_changed",
+    "details": "Added select structure between driving to store to purchase supplies and ordering supplies online with delivery."
+  },
+  {
+    "id": 159,
+    "type": "structure_changed",
+    "details": "Added select structure between finding relaxing things to do and asking friends for relaxation ideas."
+  },
+  {
+    "id": 160,
+    "type": "structure_changed",
+    "details": "Introduced loop for water temperature adjustment after turning on shower, including test and adjust nodes."
+  },
+  {
+    "id": 161,
+    "type": "spelling_fix",
+    "details": "corrected 'go everyday' to 'go every day' in node 0 and 'locations' to 'location' in node 4"
+  },
+  {
+    "id": 161,
+    "type": "structure_changed",
+    "details": "changed node 0 text from 'go everyday to stop having a boring life' to 'practice the chosen hobby daily' to avoid duplicate final node with scenario"
+  },
+  {
+    "id": 162,
+    "type": "structure_changed",
+    "details": "changed node 5 from 'flip a car' to 'car flips over' to avoid duplicate scenario node"
+  },
+  {
+    "id": 163,
+    "type": "structure_changed",
+    "details": "changed node 7 from 'catch a chick' to 'arrange a date' to avoid duplicate scenario node"
+  },
+  {
+    "id": 164,
+    "type": "structure_changed",
+    "details": "changed node 5 from 'learn how to play piano' to 'achieve piano playing skill' to avoid duplicate scenario node"
+  },
+  {
+    "id": 165,
+    "type": "structure_changed",
+    "details": "restructured graph to include a loop for daily lessons, added nodes 6,7,8, modified nodes 1 and 5, removed old edges 3->1 and 1->5"
+  },
+  {
+    "id": 166,
+    "type": "structure_changed",
+    "details": "Modified node 5 from scenario duplicate 'know what happened to a body at death' to 'obtain death report'."
+  },
+  {
+    "id": 167,
+    "type": "structure_changed",
+    "details": "Restructured into loop for daily maid routine; modified node 6 to 'quit job', added nodes 7 'go home' and 8 'finish work'."
+  },
+  {
+    "id": 168,
+    "type": "structure_changed",
+    "details": "Restructured into loop for practice with feedback; modified node 5 from 'learn how to do a backflip' to 'successfully perform a backflip'."
+  },
+  {
+    "id": 169,
+    "type": "structure_changed",
+    "details": "Modified node 5 from scenario duplicate 'wear gloves to bed' to 'sleep with gloves on'."
+  },
+  {
+    "id": 170,
+    "type": "structure_changed",
+    "details": "Modified node 5 from scenario duplicate 'run errands on a rainy day' to 'complete errands'."
+  },
+  {
+    "id": 171,
+    "type": "structure_changed",
+    "details": "renamed node 6 from 'cook some chicken' to 'enjoy the cooked chicken'; added loop with new nodes 7 (check if chicken is cooked) and 8 (cook chicken further) to allow checking doneness"
+  },
+  {
+    "id": 172,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'eat an authentic hot dog' to 'enjoy the hot dog'; added select structure with new node 6 (add toppings) for serving option"
+  },
+  {
+    "id": 173,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'organize a campaign' to 'execute the campaign' to resolve scenario-duplicate end node"
+  },
+  {
+    "id": 174,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'see the new movie' to 'enjoy the movie' to resolve scenario-duplicate end node"
+  },
+  {
+    "id": 175,
+    "type": "spelling_fix",
+    "details": "corrected 'endorman' to 'Enderman' in scenario and node 5"
+  },
+  {
+    "id": 175,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'dress as endorman for halloween' to 'complete the costume' to resolve scenario-duplicate end node"
+  },
+  {
+    "id": 176,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'finalize adoption process', removed edge 0->5, restructured into a select after node 1 (wait until called back) with options: pass last identity checks then meet child, or meet child directly."
+  },
+  {
+    "id": 177,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'play a song' to 'play the song on the stereo' to avoid duplication with scenario."
+  },
+  {
+    "id": 178,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'give up on work this morning' to 'arrive at the park and relax' to match logical conclusion."
+  },
+  {
+    "id": 179,
+    "type": "structure_changed",
+    "details": "added loop for checking doneness of lemon bars (nodes 8 and 9) and modified duplicate end node to 'serve and enjoy lemon bars'."
+  },
+  {
+    "id": 180,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'meet the president' to 'visit White House and meet the president'."
+  },
+  {
+    "id": 182,
+    "type": "structure_changed",
+    "details": "removed duplicate scenario node and added loop for re-evaluating breeders"
+  },
+  {
+    "id": 183,
+    "type": "structure_changed",
+    "details": "added loop for workout repetition and modified duplicate scenario node to 'achieve desired muscle mass'"
+  },
+  {
+    "id": 186,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'host the best house party ever' to 'enjoy the party' to resolve duplicate end node"
+  },
+  {
+    "id": 187,
+    "type": "structure_changed",
+    "details": "removed duplicate node 6 ('go to the grocery store') and adjusted edges and script to start from node 5"
+  },
+  {
+    "id": 188,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'read a book that had just came out' to 'enjoy reading the book' to resolve duplicate end node"
+  },
+  {
+    "id": 189,
+    "type": "structure_changed",
+    "details": "restructured to include proper loop: removed nodes 2 and 7, added nodes 8 and 9, updated edges and script_graph to reflect loop with and_join body"
+  },
+  {
+    "id": 190,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'get a girl's attention' to 'attract her attention successfully' to resolve duplicate end node"
+  },
+  {
+    "id": 192,
+    "type": "spelling_fix",
+    "details": "corrected 'cooking schooling' to 'cooking school' in scenario and node 6"
+  },
+  {
+    "id": 194,
+    "type": "structure_changed",
+    "details": "introduced loop for flight search refinement: added node 8 'refine search criteria', created loop with entry 3 and exit 1"
+  },
+  {
+    "id": 196,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'start working out' to 'begin exercising' to make it a logically coherent closing node"
+  },
+  {
+    "id": 197,
+    "type": "structure_changed",
+    "details": "restructured to add a loop (practice -> assess -> practice) and modified duplicate end node to 'successfully run the production company'"
+  },
+  {
+    "id": 198,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'try practicing yoga' to 'complete yoga session'"
+  },
+  {
+    "id": 199,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'get into better shape' to 'improve fitness level'"
+  },
+  {
+    "id": 200,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'take a dance class' to 'attend the dance class'"
+  },
+  {
+    "id": 205,
+    "type": "structure_changed",
+    "details": "Removed erroneous edge '0->2' that created a bypass (allowing driving before putting on suit). Corrected edges to maintain logical sequence: ask to use car -> put on suit -> drive to date's house."
+  },
+  {
+    "id": 210,
+    "type": "structure_changed",
+    "details": "introduced select structure for in-store vs online shopping for snacks"
+  },
+  {
+    "id": 211,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'visit Great Adventures water park' to 'enjoy the water park'"
+  },
+  {
+    "id": 212,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'join the beauty pageant to win 1st prize' to 'win first prize'"
+  },
+  {
+    "id": 213,
+    "type": "structure_changed",
+    "details": "removed edge 5->7 to fix inconsistency and modified duplicate end node 'work for the government' to 'start working for the government'"
+  },
+  {
+    "id": 214,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'get groceries yesterday' to 'complete grocery shopping'"
+  },
+  {
+    "id": 215,
+    "type": "spelling_fix",
+    "details": "corrected 'part' to 'party' in node 2"
+  },
+  {
+    "id": 215,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'go to the party on Saturday night' to 'arrive at the party'"
+  },
+  {
+    "id": 218,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'take a trip to the jungle' to 'decide to go on a jungle trip' to fix illogical start node"
+  },
+  {
+    "id": 221,
+    "type": "structure_changed",
+    "details": "Introduced a select structure to choose between using a pen from backpack or asking a friend for a pen, adding nodes 6 and 7."
+  },
+  {
+    "id": 226,
+    "type": "structure_changed",
+    "details": "changed duplicate end node text from 'get a new pet' to 'bring the new pet home' for logical flow"
+  },
+  {
+    "id": 227,
+    "type": "structure_changed",
+    "details": "changed duplicate end node text from 'watch shrek the third' to 'enjoy the movie' for logical flow"
+  },
+  {
+    "id": 228,
+    "type": "structure_changed",
+    "details": "changed duplicate end node text from 'find the perfect dress' to 'purchase the dress' for logical flow"
+  },
+  {
+    "id": 229,
+    "type": "structure_changed",
+    "details": "restructured to add loop for learning process: modified node 0 to 'attend a drum lesson', added nodes 6 'practice drumming' and 7 'able to play a song', updated edges and script_graph accordingly"
+  },
+  {
+    "id": 230,
+    "type": "structure_changed",
+    "details": "changed duplicate end node text from 'make scarves to sell' to 'start scarf production' for logical flow"
+  },
+  {
+    "id": 231,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'grow a golden rose' to 'nurture the rose until it blooms'"
+  },
+  {
+    "id": 232,
+    "type": "structure_changed",
+    "details": "added select structure for online vs in-store purchase paths, added nodes 6 and 7"
+  },
+  {
+    "id": 234,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'buy a sparkly ring' to 'receive the sparkly ring'"
+  },
+  {
+    "id": 235,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'have lots of friends' to 'enjoy a large circle of friends'"
+  },
+  {
+    "id": 236,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'make some potato chips' to 'enjoy homemade potato chips' as logical closing step"
+  },
+  {
+    "id": 238,
+    "type": "structure_changed",
+    "details": "removed extra edges (4->2 and 1->6) and modified node 6 to 'wild one is safely at home'"
+  },
+  {
+    "id": 239,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'go to a concert with friends' to 'attend the concert with friends' as logical closing step"
+  },
+  {
+    "id": 240,
+    "type": "structure_changed",
+    "details": "added nodes 7,8,9,10; removed node 3; introduced select structure for horse acquisition and reorganized parallel tasks; modified node 6 to 'you now own a horse'"
+  },
+  {
+    "id": 243,
+    "type": "spelling_fix",
+    "details": "corrected 'Wallmart' to 'Walmart' in scenario and node 1 and node 5"
+  },
+  {
+    "id": 250,
+    "type": "structure_changed",
+    "details": "replaced and_join with select for life choices after college (career vs marriage), added edge 4->1, changed node 5 from 'do in life' to 'lead a fulfilling life' to remove duplicate scenario end node"
+  },
+  {
+    "id": 251,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'get some items for school' to 'select and purchase school items' for logical coherence"
+  },
+  {
+    "id": 252,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'buy a new one' to 'complete the purchase' for logical coherence"
+  },
+  {
+    "id": 254,
+    "type": "structure_changed",
+    "details": "introduced loop for practice assessment, added node 'assess readiness for tryouts', modified end node to 'get accepted onto the swim team'"
+  },
+  {
+    "id": 256,
+    "type": "structure_changed",
+    "details": "Corrected and_join placement: moved 'walk on the trail' and 'be mindful in nature' to parallel branches before final node, and updated edges accordingly."
+  },
+  {
+    "id": 261,
+    "type": "structure_changed",
+    "details": "modified end node 'stand out at school' to 'gain recognition at school' to remove duplicate scenario node"
+  },
+  {
+    "id": 262,
+    "type": "structure_changed",
+    "details": "modified end node 'make a garden' to 'watch the garden flourish' to remove duplicate scenario node"
+  },
+  {
+    "id": 263,
+    "type": "structure_changed",
+    "details": "modified end node 'go to a concert on the weekend' to 'enjoy the concert' to remove duplicate scenario node"
+  },
+  {
+    "id": 264,
+    "type": "structure_changed",
+    "details": "modified end node 'try making jewelry' to 'craft the jewelry pieces' to remove duplicate scenario node"
+  },
+  {
+    "id": 265,
+    "type": "spelling_fix",
+    "details": "corrected 'everyday' to 'every day' in node 1 'take lessons everyday to learn'"
+  },
+  {
+    "id": 265,
+    "type": "structure_changed",
+    "details": "modified end node 'learn the Tango' to 'master the Tango' to remove duplicate scenario node"
+  },
+  {
+    "id": 270,
+    "type": "structure_changed",
+    "details": "removed erroneous edge 0->5 that bypassed the and_join"
+  },
+  {
+    "id": 271,
+    "type": "structure_changed",
+    "details": "introduced select structure for planting method (seeds vs seedlings), added nodes 8-13, modified node 7 to 'cover seeds or seedlings with soil'."
+  },
+  {
+    "id": 272,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'have a stamp collection' to 'add stamps to collection' to remove duplicate end node."
+  },
+  {
+    "id": 273,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'mail a letter' to 'deposit letter in mailbox' to remove duplicate end node."
+  },
+  {
+    "id": 274,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'compete in a 5k race' to 'finish the race' to remove duplicate end node."
+  },
+  {
+    "id": 275,
+    "type": "spelling_fix",
+    "details": "corrected 'RECIEPE' to 'RECIPE' in node 4."
+  },
+  {
+    "id": 275,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'bake something new' to 'enjoy the baked goods' to remove duplicate end node."
+  },
+  {
+    "id": 276,
+    "type": "structure_changed",
+    "details": "introduced select for 'search for the honey aisle' as an alternative to asking where honey is kept"
+  },
+  {
+    "id": 278,
+    "type": "spelling_fix",
+    "details": "corrected 'Lousville' to 'Louisville' in node 1"
+  },
+  {
+    "id": 280,
+    "type": "spelling_fix",
+    "details": "corrected 'doe' to 'dough' in node 4"
+  },
+  {
+    "id": 280,
+    "type": "structure_changed",
+    "details": "introduced select for using pre-made pizza crust as an alternative to rolling dough"
+  },
+  {
+    "id": 281,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 7 from 'take a walk' to 'return home' for logical flow"
+  },
+  {
+    "id": 282,
+    "type": "structure_changed",
+    "details": "added loop structure for playlist selection: added node 6 'dislike the playlist', changed node 5 to 'enjoy the new music', added edges for loop"
+  },
+  {
+    "id": 283,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 5 from 'have friends over' to 'end the gathering'"
+  },
+  {
+    "id": 284,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 5 from 'learn a different language' to 'achieve language proficiency'"
+  },
+  {
+    "id": 285,
+    "type": "spelling_fix",
+    "details": "corrected 'computers' to 'computer' in node 0: 'Look at the computer games available'"
+  },
+  {
+    "id": 285,
+    "type": "structure_changed",
+    "details": "added select branch for online purchase: added nodes 6-10, modified node 5 to 'complete the purchase', added edges and updated script_graph"
+  },
+  {
+    "id": 286,
+    "type": "structure_changed",
+    "details": "Modified end node from 'live in the dorms next year' to 'enjoy living in the dorm' to provide a logical closing event."
+  },
+  {
+    "id": 287,
+    "type": "structure_changed",
+    "details": "Modified end node from 'try rally driving' to 'drive the rally car on the track' for a concrete conclusion."
+  },
+  {
+    "id": 288,
+    "type": "structure_changed",
+    "details": "Introduced loop for error correction: added node '6', modified edges and script_graph, and changed end node to 'taxes successfully filed'."
+  },
+  {
+    "id": 289,
+    "type": "structure_changed",
+    "details": "Modified end node from 'go camping very badly' to 'experience a disastrous camping trip'."
+  },
+  {
+    "id": 290,
+    "type": "structure_changed",
+    "details": "Modified end node from 'visit a zoo' to 'start exploring the zoo'."
+  },
+  {
+    "id": 291,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'go on a ride' to 'enjoy the ride'"
+  },
+  {
+    "id": 292,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'bake a dozen chocolate chip cookies' to 'enjoy freshly baked cookies'"
+  },
+  {
+    "id": 293,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'go to a party one night' to 'enjoy the party'"
+  },
+  {
+    "id": 294,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'grill some asparagus' to 'serve the grilled asparagus'"
+  },
+  {
+    "id": 295,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'purchase a new lighter' to 'complete the purchase'; introduced select structure for payment method (credit card vs cash) with new node 'take out cash'"
+  },
+  {
+    "id": 296,
+    "type": "structure_changed",
+    "details": "Removed duplicate end node and introduced loop for reconsideration of chosen item."
+  },
+  {
+    "id": 297,
+    "type": "structure_changed",
+    "details": "Added select structure for choosing between dining out and cooking at home; modified duplicate end node."
+  },
+  {
+    "id": 298,
+    "type": "structure_changed",
+    "details": "Added select structure for getting directions; modified duplicate end node."
+  },
+  {
+    "id": 299,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node to a logical closing node."
+  },
+  {
+    "id": 300,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node to a logical closing node."
+  },
+  {
+    "id": 301,
+    "type": "structure_changed",
+    "details": "changed node6 from 'go out for dinner' to 'leave the restaurant' to make end node logical"
+  },
+  {
+    "id": 302,
+    "type": "structure_changed",
+    "details": "changed node5 from 'get some orange juice' to 'pour a glass of orange juice' to make end node logical"
+  },
+  {
+    "id": 303,
+    "type": "structure_changed",
+    "details": "changed node5 from 'have money to buy things' to 'receive first paycheck' to make end node logical"
+  },
+  {
+    "id": 304,
+    "type": "structure_changed",
+    "details": "changed node5 from 'get a frozen banana from the banana stand' to 'enjoy the frozen banana' to make end node logical"
+  },
+  {
+    "id": 305,
+    "type": "structure_changed",
+    "details": "changed node5 from 'rent a SUV for a road trip' to 'complete the rental' to make end node logical"
+  },
+  {
+    "id": 317,
+    "type": "structure_changed",
+    "details": "Introduced loop for stepping across the river: replaced node 0 with 'Step onto the riverbank', added edges 2->0 and 5->2, removed old edge 5->0, and set loop with entry '2', retry ['3','4','5','continue'], exit '0'."
+  },
+  {
+    "id": 319,
+    "type": "spelling_fix",
+    "details": "Corrected 'resturaunt' to 'restaurant' in node 2 description."
+  },
+  {
+    "id": 321,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'go to an overnight camp' to 'start camping' to resolve duplicate end node"
+  },
+  {
+    "id": 322,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'get away for a little while' to 'enjoy a brief break' to resolve duplicate end node"
+  },
+  {
+    "id": 323,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'buy a new book' to 'complete purchase' to resolve duplicate end node"
+  },
+  {
+    "id": 324,
+    "type": "structure_changed",
+    "details": "modified node 5 to 'improve drawing skills', added loop with select for evaluation and retry, added nodes 6-9"
+  },
+  {
+    "id": 325,
+    "type": "structure_changed",
+    "details": "modified nodes 4 and 5, added select for ring type, added nodes 6 and 7"
+  },
+  {
+    "id": 326,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'lose 40 pounds before summer' to 'undergo liposuction surgery' to fix illogical end node"
+  },
+  {
+    "id": 327,
+    "type": "structure_changed",
+    "details": "changed and_join to select for alternative paths to varsity spot (show improved skills or play JV)"
+  },
+  {
+    "id": 330,
+    "type": "structure_changed",
+    "details": "modified node 7 from 'run twenty miles after work' to 'finish the 20 mile run' to fix duplicate scenario end node"
+  },
+  {
+    "id": 331,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 'eat some leftovers' to 'finish eating leftovers'"
+  },
+  {
+    "id": 332,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 'go to the grocery store before getting lunch' to 'finished shopping at grocery store'"
+  },
+  {
+    "id": 333,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 'explore a dangerous part of town' to 'finish exploring dangerous areas'"
+  },
+  {
+    "id": 334,
+    "type": "structure_changed",
+    "details": "changed and_join to select for becoming Olympic team; modified duplicate scenario node to 'compete in the Olympics'"
+  },
+  {
+    "id": 335,
+    "type": "structure_changed",
+    "details": "introduced loop for job application process; added node 7 'receive rejection notice'; modified duplicate scenario node to 'start earning a steady income'"
+  },
+  {
+    "id": 340,
+    "type": "structure_changed",
+    "details": "introduced loop for evaluating skill level and repeating search/watch if needed"
+  },
+  {
+    "id": 341,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'make the high school football team' to 'receive the news that you made the team'"
+  },
+  {
+    "id": 342,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'work for us' to 'begin working at the company'"
+  },
+  {
+    "id": 343,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'go to Iceland' to 'arrive in Iceland'"
+  },
+  {
+    "id": 344,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'go to the store to get a loaf of bread' to 'return home with the bread'"
+  },
+  {
+    "id": 345,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'meet some friends' to 'greet your friends at the meeting spot'"
+  },
+  {
+    "id": 347,
+    "type": "structure_changed",
+    "details": "renamed node 5 from 'buy a new toy' to 'Complete the purchase' to avoid duplicate end node."
+  },
+  {
+    "id": 348,
+    "type": "spelling_fix",
+    "details": "corrected 'grab phone of night stand' to 'grab phone from night stand'"
+  },
+  {
+    "id": 350,
+    "type": "structure_changed",
+    "details": "renamed node 6 from 'do some type of volunteer work' to 'perform volunteer work' to avoid duplicate end node."
+  },
+  {
+    "id": 357,
+    "type": "spelling_fix",
+    "details": "corrected 'crochet needles' to 'knitting needles' in node 3"
+  },
+  {
+    "id": 357,
+    "type": "structure_changed",
+    "details": "added loop for blanket progress, modified node 5 and node 7, added nodes 8 and 9"
+  },
+  {
+    "id": 360,
+    "type": "structure_changed",
+    "details": "added loop for ticket searching, modified node 6 text, added node 7, removed redundant edge 0->5"
+  },
+  {
+    "id": 366,
+    "type": "structure_changed",
+    "details": "Added select structure for transportation choice (hire driver or rent car) after arriving in the country, added nodes 8 and 9"
+  },
+  {
+    "id": 367,
+    "type": "structure_changed",
+    "details": "Added loop for login retry, added node 7 for incorrect credentials"
+  },
+  {
+    "id": 369,
+    "type": "structure_changed",
+    "details": "Removed redundant edge 1->2 that bypassed and_join branch order"
+  },
+  {
+    "id": 371,
+    "type": "spelling_fix",
+    "details": "corrected 'water-park' to 'waterpark' in node 4"
+  },
+  {
+    "id": 371,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'visit a waterpark' to 'enter and enjoy the waterpark'"
+  },
+  {
+    "id": 372,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'make some fresh lemonade' to 'enjoy freshly made lemonade'"
+  },
+  {
+    "id": 373,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'get tickets to Wimbledon' to 'successfully secured tickets to Wimbledon'"
+  },
+  {
+    "id": 374,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'drink a soda' to 'finished drinking soda'"
+  },
+  {
+    "id": 375,
+    "type": "structure_changed",
+    "details": "renamed duplicate end node from 'get up early' to 'successfully wake up early'"
+  },
+  {
+    "id": 384,
+    "type": "structure_changed",
+    "details": "Reordered sequence so that screwing back occurs before final node, corrected illogical ordering of nodes 5,7,4; updated edges accordingly."
+  },
+  {
+    "id": 386,
+    "type": "structure_changed",
+    "details": "introduced loop for game decision; removed redundant edge 4->3 and added node 6 'boy does not like the game'"
+  },
+  {
+    "id": 388,
+    "type": "structure_changed",
+    "details": "introduced loop for cat selection; added node 6 'cat does not appeal'"
+  },
+  {
+    "id": 391,
+    "type": "structure_changed",
+    "details": "changed duplicate end node from 'go out in the rain' to 'enjoy the rain' to avoid redundant final step"
+  },
+  {
+    "id": 392,
+    "type": "structure_changed",
+    "details": "changed duplicate end node from 'learn how to fly' to 'achieve basic flying proficiency'"
+  },
+  {
+    "id": 393,
+    "type": "spelling_fix",
+    "details": "corrected 'regiment' to 'regimen' in node 1"
+  },
+  {
+    "id": 393,
+    "type": "structure_changed",
+    "details": "changed duplicate end node from 'run in a marathon' to 'complete the marathon'"
+  },
+  {
+    "id": 394,
+    "type": "structure_changed",
+    "details": "changed duplicate end node from 'pick apples at a farm' to 'fill basket with apples'"
+  },
+  {
+    "id": 395,
+    "type": "structure_changed",
+    "details": "restructured to add select between driving and walking to class, deleted duplicate end node, changed node 4 from 'go back home' to 'complete the lesson for the week', added node 9 'walk to class directly'"
+  },
+  {
+    "id": 398,
+    "type": "structure_changed",
+    "details": "introduced loop for parking spot search, added node 'continue searching for a spot', modified node 7 text to 'successfully parked the car'"
+  },
+  {
+    "id": 401,
+    "type": "structure_changed",
+    "details": "Renamed node 6 from 'let cool after removing' to 'allow to cool completely' to avoid duplicate with scenario and make logical end node 'put on serving plate'."
+  },
+  {
+    "id": 406,
+    "type": "spelling_fix",
+    "details": "fixed 'ion' to 'in' in node 2"
+  },
+  {
+    "id": 407,
+    "type": "spelling_fix",
+    "details": "corrected node 6 from 'Go to the supermarket to purchase the coffee maker' to 'Go to the supermarket'"
+  },
+  {
+    "id": 409,
+    "type": "spelling_fix",
+    "details": "corrected node 3 from 'make the decision to get a new pet' to 'decide to go out'"
+  },
+  {
+    "id": 410,
+    "type": "structure_changed",
+    "details": "introduced loop for snoozing after alarm, added node 7 'press snooze button', updated edges and script_graph"
+  },
+  {
+    "id": 414,
+    "type": "deletion",
+    "details": "removed due to incomplete and illogical selection structure (missing branches for 'no' and 'no answer' outcomes)"
+  },
+  {
+    "id": 415,
+    "type": "spelling_fix",
+    "details": "removed extra space in scenario and node 5; changed node 5 from 'make updates to  resume' to 'resume update completed'"
+  },
+  {
+    "id": 415,
+    "type": "structure_changed",
+    "details": "reordered edges and script_graph to logical sequence; removed misplaced end node and added correct flow (0->1->4->2->3->5)"
+  },
+  {
+    "id": 419,
+    "type": "deletion",
+    "details": "Removed due to logical inconsistency: nodes do not support the scenario 'get undressed fully'; contains unrelated nodes and contradictory sequence."
+  },
+  {
+    "id": 423,
+    "type": "structure_changed",
+    "details": "Restructured to include loop for selecting and opening multiple files; removed node 0 (Repeat steps 4 and 5 for other files) and modified node 7 from 'pull up files' to 'all files opened'; added node 8 'check for more files' as loop entry."
+  },
+  {
+    "id": 425,
+    "type": "structure_changed",
+    "details": "Added loop for payment retry: if payment fails, go back to fill billing information; added edges 5->0 and kept existing 0->5 and 5->7 to form loop with entry node 0, retry [5, continue], exit node 7."
+  },
+  {
+    "id": 426,
+    "type": "spelling_fix",
+    "details": "fixed 'RECIEPE' to 'RECIPE' in node 6; corrected scenario from 'BUY ITEMS NEED FOR THE RECIPE' to 'Buy items needed for the recipe'"
+  },
+  {
+    "id": 428,
+    "type": "structure_changed",
+    "details": "changed from and_join to select for two alternative paths to get into car"
+  },
+  {
+    "id": 430,
+    "type": "structure_changed",
+    "details": "added select for payment methods (credit card vs PayPal) and removed node 0, added nodes 7 and 8"
+  },
+  {
+    "id": 431,
+    "type": "structure_changed",
+    "details": "modified end node from 'make a to-do list' to 'finalize the to-do list' for logical closure"
+  },
+  {
+    "id": 432,
+    "type": "structure_changed",
+    "details": "restructured graph to include proper and_join and added new end node 'enjoy lunch with friends'"
+  },
+  {
+    "id": 433,
+    "type": "structure_changed",
+    "details": "modified end node from 'plot a story' to 'complete the story plot'"
+  },
+  {
+    "id": 434,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node from 'fill out the marriage form' to 'fill out the form details'"
+  },
+  {
+    "id": 435,
+    "type": "structure_changed",
+    "details": "introduced loop for payment retry and modified end node to 'complete purchase'"
+  },
+  {
+    "id": 441,
+    "type": "structure_changed",
+    "details": "fixed spelling in node 0 (double space removed) and removed duplicate end node 6 (scenario duplicate)"
+  },
+  {
+    "id": 442,
+    "type": "structure_changed",
+    "details": "replaced node 5 (determine training routine) with a select structure for speed/endurance training, added nodes 7 and 8, modified node 6 from 'run every day' to 'go for a run'"
+  },
+  {
+    "id": 443,
+    "type": "structure_changed",
+    "details": "introduced loop for checking shopping list after begin shopping, added nodes 7 and 8, modified node 6 to 'complete the shopping list'"
+  },
+  {
+    "id": 444,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 7 from 'go inside the park' to 'enter the park'"
+  },
+  {
+    "id": 445,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 6 from 'place wood in the hole' to 'place the wood into the hole'"
+  },
+  {
+    "id": 446,
+    "type": "spelling_fix",
+    "details": "corrected 'Enter in personal information into registration' to 'Enter personal information into registration'"
+  },
+  {
+    "id": 447,
+    "type": "spelling_fix",
+    "details": "corrected 'load the page open' to 'load the page', 'find passwords to start' to 'find the password', 'type in the passwords' to 'type in the password', 'sign into the netflix' to 'sign into Netflix'"
+  },
+  {
+    "id": 447,
+    "type": "structure_changed",
+    "details": "introduced loop for password retry, removed duplicate scenario node 'Log into Netflix' (node 6), added node 7 'login failed'"
+  },
+  {
+    "id": 450,
+    "type": "structure_changed",
+    "details": "removed unrelated node 'enter credit card information' (node 5) and duplicate scenario node 'plug in speakers' (node 6), restructured as simple sequence"
+  },
+  {
+    "id": 451,
+    "type": "structure_changed",
+    "details": "Changed node 6 from 'Walk to car' to 'arrive at car' to fix duplicate scenario end node."
+  },
+  {
+    "id": 452,
+    "type": "structure_changed",
+    "details": "Changed node 6 from 'open the back of the car' to 'open the back door' and deleted node 5 'lock the front door' as extraneous."
+  },
+  {
+    "id": 453,
+    "type": "structure_changed",
+    "details": "Deleted node 7 (duplicate scenario node) and removed edge 5->7."
+  },
+  {
+    "id": 454,
+    "type": "structure_changed",
+    "details": "Modified node 6 to 'car is parked', added nodes 7 and 8 for a loop structure for parking adjustments, updated edges and script_graph."
+  },
+  {
+    "id": 455,
+    "type": "structure_changed",
+    "details": "Changed node 6 from 'Confirm date of concert' to 'date confirmed' to fix duplicate scenario end node."
+  },
+  {
+    "id": 456,
+    "type": "structure_changed",
+    "details": "modified duplicate end node (node 6) from 'Take out necessary ingredients from the cupboard' to 'place ingredients on the counter'"
+  },
+  {
+    "id": 457,
+    "type": "structure_changed",
+    "details": "modified duplicate end node (node 8) from 'take the first lesson' to 'attend the first lesson'"
+  },
+  {
+    "id": 458,
+    "type": "structure_changed",
+    "details": "modified duplicate end node (node 6) from 'accept the job' to 'begin the new job'"
+  },
+  {
+    "id": 459,
+    "type": "structure_changed",
+    "details": "modified duplicate end node (node 7) from 'Pay to enter show' to 'enter the gun show'"
+  },
+  {
+    "id": 460,
+    "type": "structure_changed",
+    "details": "modified duplicate end node (node 6) from 'Type in apartment complex website' to 'arrive at apartment complex website'"
+  },
+  {
+    "id": 461,
+    "type": "structure_changed",
+    "details": "modified node 8 from 'bring guitar back home' to 'arrive home with the guitar' to fix duplicate end node"
+  },
+  {
+    "id": 464,
+    "type": "structure_changed",
+    "details": "added select structure for document submission methods (fax vs online upload) including new node 8"
+  },
+  {
+    "id": 465,
+    "type": "structure_changed",
+    "details": "added select structure for utensil choice (spoon or whisk) including new nodes 7 and 8"
+  },
+  {
+    "id": 466,
+    "type": "structure_changed",
+    "details": "Removed extra edge '5->6' to make edges consistent with the sequence script_graph; the sequence logically requires node 2 (check kitchen) between 5 and 6."
+  },
+  {
+    "id": 469,
+    "type": "spelling_fix",
+    "details": "Corrected 'balooning' to 'ballooning' in scenario and node 6."
+  },
+  {
+    "id": 476,
+    "type": "structure_changed",
+    "details": "Restructured walking steps into a loop; removed node 1 'repeat the right foot left foot forward to reach cashier', added node 7 'reach the cashier', created loop with entry node 0, retry [3,continue], exit node 7."
+  },
+  {
+    "id": 480,
+    "type": "structure_changed",
+    "details": "Fixed spelling of 'regiment' to 'regimen' in node 5; restructured training into a loop by removing nodes 3 and 6, adding node 7 'marathon day arrives', and creating loop with entry node 1, retry [2,4,0,continue], exit node 7."
+  },
+  {
+    "id": 485,
+    "type": "structure_changed",
+    "details": "added new nodes for phone call option, introduced select structure, removed redundant edge 4->3"
+  },
+  {
+    "id": 486,
+    "type": "structure_changed",
+    "details": "Fixed erroneous node 6 (receive acceptance letter) to 'decide to take the bus', changed duplicate scenario node 7 to 'board the bus', introduced and_join for waiting and sitting."
+  },
+  {
+    "id": 487,
+    "type": "structure_changed",
+    "details": "Removed duplicate scenario node, added loop for parking search with new node 'drive around the parking lot'."
+  },
+  {
+    "id": 488,
+    "type": "structure_changed",
+    "details": "Removed duplicate scenario node and intermediate node, added select structure for payment methods (credit card vs cash)."
+  },
+  {
+    "id": 489,
+    "type": "structure_changed",
+    "details": "Changed duplicate scenario node to 'arrive at beach'."
+  },
+  {
+    "id": 490,
+    "type": "structure_changed",
+    "details": "Removed duplicate scenario node, added loop for browsing multiple brands with new nodes 'pick up another brand' and 'finish browsing'."
+  },
+  {
+    "id": 491,
+    "type": "structure_changed",
+    "details": "modified node 8 from 'Buy the uncooked chicken' to 'pay for the chicken' to remove duplicate scenario node and improve logic"
+  },
+  {
+    "id": 495,
+    "type": "structure_changed",
+    "details": "removed edge 2->4 to match script_graph sequence"
+  },
+  {
+    "id": 496,
+    "type": "structure_changed",
+    "details": "Removed duplicate end node (node 6 identical to scenario) and edge 3->6; now ends at node 3 as logical completion."
+  },
+  {
+    "id": 497,
+    "type": "structure_changed",
+    "details": "Introduced loop for repeated tryouts; added node 6 'train for next tryout' and updated edges and script_graph to include loop with entry node 1, retry ['6','continue'], exit node 5."
+  },
+  {
+    "id": 500,
+    "type": "structure_changed",
+    "details": "Introduced select structure for two shopping methods (physical store vs online order); added nodes 7,8,9 and updated edges and script_graph accordingly."
+  },
+  {
+    "id": 504,
+    "type": "structure_changed",
+    "details": "introduced loop for repeated checking of rain; added nodes 6 (rain has stopped), 7 (see rain still falling), 8 (wait for a while); modified node 5 description from 'Watch out window for rain to stop' to 'look out window'; updated edges and script_graph accordingly"
+  },
+  {
+    "id": 506,
+    "type": "structure_changed",
+    "details": "Introduced loop for draft revision, removed decision node 'decide if draft is OK', added new node 'draft is satisfactory', and modified end node from 'edit the draft' to 'finalize the draft'."
+  },
+  {
+    "id": 509,
+    "type": "structure_changed",
+    "details": "Introduced loop for alarm time correction, added new node 'notice a mistake in the alarm time'."
+  },
+  {
+    "id": 514,
+    "type": "structure_changed",
+    "details": "introduced loop for quality check and added node 7, removed branching edges and added loop edges"
+  },
+  {
+    "id": 516,
+    "type": "structure_changed",
+    "details": "renamed node 5 from duplicate scenario to 'submit the application' for logical consistency"
+  },
+  {
+    "id": 517,
+    "type": "structure_changed",
+    "details": "renamed node 5 from duplicate scenario to 'ad is successfully placed' for logical consistency"
+  },
+  {
+    "id": 518,
+    "type": "structure_changed",
+    "details": "renamed node 6 from duplicate scenario to 'building renovation complete' for logical consistency"
+  },
+  {
+    "id": 519,
+    "type": "spelling_fix",
+    "details": "corrected 'parking liot' to 'parking lot' in node 2"
+  },
+  {
+    "id": 519,
+    "type": "structure_changed",
+    "details": "introduced loop for finding an open spot; added node 7 'spot is taken'; renamed node 6 from duplicate scenario to 'car is parked'"
+  },
+  {
+    "id": 520,
+    "type": "structure_changed",
+    "details": "renamed node 6 from duplicate scenario to 'put on the selected outfit' for logical consistency"
+  },
+  {
+    "id": 521,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'park the car' to 'car is parked'"
+  },
+  {
+    "id": 522,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'meet with instructor' to 'meeting with instructor completed'"
+  },
+  {
+    "id": 523,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'apply online for the competitions' to 'application submitted'"
+  },
+  {
+    "id": 524,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'add party decorations to cart' to 'decorations added to cart'"
+  },
+  {
+    "id": 525,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'begin driving to the restaurant' to 'driving to restaurant'"
+  },
+  {
+    "id": 527,
+    "type": "structure_changed",
+    "details": "introduced loop for appearance check; added node 'appearance is satisfactory' and reorganized edges"
+  },
+  {
+    "id": 530,
+    "type": "structure_changed",
+    "details": "reordered sequence to put pass kindergarten before entering grade school; corrected edges accordingly"
+  },
+  {
+    "id": 531,
+    "type": "structure_changed",
+    "details": "removed duplicate end node (6) as it is identical to scenario"
+  },
+  {
+    "id": 542,
+    "type": "structure_changed",
+    "details": "added select structure for online vs in-store SIM card purchase"
+  },
+  {
+    "id": 543,
+    "type": "structure_changed",
+    "details": "added finalize cost plan node and changed node 7 description to fix incomplete graph"
+  },
+  {
+    "id": 544,
+    "type": "spelling_fix",
+    "details": "corrected 'asiles' to 'aisles' in node 2"
+  },
+  {
+    "id": 544,
+    "type": "structure_changed",
+    "details": "added select for cash or card payment at checkout"
+  },
+  {
+    "id": 546,
+    "type": "spelling_fix",
+    "details": "corrected 'fat balls' to 'juggling balls' in node 1"
+  },
+  {
+    "id": 547,
+    "type": "spelling_fix",
+    "details": "corrected 'dooor' to 'door' in node 3"
+  },
+  {
+    "id": 548,
+    "type": "structure_changed",
+    "details": "restructured to loop for walking: removed node 3, added edges 0->5 and 2->0, replaced and_join with loop in script_graph"
+  },
+  {
+    "id": 552,
+    "type": "spelling_fix",
+    "details": "corrected 'tockets' to 'tickets' in node 4"
+  },
+  {
+    "id": 552,
+    "type": "deletion",
+    "details": "removed duplicate end node 6 (same as scenario)"
+  },
+  {
+    "id": 554,
+    "type": "deletion",
+    "details": "implicit loop detected (node 4 'Repeat steps 1 and 2'), removed due to misannotation"
+  },
+  {
+    "id": 555,
+    "type": "structure_changed",
+    "details": "restructured to include loop for rinsing and checking grounds; removed edges 2->3 and 3->5, added edge 1->3"
+  },
+  {
+    "id": 556,
+    "type": "structure_changed",
+    "details": "introduced loop for parking search; added node 8 'drive around the block' and edges 1->8, 8->1; restructured script_graph to include loop with entry 1, retry [8, continue], exit 4"
+  },
+  {
+    "id": 561,
+    "type": "structure_changed",
+    "details": "Moved node 6 outside and_join as merge point; added edge 5->6."
+  },
+  {
+    "id": 563,
+    "type": "structure_changed",
+    "details": "Deleted nodes 4 and 5; added nodes 7 and 8 for select structure between warm and cool clothing; restructured edges and script_graph."
+  },
+  {
+    "id": 569,
+    "type": "structure_changed",
+    "details": "removed node 'print the recipe' and associated edge (6->1) to make scenario node 'choose a salad recipe' the final endpoint, fixing the duplicate scenario node issue"
+  },
+  {
+    "id": 573,
+    "type": "spelling_fix",
+    "details": "corrected 'waver' to 'waiver' in nodes 1 and 2"
+  },
+  {
+    "id": 575,
+    "type": "structure_changed",
+    "details": "added loop for payment retry when payment is declined; added node 'payment declined'"
+  },
+  {
+    "id": 576,
+    "type": "deletion",
+    "details": "removed due to inconsistent edges and illogical structure (extra branching not captured in script_graph, scenario node used incorrectly)"
+  },
+  {
+    "id": 581,
+    "type": "structure_changed",
+    "details": "modified node 8 from 'get hired for the job' to 'receive job offer' to resolve duplicate end node issue"
+  },
+  {
+    "id": 582,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'Get up from the couch' to 'walk to the kitchen' to resolve duplicate end node issue"
+  },
+  {
+    "id": 583,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'pay for ticket' to 'hand over money to cashier' to resolve duplicate end node issue"
+  },
+  {
+    "id": 584,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'set up a website' to 'launch the website' to resolve duplicate end node issue"
+  },
+  {
+    "id": 585,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'get dressed for the concert' to 'put on concert attire' to resolve duplicate end node issue"
+  },
+  {
+    "id": 588,
+    "type": "structure_changed",
+    "details": "added loop for driving around to find a spot; added node 7 'Keep driving around' for retry"
+  },
+  {
+    "id": 590,
+    "type": "structure_changed",
+    "details": "removed invalid edge 5->4 which bypassed branch sequence in and_join"
+  },
+  {
+    "id": 591,
+    "type": "structure_changed",
+    "details": "Added select structure for candy choice (chocolate bar or gummy bears) and modified end node from 'purchase some candy' to 'pay for the candy'."
+  },
+  {
+    "id": 593,
+    "type": "structure_changed",
+    "details": "Added loop for checking hole depth and re-digging if necessary."
+  },
+  {
+    "id": 595,
+    "type": "structure_changed",
+    "details": "Added loop for busy line redial and modified end node to 'speak to the doctor'."
+  },
+  {
+    "id": 596,
+    "type": "structure_changed",
+    "details": "removed duplicate end node 'Go through school' and adjusted edges and script_graph"
+  },
+  {
+    "id": 597,
+    "type": "structure_changed",
+    "details": "removed duplicate end node 'Make plans for all to meet together' and adjusted edges and script_graph"
+  },
+  {
+    "id": 598,
+    "type": "structure_changed",
+    "details": "removed duplicate end node 'put together the ingredients' and adjusted edges and script_graph"
+  },
+  {
+    "id": 608,
+    "type": "structure_changed",
+    "details": "removed extra edge 0->6 that bypassed node 5 to match sequence"
+  },
+  {
+    "id": 610,
+    "type": "structure_changed",
+    "details": "deleted duplicate scenario node 'Gather some sand' (node 5) and adjusted edges and script_graph accordingly"
+  },
+  {
+    "id": 611,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'start the car' to 'engine starts' to avoid duplicate scenario end node."
+  },
+  {
+    "id": 612,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'save money from work' to 'money saved' to avoid duplicate scenario end node."
+  },
+  {
+    "id": 613,
+    "type": "structure_changed",
+    "details": "modified node 5 from 'invite people to the party' to 'invitations sent' to avoid duplicate scenario end node."
+  },
+  {
+    "id": 614,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'Choose highest paying HITS' to 'select highest paying HIT' to avoid duplicate scenario end node."
+  },
+  {
+    "id": 615,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'take asparagus out of the refrigerator' to 'asparagus retrieved' to avoid duplicate scenario end node."
+  },
+  {
+    "id": 616,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'Get a box' to 'leave the store with the box' for logical closure"
+  },
+  {
+    "id": 617,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'order completed' and introduced loop for payment retry (added nodes 9,10)"
+  },
+  {
+    "id": 618,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'socialize with people' to 'start socializing with people' for logical distinction"
+  },
+  {
+    "id": 619,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'Travel to the country by plane' to 'arrive in the country' for logical closure"
+  },
+  {
+    "id": 620,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'obtain the chosen book' and introduced loop for decision process (added node 7)"
+  },
+  {
+    "id": 621,
+    "type": "structure_changed",
+    "details": "renamed duplicate scenario node 6 from 'walk to school supplies' to 'reach the school supplies section' to avoid confusion"
+  },
+  {
+    "id": 622,
+    "type": "structure_changed",
+    "details": "introduced loop for finding parking spot: added node 7 'spot not found' and loop around node 0"
+  },
+  {
+    "id": 623,
+    "type": "spelling_fix",
+    "details": "corrected 'plan' to 'plane' in nodes 1 and 3"
+  },
+  {
+    "id": 623,
+    "type": "structure_changed",
+    "details": "deleted irrelevant node 6 'order school supplies' and updated and_join branches"
+  },
+  {
+    "id": 625,
+    "type": "structure_changed",
+    "details": "deleted duplicate scenario node 6 and rearranged sequence to start with node 5"
+  },
+  {
+    "id": 630,
+    "type": "structure_changed",
+    "details": "Fixed spelling 'week' to 'weak' in scenario and node 6; changed node 6 from 'rewrite weak spots' to 'complete the rewrite' to serve as a logical closing node; reordered edges and script_graph so that node 6 becomes the final step after printing."
+  },
+  {
+    "id": 631,
+    "type": "structure_changed",
+    "details": "Removed duplicate scenario node (8) and reconnected training to play season."
+  },
+  {
+    "id": 632,
+    "type": "structure_changed",
+    "details": "Restructured waiting for rain into loop with cleaning retry, removed duplicate end node and decide node, fixed spelling of node 5."
+  },
+  {
+    "id": 646,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'sign up for course' to 'complete enrollment'"
+  },
+  {
+    "id": 647,
+    "type": "structure_changed",
+    "details": "added select structure for e-file vs paper file and modified duplicate end node to 'submit the tax return'"
+  },
+  {
+    "id": 648,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'get in the car' to 'enter the car'"
+  },
+  {
+    "id": 649,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'get out of the car' to 'close the car door' to fix redundancy"
+  },
+  {
+    "id": 650,
+    "type": "structure_changed",
+    "details": "introduced loop for checking soup temperature and reheating, modified duplicate end node from 'microwave the soup' to 'remove the soup'"
+  },
+  {
+    "id": 653,
+    "type": "structure_changed",
+    "details": "removed duplicate end node (scenario) and adjusted edges to create logical linear flow"
+  },
+  {
+    "id": 654,
+    "type": "structure_changed",
+    "details": "introduced loop to represent repetitive walking gait cycle, modified node 4 and node 7 meanings, adjusted edges"
+  },
+  {
+    "id": 655,
+    "type": "structure_changed",
+    "details": "removed redundant edge 4->1 that caused a bypass, ensuring linear sequence"
+  },
+  {
+    "id": 656,
+    "type": "structure_changed",
+    "details": "Deleted duplicate end node 6 (identical to scenario) and adjusted script_graph."
+  },
+  {
+    "id": 657,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 6 to 'Select a horse'."
+  },
+  {
+    "id": 658,
+    "type": "structure_changed",
+    "details": "Deleted duplicate end node 8 (identical to scenario) and adjusted script_graph."
+  },
+  {
+    "id": 659,
+    "type": "structure_changed",
+    "details": "Fixed edge inconsistency in and_join (changed 1->2 to 1->3) and modified duplicate end node 6 to 'Present the hot dog'."
+  },
+  {
+    "id": 660,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 6 to 'Board the boat'."
+  },
+  {
+    "id": 664,
+    "type": "spelling_fix",
+    "details": "corrected 'th' to 'the' in scenario and node 7"
+  },
+  {
+    "id": 667,
+    "type": "spelling_fix",
+    "details": "corrected 'turn of the car' to 'turn off the car' in node 1"
+  },
+  {
+    "id": 670,
+    "type": "structure_changed",
+    "details": "restructured to add loop for checking readability; removed node 3 ('determine if instructions can be read'), added nodes 7 ('attempt to read instructions') and 8 ('adjust reading position')"
+  },
+  {
+    "id": 675,
+    "type": "structure_changed",
+    "details": "Removed node0 (Do not drop plant) as it was not a proper action and simplified parallel structure to sequential."
+  },
+  {
+    "id": 678,
+    "type": "structure_changed",
+    "details": "Introduced a loop for payment retry: added node 'payment declined', edges 0->7 and 7->0, and restructured script_graph to have loop entry '0', retry ['7','continue'], exit '6'."
+  },
+  {
+    "id": 681,
+    "type": "structure_changed",
+    "details": "Added loop for trying on clothes after picking out clothes; removed duplicate scenario node 'get dressed for the day' and added nodes 'Try on clothes', 'Clothes fit', 'Put on clothes'."
+  },
+  {
+    "id": 686,
+    "type": "structure_changed",
+    "details": "Corrected spelling of node 5 from 'chose' to 'choose'; introduced loop for ingredient checking; modified node 3 to 'check if all ingredients are present' and node 6 to 'begin cooking'; added edges 2->3 and 3->6; removed edge 2->6"
+  },
+  {
+    "id": 687,
+    "type": "structure_changed",
+    "details": "Deleted duplicate scenario node (6); renamed node 3 from 'stop when in front of the carts' to 'get a shopping cart'; removed edge 3->6"
+  },
+  {
+    "id": 688,
+    "type": "structure_changed",
+    "details": "Renamed duplicate scenario node 6 from 'set up an outfit' to 'assemble the outfit'"
+  },
+  {
+    "id": 689,
+    "type": "structure_changed",
+    "details": "Deleted irrelevant node 5 ('Take the seeds home'); renamed duplicate scenario node 6 from 'till an area of the yard' to 'finish tilling the area'; removed edge 5->4"
+  },
+  {
+    "id": 690,
+    "type": "structure_changed",
+    "details": "Renamed duplicate scenario node 7 from 'Purchase zoo ticket' to 'pay for the ticket at the counter'"
+  },
+  {
+    "id": 691,
+    "type": "spelling_fix",
+    "details": "corrected 'search and individual studio' to 'search an individual studio' in node 0"
+  },
+  {
+    "id": 693,
+    "type": "structure_changed",
+    "details": "introduced loop for selecting a puppy: added node 7 'ask breeder to show other puppies' and restructured graph with loop entry 0, exit 1, retry [7, continue]"
+  },
+  {
+    "id": 696,
+    "type": "structure_changed",
+    "details": "Changed node 6 from 'Travel to school dance' to 'arrive at school dance' to avoid duplicate scenario node."
+  },
+  {
+    "id": 697,
+    "type": "structure_changed",
+    "details": "Changed node 6 from 'Pick something that is different, such as a new restaurant' to 'finalize choice of new restaurant' to avoid duplicate scenario node."
+  },
+  {
+    "id": 698,
+    "type": "structure_changed",
+    "details": "Introduced loop for redialing if call not answered; added nodes 7,8,9; modified node 6 description to 'speak with store owner' to avoid duplicate scenario node."
+  },
+  {
+    "id": 699,
+    "type": "structure_changed",
+    "details": "Changed node 6 from 'enter the arena' to 'enter arena and find seat' to avoid duplicate scenario node."
+  },
+  {
+    "id": 700,
+    "type": "structure_changed",
+    "details": "Changed node 6 from 'Pay for bus ticket' to 'pay bus fare and take seat' to avoid duplicate scenario node."
+  },
+  {
+    "id": 701,
+    "type": "structure_changed",
+    "details": "Deleted duplicate scenario node 'enter the field' (node 6) and adjusted edges and script_graph accordingly."
+  },
+  {
+    "id": 703,
+    "type": "structure_changed",
+    "details": "Deleted duplicate scenario node 'sit down in computer chair' (node 5) and adjusted edges and script_graph accordingly."
+  },
+  {
+    "id": 709,
+    "type": "structure_changed",
+    "details": "Introduced loop for checking parts availability in store; added nodes 8 and 9 for parts found/not found; restructured edges to include loop entry, retry, and exit."
+  },
+  {
+    "id": 710,
+    "type": "deletion",
+    "details": "Removed due to misannotation: edges imply a loop structure (node 2 'Repeat until all the attendees have arrived') not captured in original script_graph."
+  },
+  {
+    "id": 711,
+    "type": "spelling_fix",
+    "details": "Corrected 'silverwave' to 'silverware' in node 3 and 'sliverwave' to 'silverware' in node 6"
+  },
+  {
+    "id": 714,
+    "type": "structure_changed",
+    "details": "Removed incorrect edges (0->1, 0->3, 3->6, 3->1) to align with the sequential logic of the script_graph"
+  },
+  {
+    "id": 715,
+    "type": "structure_changed",
+    "details": "Restructured to correctly represent the walking loop: added nodes 'Look for train stop' (8) and 'Arrive at train stop' (9), removed node 5 'Continue...', and created loop structure with and_join body"
+  },
+  {
+    "id": 718,
+    "type": "deletion",
+    "details": "removed due to implicit loop in node 'practice until day of race' that cannot be naturally restructured with required loop structure"
+  },
+  {
+    "id": 719,
+    "type": "structure_changed",
+    "details": "introduced select structure for choosing between painting and sculpting artwork"
+  },
+  {
+    "id": 720,
+    "type": "structure_changed",
+    "details": "introduced loop for retrying ignition if grill fails to light"
+  },
+  {
+    "id": 723,
+    "type": "structure_changed",
+    "details": "added select structure for choosing between elevator and stairs"
+  },
+  {
+    "id": 726,
+    "type": "structure_changed",
+    "details": "modified node 6 from duplicate of scenario to 'go to the chosen store' as logical closing node"
+  },
+  {
+    "id": 727,
+    "type": "structure_changed",
+    "details": "modified node 5 to 'identify languages taught in courses' and node 6 to 'courses sorted by language' for coherence and to remove duplicate scenario node"
+  },
+  {
+    "id": 728,
+    "type": "structure_changed",
+    "details": "modified node 8 from duplicate of scenario to 'start workout routine' as logical closing node"
+  },
+  {
+    "id": 729,
+    "type": "structure_changed",
+    "details": "introduced loop for revision after first draft: added node 7 'review the draft', modified node 6 to 'finalize first draft', restructured edges and script_graph"
+  },
+  {
+    "id": 730,
+    "type": "structure_changed",
+    "details": "modified node 7 from duplicate of scenario to 'be seated in car' as logical closing node"
+  },
+  {
+    "id": 733,
+    "type": "deletion",
+    "details": "Removed due to implicit loop indicated by node 5 'Repeat steps 1 and 2' which could not be naturally restructured without rigid decision nodes."
+  },
+  {
+    "id": 735,
+    "type": "structure_changed",
+    "details": "Added select structure for choosing between religious and civil officiant, added nodes 8,9,10, modified node 4 description."
+  },
+  {
+    "id": 738,
+    "type": "structure_changed",
+    "details": "Modified duplicate end node 'begin by calling first person on list' to 'talk to the first person' to create a logically coherent closing node."
+  },
+  {
+    "id": 741,
+    "type": "structure_changed",
+    "details": "restructured and_join to place final node after the join, corrected logical flow"
+  },
+  {
+    "id": 742,
+    "type": "structure_changed",
+    "details": "removed unrelated node5 and duplicate scenario node6, simplified to linear sequence"
+  },
+  {
+    "id": 743,
+    "type": "structure_changed",
+    "details": "corrected order in and_join branch b1 (now [4,2]), removed redundant edges that bypassed control flow"
+  },
+  {
+    "id": 744,
+    "type": "structure_changed",
+    "details": "added loop for iterative parking spot search, removed unrelated node5 (Go to theater)"
+  },
+  {
+    "id": 746,
+    "type": "spelling_fix",
+    "details": "corrected 'RECIEPE' to 'Recipe' in node 6"
+  },
+  {
+    "id": 746,
+    "type": "structure_changed",
+    "details": "deleted duplicate end node 'Make a list of ingredients' and removed edge 0->7, updated script_graph"
+  },
+  {
+    "id": 747,
+    "type": "structure_changed",
+    "details": "deleted duplicate end node 'pull up protective pants and button' and removed edge 0->6, updated script_graph"
+  },
+  {
+    "id": 748,
+    "type": "structure_changed",
+    "details": "replaced and_join with select for mutually exclusive branches (light vs dark) and deleted duplicate end node"
+  },
+  {
+    "id": 749,
+    "type": "structure_changed",
+    "details": "deleted duplicate end node 'gather needed documents' and removed edge 2->7, updated script_graph"
+  },
+  {
+    "id": 750,
+    "type": "structure_changed",
+    "details": "deleted duplicate end node 'put on special shoes for game' and removed edges 1->6, 4->6, updated script_graph"
+  },
+  {
+    "id": 753,
+    "type": "spelling_fix",
+    "details": "corrected 'waver' to 'waiver' in scenario, node 5, and node 6"
+  },
+  {
+    "id": 755,
+    "type": "structure_changed",
+    "details": "restructured into loop for painting with multiple colors; added edges 1->6 and 0->1, removed 0->6"
+  },
+  {
+    "id": 759,
+    "type": "structure_changed",
+    "details": "added select for practice decision and loop for race retry; added node 7 'lose a race'"
+  },
+  {
+    "id": 771,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'put on the seatbelt' to 'seatbelt is securely fastened' to remove duplicate scenario end node."
+  },
+  {
+    "id": 772,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'pull up the windows' to 'windows are fully closed' to remove duplicate scenario end node."
+  },
+  {
+    "id": 773,
+    "type": "structure_changed",
+    "details": "modified node 6 to 'skim overall results' and added node 7 as final 'finish glancing through results' to fix duplicate scenario node."
+  },
+  {
+    "id": 774,
+    "type": "structure_changed",
+    "details": "restructured to introduce loop for mixing process: added node 7 'check if mixture is ready', removed duplicate scenario node 6, modified node 2 meaning."
+  },
+  {
+    "id": 775,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'make a preliminary design' to 'preliminary design is ready' to remove duplicate scenario end node."
+  },
+  {
+    "id": 776,
+    "type": "structure_changed",
+    "details": "Modified duplicate scenario node (6) from 'fill out ad form online' to 'submit the ad form' as a logical ending."
+  },
+  {
+    "id": 777,
+    "type": "structure_changed",
+    "details": "Restructured to include a loop for adjusting position: added node 7 'feel comfortable', removed decision node 0, set entry 'gauge seat comfort' (2) and exit 'feel comfortable' (7) with retry 'orient body in differing positions' (1)."
+  },
+  {
+    "id": 780,
+    "type": "structure_changed",
+    "details": "Removed redundant node 0 'leave graduation and school forever' and adjusted edges; set node 6 as final end."
+  },
+  {
+    "id": 781,
+    "type": "structure_changed",
+    "details": "Removed redundant edge 2->4 and modified node 6 from 'get dressed, choose shoes' to 'choose appropriate shoes' to resolve duplicate end node and improve logic."
+  },
+  {
+    "id": 782,
+    "type": "deletion",
+    "details": "Deleted duplicate end node 7 ('print the recipe') and removed edge 5->7 to avoid redundancy."
+  },
+  {
+    "id": 786,
+    "type": "structure_changed",
+    "details": "corrected edge order to make make needed changes before reading, and updated script_graph"
+  },
+  {
+    "id": 789,
+    "type": "spelling_fix",
+    "details": "corrected 'refridgerator' to 'refrigerator' in node 1"
+  },
+  {
+    "id": 790,
+    "type": "structure_changed",
+    "details": "added select structure for two ways to grip card: direct or via prompts"
+  },
+  {
+    "id": 795,
+    "type": "structure_changed",
+    "details": "removed redundant edges 0->3 and 4->5 to align script_graph with edges"
+  },
+  {
+    "id": 798,
+    "type": "structure_changed",
+    "details": "Removed extra edges (5->0, 1->2, 1->3, 1->4) that created alternative paths inconsistent with the script_graph. Kept edges that match the sequence and and_join structure."
+  },
+  {
+    "id": 804,
+    "type": "structure_changed",
+    "details": "Removed unrelated node 'determine how to gain muscle' and its edge to fix logic."
+  },
+  {
+    "id": 805,
+    "type": "spelling_fix",
+    "details": "Corrected 'ope' to 'open' in node 4 and standardized capitalization of node 5."
+  },
+  {
+    "id": 807,
+    "type": "structure_changed",
+    "details": "introduced loop for alternating feet; modified duplicate end node to 'arrive at destination'"
+  },
+  {
+    "id": 808,
+    "type": "structure_changed",
+    "details": "deleted duplicate end node (6) and adjusted edges and script_graph"
+  },
+  {
+    "id": 810,
+    "type": "structure_changed",
+    "details": "introduced loop for applying to multiple jobs; modified node 6 to 'submit application for one job' and added node 7 as exit"
+  },
+  {
+    "id": 811,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario end node to 'finalize the discussion', added loop structure for feedback evaluation with new nodes 'feedback insufficient' and 'conduct additional interviews'"
+  },
+  {
+    "id": 812,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario end node from 'Book lessons with the instructor' to 'confirm booking with instructor'"
+  },
+  {
+    "id": 813,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario end node from 'walk to locker room' to 'arrive at locker room'"
+  },
+  {
+    "id": 814,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario end node from 'Set the alarm' to 'alarm is set'"
+  },
+  {
+    "id": 815,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario end node from 'walk to the bathroom' to 'enter the bathroom'"
+  },
+  {
+    "id": 819,
+    "type": "structure_changed",
+    "details": "removed inconsistent edges (0->4, 2->6) and modified node 6 from 'walk towards the zoo' to 'arrive at zoo' to make the sequence logical"
+  },
+  {
+    "id": 822,
+    "type": "spelling_fix",
+    "details": "corrected 'put the cart on park' to 'put the car in park' in node 3"
+  },
+  {
+    "id": 831,
+    "type": "structure_changed",
+    "details": "removed irrelevant node 'pack a backpack with toiletries', modified duplicate end node to 'ride order confirmed', restructured script_graph from and_join to sequence."
+  },
+  {
+    "id": 833,
+    "type": "structure_changed",
+    "details": "removed erroneous edges 3->5 and 4->0 to match the and_join structure; modified duplicate end node to 'final recipe selected'."
+  },
+  {
+    "id": 834,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'arrive at ticket counter'."
+  },
+  {
+    "id": 835,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'computer turned off'."
+  },
+  {
+    "id": 837,
+    "type": "spelling_fix",
+    "details": "corrected 'turn way' to 'turn away' in node 3"
+  },
+  {
+    "id": 846,
+    "type": "spelling_fix",
+    "details": "corrected 'regiment' to 'regimen' in node 7"
+  },
+  {
+    "id": 847,
+    "type": "structure_changed",
+    "details": "deleted duplicate end node 6 and renamed node 1 from 'finish writing idea' to 'write down activity one' to fix duplicate end node issue"
+  },
+  {
+    "id": 848,
+    "type": "structure_changed",
+    "details": "deleted nodes 0 and 3 (put down phone, switch off phone) and removed edges to make node 6 the final node, as the scenario 'receive yes, hang up' should be the end"
+  },
+  {
+    "id": 849,
+    "type": "spelling_fix",
+    "details": "corrected 'plan ticket' to 'plane ticket' in node 5"
+  },
+  {
+    "id": 851,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'Editor edits the draft' to 'finalize the draft'"
+  },
+  {
+    "id": 852,
+    "type": "structure_changed",
+    "details": "corrected misannotation of and_join to select; adjusted edges and script_graph"
+  },
+  {
+    "id": 853,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'practice with friends' to 'complete practice with friends'"
+  },
+  {
+    "id": 854,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'write the last activity' to 'complete the last activity'"
+  },
+  {
+    "id": 855,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 'practice running techniques' to 'complete running practice'"
+  },
+  {
+    "id": 856,
+    "type": "structure_changed",
+    "details": "Removed node 'Sign up for race' (id 5) because it incorrectly followed the duplicate end node; adjusted edges and script accordingly."
+  },
+  {
+    "id": 858,
+    "type": "structure_changed",
+    "details": "Introduced loop for mixing and checking thickness: added node 'mixture not yet correct' (id 7) and restructured script with loop entry at 'Mix the ingredients' (id 5), retry including mixing steps, and exit at 'tap the whisk on the bowl' (id 1). Added corresponding edges."
+  },
+  {
+    "id": 860,
+    "type": "structure_changed",
+    "details": "Added loop for searching for a shopping cart: added node 'cart not found' (id 7) and restructured script with loop entry at 'look around for a shopping cart' (id 0), retry with 'cart not found', and exit at 'find a shopping cart' (id 3). Added edges for retry and direct exit."
+  },
+  {
+    "id": 869,
+    "type": "spelling_fix",
+    "details": "corrected 'compurter' to 'computer' in node 0"
+  },
+  {
+    "id": 870,
+    "type": "structure_changed",
+    "details": "removed duplicate scenario node (node 6) and adjusted edges and script_graph accordingly"
+  },
+  {
+    "id": 874,
+    "type": "structure_changed",
+    "details": "Converted flat sequence into loop for negotiation process; removed node 0 (Keep trying...), added node 7 (Accept counter offer), modified node 6 from scenario duplicate to 'Finalize negotiation and sign contract'."
+  },
+  {
+    "id": 875,
+    "type": "structure_changed",
+    "details": "Modified node 7 from scenario duplicate 'walk around the area' to logically coherent closing node 'complete walking around the area'."
+  },
+  {
+    "id": 876,
+    "type": "structure_changed",
+    "details": "Deleted duplicate scenario node 6 and adjusted edges and script_graph"
+  },
+  {
+    "id": 877,
+    "type": "structure_changed",
+    "details": "Removed irrelevant node 5 (paperwork) and duplicate scenario node 6; added node 7 as final state; restructured to include select for two paths (with/without door steps)"
+  },
+  {
+    "id": 878,
+    "type": "structure_changed",
+    "details": "Modified duplicate scenario node 6 from 'lock the door' to 'door is locked' for logical end state"
+  },
+  {
+    "id": 879,
+    "type": "structure_changed",
+    "details": "Added node 7 for placing ingredient; introduced loop for repeated ingredient handling; modified node 6 to 'all ingredients are in bowl'"
+  },
+  {
+    "id": 880,
+    "type": "structure_changed",
+    "details": "Removed duplicate scenario node 7; modified node 0 to 'complete two years of preschool'; introduced loop with entry at morning and exit at completion; adjusted edges"
+  },
+  {
+    "id": 881,
+    "type": "structure_changed",
+    "details": "added loop structure for checking rain, added nodes 7 and 8, modified node 6 description from 'Leave house when rain stops' to 'leave the house'"
+  },
+  {
+    "id": 882,
+    "type": "structure_changed",
+    "details": "deleted duplicate end node 8, made node 5 final"
+  },
+  {
+    "id": 883,
+    "type": "structure_changed",
+    "details": "added loop for payment acceptance check, added nodes 7, 8, 9, modified node 6 description to 'type payment amount'"
+  },
+  {
+    "id": 884,
+    "type": "structure_changed",
+    "details": "modified node 6 description from 'cut the sod' to 'cut the sod using scissors' to avoid duplicate with scenario"
+  },
+  {
+    "id": 885,
+    "type": "structure_changed",
+    "details": "restructured from and_join to sequence: agree on work day then purchase uniform; deleted redundant node 6"
+  },
+  {
+    "id": 886,
+    "type": "structure_changed",
+    "details": "Fixed and_join by adding missing join node (node6) and adjusting edges: removed 3->6,6->1,6->2; added 3->1,3->2,4->6,0->6."
+  },
+  {
+    "id": 891,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 6 from 'Park the car' to 'car is parked'"
+  },
+  {
+    "id": 892,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 6 from 'get the tiller' to 'tiller obtained'"
+  },
+  {
+    "id": 893,
+    "type": "structure_changed",
+    "details": "deleted duplicate scenario node 6 and removed edge 1->6, adjusted script_graph to end at node 1"
+  },
+  {
+    "id": 894,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 6 from 'put a table in chosen space' to 'table is set up in chosen space'"
+  },
+  {
+    "id": 895,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 6 from 'close vehicle door' to 'vehicle door is closed'"
+  },
+  {
+    "id": 897,
+    "type": "structure_changed",
+    "details": "restructured into loop for walking steps, removed duplicate end node, added gauge distance and stand near closet nodes"
+  },
+  {
+    "id": 898,
+    "type": "structure_changed",
+    "details": "introduced loop for drying process, added assess dampness and body is dry nodes, removed duplicate end node"
+  },
+  {
+    "id": 899,
+    "type": "structure_changed",
+    "details": "changed and_join to select for two mutually exclusive ways to locate sunscreen section"
+  },
+  {
+    "id": 903,
+    "type": "spelling_fix",
+    "details": "fixed 'condimentss' to 'condiments' in node 0"
+  },
+  {
+    "id": 906,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'fill out the application' to 'application fully filled out' to remove duplicate end node."
+  },
+  {
+    "id": 907,
+    "type": "structure_changed",
+    "details": "Modified node 5 from 'walk to mailbox' to 'arrive at mailbox' to remove duplicate end node."
+  },
+  {
+    "id": 908,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'jot down recipe on paper' to 'recipe jotted down on paper' and removed invalid edge 4->6 to fix control flow."
+  },
+  {
+    "id": 909,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'start cleaning up room' to 'begin cleaning the room' to remove duplicate end node."
+  },
+  {
+    "id": 910,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'request an application to fill out' to 'ask for the application verbally' to avoid duplicate end node."
+  },
+  {
+    "id": 911,
+    "type": "structure_changed",
+    "details": "Introduced select structure for reading method: screen reading vs. printed copy. Added nodes 7 (send document to printer) and 8 (retrieve printed copy) with corresponding edges and updated script_graph."
+  },
+  {
+    "id": 916,
+    "type": "structure_changed",
+    "details": "added select structure for dress option and modified end node from 'Pick out clothes' to 'Assemble outfit'"
+  },
+  {
+    "id": 917,
+    "type": "structure_changed",
+    "details": "introduced loop for walking steps and modified end node from 'walk to the entrance' to 'entrance reached'"
+  },
+  {
+    "id": 918,
+    "type": "structure_changed",
+    "details": "added select structure for map vs asking directions and modified end node from 'locate the line' to 'confirm line location'"
+  },
+  {
+    "id": 919,
+    "type": "structure_changed",
+    "details": "modified end node from 'place a lid on the pot' to 'place lid securely' to avoid duplication with scenario"
+  },
+  {
+    "id": 920,
+    "type": "structure_changed",
+    "details": "added select structure for ring doorbell vs use key and modified end node from 'enter breeders house' to 'enter house'"
+  },
+  {
+    "id": 921,
+    "type": "spelling_fix",
+    "details": "fixed 'withhands' to 'with hands' in node 4"
+  },
+  {
+    "id": 923,
+    "type": "structure_changed",
+    "details": "removed edge 1->3 because it contradicted the linear sequence in script_graph"
+  },
+  {
+    "id": 925,
+    "type": "structure_changed",
+    "details": "deleted duplicate scenario node 6, added new node 7 'step outside' and updated edges and script_graph to maintain logical flow"
+  },
+  {
+    "id": 933,
+    "type": "structure_changed",
+    "details": "Restructured to add select for payment method options (credit card / cash). Removed duplicate scenario node 'Pay for the lessons upfront' and nodes 'decide on payment method' and 'enter payment information'. Added new nodes 'enter credit card details', 'confirm payment', 'go to payment counter', 'hand over cash'. Updated edges and script_graph accordingly."
+  },
+  {
+    "id": 941,
+    "type": "structure_changed",
+    "details": "Added loop for feedback-redraw cycle; modified duplicate end node to 'finalize the plan'."
+  },
+  {
+    "id": 942,
+    "type": "structure_changed",
+    "details": "Added loop for looking for confirm button; added node 'confirm button not found'; modified duplicate end node to 'booking confirmed'."
+  },
+  {
+    "id": 943,
+    "type": "spelling_fix",
+    "details": "Corrected 'asiles' to 'aisles' in node 3."
+  },
+  {
+    "id": 943,
+    "type": "structure_changed",
+    "details": "Added loop for multiple items shopping; added node 'all items obtained'; modified duplicate end node to 'complete purchase'."
+  },
+  {
+    "id": 944,
+    "type": "structure_changed",
+    "details": "Added loop for re-reading recipe; added node 're-read the recipe'; modified duplicate end node to 'finished reading recipe'."
+  },
+  {
+    "id": 945,
+    "type": "structure_changed",
+    "details": "Added loop for door opening retry; added node 'door fails to open'; modified duplicate end node to 'guitar is in car'."
+  },
+  {
+    "id": 955,
+    "type": "structure_changed",
+    "details": "removed node 2 (place items on ground) to make duplicate scenario node the final node, and adjusted edges and script_graph accordingly."
+  },
+  {
+    "id": 956,
+    "type": "structure_changed",
+    "details": "Removed irrelevant node 'Close the front door' (node 5) and corrected sequence to end with 'Walk to the car'."
+  },
+  {
+    "id": 957,
+    "type": "structure_changed",
+    "details": "Removed unrelated node 'ask person to get married', introduced select structure for email vs mail pasting, added nodes 'paste invite to email' and 'paste invite to mail', and modified duplicate end node 'invite guests to wedding' to 'invitations sent'."
+  },
+  {
+    "id": 960,
+    "type": "structure_changed",
+    "details": "Removed irrelevant node 'Take the seeds home' (node 5) which did not match the scenario 'dig up rocks from soil'."
+  },
+  {
+    "id": 962,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'throw out trash' to 'place trash bag into outdoor bin' to avoid duplicate scenario node."
+  },
+  {
+    "id": 963,
+    "type": "structure_changed",
+    "details": "removed redundant node 3 (exit the car) and adjusted edges and script_graph for logical flow."
+  },
+  {
+    "id": 965,
+    "type": "structure_changed",
+    "details": "modified node 6 from 'grab a cart on the way' to 'walk into store with cart' to correct duplicate scenario node."
+  },
+  {
+    "id": 971,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'walk back to bedroom' to 'enter the bedroom' to avoid duplicate scenario node."
+  },
+  {
+    "id": 972,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'walk into the supermarket' to 'enter the supermarket' to avoid duplicate scenario node."
+  },
+  {
+    "id": 973,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'create a resume and cover letter' to 'finalize resume and cover letter' to avoid duplicate scenario node."
+  },
+  {
+    "id": 974,
+    "type": "structure_changed",
+    "details": "Fixed spelling of node 2 from 'Freshmen' to 'Freshman'; modified node 6 from 'get through high school' to 'graduate high school' to avoid duplicate scenario node."
+  },
+  {
+    "id": 975,
+    "type": "structure_changed",
+    "details": "Removed dangling node 5 ('get tickets to the festival') and removed duplicate scenario node 6 ('put away laptop'), adjusted edges and script_graph accordingly."
+  },
+  {
+    "id": 976,
+    "type": "structure_changed",
+    "details": "Added loop for repeating the year, modified node 7 from 'pass the third grade' to 'receive promotion to fourth grade', added nodes 8 and 9 for final exam and repeat, removed node 5."
+  },
+  {
+    "id": 977,
+    "type": "structure_changed",
+    "details": "Corrected node 5 from 'make the decision to get a new pet' to 'decide to get dressed', and node 6 from 'get dressed to leave' to 'walk out the door'."
+  },
+  {
+    "id": 978,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'Do not drop plant' to 'plant is safely placed'."
+  },
+  {
+    "id": 979,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'locate the ticket booth' to 'confirm ticket booth location'."
+  },
+  {
+    "id": 980,
+    "type": "structure_changed",
+    "details": "Deleted duplicate end node 6, updated edges and script_graph."
+  },
+  {
+    "id": 981,
+    "type": "spelling_fix",
+    "details": "corrected capitalization of node 3 from 'Grab shopping bags' to 'grab shopping bags'."
+  },
+  {
+    "id": 982,
+    "type": "spelling_fix",
+    "details": "corrected capitalization of node 1 from 'Put address and postage on envelope' to 'put address and postage on envelope' and node 4 from 'Get completed application' to 'get completed application'."
+  },
+  {
+    "id": 983,
+    "type": "spelling_fix",
+    "details": "corrected capitalization of nodes 0,1,2,3,4 to lowercase for consistency."
+  },
+  {
+    "id": 984,
+    "type": "spelling_fix",
+    "details": "corrected capitalization of nodes 0-6 to lowercase; changed node 2 from 'Lay in bed asleep' to 'lie in bed asleep'; changed node 7 from 'Sleep in bed' to 'rest peacefully in bed' to make a logical concluding event."
+  },
+  {
+    "id": 986,
+    "type": "structure_changed",
+    "details": "modified node 6 from duplicate scenario to 'be dressed'"
+  },
+  {
+    "id": 987,
+    "type": "structure_changed",
+    "details": "modified node 5 to 'inspect the bowl' and node 6 to 'bowl is ready for use'"
+  },
+  {
+    "id": 988,
+    "type": "structure_changed",
+    "details": "modified node 6 to 'obtain parking ticket'"
+  },
+  {
+    "id": 990,
+    "type": "structure_changed",
+    "details": "introduced loop for payment retry, added node 7 'payment declined', modified node 6 to 'makeup purchased'"
+  },
+  {
+    "id": 991,
+    "type": "structure_changed",
+    "details": "Changed and_join to select because branches are mutually exclusive (remember info vs find place) rather than parallel."
+  },
+  {
+    "id": 994,
+    "type": "structure_changed",
+    "details": "Introduced select to represent choice between writing down information directly or first calling for pricing information."
+  },
+  {
+    "id": 996,
+    "type": "structure_changed",
+    "details": "introduced loop for adjustments and modified duplicate end node to 'confirm and add to cart'"
+  },
+  {
+    "id": 997,
+    "type": "structure_changed",
+    "details": "introduced select for parking options and modified duplicate end node to 'car parked successfully'"
+  },
+  {
+    "id": 998,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'acquire syllabus and schedule'"
+  },
+  {
+    "id": 999,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'commit to the running schedule'"
+  },
+  {
+    "id": 1000,
+    "type": "structure_changed",
+    "details": "modified duplicate end node to 'enjoy the snack'"
+  },
+  {
+    "id": 1001,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 5 from 'tidy up workspace' to 'workspace is clean' to logically close the event chain"
+  },
+  {
+    "id": 1002,
+    "type": "deletion",
+    "details": "removed due to inconsistent and_join; printer step unrelated to opening document"
+  },
+  {
+    "id": 1003,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 8 from 'Go in to the store' to 'enter the store' to logically close the event chain"
+  },
+  {
+    "id": 1004,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 6 from 'fill out the application' to 'application is completed' to logically close the event chain"
+  },
+  {
+    "id": 1005,
+    "type": "structure_changed",
+    "details": "removed irrelevant node 5 (bring soap) and modified duplicate end node 6 to 'bleach is ready for use' to correct logic"
+  },
+  {
+    "id": 1006,
+    "type": "deletion",
+    "details": "removed due to inconsistent edges (3->2 bypassing open oven) and implicit loop pattern (continue baking more) that would require complex restructuring; modification deemed inconvenient."
+  },
+  {
+    "id": 1011,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 6 to 'uniform is completely on'"
+  },
+  {
+    "id": 1012,
+    "type": "structure_changed",
+    "details": "restructured to add loop for iterative ingredient measurement; deleted node 2 'repeat with each ingredient'; added nodes 8 and 9; modified end node 7 to 'ingredients are mixed'"
+  },
+  {
+    "id": 1013,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 6 to 'out of bed and standing'"
+  },
+  {
+    "id": 1014,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 7 to 'arrive at the park entrance'"
+  },
+  {
+    "id": 1015,
+    "type": "spelling_fix",
+    "details": "fixed extra space in scenario ('doesn't have  required' -> 'doesn't have required')"
+  },
+  {
+    "id": 1015,
+    "type": "structure_changed",
+    "details": "modified duplicate end node 7 to 'realize ingredients are missing'"
+  },
+  {
+    "id": 1018,
+    "type": "structure_changed",
+    "details": "introduced loop for practicing techniques with new node 'satisfied with technique'"
+  },
+  {
+    "id": 1019,
+    "type": "structure_changed",
+    "details": "removed duplicate scenario node (8) and updated edges and script_graph"
+  },
+  {
+    "id": 1025,
+    "type": "structure_changed",
+    "details": "Removed node 'drive to parking spot and stop car' (id 5) and edge '6->5' because it was logically inconsistent (placing foot on brake before driving). Renumbered nodes: node 6 became new node 5 as the end node. Updated script_graph accordingly."
+  },
+  {
+    "id": 1026,
+    "type": "structure_changed",
+    "details": "modified scenario duplicate node 'get paid from job' to 'deposit the check'"
+  },
+  {
+    "id": 1027,
+    "type": "structure_changed",
+    "details": "modified scenario duplicate node 'enter parking garage' to 'drive into garage'"
+  },
+  {
+    "id": 1028,
+    "type": "structure_changed",
+    "details": "modified scenario duplicate node 'turn off vehicle' to 'engine turns off'"
+  },
+  {
+    "id": 1029,
+    "type": "structure_changed",
+    "details": "deleted scenario duplicate node 'walk up to store entrance' and renamed node 1 to 'arrive at store entrance', removed edge 1->8"
+  },
+  {
+    "id": 1030,
+    "type": "structure_changed",
+    "details": "introduced loop for building courage, modified duplicate node 'grab gear from the car' to 'gear placed in desired area'"
+  },
+  {
+    "id": 1034,
+    "type": "structure_changed",
+    "details": "introduced loop for re-checking errors after correction; added edge 0->6 for direct exit and 3->0 for retry, removed edge 3->6"
+  },
+  {
+    "id": 1043,
+    "type": "spelling_fix",
+    "details": "corrected 'projecr' to 'project' in node 3"
+  },
+  {
+    "id": 1043,
+    "type": "structure_changed",
+    "details": "introduced loop for iterative work on project: added node 7, restructured edges and script_graph"
+  },
+  {
+    "id": 1045,
+    "type": "structure_changed",
+    "details": "introduced loop for grilling process: added node 7 as exit, restructured edges and script_graph"
+  },
+  {
+    "id": 1053,
+    "type": "structure_changed",
+    "details": "introduced loop for checking receptionist availability by adding node 7 (wait until receptionist is free) and modified duplicate scenario node 6 from 'talk to receptionist' to 'conclude conversation'"
+  },
+  {
+    "id": 1054,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 6 from 'grab keys and lock the door to the house' to 'lock the door'"
+  },
+  {
+    "id": 1055,
+    "type": "structure_changed",
+    "details": "modified duplicate scenario node 6 from 'get friends encouragement' to 'acknowledge friend's encouragement'"
+  },
+  {
+    "id": 1057,
+    "type": "spelling_fix",
+    "details": "Corrected 'pres' to 'press' in node 4."
+  },
+  {
+    "id": 1057,
+    "type": "structure_changed",
+    "details": "Modified node 7 from 'call the second person on the list' (scenario duplicate) to 'initiate the call' to make the endpoint logical."
+  },
+  {
+    "id": 1061,
+    "type": "structure_changed",
+    "details": "Removed duplicate scenario node (6) and adjusted edges and script_graph to end at node 4."
+  },
+  {
+    "id": 1062,
+    "type": "structure_changed",
+    "details": "Removed duplicate scenario node (6) and adjusted edges and script_graph to end after and_join."
+  },
+  {
+    "id": 1063,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'open the uber door' to 'the uber door is open' to avoid duplicate scenario node."
+  },
+  {
+    "id": 1064,
+    "type": "deletion",
+    "details": "Deleted due to implicit loop in scenario and incoherent graph; modification deemed inconvenient."
+  },
+  {
+    "id": 1065,
+    "type": "structure_changed",
+    "details": "Modified node 6 from 'Describe what the gun will be used for' to 'describe the purpose to the salesperson' to avoid duplicate scenario node."
+  },
+  {
+    "id": 1069,
+    "type": "structure_changed",
+    "details": "Deleted node 5 (Enter bus through steps) and adjusted edges and script_graph because scenario node 6 was not the final node; corrected to make scenario node the final endpoint."
+  },
+  {
+    "id": 1071,
+    "type": "structure_changed",
+    "details": "restructured to loop for repeated steps while walking to car; added node 'assess car proximity', removed node 'Repeat until car is reached', modified node 'walk to the car' to 'arrive at car'."
+  },
+  {
+    "id": 1072,
+    "type": "spelling_fix",
+    "details": "modified duplicate scenario node 'park the car' to 'car is parked' to serve as logical end."
+  },
+  {
+    "id": 1073,
+    "type": "spelling_fix",
+    "details": "modified duplicate scenario node 'list any updated information' to 'updated information listed'."
+  },
+  {
+    "id": 1074,
+    "type": "spelling_fix",
+    "details": "modified duplicate scenario node 'open the garage up' to 'garage door opens'."
+  },
+  {
+    "id": 1075,
+    "type": "spelling_fix",
+    "details": "fixed spelling of scenario from 'grab keysfrom table' to 'grab keys from table', and modified duplicate scenario node to 'keys grabbed'."
+  },
+  {
+    "id": 1077,
+    "type": "spelling_fix",
+    "details": "corrected 'restaurant' to 'restaurants' in scenario and node6"
+  },
+  {
+    "id": 1079,
+    "type": "spelling_fix",
+    "details": "corrected 'conscience' to 'conscious' in node3"
+  },
+  {
+    "id": 1081,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'stop and use the restroom before the show' to 'proceed to the show'"
+  },
+  {
+    "id": 1082,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'take notes about the subject' to 'organize notes'"
+  },
+  {
+    "id": 1083,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'walk to cashier with makeup selections' to 'approach the cashier'"
+  },
+  {
+    "id": 1084,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'walk towards the car' to 'approach the car'"
+  },
+  {
+    "id": 1085,
+    "type": "structure_changed",
+    "details": "modified duplicate end node from 'compare lipstick choices' to 'finalize selection'"
+  }
+]

@@ -1,4 +1,4 @@
-### Non-Sequence
+### Non-Sequence （详细内容参考 `Comprehensive.md`）
 
 1. 利用 **`cut.py`** 对proscript原始数据集进行修改，仅预留"scenario"，"events","gold_edges_for_prediction"
 2. 利用 `covert.py` 将proscript_simple中的数据转化为我们所定义的JSON结构（详见 `Comprehensive.md`），其中已包含**sequence和and_join**结构
@@ -17,3 +17,4 @@
      - 得到新版 `edges` 与 `script_graph`，统一复核校验，着重检查 `unordered_nodes`中的事件是否均唯一的出现在`script_graph`中，`edges` 是否存在少边，多边，悬挂边的问题，`script_graph`逻辑是否存在问题，结构是否满足约束规范
    - **注意事项**：以上所有操作需**一次性同步完成**，即对于一项数据，先修正拼写错误，再检查逻辑是否包含选择/循环结构，若包含则考虑是否修改，若不包含则考虑是否能引入
 6. `select_loop.py` 生成 `processed_data`，利用 `predict.py` 对读取其中的 `sceniro` 和 `unordered_nodes` 内容，预测 `edges` 和 `script_graph` ，与  `processed_data` 进行比较（ `edges` 采用集合相等，`script_graph` 采用字符串匹配）
+7. `evaluaition` 对 `processed_data` 进行 $ 10\% $ 的抽样，并进行了简单的人工检查，结果详见 `Comprehensive.md`

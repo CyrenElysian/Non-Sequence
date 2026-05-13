@@ -12,9 +12,9 @@
      - 原则上选择结构的分支必须相互独立、逻辑差异显著（例如：选择筷子或勺子用餐这类细微差异，不太符合要求）。
      - 对于选择结构，所有选择分支的末端节点，必须统一关联至选择结构后的同一合并节点；`options` 中节点按大小顺序排列，方便检验
      - 循环结构必须设置明确的终止条件，禁止出现无限循环。
-     - 对于循环结构，循环前置节点需连接至 `entry` 节点，循环出口节点 `exit` 需连接至循环后置节点，同时 `entry` 与 `exit` 之间需建立关联边；循环内部的节点链路，必须形成 $ entry \to retry \to exit $ 的完整路径。
+     - 对于循环结构，循环前置节点需连接至 `entry` 节点，循环出口节点 `exit` 需连接至循环后置节点，同时 `entry` 与 `exit` 之间需建立关联边；循环内部的节点链路，必须形成 $entry \to retry \to exit$ 的完整路径。
      - 因脚本关系图重构而失效的原有关联关系，需全部删除；与新控制逻辑冲突的旧关联关系，必须移除。
      - 得到新版 `edges` 与 `script_graph`，统一复核校验，着重检查 `unordered_nodes`中的事件是否均唯一的出现在`script_graph`中，`edges` 是否存在少边，多边，悬挂边的问题，`script_graph`逻辑是否存在问题，结构是否满足约束规范
    - **注意事项**：以上所有操作需**一次性同步完成**，即对于一项数据，先修正拼写错误，再检查逻辑是否包含选择/循环结构，若包含则考虑是否修改，若不包含则考虑是否能引入
 6. `select_loop.py` 生成 `processed_data`，利用 `predict.py` 对读取其中的 `sceniro` 和 `unordered_nodes` 内容，预测 `edges` 和 `script_graph` ，与  `processed_data` 进行比较（ `edges` 采用集合相等，`script_graph` 采用字符串匹配）
-7. `evaluaition` 对 `processed_data` 进行 $ 10\% $ 的抽样，并进行了简单的人工检查，结果详见 `Comprehensive.md`
+7. `evaluaition` 对 `processed_data` 进行 10% 的抽样，并进行了简单的人工检查，结果详见 `Comprehensive.md`

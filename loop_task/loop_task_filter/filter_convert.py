@@ -49,6 +49,6 @@ def filter_and_transform(input_file, output_file):
     print(f"处理完成！共筛选出 {len(filtered)} 条纯 sequence 数据，已保存至 {output_file}")
 
 if __name__ == "__main__":
-    input_filename = "../correct/llm_fixed_dev.json"
-    output_filename = "filtered_dev.json"
+    input_filename = "../../correct/llm_fixed_dev.json"
+    output_filename = "filter_dev.json"
     filter_and_transform(input_filename, output_filename)

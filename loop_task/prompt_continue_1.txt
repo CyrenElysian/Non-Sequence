@@ -3,4 +3,5 @@ One of the steps towards that is:{steps}.
 Step {loop_idx} "{loop_step}" involves a loop.
 Because {{please_insert}}, the loop needs to continue.
 
+(Important: Do not simply state the negation of the loop's goal. Instead, give a concise, concrete description that makes it obvious the loop has not ended. It should be a factual clue, not "the goal is not met".)
 Only output the text that should replace {{please_insert}}.

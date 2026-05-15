@@ -1,0 +1,21 @@
+You are a strict data quality reviewer. Given a JSON object representing one data entry, evaluate and clean it.
+
+## Quality criteria:
+0. **If the description is merely a direct restatement or negation of the loop goal(loop_step) using the same key words (e.g., "the water is not boiling", "the transport has arrived"), delete it. Concrete observable clues that imply the goal state are acceptable.**
+1. **Independent sufficiency**: The text alone must clearly lead to answer 0/1/2 without depending on other descriptions.
+2. **Unambiguous**: The description must not be equally compatible with a different answer. If it could reasonably be interpreted as both continue and stop, it must be removed.
+3. **State, not explanation**: Must be a factual situation, not "because...".
+4. **Correct answer**: Logical consistency with the state.
+5. **Difficulty calibration** (re-evaluate and adjust if needed):
+   - easy: At most one trivial step of everyday reasoning.
+   - medium: Requires a short chain or interpreting a less obvious indicator.
+   - hard: Requires combining multiple clues or ruling out a plausible but false alternative. It generally contains a relatively long chain of reasoning logic. Try to avoid relying on esoteric knowledge.
+6. **Conciseness**: Avoid overly long, explanatory text.
+7. **For answer=2 (na)**: Must not contain any information that, even indirectly, presupposes the loop's state. If the information could only be observed after the loop ends/continues, it is invalid as 'na'. However, instead of simply removing it, you may **change its answer to 0 or 1** and assign a suitable difficulty if the description actually provides a logical basis for a stop/continue decision. Only if a na description is truly useless or meaningless (random fact) should you remove it.
+
+## Actions:
+- Remove any description that fails the above criteria.
+- You may **change the answer** of a description only if it is originally "2" (na) and you determine it actually implies a loop decision (0 or 1). In that case, also assign an appropriate difficulty ("easy"/"medium"/"hard").
+- You may **adjust the difficulty** of any description if it clearly fits a different level better, but do not change a non-na answer unless the original answer is clearly wrong (rare).
+- If after removal the entry has fewer than 2 descriptions or lacks any diversity, output `null` to discard the entry.
+- Otherwise, output the cleaned JSON object.

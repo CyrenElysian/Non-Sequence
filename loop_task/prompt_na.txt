@@ -1,16 +1,9 @@
 The scenario is "{scenario}".
 One of the steps towards that is:{steps}.
 
-Give two pieces of contextual information that are related to the general scenario but have no causal bearing on whether the loop should continue or stop. The information should sound natural in the situation but should not help anyone decide the loop's state.
+Give two pieces of contextual information that are related to the scene but have absolutely no causal bearing on the loop decision. The information should feel natural, but must not help decide whether the loop continues or stops.
 
-Requirements:
-- Each piece of information must be plausibly related to the scenario.
-- It must NOT contain any information from which the loop's state could be logically deduced, even by implication.
-- Information that is completely unrelated should be avoided as much as possible. The information should feel like a natural detail in the scene, not a random fact.
-- Each must describe a state, not an explanation of why it has no effect on loop inference.
-- Keep each description concise, typically one sentence.
+Critical: The information must not presuppose a state that could only be true if the loop had already ended or continued. For instance, if the loop is "wait for computer to turn on", you must not mention things visible only after the computer is on.
 
 Return a JSON array of exactly two strings.
-Example output: ["the kitchen counter is made of dark granite", "you remember that you need to buy more milk tomorrow"]
-
 Only output the JSON array, nothing else.

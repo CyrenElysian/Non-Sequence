@@ -3,5 +3,5 @@ One of the steps towards that is:{steps}.
 Step {loop_idx} "{loop_step}" involves a loop.
 Because {{please_insert}}, {reason_two}.
 
-(Give an even more underlying reason/phenomena than the previous one. It should be a cause that is even less directly observable, but still sufficient to conclude the loop should stop.)
+(Provide an even more subtle description({{please_insert}}) that can be sufficient to conclude "stop". It may involve noticing a secondary effect or ruling out a false sign. Try to avoid specialized knowledge. The reasoning is longer, not the physical detail smaller.)
 Only output the text that should replace {{please_insert}}.

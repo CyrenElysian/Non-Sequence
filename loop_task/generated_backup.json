@@ -36,9 +36,24 @@
         "easy"
       ],
       [
+        "the period of uncertainty concludes as the decision-maker initiates a call",
+        0,
+        "medium"
+      ],
+      [
         "the tenant's memory of the landlord's promise to call by Friday aligns with the phone's sudden alert on Thursday evening",
         0,
         "hard"
+      ],
+      [
+        "The tenant's phone buzzes with a spam text about an extended car warranty during the call.",
+        2,
+        "na"
+      ],
+      [
+        "A neighbor's wind chimes clink faintly in the breeze while the tenant waits.",
+        2,
+        "na"
       ]
     ]
   },
@@ -64,6 +79,16 @@
         "easy"
       ],
       [
+        "the silhouette of the apartment building still looms behind you",
+        1,
+        "medium"
+      ],
+      [
+        "the faint smell of the building's lobby carpet still hangs in the air",
+        1,
+        "hard"
+      ],
+      [
         "the person is close enough to reach out and touch the car",
         0,
         "easy"
@@ -77,6 +102,16 @@
         "the skin on their cheeks tightens from the cold radiating off the glass, making them instinctively stop and exhale in relief",
         0,
         "hard"
+      ],
+      [
+        "The sun reflects off a nearby building's windows, casting a warm light on the sidewalk.",
+        2,
+        "na"
+      ],
+      [
+        "A distant siren briefly wails and then fades into the city noise.",
+        2,
+        "na"
       ]
     ]
   },
@@ -124,6 +159,16 @@
         "the latest entry on the tracking page no longer displays an estimated time of arrival but instead shows a static location marker at the destination address",
         0,
         "hard"
+      ],
+      [
+        "The front porch has a wooden swing next to the door.",
+        2,
+        "na"
+      ],
+      [
+        "A light drizzle is falling outside.",
+        2,
+        "na"
       ]
     ]
   },
@@ -148,6 +193,16 @@
         "easy"
       ],
       [
+        "the custom-fit halter with the animal’s name tag still hangs untouched on the hook by the unloading chute",
+        1,
+        "medium"
+      ],
+      [
+        "the sticky note on the office calendar still reads \"Call vet after arrival\" in yesterday's handwriting",
+        1,
+        "hard"
+      ],
+      [
         "the sound of a large vehicle engine accompanied by the sight of the transport company's truck with the matching license plate number pulling into the facility's designated unloading bay",
         0,
         "easy"
@@ -161,6 +216,16 @@
         "the voice on the intercom carried the faint background squeal of air brakes releasing, a sound that only occurs when the truck has fully stopped and engaged its parking brake at the dock, confirming the app's alert was not a false track and the driver was physically present at the door",
         0,
         "hard"
+      ],
+      [
+        "A faint smell of hay lingers in the storage room, though it's currently empty.",
+        2,
+        "na"
+      ],
+      [
+        "The facility's wall clock ticks audibly, its hands pointing to the late afternoon.",
+        2,
+        "na"
       ]
     ]
   },
@@ -208,6 +273,16 @@
         "a sliver of light from the interior spills onto the floor near your feet",
         0,
         "hard"
+      ],
+      [
+        "The kitchen floor is made of beige tiles with a few faint scuff marks near the sink",
+        2,
+        "na"
+      ],
+      [
+        "A faint hum comes from the refrigerator's compressor, unchanged regardless of door position",
+        2,
+        "na"
       ]
     ]
   },
@@ -240,7 +315,12 @@
       [
         "you haven't seen anyone walking with keys in hand toward a parked car",
         1,
-        "medium"
+        "hard"
+      ],
+      [
+        "an empty parking space is spotted",
+        0,
+        "easy"
       ],
       [
         "a vehicle's reverse lights illuminate and it begins to back out of a parking space",
@@ -251,6 +331,16 @@
         "a moment before, the distinct thud of a car door shutting came from that direction, and given that the vehicle is wedged between two others without room to creep forward, shifting into reverse almost certainly means the occupant has returned and is about to vacate the space entirely",
         0,
         "hard"
+      ],
+      [
+        "The scent of freshly mown grass mixes with the distant sound of animal calls.",
+        2,
+        "na"
+      ],
+      [
+        "A light drizzle begins to dot the windshield as you pull into the parking lot.",
+        2,
+        "na"
       ]
     ]
   },
@@ -275,6 +365,16 @@
         "easy"
       ],
       [
+        "the kitchen window remains clear of fog",
+        1,
+        "medium"
+      ],
+      [
+        "the unopened box of noodles sits on the counter",
+        1,
+        "hard"
+      ],
+      [
         "large bubbles are rapidly rising to the surface and breaking",
         0,
         "easy"
@@ -288,6 +388,16 @@
         "the sporadic clinking of the lid has been replaced by a continuous, faint hiss and tremor",
         0,
         "hard"
+      ],
+      [
+        "The kitchen smells faintly of the bread that was toasted earlier.",
+        2,
+        "na"
+      ],
+      [
+        "A refrigerator hums softly in the background.",
+        2,
+        "na"
       ]
     ]
   },
@@ -313,6 +423,16 @@
         "easy"
       ],
       [
+        "no other cars are pulling out of spaces",
+        1,
+        "medium"
+      ],
+      [
+        "the only motion is a shopping cart drifting slowly across the asphalt",
+        1,
+        "hard"
+      ],
+      [
         "an empty parking space is spotted",
         0,
         "easy"
@@ -326,6 +446,16 @@
         "a car's reversing lights suddenly snuff out and a puff of exhaust marks the spot where it just stood",
         0,
         "hard"
+      ],
+      [
+        "The store's ventilation hums softly in the background.",
+        2,
+        "na"
+      ],
+      [
+        "A faint trace of perfume lingers near the jacket rack.",
+        2,
+        "na"
       ]
     ]
   },
@@ -355,14 +485,29 @@
         "medium"
       ],
       [
+        "the tickets look slightly worn at the edges",
+        1,
+        "hard"
+      ],
+      [
         "the employee returns the ticket stubs and gestures for you to proceed through the turnstile",
         0,
         "easy"
       ],
       [
+        "a series of short, high-pitched beeps comes from the scanning device",
+        0,
+        "medium"
+      ],
+      [
         "the employee's thumb, which had been resting on the reject stamp, now moves to the side as they exhale audibly",
         0,
         "hard"
+      ],
+      [
+        "The arena's massive LED screen flashes advertisements for upcoming concerts and monster truck rallies.",
+        2,
+        "na"
       ],
       [
         "A group of rowdy fans behind you keeps singing a loud, off-key fight song.",
@@ -372,7 +517,7 @@
     ]
   },
   {
-    "id": 10,
+    "id": 11,
     "scenario": "launch a music playing app",
     "steps": [
       "open up the laptop",
@@ -397,6 +542,11 @@
         "medium"
       ],
       [
+        "the fan vents expel no air",
+        1,
+        "hard"
+      ],
+      [
         "the login screen appears on the laptop display",
         0,
         "easy"
@@ -405,6 +555,11 @@
         "the screen transitions from a loading animation to a static state featuring a blinking text cursor",
         0,
         "medium"
+      ],
+      [
+        "the rhythmic flickering of the disk activity indicator ceases, indicating the operating system has completed loading its core components and is now idle, awaiting user input",
+        0,
+        "hard"
       ],
       [
         "The laptop lid is covered in faded sticker residue from old decals.",
@@ -419,7 +574,7 @@
     ]
   },
   {
-    "id": 11,
+    "id": 12,
     "scenario": "tell the barber what haircut to receive",
     "steps": [
       "go inside the shop",
@@ -444,19 +599,39 @@
         "medium"
       ],
       [
+        "no dusting brush has appeared",
+        1,
+        "hard"
+      ],
+      [
         "the barber calls your name",
         0,
         "easy"
       ],
       [
-        "The sound of clippers buzzing blends with classic rock on the radio.",
-        1,
+        "the reflection in the mirror shows an empty barber chair and a freshly swept floor",
+        0,
         "medium"
+      ],
+      [
+        "the scent of talcum powder reaches the waiting area",
+        0,
+        "hard"
+      ],
+      [
+        "The sound of clippers buzzing blends with classic rock on the radio.",
+        2,
+        "na"
+      ],
+      [
+        "A faint scent of aftershave and talcum powder fills the air.",
+        2,
+        "na"
       ]
     ]
   },
   {
-    "id": 12,
+    "id": 13,
     "scenario": "Let the attendees into the party",
     "steps": [
       "Order hundreds of drinks to venue",
@@ -471,9 +646,19 @@
     "loop_step": "Repeat until all the attendees have arrived",
     "descriptions": [
       [
+        "there are still attendees waiting outside the door",
+        1,
+        "easy"
+      ],
+      [
         "the stack of name badges at the entrance still has several left",
         1,
         "medium"
+      ],
+      [
+        "the sealed box of blank badges under the registration table hasn't been opened yet",
+        1,
+        "hard"
       ],
       [
         "no more knocks are heard for five minutes after the last arrival",
@@ -489,11 +674,21 @@
         "the pattern of muffled footsteps that had grown sparser and sparser now leaves no fresh wet leaf prints on the mat outside the peephole, and even the building’s elevator stays silent for longer than any earlier pause between arrivals",
         0,
         "hard"
+      ],
+      [
+        "The venue’s neon sign flickers slightly as the evening turns to night.",
+        2,
+        "na"
+      ],
+      [
+        "A batch of sparkling water bottles has been chilling in the fridge since noon.",
+        2,
+        "na"
       ]
     ]
   },
   {
-    "id": 13,
+    "id": 14,
     "scenario": "park the car",
     "steps": [
       "drive to the zoo",
@@ -537,6 +732,16 @@
         "the reverse lights of a parked car illuminate among the rows, hinting that its space will soon be free",
         0,
         "hard"
+      ],
+      [
+        "A flock of pigeons is pecking at something on the pavement near the lot.",
+        2,
+        "na"
+      ],
+      [
+        "The zoo's entrance archway is adorned with colorful animal sculptures.",
+        2,
+        "na"
       ]
     ]
   }

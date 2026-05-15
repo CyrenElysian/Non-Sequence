@@ -4,7 +4,7 @@ You will be given:
 - A scenario (the overall goal).
 - A list of steps (the procedure to achieve the goal).
 - A loop step (the specific step that involves a loop, identified by its index and content).
-- A description of the current state (one sentence).
+- A description of the current state (a short paragraph of several sentences).
 
 Your task is to classify what this state description implies about the loop step.
 - Answer **0** if the description logically implies that the loop should **stop** (i.e., the goal of the loop has been met or the loop must be exited).

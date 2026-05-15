@@ -1,0 +1,6 @@
+The scenario is "{scenario}".
+One of the steps towards that is:{steps}.
+Step {loop_idx} "{loop_step}" involves a loop.
+Because {{please_insert}}, the loop needs to stop.
+
+Only output the text that should replace {{please_insert}}.

@@ -16,42 +16,42 @@
     "loop_step": "wait patiently for landlord to make a decision",
     "descriptions": [
       [
-        "tenant has not received any phone call or email from the landlord regarding the application decision",
+        "the landlord has not yet made a decision",
         1,
         "easy"
       ],
       [
-        "the landlord's online application portal still shows the status as 'under review'",
+        "the background check and credit verification are still pending",
         1,
         "medium"
       ],
       [
-        "the landlord has not requested any additional documents or references from the tenant since the application was submitted",
+        "the property manager responsible for final approval is currently unavailable",
         1,
         "hard"
       ],
       [
-        "the tenant's phone display shows an incoming call from the landlord's number",
+        "the landlord has made a decision",
         0,
         "easy"
       ],
       [
-        "the tenant receives a text message from the landlord saying 'I have made my decision, please give me a call'",
+        "the tenant's background check results have been received",
         0,
         "medium"
       ],
       [
-        "the tenant sees a notification from the rental application portal indicating that the application status has changed to 'Approved'",
+        "the landlord's subjective risk assessment has been finalized",
         0,
         "hard"
       ],
       [
-        "the landlord is wearing a blue suit",
+        "the front door of the apartment is painted blue",
         2,
         "na"
       ],
       [
-        "the apartment has a view of the park",
+        "the landlord is wearing a striped tie",
         2,
         "na"
       ]
@@ -74,42 +74,42 @@
     "loop_step": "Continue lifting and extending legs until arrival at the car",
     "descriptions": [
       [
-        "The car is still visible at a distance and not directly in front of me.",
+        "you have not yet arrived at the car",
         1,
         "easy"
       ],
       [
-        "I have not yet reached the point where I can touch the car's door handle.",
+        "the car's position remains ahead of your current position.",
         1,
         "medium"
       ],
       [
-        "The GPS coordinates of my position still differ from the car's parking location.",
+        "the number of steps taken is less than the required number of steps to reach the car.",
         1,
         "hard"
       ],
       [
-        "The car's door handle is within your grasp.",
+        "the car is reached",
         0,
         "easy"
       ],
       [
-        "The car's ultrasonic parking sensor indicates an obstacle at 0.2 meters.",
+        "the cumulative forward displacement of the person equals the initial distance between the person and the car",
         0,
         "medium"
       ],
       [
-        "The car's telematics system logs that the smartphone GPS coordinate matches the parked location.",
+        "the person's position coincides with the car's position",
         0,
         "hard"
       ],
       [
-        "The sun is setting, casting long shadows on the ground.",
+        "The apartment building's entrance door is painted blue.",
         2,
         "na"
       ],
       [
-        "A gentle breeze is blowing from the east, rustling the leaves.",
+        "A bird is perched on a nearby tree branch.",
         2,
         "na"
       ]
@@ -131,42 +131,42 @@
     "loop_step": "Wait until status says delivered",
     "descriptions": [
       [
-        "The tracking page still shows the status as 'Out for delivery'.",
+        "the status does not say delivered",
         1,
         "easy"
       ],
       [
-        "The estimated delivery time window has passed but no delivery confirmation has appeared.",
+        "the delivery confirmation has not been processed",
         1,
         "medium"
       ],
       [
-        "The automated delivery confirmation email has not been sent to your inbox.",
+        "the package has not yet been dispatched from the distribution center for final delivery",
         1,
         "hard"
       ],
       [
-        "the tracking page displays 'delivered' status",
+        "the status says \"delivered",
         0,
         "easy"
       ],
       [
-        "a delivery confirmation notification appears on your phone",
+        "the package has been physically delivered to the correct address",
         0,
         "medium"
       ],
       [
-        "the carrier's GPS shows the delivery vehicle has been at your address and left, matching the delivery window",
+        "the delivery driver completed the final scan at the correct address",
         0,
         "hard"
       ],
       [
-        "the living room carpet is beige",
+        "the front door has a brass handle",
         2,
         "na"
       ],
       [
-        "you are wearing slippers today",
+        "there is a small potted plant on the porch railing",
         2,
         "na"
       ]
@@ -188,42 +188,42 @@
     "loop_step": "wait for transport to arrive",
     "descriptions": [
       [
-        "the transport vehicle is not visible at the designated arrival area",
+        "the transport has not yet arrived",
         1,
         "easy"
       ],
       [
-        "the online tracking system shows the transport status as 'in transit' and not yet 'delivered'",
+        "the animal's pre-transport health observations have not yet been completed",
         1,
         "medium"
       ],
       [
-        "the pre-arranged electronic notification for arrival has not been triggered and the driver has not reported reaching the destination",
+        "the export permit has not been validated by the destination country's customs authority",
         1,
         "hard"
       ],
       [
-        "the transport vehicle is parked at the receiving dock",
+        "the transport arrives",
         0,
         "easy"
       ],
       [
-        "a notification from the transport company confirms delivery completion",
+        "the GPS tracker of the transport crosses the facility's perimeter",
         0,
         "medium"
       ],
       [
-        "the GPS tracking system shows the transport unit has been stationary at the facility location for over five minutes, indicating arrival",
+        "the total distance traveled equals the pre-calculated route distance from origin to facility",
         0,
         "hard"
       ],
       [
-        "the large animal's shipping crate has a small ventilation window on the top",
+        "the large animal is a giraffe",
         2,
         "na"
       ],
       [
-        "the certified mail envelope is sealed with a bright red wax emblem",
+        "the delivery truck has a dent on the rear bumper",
         2,
         "na"
       ]
@@ -245,42 +245,42 @@
     "loop_step": "Continue pulling until the door is opened",
     "descriptions": [
       [
-        "The refrigerator door is still touching the fridge body along the top edge.",
+        "the door is not yet fully open",
         1,
         "easy"
       ],
       [
-        "The door has been pulled outward only a few inches, leaving most of the rubber gasket still in contact.",
+        "the static friction of the door seal has not yet been fully overcome",
         1,
         "medium"
       ],
       [
-        "The door's hinges have not yet reached their full extension, so the door is not at its maximum open position.",
+        "the slight vacuum created by the cooling of air inside the refrigerator has not yet been equalized",
         1,
         "hard"
       ],
       [
-        "The refrigerator door is fully open.",
+        "the door is opened",
         0,
         "easy"
       ],
       [
-        "The door's magnetic seal has separated from the refrigerator body.",
+        "the door's magnetic seal has lost contact with the refrigerator frame",
         0,
         "medium"
       ],
       [
-        "The pulling force on the door has decreased to zero as the door has reached its fully open position.",
+        "the pulling force exceeds the magnetic attraction force",
         0,
         "hard"
       ],
       [
-        "the refrigerator light flickers slightly",
+        "the kitchen floor tile has a hexagonal pattern",
         2,
         "na"
       ],
       [
-        "there is a magnet shaped like a cow on the door",
+        "you recall that the light bulb above the stove needs replacement",
         2,
         "na"
       ]
@@ -303,42 +303,42 @@
     "loop_step": "drive around looking for space",
     "descriptions": [
       [
-        "No empty parking spaces are visible in the current row.",
+        "no empty space has been found",
         1,
         "easy"
       ],
       [
-        "The parking lot's full sign is still illuminated at the entrance.",
+        "the parking lot remains at full capacity",
         1,
         "medium"
       ],
       [
-        "The parking lot's occupancy counter shows that all 500 spaces are taken, and no vehicles have left in the last five minutes.",
+        "the zoo is hosting a major event that has attracted an unexpectedly large crowd",
         1,
         "hard"
       ],
       [
-        "an empty parking space is visible ahead",
+        "an empty space is found",
         0,
         "easy"
       ],
       [
-        "the parking lot's electronic sign shows 'spaces available'",
+        "the car's fuel is nearly empty",
         0,
         "medium"
       ],
       [
-        "a car pulls out of a parking spot, leaving it empty",
+        "the car's fuel tank has a slow leak",
         0,
         "hard"
       ],
       [
-        "The zoo's main gate has a colorful banner advertising a new reptile house.",
+        "The parking lot is surrounded by tall trees.",
         2,
         "na"
       ],
       [
-        "Your car's radio is tuned to a classic rock station.",
+        "You hear the sound of elephants in the distance.",
         2,
         "na"
       ]
@@ -360,42 +360,42 @@
     "loop_step": "wait for the water to boil",
     "descriptions": [
       [
-        "The water in the pot is not yet at a rolling boil, only occasional small bubbles rise to the surface.",
+        "the water is not boiling",
         1,
         "easy"
       ],
       [
-        "The steam rising from under the lid is thin and wispy, not a steady strong flow.",
+        "the vapor pressure of the water is not yet equal to the atmospheric pressure",
         1,
         "medium"
       ],
       [
-        "The lid is still cool to the touch on top, indicating insufficient steam production.",
+        "the water's average molecular kinetic energy is too low for the liquid to vaporize at the current pressure",
         1,
         "hard"
       ],
       [
-        "The water surface is covered with rapidly rising large bubbles that burst at the surface.",
+        "the water reaches a rolling boil",
         0,
         "easy"
       ],
       [
-        "The water temperature has reached 100 degrees Celsius as measured by a thermometer.",
+        "the water's vapor pressure equals the ambient atmospheric pressure",
         0,
         "medium"
       ],
       [
-        "The rate of steam emission from under the lid has become constant and the sound of boiling is a steady, unchanging rumble.",
+        "the average kinetic energy of water molecules exceeds the cohesive energy of the liquid phase",
         0,
         "hard"
       ],
       [
-        "the kitchen window is slightly open",
+        "the stove has a digital timer display",
         2,
         "na"
       ],
       [
-        "a small potholder rests near the stove",
+        "the salt shaker is half full",
         2,
         "na"
       ]
@@ -418,42 +418,42 @@
     "loop_step": "look for available parking spot",
     "descriptions": [
       [
-        "No empty parking spots are visible in the parking lot.",
+        "there is no available parking spot",
         1,
         "easy"
       ],
       [
-        "The parking lot is completely full with cars in every space.",
+        "the parking lot has a confusing layout that hides available spots from view",
         1,
         "medium"
       ],
       [
-        "The parking lot's LED sign displays a red 'Full' message.",
+        "the driver's spatial working memory is overloaded by the need to simultaneously track moving pedestrians and cars, reducing their capacity to detect empty spaces",
         1,
         "hard"
       ],
       [
-        "there is an empty parking spot directly in front of the car",
+        "an available parking spot is found",
         0,
         "easy"
       ],
       [
-        "the parking lot's digital display shows a count of available spots greater than zero",
+        "a previous shopper returns to their car and drives away",
         0,
         "medium"
       ],
       [
-        "a distant driver in the lot waves and points to a vacated spot they are about to leave",
+        "a shopper's pre-set parking timer expires",
         0,
         "hard"
       ],
       [
-        "the store's air conditioning is set to a cool temperature",
+        "the store has a faint smell of new fabric",
         2,
         "na"
       ],
       [
-        "the floor tiles are a light beige color",
+        "the jackets are displayed on metal hangers",
         2,
         "na"
       ]
@@ -475,42 +475,42 @@
     "loop_step": "wait for employee to verify tickets",
     "descriptions": [
       [
-        "the employee has not yet taken the tickets from your hand",
+        "the verification is not yet complete",
         1,
         "easy"
       ],
       [
-        "the employee is still scanning the barcode on each ticket",
+        "the employee is consulting a separate, offline registry that requires manual lookup",
         1,
         "medium"
       ],
       [
-        "the silent alarm on the ticket validator has not sounded when confirming authenticity",
+        "the verification requires a manual cross-check against a master list that is stored in a separate building and must be physically retrieved",
         1,
         "hard"
       ],
       [
-        "The employee hands your tickets back to you.",
+        "the tickets are verified",
         0,
         "easy"
       ],
       [
-        "The ticket scanner shows a green light after scanning your tickets.",
+        "the ticket's cryptographic signature is verified",
         0,
         "medium"
       ],
       [
-        "The employee's tablet screen indicates your tickets have been successfully validated against the database.",
+        "the discrete logarithm relationship is satisfied",
         0,
         "hard"
       ],
       [
-        "The arena's exterior is painted with a large mural of a gladiator.",
+        "The sky is overcast with a chance of rain later",
         2,
         "na"
       ],
       [
-        "The air smells of popcorn and hot dogs from nearby concession stands.",
+        "A vendor is selling popcorn nearby, and the smell is enticing",
         2,
         "na"
       ]
@@ -532,42 +532,42 @@
     "loop_step": "wait for webpage to open",
     "descriptions": [
       [
-        "the loading spinner or progress bar is still visible on the page",
+        "the webpage has not finished loading",
         1,
         "easy"
       ],
       [
-        "the main content area is blank or shows only a partial layout without text or images",
+        "the DNS resolution for the domain is still pending",
         1,
         "medium"
       ],
       [
-        "the browser's status bar still displays 'Waiting for...' or there are still pending network requests in the developer tools",
+        "the network interface card's transmit ring buffer still contains the DNS query packet, awaiting DMA transfer to the wire",
         1,
         "hard"
       ],
       [
-        "the salsa making article text is fully visible and the page is scrollable",
+        "the webpage has finished loading",
         0,
         "easy"
       ],
       [
-        "the browser's tab icon has stopped spinning and the page's loading indicator bar is no longer visible",
+        "the document's readyState transitions to 'complete",
         0,
         "medium"
       ],
       [
-        "the browser's performance API reports that the load event has been completed for the current document",
+        "the HTTP response stream has been fully consumed by the browser's network stack",
         0,
         "hard"
       ],
       [
-        "the window is open letting in a gentle breeze",
+        "the sunlight is streaming through the kitchen window",
         2,
         "na"
       ],
       [
-        "your phone is charging on the desk nearby",
+        "the phone is charging on the counter nearby",
         2,
         "na"
       ]
@@ -589,42 +589,42 @@
     "loop_step": "wait for computer to turn on",
     "descriptions": [
       [
-        "The screen remains black and no login prompt appears.",
+        "the computer has not yet turned on",
         1,
         "easy"
       ],
       [
-        "The operating system loading animation is still displaying on the screen.",
+        "the POST (Power-On Self-Test) is still running",
         1,
         "medium"
       ],
       [
-        "The power LED continues to blink in a pattern that indicates the system is still in the boot process rather than idle.",
+        "The power-on reset circuit is still holding the system in reset state.",
         1,
         "hard"
       ],
       [
-        "the login screen is visible on the laptop monitor",
+        "the computer has finished booting",
         0,
         "easy"
       ],
       [
-        "the laptop's power indicator light transitions from blinking to solid",
+        "the init process finishes its startup routine and launches the login shell",
         0,
         "medium"
       ],
       [
-        "the operating system's boot log displays the message 'Reached target Graphical Interface'",
+        "the bootloader hands control to the kernel after the kernel image is decompressed into memory",
         0,
         "hard"
       ],
       [
-        "the laptop is a silver model from last year",
+        "the laptop has a sticker of a band on its lid",
         2,
         "na"
       ],
       [
-        "there is a faint hum from the air conditioner",
+        "you hear the faint hum of the refrigerator in the background",
         2,
         "na"
       ]
@@ -646,42 +646,42 @@
     "loop_step": "take seat and wait for barber",
     "descriptions": [
       [
-        "The barber has not called my name or gestured for me to come to the chair.",
+        "the barber has not called you yet",
         1,
         "easy"
       ],
       [
-        "I can see the barber still working on another customer and has not yet glanced toward the waiting area.",
+        "the barber is still occupied with another client",
         1,
         "medium"
       ],
       [
-        "The queue board still shows my name as 'waiting' and the barber's station indicator light remains red for 'occupied'.",
+        "the barber can only cut one head of hair at a time",
         1,
         "hard"
       ],
       [
-        "The barber calls my name out loud.",
+        "the barber calls you",
         0,
         "easy"
       ],
       [
-        "The receptionist tells me the barber is ready to see me.",
+        "the previous customer's haircut is finished",
         0,
         "medium"
       ],
       [
-        "The barber finishes the previous customer's haircut and makes direct eye contact with me while motioning toward the chair.",
+        "the barber's mental cue signaled that the haircut was complete",
         0,
         "hard"
       ],
       [
-        "the floor is tiled with black and white squares",
+        "the barbershop floor has black and white checkered tiles",
         2,
         "na"
       ],
       [
-        "there is a faint smell of hair products in the air",
+        "there is a faint smell of cinnamon and hair products in the air",
         2,
         "na"
       ]
@@ -703,42 +703,42 @@
     "loop_step": "Repeat until all the attendees have arrived",
     "descriptions": [
       [
-        "There are still empty seats at the reserved tables for the attendees.",
+        "not all attendees have arrived",
         1,
         "easy"
       ],
       [
-        "The host's clipboard still has a list of unchecked names from the guest list.",
+        "the attendees arrive in sequence",
         1,
         "medium"
       ],
       [
-        "The doorman's tally counter shows fewer entries than the total expected guests.",
+        "the attendees originate from different locations at varying distances from the venue",
         1,
         "hard"
       ],
       [
-        "All attendees are now inside the party venue.",
+        "all the attendees have arrived",
         0,
         "easy"
       ],
       [
-        "The attendee checklist shows every name marked as arrived.",
+        "the count of admitted guests matches the total number on the RSVP list",
         0,
         "medium"
       ],
       [
-        "The total count of people who have entered matches the number on the final RSVP list.",
+        "the final invited guest has been admitted",
         0,
         "hard"
       ],
       [
-        "the door handle is made of brass",
+        "the doormat has a faded welcome sign",
         2,
         "na"
       ],
       [
-        "you notice a faint smell of perfume in the air",
+        "you notice the hallway light flickers occasionally",
         2,
         "na"
       ]
@@ -761,42 +761,42 @@
     "loop_step": "look for available parking spot",
     "descriptions": [
       [
-        "the parking lot's entrance sign shows no empty spaces visible from the current position",
+        "no available parking spot has been found",
         1,
         "easy"
       ],
       [
-        "the parking lot's full sign is illuminated and no cars have left in the past two minutes",
+        "the lighting conditions in the lot are poor, obscuring available spots",
         1,
         "medium"
       ],
       [
-        "the digital counter at the lot entrance still reads '0 available spaces' and has not changed since arrival",
+        "a regional power outage has cut electricity to the lot",
         1,
         "hard"
       ],
       [
-        "There is an empty parking spot directly in front of the car.",
+        "you notice an available parking spot",
         0,
         "easy"
       ],
       [
-        "The parking lot's vacancy sign shows that there are available spots in the current row.",
+        "a vehicle vacates a parking space",
         0,
         "medium"
       ],
       [
-        "The car's parking sensor detects an unoccupied space within the sensor range.",
+        "the parking meter's allotted time runs out",
         0,
         "hard"
       ],
       [
-        "a group of children is laughing near the entrance",
+        "the zoo's entrance has a large sign with a giraffe",
         2,
         "na"
       ],
       [
-        "the sun is beginning to set, casting long shadows across the parking lot",
+        "a group of children are walking towards the zoo",
         2,
         "na"
       ]

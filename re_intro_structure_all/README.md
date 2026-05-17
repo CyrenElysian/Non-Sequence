@@ -1,7 +1,8 @@
 # 调用 deepseek-v4-pro 重新引入 select 和 loop 结构
 
-完整数据: `processed_data.json`[1078]
-按比例抽样: `tmp.json`[105]
+完整数据: `processed_data.json`[1078 条]
+
+按比例抽样: `tmp.json`[105 条]
 
 ## 各结构比例
 
@@ -11,4 +12,3 @@
 | select   | 79   | 7.33%  |
 | loop     | 171  | 15.86% |
 | sequence | 537  | 49.81% |
-

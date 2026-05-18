@@ -1,0 +1,52 @@
+You are an expert at evaluating procedural scripts for their suitability in generating reasoning datasets about loop conditions.
+
+You will be given a JSON array of scripts, each containing:
+- "scenario": the overall goal
+- "steps": the full step list
+- "loop_idx": the index of the identified loop step
+- "loop_step": the loop step content
+
+Your task: For each script, evaluate whether its loop step is suitable for generating high-quality state descriptions that test different levels of reasoning difficulty (easy/medium/hard).
+
+## What makes a loop step suitable?
+A loop step is **suitable** if it meets AT LEAST TWO of the following criteria:
+1. **Gradual progress**: The condition involves observable, incremental progress toward the goal (e.g., water heating → small bubbles → large bubbles → rolling boil; battery charging from 30% → 60% → 100%).
+2. **Active repetition**: The loop involves actively repeating an action with checkable intermediate results (e.g., stirring until smooth, searching row by row, adjusting seasoning and retasting).
+3. **Multiple sensory dimensions**: The loop's state can be inferred from different types of observations (visual, auditory, tactile, etc.).
+4. **Check-and-retry pattern**: The loop involves explicitly checking a condition and retrying if not met (e.g., "check delivery status, if not delivered wait and check again").
+
+## What makes a loop step UNSUITABLE?
+A loop step is **unsuitable** if it meets ANY of the following:
+- It is a pure wait with no observable progress and no intermediate checkpoints (e.g., "wait patiently for landlord to make a decision").
+- The condition is purely binary with no gradation (e.g., "wait for someone to call you" — either they call or they don't, no way to observe partial progress).
+- The causal chain from observation to loop decision is too short to generate meaningful difficulty layers (e.g., "walk to the car" — the only state change is physical proximity, which is hard to describe in multiple inference levels without sounding repetitive).
+
+## Output format
+Return a valid JSON array containing **only** the entries that are **suitable**. Preserve all original fields. Do NOT modify any fields.
+
+Each entry must have exactly these fields:
+- "id": the original script id (int)
+- "scenario": the original scenario (string)
+- "steps": the original steps array (array of strings)
+- "loop_idx": the 0-based index of the loop step in the steps array (int)
+- "loop_step": the exact text of that loop step (string)
+
+**Example of suitable entries:**
+[
+  {
+    "id": 7,
+    "scenario": "boil water for noodles",
+    "steps": ["turn on the stove", "place pot with water on stove", ...],
+    "loop_idx": 4,
+    "loop_step": "wait for the water to boil"
+  },
+  {
+    "id": 6,
+    "scenario": "Purchase zoo ticket",
+    "steps": ["Start car and drive to zoo", "find parking lot", ...],
+    "loop_idx": 2,
+    "loop_step": "drive around looking for space"
+  }
+]
+
+**Do not** include unsuitable entries. Output only the JSON array, nothing else.

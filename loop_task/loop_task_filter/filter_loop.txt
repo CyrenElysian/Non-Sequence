@@ -1,4 +1,7 @@
-You are an expert at analyzing procedural scripts. Your task is to identify steps that genuinely contain loop logic — steps that inherently involve repetition or waiting for a condition to be met, rather than simple one-time actions.
+You are an expert at analyzing procedural scripts. Your task is to identify steps that genuinely contain loop logic — steps that inherently involve repetition or waiting for a condition to be met, rather than simple one-time actions. Additionally, you must correct minor spelling errors in the original steps before processing.
+
+Spelling Correction
+Before evaluating loop logic, scan the original steps for minor spelling mistakes (e.g., "stirr" → "stir", "untill" → "until", "recieve" → "receive", "begining" → "beginning"). Fix these errors so that the output steps array contains clean, correctly spelled text. Do not alter technical terms, proper nouns, or intentional non-standard expressions.
 
 ## What constitutes loop logic?
 A step contains loop logic if it describes a process that is not completed instantly, but must be sustained, repeated, or monitored until a certain state is achieved. Consider:
@@ -6,11 +9,14 @@ A step contains loop logic if it describes a process that is not completed insta
 - Does the step explicitly or implicitly involve waiting for an external state to change? (e.g., "wait for the kettle to boil", "charge until battery is full")
 - Does the step imply a check-and-retry pattern? (e.g., "adjust the seasoning, then taste again")
 
-
-
 ## Selection rule
 For each script, only choose one step that meets the loop criterion. If multiple steps qualify, choose the better one. If **no step** qualifies, the entire script should be **excluded from the output**.
 If a script contains both a pure wait step (e.g. 'wait for X') and an active repeat step (e.g. 'check X until Y'), prefer the active repeat step as the loop step, because it represents a more explicit loop.
+
+## Prefer loops where:
+- The condition has gradual, observable progress (e.g., water heating → bubbling → boiling)
+- The loop involves active repetition with checkable intermediate results (e.g., stirring until smooth, searching row by row)
+- Multiple sensory dimensions can indicate progress (visual, auditory, tactile)
 
 ## Output format
 Return a valid JSON array containing **only** the entries that have a loop step. Do not include entries without loops.

@@ -1481,13 +1481,16 @@
     "id": 118,
     "scenario": "work as a maid anymore",
     "steps": [
-      "work as a maid anymore",
-      "Wake up on work-day",
-      "Get dressed in work clothes",
-      "Get into car and travel to work",
-      "Park car and go into work",
-      "Pick up cleaning assignments",
-      "Perform work duties"
+      "wake up on work-day",
+      "get dressed in work clothes",
+      "get into car and travel to work",
+      "park car and go into work",
+      "pick up cleaning assignments",
+      "perform work duties",
+      "realize being a maid is exhausting",
+      "decide to quit",
+      "submit resignation letter",
+      "work as a maid anymore"
     ]
   },
   {
@@ -1667,8 +1670,7 @@
   {
     "id": 133,
     "scenario": "go to the grocery store",
-    "steps": [
-      "go to the grocery store",
+        "steps": [
       "look up grocery stores online",
       "choose a grocery store",
       "drive to the grocery store",
@@ -1960,13 +1962,13 @@
     "id": 156,
     "scenario": "take a trip to the jungle",
     "steps": [
-      "take a trip to the jungle",
-      "Go to a travel agent",
-      "Select a trip to country with a jungle",
-      "Pay for the trip",
-      "Travel to the country by plane",
-      "Check in at tour guide center",
-      "Enter the jungle"
+      "go to a travel agent",
+      "select a trip to a country with a jungle",
+      "pay for the trip",
+      "travel to the country by plane",
+      "check in at tour guide center",
+      "enter the jungle",
+      "take a trip to the jungle"
     ]
   },
   {
@@ -2254,7 +2256,6 @@
       "drive to the bookstore",
       "walk around the aisle",
       "read some synopsis pages",
-      "find a book to read",
       "take books up to register",
       "purchase books to read"
     ]
@@ -4324,9 +4325,8 @@
       "ask for the classes",
       "decide on what class to take",
       "sign up for the class",
-      "pay for the classes",
-      "get the syllabus and schedule",
-      "Pay for the cooking class"
+      "pay for the cooking classes",
+      "get the syllabus and schedule"
     ]
   },
   {
@@ -5621,7 +5621,6 @@
     "id": 441,
     "scenario": "make a list of snacks",
     "steps": [
-      "make a list of snacks",
       "find out what everyone wants",
       "get pen and paper",
       "write down the list of snacks needed",

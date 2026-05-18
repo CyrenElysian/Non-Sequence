@@ -1,21 +1,44 @@
 You are a strict data quality reviewer. Given a JSON object representing one data entry, evaluate and clean it.
 
+You have access to the scenario, steps, and loop_step to help you judge each description, just as a model would when making the loop decision. Use this context to determine whether a description is sufficient, unambiguous, and correctly labeled.
+
 ## Quality criteria:
-0. **If the description is merely a direct restatement or negation of the loop goal(loop_step) using the same key words (e.g., "the water is not boiling", "the transport has arrived"), delete it. Concrete observable clues that imply the goal state are acceptable.**
-1. **Independent sufficiency**: The text alone must clearly lead to answer 0/1/2 without depending on other descriptions.
-2. **Unambiguous**: The description must not be equally compatible with a different answer. If it could reasonably be interpreted as both continue and stop, it must be removed.
-3. **State, not explanation**: Must be a factual situation, not "because...".
-4. **Correct answer**: Logical consistency with the state.
-5. **Difficulty calibration** (re-evaluate and adjust if needed):
-   - easy: At most one trivial step of everyday reasoning.
+1. **If the description is merely a direct restatement or negation of the loop goal (loop_step) using the same key words , delete it. Concrete observable clues that imply the goal state are acceptable.**
+2. **Independent and sufficiency**: The description, **when read in the context of the given scenario and loop_step**, must allow a reasonable person to deduce the correct answer (0/1/2) without needing other descriptions from the same entry. It is worth noting that the deduction may rely on common-sense and background knowledge that the scenario implies so the description is not isolated.
+3. **Unambiguous**: In the context of the scenario and loop_step, the description must point clearly to one answer.
+   - If the description could genuinely be interpreted as supporting two different answers with roughly equal plausibility (a "50/50" case), remove it. (Please think carefully in context and delete cautiously.)
+   - If one interpretation is clearly more natural given the context (that is, the one with greater probability), while the other is a stretch that a reasonable person would dismiss, keep the description.
+   - Exercise caution: do not remove a description just because a highly unlikely alternative interpretation can be imagined.
+4. **State, not explanation**: Must be a factual situation, not "because...".
+5. **Correct answer**: Logical consistency with the state.
+6. **Difficulty calibration** (re-evaluate and adjust if needed):
+   - easy: At most one step of everyday reasoning.
    - medium: Requires a short chain or interpreting a less obvious indicator.
-   - hard: Requires combining multiple clues or ruling out a plausible but false alternative. It generally contains a relatively long chain of reasoning logic. Try to avoid relying on esoteric knowledge.
-6. **Conciseness**: Avoid overly long, explanatory text.
-7. **For answer=2 (na)**: Must not contain any information that, even indirectly, presupposes the loop's state. If the information could only be observed after the loop ends/continues, it is invalid as 'na'. However, instead of simply removing it, you may **change its answer to 0 or 1** and assign a suitable difficulty if the description actually provides a logical basis for a stop/continue decision. Only if a na description is truly useless or meaningless (random fact) should you remove it.
+   - hard: Requires combining multiple clues or ruling out a plausible but false alternative. It generally contains a relatively long chain of reasoning logic.
+7. **Conciseness**: The description must be concise and purely state a situation. Delete any description that contains explanatory clauses that spell out the inference, such as:
+   - "confirming that..."
+   - "meaning that..."
+   - "which shows that..."
+   - "indicating that..."
+   - "this implies..."
+   - "so..."
+   - "therefore..."
+   These clauses reduce the reasoning burden and violate the principle of "state, not explanation". If removing such a clause leaves a valid description, you may keep the remaining part; otherwise delete the entire description.
+8. **For answer=2 (na)**: A description is invalid as 'na' if it contains information that presupposes the loop's state — that is, information that implies a loop is ongoing, about to stop, or has already stopped. However, such a description is NOT useless. Instead of deleting it, you must change its answer to 0 or 1 and assign an appropriate difficulty, because the description actually provides a logical basis for a loop decision.
+   - If the information could only be observed after the loop ends → change answer to 0 (stop).
+   - If the information could only be observed while the loop is still ongoing  → change answer to 1 (continue).
+
+**Important**: Many high-quality descriptions describe **indirect sensory clues or phenomena ** that are, in context, highly reliable signals of the loop's state. Treat these as valid and sufficient unless they are genuinely uninformative. When in doubt, prefer keeping such descriptions over deleting them.
 
 ## Actions:
-- Remove any description that fails the above criteria.
-- You may **change the answer** of a description only if it is originally "2" (na) and you determine it actually implies a loop decision (0 or 1). In that case, also assign an appropriate difficulty ("easy"/"medium"/"hard").
-- You may **adjust the difficulty** of any description if it clearly fits a different level better, but do not change a non-na answer unless the original answer is clearly wrong (rare).
-- If after removal the entry has fewer than 2 descriptions or lacks any diversity, output `null` to discard the entry.
+- Modify or remove any description that fails the above criteria.
+- When in doubt between keeping or removing a description that does not clearly violate criteria, **lean toward keeping it**.
+- You may **change the answer** of a description in the following cases:
+  * If it is originally "2" (na) and actually implies a loop decision (0 or 1) → change to 0 or 1, assign appropriate difficulty.
+  * If it is originally 0 or 1 but is genuinely unrelated to the loop decision (cannot independently support stop or continue) → change to 2 ("na"), assign difficulty "na".
+  * If it is originally a non-na answer (0 or 1) but the answer is clearly wrong given the description and context (e.g., a description that clearly shows loop is still ongoing but was labeled 0) → change to the correct answer and assign an appropriate difficulty.
+- You may **adjust the difficulty** of any description if it clearly fits a different level better.
+- If after removal the entry has fewer than 2 descriptions , output `null` to discard the entry.
 - Otherwise, output the cleaned JSON object.
+
+Now evaluate:

@@ -1,36 +1,6 @@
 [
   {
     "id": 1,
-    "scenario": "join the rugby team",
-    "steps": [
-      "read flyer about rugby tryouts",
-      "bring gear to tryouts",
-      "get dressed in gear",
-      "wait for tryouts",
-      "go on the field",
-      "ace the tryouts",
-      "join the rugby team"
-    ],
-    "loop_idx": 3,
-    "loop_step": "wait for tryouts"
-  },
-  {
-    "id": 2,
-    "scenario": "meet some girls",
-    "steps": [
-      "pick up the phone",
-      "go on tinder",
-      "look up some girls",
-      "send messages to girls",
-      "wait for response",
-      "set up meetings",
-      "meet some girls"
-    ],
-    "loop_idx": 4,
-    "loop_step": "wait for response"
-  },
-  {
-    "id": 3,
     "scenario": "build a computer since buying one was expensive",
     "steps": [
       "Get the instructions",
@@ -46,7 +16,7 @@
     "loop_step": "Put each part in piece by piece"
   },
   {
-    "id": 4,
+    "id": 2,
     "scenario": "print a comic book series",
     "steps": [
       "turn on the computer",
@@ -61,7 +31,7 @@
     "loop_step": "wait for the comic to print"
   },
   {
-    "id": 5,
+    "id": 3,
     "scenario": "go to this concert",
     "steps": [
       "Drive to the venue",
@@ -77,7 +47,7 @@
     "loop_step": "Wait in line"
   },
   {
-    "id": 6,
+    "id": 4,
     "scenario": "catch a butterfly for a pet",
     "steps": [
       "Sit down at computer",
@@ -93,23 +63,7 @@
     "loop_step": "Search for butterflies"
   },
   {
-    "id": 7,
-    "scenario": "play a game of squash",
-    "steps": [
-      "pick up squash gear from the garage",
-      "take gear to the car",
-      "put gear in car",
-      "get into car",
-      "drive to squash field",
-      "get out of the car and grab gear",
-      "wait for other players",
-      "play a game of squash"
-    ],
-    "loop_idx": 6,
-    "loop_step": "wait for other players"
-  },
-  {
-    "id": 8,
+    "id": 5,
     "scenario": "wash some clothes",
     "steps": [
       "grab the bag of dirty clothes",
@@ -125,37 +79,7 @@
     "loop_step": "wait for the cycle"
   },
   {
-    "id": 9,
-    "scenario": "sing in a jazz band",
-    "steps": [
-      "go to craigslist",
-      "make an add looking for a jazz band to join",
-      "wait for a band to respond the ad",
-      "set up a tryout",
-      "get the part",
-      "practice with the band",
-      "sing in a jazz band"
-    ],
-    "loop_idx": 2,
-    "loop_step": "wait for a band to respond the ad"
-  },
-  {
-    "id": 10,
-    "scenario": "try out for the roller hockey team",
-    "steps": [
-      "Sit down at computer",
-      "Research local roller hockey teams",
-      "Decide desired team to play for",
-      "Research tryout dates",
-      "Wait for tryout date",
-      "Travel to tryout on date specified",
-      "try out for the roller hockey team,"
-    ],
-    "loop_idx": 4,
-    "loop_step": "Wait for tryout date"
-  },
-  {
-    "id": 11,
+    "id": 6,
     "scenario": "learn how to dance in college",
     "steps": [
       "read a flyer for a dance club",
@@ -169,7 +93,7 @@
     "loop_step": "go to the class every week"
   },
   {
-    "id": 12,
+    "id": 7,
     "scenario": "try high diving",
     "steps": [
       "sign up for a diving class",
@@ -184,7 +108,7 @@
     "loop_step": "practice diving from a low board"
   },
   {
-    "id": 13,
+    "id": 8,
     "scenario": "bake an apple pie",
     "steps": [
       "Find the recipe for the pie",
@@ -200,7 +124,7 @@
     "loop_step": "bake an apple pie"
   },
   {
-    "id": 14,
+    "id": 9,
     "scenario": "eat a late night snack",
     "steps": [
       "Get up from the couch",
@@ -214,23 +138,7 @@
     "loop_step": "Go through the cabinets"
   },
   {
-    "id": 15,
-    "scenario": "build a gym",
-    "steps": [
-      "Sit down at computer",
-      "Travel to amazon.com",
-      "Add all required gym items to cart",
-      "Confirm purchase of items",
-      "Wait for gym items to arrive",
-      "Receive gym item packages",
-      "Set up gym equipment in desired space",
-      "build a gym"
-    ],
-    "loop_idx": 4,
-    "loop_step": "Wait for gym items to arrive"
-  },
-  {
-    "id": 16,
+    "id": 10,
     "scenario": "play basketball in high school",
     "steps": [
       "Check daily for team postings",
@@ -245,22 +153,7 @@
     "loop_step": "Check daily for team postings"
   },
   {
-    "id": 17,
-    "scenario": "find a hobby",
-    "steps": [
-      "Look for the interesting activities",
-      "Pick the most appealing activity",
-      "Think about the ways to complete the activity",
-      "Gather the items necessary for the activity",
-      "Complete the activity",
-      "Repeat the activity whenver the time is right",
-      "find a hobby"
-    ],
-    "loop_idx": 5,
-    "loop_step": "Repeat the activity whenver the time is right"
-  },
-  {
-    "id": 18,
+    "id": 11,
     "scenario": "ride the bus",
     "steps": [
       "Put on shoes",
@@ -275,7 +168,7 @@
     "loop_step": "Wait for the bus to approach"
   },
   {
-    "id": 19,
+    "id": 12,
     "scenario": "earn a lot of money this summer",
     "steps": [
       "apply for a job",
@@ -289,7 +182,7 @@
     "loop_step": "work every day"
   },
   {
-    "id": 20,
+    "id": 13,
     "scenario": "learn to play violin",
     "steps": [
       "look up violin lessons",
@@ -303,7 +196,7 @@
     "loop_step": "go to lessons everyday for practice"
   },
   {
-    "id": 21,
+    "id": 14,
     "scenario": "learn to play a new game",
     "steps": [
       "go online and search games",
@@ -317,7 +210,7 @@
     "loop_step": "keep looking at reviews"
   },
   {
-    "id": 22,
+    "id": 15,
     "scenario": "make some kool aid",
     "steps": [
       "Get a pitcher",
@@ -331,21 +224,7 @@
     "loop_step": "Stir and mix ingredients up"
   },
   {
-    "id": 23,
-    "scenario": "make the track team",
-    "steps": [
-      "Put on running shoes",
-      "Go to the track",
-      "Walk onto the track",
-      "Wait for the gun",
-      "Run when the gun goes off",
-      "make the track team"
-    ],
-    "loop_idx": 3,
-    "loop_step": "Wait for the gun"
-  },
-  {
-    "id": 24,
+    "id": 16,
     "scenario": "play in the leafs",
     "steps": [
       "go to the garage",
@@ -359,21 +238,7 @@
     "loop_step": "rake the leaves into a pile"
   },
   {
-    "id": 25,
-    "scenario": "make a little bit of spending money on Mturk",
-    "steps": [
-      "sign up at mturk using correct information",
-      "Wait till application is approved",
-      "Make a amazon payment account",
-      "Make a payment plan",
-      "Do a hit",
-      "make a little bit of spending money on Mturk"
-    ],
-    "loop_idx": 1,
-    "loop_step": "Wait till application is approved"
-  },
-  {
-    "id": 26,
+    "id": 17,
     "scenario": "bake cookies at home",
     "steps": [
       "Preheat the oven",
@@ -389,51 +254,7 @@
     "loop_step": "Mix the ingredients"
   },
   {
-    "id": 27,
-    "scenario": "go to the bars with friends",
-    "steps": [
-      "call a friend to go out",
-      "take a shower and get ready",
-      "wait for friend to come over",
-      "have a drink while waiting for uber",
-      "take an uber out",
-      "go to the bars with friends"
-    ],
-    "loop_idx": 2,
-    "loop_step": "wait for friend to come over"
-  },
-  {
-    "id": 28,
-    "scenario": "open up a convenience store",
-    "steps": [
-      "Search out convenience store's for sale",
-      "Decide on desired store",
-      "Speak with owner",
-      "Decide on price",
-      "Travel to bank",
-      "Put in loan application",
-      "Wait for loan approval",
-      "open up a convenience store"
-    ],
-    "loop_idx": 6,
-    "loop_step": "Wait for loan approval"
-  },
-  {
-    "id": 29,
-    "scenario": "stop having a monotonous boring life",
-    "steps": [
-      "find a hobby",
-      "find location to practice hobby",
-      "drive to locations",
-      "enter hobby location",
-      "go everyday to stop having a boring life",
-      "stop having a monotonous boring life"
-    ],
-    "loop_idx": 4,
-    "loop_step": "go everyday to stop having a boring life"
-  },
-  {
-    "id": 30,
+    "id": 18,
     "scenario": "learn how to bake",
     "steps": [
       "open chrome app",
@@ -447,7 +268,21 @@
     "loop_step": "drive to cooking class every day"
   },
   {
-    "id": 31,
+    "id": 19,
+    "scenario": "stop having a monotonous boring life",
+    "steps": [
+      "find a hobby",
+      "find location to practice hobby",
+      "drive to locations",
+      "enter hobby location",
+      "go everyday to stop having a boring life",
+      "stop having a monotonous boring life"
+    ],
+    "loop_idx": 4,
+    "loop_step": "go everyday to stop having a boring life"
+  },
+  {
+    "id": 20,
     "scenario": "learn how to do a backflip",
     "steps": [
       "Pull up an instruction youtube video",
@@ -461,36 +296,7 @@
     "loop_step": "Keep practicing from the video"
   },
   {
-    "id": 32,
-    "scenario": "adopt a child",
-    "steps": [
-      "Call adoption agency",
-      "Pass the identification checks",
-      "Wait until called back",
-      "Pass the last identity checks",
-      "Meet the child",
-      "Bring the child home",
-      "adopt a child"
-    ],
-    "loop_idx": 2,
-    "loop_step": "Wait until called back"
-  },
-  {
-    "id": 33,
-    "scenario": "sprint for the school's track team",
-    "steps": [
-      "do some warm up",
-      "stretch legs, arms and back",
-      "go to start line",
-      "wait for whistle to blow",
-      "start to sprint",
-      "sprint for the school's track team"
-    ],
-    "loop_idx": 3,
-    "loop_step": "wait for whistle to blow"
-  },
-  {
-    "id": 34,
+    "id": 21,
     "scenario": "build more muscle",
     "steps": [
       "Go on internet and search for muscle building exercises",
@@ -506,37 +312,7 @@
     "loop_step": "Continue doing exercises everyday"
   },
   {
-    "id": 35,
-    "scenario": "host the best house party ever",
-    "steps": [
-      "invite people to the party",
-      "drive to the store",
-      "shop for party supplies",
-      "drive back home",
-      "set up the party",
-      "wait for guests",
-      "host the best house party ever"
-    ],
-    "loop_idx": 5,
-    "loop_step": "wait for guests"
-  },
-  {
-    "id": 36,
-    "scenario": "attend cooking schooling",
-    "steps": [
-      "Search for good schools offering cooking courses",
-      "Pick the most appealing school",
-      "Visit the school",
-      "Pay for the cooking class",
-      "Wait for the course to begin",
-      "Go to the school to take the cooking class",
-      "attend cooking schooling"
-    ],
-    "loop_idx": 4,
-    "loop_step": "Wait for the course to begin"
-  },
-  {
-    "id": 37,
+    "id": 22,
     "scenario": "try practicing yoga",
     "steps": [
       "Look up yoga tutorials online",
@@ -552,7 +328,7 @@
     "loop_step": "Play the video again"
   },
   {
-    "id": 38,
+    "id": 23,
     "scenario": "get into better shape",
     "steps": [
       "go to google",
@@ -567,23 +343,7 @@
     "loop_step": "go to the gym most days"
   },
   {
-    "id": 39,
-    "scenario": "take a dance class",
-    "steps": [
-      "Read reviews for local dance studios",
-      "Decide which studio to contact",
-      "Call dance studio",
-      "Reserve a place in class",
-      "Drive to the dance studio",
-      "Enter the building",
-      "Wait for instructor to enter",
-      "take a dance class"
-    ],
-    "loop_idx": 7,
-    "loop_step": "Wait for instructor to enter"
-  },
-  {
-    "id": 40,
+    "id": 24,
     "scenario": "join the beauty pageant to win 1st prize",
     "steps": [
       "get ready at home",
@@ -597,21 +357,7 @@
     "loop_step": "wait in line for auditions"
   },
   {
-    "id": 41,
-    "scenario": "go to the party on Saturday night",
-    "steps": [
-      "get invited to the part",
-      "wait for saturday",
-      "take a shower",
-      "get dressed in nice clothes",
-      "get into the car",
-      "go to the party on Saturday night"
-    ],
-    "loop_idx": 1,
-    "loop_step": "wait for saturday"
-  },
-  {
-    "id": 42,
+    "id": 25,
     "scenario": "learn how to play drums",
     "steps": [
       "look up drum lessons",
@@ -625,7 +371,7 @@
     "loop_step": "go to lessons everyday to learn"
   },
   {
-    "id": 43,
+    "id": 26,
     "scenario": "go to a concert with friends",
     "steps": [
       "Sit down at computer",
@@ -641,7 +387,7 @@
     "loop_step": "Wait for friend responses"
   },
   {
-    "id": 44,
+    "id": 27,
     "scenario": "join the swim team",
     "steps": [
       "Go to school",
@@ -656,7 +402,7 @@
     "loop_step": "Practice for swim team tryouts"
   },
   {
-    "id": 45,
+    "id": 28,
     "scenario": "make a garden",
     "steps": [
       "Travel to gardening store",
@@ -672,7 +418,7 @@
     "loop_step": "Water daily as needed"
   },
   {
-    "id": 46,
+    "id": 29,
     "scenario": "learn the Tango",
     "steps": [
       "look up dance lessons",
@@ -686,65 +432,7 @@
     "loop_step": "take lessons everyday to learn"
   },
   {
-    "id": 47,
-    "scenario": "have a stamp collection",
-    "steps": [
-      "shop around online",
-      "find a thing of stamps",
-      "purchase the stamps",
-      "wait for delivery",
-      "open up package",
-      "have a stamp collection"
-    ],
-    "loop_idx": 3,
-    "loop_step": "wait for delivery"
-  },
-  {
-    "id": 48,
-    "scenario": "go to school at the University of Louisville",
-    "steps": [
-      "graduate from high school",
-      "take standardized tests",
-      "fill out application to University of Lousville",
-      "wait to hear if accepted",
-      "open letter of acceptance",
-      "pay the tuition",
-      "drive to Louisville",
-      "go to school at the University of Louisville"
-    ],
-    "loop_idx": 3,
-    "loop_step": "wait to hear if accepted"
-  },
-  {
-    "id": 49,
-    "scenario": "learn a different language",
-    "steps": [
-      "go to google.com",
-      "search for language courses",
-      "sign up for course",
-      "wait for courses to start",
-      "go to courses for a semester",
-      "learn a different language"
-    ],
-    "loop_idx": 3,
-    "loop_step": "wait for courses to start"
-  },
-  {
-    "id": 50,
-    "scenario": "go on a ride",
-    "steps": [
-      "Plan where to go",
-      "look at directions",
-      "walk to car",
-      "start the car",
-      "Drive to destination",
-      "go on a ride"
-    ],
-    "loop_idx": 4,
-    "loop_step": "Drive to destination"
-  },
-  {
-    "id": 51,
+    "id": 30,
     "scenario": "eat Italian food for lunch",
     "steps": [
       "decide what to eat",
@@ -758,7 +446,7 @@
     "loop_step": "drive to restaurant"
   },
   {
-    "id": 52,
+    "id": 31,
     "scenario": "pick up school supplies",
     "steps": [
       "drive to store",
@@ -772,7 +460,7 @@
     "loop_step": "drive to store"
   },
   {
-    "id": 53,
+    "id": 32,
     "scenario": "play soccer in a league",
     "steps": [
       "search top leagues in the area",
@@ -786,7 +474,7 @@
     "loop_step": "drive to location"
   },
   {
-    "id": 54,
+    "id": 33,
     "scenario": "go out for dinner",
     "steps": [
       "dress for the dinner",
@@ -801,7 +489,7 @@
     "loop_step": "drive to the restaurant"
   },
   {
-    "id": 55,
+    "id": 34,
     "scenario": "have money to buy things",
     "steps": [
       "apply for a job",
@@ -815,7 +503,7 @@
     "loop_step": "drive to the interview"
   },
   {
-    "id": 56,
+    "id": 35,
     "scenario": "run a race",
     "steps": [
       "look for a local race either competitive or for charity",
@@ -831,7 +519,7 @@
     "loop_step": "practice until day of race"
   },
   {
-    "id": 57,
+    "id": 36,
     "scenario": "walk to work!",
     "steps": [
       "plan the walk with enough time",
@@ -845,7 +533,7 @@
     "loop_step": "walk to work!"
   },
   {
-    "id": 58,
+    "id": 37,
     "scenario": "try to use the edger",
     "steps": [
       "get in the car",
@@ -859,7 +547,7 @@
     "loop_step": "drive to the store"
   },
   {
-    "id": 59,
+    "id": 38,
     "scenario": "go to the drive in",
     "steps": [
       "get dressed to go out",
@@ -873,7 +561,7 @@
     "loop_step": "go to the drive in"
   },
   {
-    "id": 60,
+    "id": 39,
     "scenario": "cross the river",
     "steps": [
       "Find shallow water",
@@ -888,79 +576,7 @@
     "loop_step": "Continue stepping until reaching the riverbank"
   },
   {
-    "id": 61,
-    "scenario": "eat crab legs for dinner",
-    "steps": [
-      "look up seafood resturaunt",
-      "get in car",
-      "drive to seafood restaurant",
-      "enter the restaurant",
-      "order crab legs",
-      "eat crab legs for dinner"
-    ],
-    "loop_idx": 2,
-    "loop_step": "drive to seafood restaurant"
-  },
-  {
-    "id": 62,
-    "scenario": "go to the dentist",
-    "steps": [
-      "Find nearby dentist",
-      "Make an appointment",
-      "Shower and dress for appointment",
-      "Get in the car",
-      "Drive to dentist office",
-      "go to the dentist"
-    ],
-    "loop_idx": 4,
-    "loop_step": "Drive to dentist office"
-  },
-  {
-    "id": 63,
-    "scenario": "go to an overnight camp",
-    "steps": [
-      "get in the car",
-      "drive to the camp",
-      "park the car",
-      "turn off car",
-      "walk to campground",
-      "go to an overnight camp"
-    ],
-    "loop_idx": 1,
-    "loop_step": "drive to the camp"
-  },
-  {
-    "id": 64,
-    "scenario": "buy a nice ring",
-    "steps": [
-      "get inside car",
-      "insert proper GPS instructions",
-      "drive to the ring store",
-      "go inside store",
-      "go to ring section",
-      "buy a nice ring"
-    ],
-    "loop_idx": 2,
-    "loop_step": "drive to the ring store"
-  },
-  {
-    "id": 65,
-    "scenario": "lose 40 pounds before summer",
-    "steps": [
-      "call plastic surgeon's office",
-      "setup consultation with surgeon",
-      "attend liposuction consultation",
-      "schedule liposuction date",
-      "prep for liposuction surgery",
-      "drive to hospital",
-      "check in for surgery",
-      "lose 40 pounds before summer"
-    ],
-    "loop_idx": 5,
-    "loop_step": "drive to hospital"
-  },
-  {
-    "id": 66,
+    "id": 40,
     "scenario": "eat some leftovers",
     "steps": [
       "walk into the kitchen",
@@ -975,35 +591,7 @@
     "loop_step": "search for leftovers"
   },
   {
-    "id": 67,
-    "scenario": "go to the grocery store before getting lunch",
-    "steps": [
-      "Walk out of house before lunchtime",
-      "Get into car",
-      "Turn car on and drive to store",
-      "Park car and get out",
-      "Walk through entrance of grocery store",
-      "go to the grocery store before getting lunch"
-    ],
-    "loop_idx": 2,
-    "loop_step": "Turn car on and drive to store"
-  },
-  {
-    "id": 68,
-    "scenario": "explore a dangerous part of town",
-    "steps": [
-      "Put phone in pocket in case of emergency",
-      "Leave the house",
-      "Head to the wrong side of the tracks",
-      "Cross over to the wrong side of the tracks",
-      "Explore the dangerous areas",
-      "explore a dangerous part of town"
-    ],
-    "loop_idx": 2,
-    "loop_step": "Head to the wrong side of the tracks"
-  },
-  {
-    "id": 69,
+    "id": 41,
     "scenario": "learn a new sport",
     "steps": [
       "Decide on which sport is of interest",
@@ -1017,21 +605,7 @@
     "loop_step": "Watch all highest rated videos"
   },
   {
-    "id": 70,
-    "scenario": "make the high school football team",
-    "steps": [
-      "read flyer for tryouts",
-      "get the gear together",
-      "go to tryouts",
-      "perform well at tryouts",
-      "go home that night",
-      "make the high school football team"
-    ],
-    "loop_idx": 2,
-    "loop_step": "go to tryouts"
-  },
-  {
-    "id": 71,
+    "id": 42,
     "scenario": "go to Iceland",
     "steps": [
       "Buy a plane ticket",
@@ -1047,21 +621,7 @@
     "loop_step": "Go through security line"
   },
   {
-    "id": 72,
-    "scenario": "go to the store to get a loaf of bread",
-    "steps": [
-      "get into car",
-      "drive to the store",
-      "find the bread aisle",
-      "grab the loaf of bread",
-      "go to counter and pay for bread",
-      "go to the store to get a loaf of bread"
-    ],
-    "loop_idx": 1,
-    "loop_step": "drive to the store"
-  },
-  {
-    "id": 73,
+    "id": 43,
     "scenario": "buy lunch at school",
     "steps": [
       "pack up books",
@@ -1076,52 +636,7 @@
     "loop_step": "wait in line"
   },
   {
-    "id": 74,
-    "scenario": "buy a new toy",
-    "steps": [
-      "Go to the toy store",
-      "Pick out a toy",
-      "Go to the counter",
-      "pay for the toy",
-      "buy a new toy",
-      "Go back home"
-    ],
-    "loop_idx": 0,
-    "loop_step": "Go to the toy store"
-  },
-  {
-    "id": 75,
-    "scenario": "try squid for the first time",
-    "steps": [
-      "Wait to be seated at a restaurant",
-      "Order squid from the menu",
-      "Add condiments to the squid",
-      "Grab a fork",
-      "Use the fork to stab a squid",
-      "Place squid in mouth",
-      "Chew the squid",
-      "try squid for the first time"
-    ],
-    "loop_idx": 0,
-    "loop_step": "Wait to be seated at a restaurant"
-  },
-  {
-    "id": 76,
-    "scenario": "do some type of volunteer work",
-    "steps": [
-      "decide to do some volunteer work",
-      "research local volunteer facilities",
-      "pick favorite volunteer activity",
-      "contact volunteer group via phone",
-      "make an appointment to meet with volunteer group",
-      "drive to volunteer group's facility",
-      "do some type of volunteer work"
-    ],
-    "loop_idx": 5,
-    "loop_step": "drive to volunteer group's facility"
-  },
-  {
-    "id": 77,
+    "id": 44,
     "scenario": "go on the roller coaster",
     "steps": [
       "Walk to the roller coaster",
@@ -1136,7 +651,7 @@
     "loop_step": "Wait in line"
   },
   {
-    "id": 78,
+    "id": 45,
     "scenario": "eat some soup",
     "steps": [
       "go to the kitchen",
@@ -1150,53 +665,7 @@
     "loop_step": "look for a bowl"
   },
   {
-    "id": 79,
-    "scenario": "have our driveway paved",
-    "steps": [
-      "look for local pavement companies",
-      "choose a pavement company",
-      "call the pavement company",
-      "discuss driveway needs",
-      "negotiate a price",
-      "set up a date",
-      "wait for the pavement company to arrive",
-      "have our driveway paved"
-    ],
-    "loop_idx": 6,
-    "loop_step": "wait for the pavement company to arrive"
-  },
-  {
-    "id": 80,
-    "scenario": "explore the jungle",
-    "steps": [
-      "book a ticket",
-      "go to the airport",
-      "park the car",
-      "walk to the desk of an airline",
-      "wait for the plane",
-      "go to a country with jungle",
-      "hire someone to drive out there",
-      "explore the jungle"
-    ],
-    "loop_idx": 4,
-    "loop_step": "wait for the plane"
-  },
-  {
-    "id": 81,
-    "scenario": "win the sweepstakes",
-    "steps": [
-      "see online sweepstakes",
-      "fill out the form",
-      "press submit button",
-      "wait to get a call",
-      "answer the phone",
-      "win the sweepstakes"
-    ],
-    "loop_idx": 3,
-    "loop_step": "wait to get a call"
-  },
-  {
-    "id": 82,
+    "id": 46,
     "scenario": "ride a large roller coaster",
     "steps": [
       "go to the amusement park",
@@ -1210,7 +679,7 @@
     "loop_step": "wait in line for the roller coaster"
   },
   {
-    "id": 83,
+    "id": 47,
     "scenario": "run in a marathon",
     "steps": [
       "Search for marathons to participate in",
@@ -1224,7 +693,7 @@
     "loop_step": "Train until date of marathon"
   },
   {
-    "id": 84,
+    "id": 48,
     "scenario": "park the car",
     "steps": [
       "drive to the airport",
@@ -1239,7 +708,7 @@
     "loop_step": "locate open parking spot"
   },
   {
-    "id": 85,
+    "id": 49,
     "scenario": "park the car",
     "steps": [
       "drive to the camp",
@@ -1255,7 +724,7 @@
     "loop_step": "look for a parking spot"
   },
   {
-    "id": 86,
+    "id": 50,
     "scenario": "Go into the locker room",
     "steps": [
       "Go to the gym",
@@ -1270,7 +739,7 @@
     "loop_step": "find a parking spot"
   },
   {
-    "id": 87,
+    "id": 51,
     "scenario": "let cool after removing",
     "steps": [
       "bake in the oven as instructed",
@@ -1285,7 +754,7 @@
     "loop_step": "let cool after removing"
   },
   {
-    "id": 88,
+    "id": 52,
     "scenario": "gather capturing equipment",
     "steps": [
       "look around the house for the equipment",
@@ -1299,7 +768,7 @@
     "loop_step": "look around the house for the equipment"
   },
   {
-    "id": 89,
+    "id": 53,
     "scenario": "pull up files",
     "steps": [
       "turn on the computer",
@@ -1315,7 +784,7 @@
     "loop_step": "Repeat steps 4 and 5 for other files"
   },
   {
-    "id": 90,
+    "id": 54,
     "scenario": "Log into Netflix",
     "steps": [
       "Open up computer",
@@ -1330,22 +799,7 @@
     "loop_step": "wait for the page to load"
   },
   {
-    "id": 91,
-    "scenario": "Confirm date of concert",
-    "steps": [
-      "look up the concert date again",
-      "write the date in mass email to friends to confirm",
-      "Wait for friend responses",
-      "open emails from friends to see responses",
-      "read what friends wrote",
-      "close the emails from friends",
-      "Confirm date of concert"
-    ],
-    "loop_idx": 2,
-    "loop_step": "Wait for friend responses"
-  },
-  {
-    "id": 92,
+    "id": 55,
     "scenario": "Mix the ingredients",
     "steps": [
       "Open utensil drawer",
@@ -1360,7 +814,7 @@
     "loop_step": "Mix the ingredients"
   },
   {
-    "id": 93,
+    "id": 56,
     "scenario": "sign up for air balooning",
     "steps": [
       "go to front desk",
@@ -1375,7 +829,7 @@
     "loop_step": "wait in the line"
   },
   {
-    "id": 94,
+    "id": 57,
     "scenario": "Place the game on the counter",
     "steps": [
       "Take the game to the cashier",
@@ -1390,22 +844,7 @@
     "loop_step": "repeat the right foot left foot forward to reach cashier"
   },
   {
-    "id": 95,
-    "scenario": "Receive varsity spot from coach",
-    "steps": [
-      "Confess commitment to coach",
-      "tell coach about practicing hard",
-      "coach hands paperwork over",
-      "fill out paperwork",
-      "hand paperwork back to coach",
-      "wait for coach to respond",
-      "Receive varsity spot from coach"
-    ],
-    "loop_idx": 5,
-    "loop_step": "wait for coach to respond"
-  },
-  {
-    "id": 96,
+    "id": 58,
     "scenario": "Train until date of marathon",
     "steps": [
       "Plan out training regiment",
@@ -1420,7 +859,7 @@
     "loop_step": "Repeat steps 2, 3, and 4 for next 28 days"
   },
   {
-    "id": 97,
+    "id": 59,
     "scenario": "Watch out window for rain to stop",
     "steps": [
       "wonder if rain has stopped",
@@ -1434,7 +873,7 @@
     "loop_step": "Watch out window for rain to stop"
   },
   {
-    "id": 98,
+    "id": 60,
     "scenario": "Sign up for roller blade lessons",
     "steps": [
       "Take bus to roller skating rink",
@@ -1449,21 +888,7 @@
     "loop_step": "wait in line at the main desk in the rink"
   },
   {
-    "id": 99,
-    "scenario": "get a SIM card",
-    "steps": [
-      "go to the computer",
-      "turn the computer on",
-      "go on the internet",
-      "purchase new SIM card",
-      "wait for SIM card to arrive",
-      "get a SIM card"
-    ],
-    "loop_idx": 4,
-    "loop_step": "wait for SIM card to arrive"
-  },
-  {
-    "id": 100,
+    "id": 61,
     "scenario": "Make sure to have supplies",
     "steps": [
       "Find the classes and pay money",
@@ -1478,7 +903,7 @@
     "loop_step": "cross off items already in possession"
   },
   {
-    "id": 101,
+    "id": 62,
     "scenario": "get inside car",
     "steps": [
       "Unlock the car",
@@ -1492,7 +917,7 @@
     "loop_step": "Continue to pull and open the car door"
   },
   {
-    "id": 102,
+    "id": 63,
     "scenario": "make final choice from options",
     "steps": [
       "try on for size and adjust accordingly",
@@ -1507,7 +932,7 @@
     "loop_step": "Repeat steps 1 and 2"
   },
   {
-    "id": 103,
+    "id": 64,
     "scenario": "Buy guitar chord/song book",
     "steps": [
       "Choose guitar liked most",
@@ -1522,7 +947,7 @@
     "loop_step": "Wait in line and purchase the book"
   },
   {
-    "id": 104,
+    "id": 65,
     "scenario": "get in the car",
     "steps": [
       "wait for the uber",
@@ -1536,7 +961,7 @@
     "loop_step": "wait for the uber"
   },
   {
-    "id": 105,
+    "id": 66,
     "scenario": "get the laptop",
     "steps": [
       "search for laptops online",
@@ -1550,37 +975,7 @@
     "loop_step": "wait for laptop to arrive"
   },
   {
-    "id": 106,
-    "scenario": "pay for ticket",
-    "steps": [
-      "ask to buy ticket",
-      "wait for the cashier to type in the ticket order",
-      "wait to hear what the ticket costs",
-      "take out a wallet",
-      "open the wallet",
-      "pull out the right amount of money",
-      "pay for ticket"
-    ],
-    "loop_idx": 1,
-    "loop_step": "wait for the cashier to type in the ticket order"
-  },
-  {
-    "id": 107,
-    "scenario": "get dressed for the concert",
-    "steps": [
-      "Buy tickets to a concert",
-      "go to ticket location",
-      "stand in line",
-      "pick up tickets",
-      "drive back home",
-      "wait for concert day",
-      "get dressed for the concert"
-    ],
-    "loop_idx": 5,
-    "loop_step": "wait for concert day"
-  },
-  {
-    "id": 108,
+    "id": 67,
     "scenario": "park the car",
     "steps": [
       "drive to the fair",
@@ -1595,22 +990,7 @@
     "loop_step": "Drive around parking lot looking for a spot"
   },
   {
-    "id": 109,
-    "scenario": "Go in for interviews",
-    "steps": [
-      "Fill out applications",
-      "Submit job applications",
-      "Wait for jobs to call",
-      "Hear phone ring",
-      "Pick up phone",
-      "Agree on a time for interview",
-      "Go in for interviews"
-    ],
-    "loop_idx": 2,
-    "loop_step": "Wait for jobs to call"
-  },
-  {
-    "id": 110,
+    "id": 68,
     "scenario": "converse with a chick",
     "steps": [
       "socialize with people",
@@ -1626,7 +1006,7 @@
     "loop_step": "Wait for chick to look not busy"
   },
   {
-    "id": 111,
+    "id": 69,
     "scenario": "park the car",
     "steps": [
       "drive to the playground",
@@ -1643,7 +1023,7 @@
     "loop_step": "look for available parking spot"
   },
   {
-    "id": 112,
+    "id": 70,
     "scenario": "stand in line at the counter",
     "steps": [
       "enter the office through front door",
@@ -1658,7 +1038,7 @@
     "loop_step": "stand in line at the counter"
   },
   {
-    "id": 113,
+    "id": 71,
     "scenario": "Get a box",
     "steps": [
       "get in car",
@@ -1673,7 +1053,7 @@
     "loop_step": "find the correct box size"
   },
   {
-    "id": 114,
+    "id": 72,
     "scenario": "socialize with people",
     "steps": [
       "drive to the bar",
@@ -1688,7 +1068,7 @@
     "loop_step": "finding parking space"
   },
   {
-    "id": 115,
+    "id": 73,
     "scenario": "parked the car",
     "steps": [
       "drove to grocery store",
@@ -1703,7 +1083,7 @@
     "loop_step": "look around lot for empty spot"
   },
   {
-    "id": 116,
+    "id": 74,
     "scenario": "set up an area for the large animal",
     "steps": [
       "drive to the zoo",
@@ -1718,23 +1098,7 @@
     "loop_step": "search for a big area"
   },
   {
-    "id": 117,
-    "scenario": "Sign new lease",
-    "steps": [
-      "Submit application to landlord",
-      "wait patiently for landlord to make a decision",
-      "landlord calls the tenant",
-      "answer cell phone",
-      "landlord reveals the good news to accept tenant",
-      "landlord meets with new tenants again",
-      "hand over deposit and first month rent check",
-      "Sign new lease"
-    ],
-    "loop_idx": 1,
-    "loop_step": "wait patiently for landlord to make a decision"
-  },
-  {
-    "id": 118,
+    "id": 75,
     "scenario": "Walk to the car",
     "steps": [
       "Remember where the car is parked",
@@ -1750,7 +1114,7 @@
     "loop_step": "Continue lifting and extending legs until arrival at the car"
   },
   {
-    "id": 119,
+    "id": 76,
     "scenario": "Receive package in mail",
     "steps": [
       "Wait for delivery",
@@ -1765,22 +1129,7 @@
     "loop_step": "Wait until status says delivered"
   },
   {
-    "id": 120,
-    "scenario": "receive the large animal",
-    "steps": [
-      "set up the paperwork",
-      "wait for the paperwork to be approved",
-      "received certified mail with notarized licenses",
-      "order food for the new animal",
-      "order medicine and toys",
-      "wait for transport to arrive",
-      "receive the large animal"
-    ],
-    "loop_idx": 1,
-    "loop_step": "wait for the paperwork to be approved"
-  },
-  {
-    "id": 121,
+    "id": 77,
     "scenario": "open the refrigerator",
     "steps": [
       "walk to the refrigerator",
@@ -1795,7 +1144,7 @@
     "loop_step": "Continue pulling until the door is opened"
   },
   {
-    "id": 122,
+    "id": 78,
     "scenario": "Purchase zoo ticket",
     "steps": [
       "Start car and drive to zoo",
@@ -1811,7 +1160,7 @@
     "loop_step": "drive around looking for space"
   },
   {
-    "id": 123,
+    "id": 79,
     "scenario": "boil water for noodles",
     "steps": [
       "turn on the stove",
@@ -1826,7 +1175,7 @@
     "loop_step": "wait for the water to boil"
   },
   {
-    "id": 124,
+    "id": 80,
     "scenario": "enter the arena",
     "steps": [
       "take out tickets",
@@ -1841,7 +1190,7 @@
     "loop_step": "wait in line to enter"
   },
   {
-    "id": 125,
+    "id": 81,
     "scenario": "read salsa making articles",
     "steps": [
       "look up how to make salsa",
@@ -1856,7 +1205,7 @@
     "loop_step": "wait for webpage to open"
   },
   {
-    "id": 126,
+    "id": 82,
     "scenario": "launch a music playing app",
     "steps": [
       "open up the laptop",
@@ -1871,7 +1220,7 @@
     "loop_step": "wait for computer to turn on"
   },
   {
-    "id": 127,
+    "id": 83,
     "scenario": "tell the barber what haircut to receive",
     "steps": [
       "go inside the shop",
@@ -1886,7 +1235,7 @@
     "loop_step": "take seat and wait for barber"
   },
   {
-    "id": 128,
+    "id": 84,
     "scenario": "Let the attendees into the party",
     "steps": [
       "Order hundreds of drinks to venue",
@@ -1901,7 +1250,7 @@
     "loop_step": "Repeat until all the attendees have arrived"
   },
   {
-    "id": 129,
+    "id": 85,
     "scenario": "dress in running clothes",
     "steps": [
       "practice until day of race",
@@ -1916,7 +1265,7 @@
     "loop_step": "practice until day of race"
   },
   {
-    "id": 130,
+    "id": 86,
     "scenario": "sort courses by languages taught",
     "steps": [
       "decide which language to learn",
@@ -1931,22 +1280,7 @@
     "loop_step": "Periodically check for mistakes"
   },
   {
-    "id": 131,
-    "scenario": "Walk up to the store entrance",
-    "steps": [
-      "Go to the supermarket to purchase the coffee maker",
-      "park the car",
-      "open the car door",
-      "get out of the car",
-      "close the car door",
-      "lock the car",
-      "Walk up to the store entrance"
-    ],
-    "loop_idx": 6,
-    "loop_step": "Walk up to the store entrance"
-  },
-  {
-    "id": 132,
+    "id": 87,
     "scenario": "get a person to perform wedding ceremony",
     "steps": [
       "ask person to get married",
@@ -1962,7 +1296,7 @@
     "loop_step": "call around to find available wedding officiate"
   },
   {
-    "id": 133,
+    "id": 88,
     "scenario": "park the car in the parking lot",
     "steps": [
       "drive around looking for a parking spot",
@@ -1977,37 +1311,7 @@
     "loop_step": "drive around looking for a parking spot"
   },
   {
-    "id": 134,
-    "scenario": "enter address into form",
-    "steps": [
-      "click on the name blank",
-      "fill in the name blank",
-      "locate the address blank",
-      "click into the address blank",
-      "enter address into form",
-      "click on checkout",
-      "wait for new page to load"
-    ],
-    "loop_idx": 6,
-    "loop_step": "wait for new page to load"
-  },
-  {
-    "id": 135,
-    "scenario": "get hired by a great company",
-    "steps": [
-      "apply to several jobs",
-      "wait for calls",
-      "get invited to interview",
-      "get ready for interview",
-      "go to interview",
-      "get call with job offer",
-      "get hired by a great company"
-    ],
-    "loop_idx": 1,
-    "loop_step": "wait for calls"
-  },
-  {
-    "id": 136,
+    "id": 89,
     "scenario": "pull up the windows",
     "steps": [
       "stop the car",
@@ -2022,7 +1326,7 @@
     "loop_step": "Hold on window controls until window stops"
   },
   {
-    "id": 137,
+    "id": 90,
     "scenario": "put on serving plate",
     "steps": [
       "wait for pan to cool",
@@ -2037,7 +1341,7 @@
     "loop_step": "wait for pan to cool"
   },
   {
-    "id": 138,
+    "id": 91,
     "scenario": "pick up tickets",
     "steps": [
       "stand in line",
@@ -2052,7 +1356,7 @@
     "loop_step": "slowly move forward in line"
   },
   {
-    "id": 139,
+    "id": 92,
     "scenario": "pull out credit card out of payment pad",
     "steps": [
       "wait for instruction",
@@ -2067,52 +1371,7 @@
     "loop_step": "ensure accept was detected"
   },
   {
-    "id": 140,
-    "scenario": "enter the building",
-    "steps": [
-      "begin walking towards entrance",
-      "continue walking to the entrance",
-      "stop in front of the entrance door",
-      "grab the door handle",
-      "pull the door open",
-      "walk through the entrance",
-      "enter the building"
-    ],
-    "loop_idx": 1,
-    "loop_step": "continue walking to the entrance"
-  },
-  {
-    "id": 141,
-    "scenario": "close the door",
-    "steps": [
-      "sit down in the car",
-      "Focus eyes on door handle",
-      "Extend arm to the side",
-      "Grab door handle",
-      "Pull door quickly all the way towards the car",
-      "Listen for sound indicating door is securely shut",
-      "close the door"
-    ],
-    "loop_idx": 5,
-    "loop_step": "Listen for sound indicating door is securely shut"
-  },
-  {
-    "id": 142,
-    "scenario": "Buy a ticket from the conductor",
-    "steps": [
-      "Wait for bus to arrive",
-      "wait for bus door to ope",
-      "enter the bus",
-      "ask conductor for ticket price",
-      "take wallet out of pocket",
-      "take payment out of wallet",
-      "Buy a ticket from the conductor"
-    ],
-    "loop_idx": 0,
-    "loop_step": "Wait for bus to arrive"
-  },
-  {
-    "id": 143,
+    "id": 93,
     "scenario": "Continue to alternate between feet",
     "steps": [
       "Choose where to move toward",
@@ -2127,7 +1386,7 @@
     "loop_step": "Continue to alternate between feet"
   },
   {
-    "id": 144,
+    "id": 94,
     "scenario": "walk to locker room",
     "steps": [
       "show front desk gym pass",
@@ -2144,22 +1403,7 @@
     "loop_step": "Continue to locker room"
   },
   {
-    "id": 145,
-    "scenario": "stand in line",
-    "steps": [
-      "go to ticket location",
-      "look around place",
-      "locate the line",
-      "walk towards the line",
-      "walk to the end of the line",
-      "stay in place",
-      "stand in line"
-    ],
-    "loop_idx": 5,
-    "loop_step": "stay in place"
-  },
-  {
-    "id": 146,
+    "id": 95,
     "scenario": "brush teeth in bathroom",
     "steps": [
       "dry off body",
@@ -2174,7 +1418,7 @@
     "loop_step": "brush teeth and spit into sink"
   },
   {
-    "id": 147,
+    "id": 96,
     "scenario": "show front desk gym pass",
     "steps": [
       "walk inside gym",
@@ -2189,22 +1433,7 @@
     "loop_step": "sift through wallet to find pass"
   },
   {
-    "id": 148,
-    "scenario": "turn off computer",
-    "steps": [
-      "notice computer having problems",
-      "wait for computer to unfreeze",
-      "move the mouse",
-      "click on menu",
-      "locate the shut down option",
-      "click on shut down",
-      "turn off computer"
-    ],
-    "loop_idx": 1,
-    "loop_step": "wait for computer to unfreeze"
-  },
-  {
-    "id": 149,
+    "id": 97,
     "scenario": "get measuring cup",
     "steps": [
       "walk to cupboard",
@@ -2219,7 +1448,7 @@
     "loop_step": "mix the dry ingredients"
   },
   {
-    "id": 150,
+    "id": 98,
     "scenario": "open up car door",
     "steps": [
       "walk outside to the car",
@@ -2234,7 +1463,7 @@
     "loop_step": "keep walking towards the car"
   },
   {
-    "id": 151,
+    "id": 99,
     "scenario": "practice running techniques",
     "steps": [
       "ask coach about training program",
@@ -2249,7 +1478,7 @@
     "loop_step": "practice running techniques"
   },
   {
-    "id": 152,
+    "id": 100,
     "scenario": "get cookies to correct consistency",
     "steps": [
       "grip onto the whisk tightly",
@@ -2264,22 +1493,7 @@
     "loop_step": "Mix the ingredients"
   },
   {
-    "id": 153,
-    "scenario": "submit the order",
-    "steps": [
-      "wait for page to load",
-      "enter payment information",
-      "look for confirm button",
-      "find confirm button",
-      "move cursor on confirm button",
-      "click confirm button",
-      "submit the order"
-    ],
-    "loop_idx": 0,
-    "loop_step": "wait for page to load"
-  },
-  {
-    "id": 154,
+    "id": 101,
     "scenario": "Sit on the bench",
     "steps": [
       "Walk down sidewalk toward bus station",
@@ -2294,7 +1508,7 @@
     "loop_step": "continue moving feet"
   },
   {
-    "id": 155,
+    "id": 102,
     "scenario": "get to the car",
     "steps": [
       "get up and get dressed",
@@ -2309,7 +1523,7 @@
     "loop_step": "Take another step toward the car"
   },
   {
-    "id": 156,
+    "id": 103,
     "scenario": "once at front greet attendant",
     "steps": [
       "wait in the line",
@@ -2324,7 +1538,7 @@
     "loop_step": "keep moving in line"
   },
   {
-    "id": 157,
+    "id": 104,
     "scenario": "scroll through results displayed",
     "steps": [
       "type employment in the search box",
@@ -2339,7 +1553,7 @@
     "loop_step": "scroll through results displayed"
   },
   {
-    "id": 158,
+    "id": 105,
     "scenario": "Negotiate the contract with the interviewer",
     "steps": [
       "Receive the job offer from the interviewer",
@@ -2354,7 +1568,7 @@
     "loop_step": "Keep trying until an agreement is reached"
   },
   {
-    "id": 159,
+    "id": 106,
     "scenario": "Put ingredients in bowl together one by one",
     "steps": [
       "Grab a bowl to put ingredients in",
@@ -2369,7 +1583,7 @@
     "loop_step": "Put ingredients in bowl together one by one"
   },
   {
-    "id": 160,
+    "id": 107,
     "scenario": "walk to the grill",
     "steps": [
       "walk through the door",
@@ -2384,7 +1598,7 @@
     "loop_step": "continue moving until standing in front of grill"
   },
   {
-    "id": 161,
+    "id": 108,
     "scenario": "walk to the closet",
     "steps": [
       "turn off alarm",
@@ -2399,7 +1613,7 @@
     "loop_step": "Repeat the process until standing near closet"
   },
   {
-    "id": 162,
+    "id": 109,
     "scenario": "request an application to fill out",
     "steps": [
       "open mouth to speak",
@@ -2414,22 +1628,7 @@
     "loop_step": "wait for manager to hand over application"
   },
   {
-    "id": 163,
-    "scenario": "read the draft",
-    "steps": [
-      "write a rough draft",
-      "look for document of draft",
-      "find the document",
-      "put cursor on document",
-      "click on document",
-      "wait for document to load",
-      "read the draft"
-    ],
-    "loop_idx": 5,
-    "loop_step": "wait for document to load"
-  },
-  {
-    "id": 164,
+    "id": 110,
     "scenario": "cut the sod",
     "steps": [
       "clean lawn of debris",
@@ -2444,22 +1643,7 @@
     "loop_step": "dig until all grass is removed"
   },
   {
-    "id": 165,
-    "scenario": "Pay for the lessons upfront",
-    "steps": [
-      "Book lessons with the instructor",
-      "calculate total cost",
-      "decide on payment method",
-      "enter payment information",
-      "Pay for the lessons upfront",
-      "wait for processing",
-      "obtain a receipt"
-    ],
-    "loop_idx": 5,
-    "loop_step": "wait for processing"
-  },
-  {
-    "id": 166,
+    "id": 111,
     "scenario": "turn into the shelter's parking lot",
     "steps": [
       "drive to the animal shelter",
@@ -2474,7 +1658,7 @@
     "loop_step": "wait for traffic"
   },
   {
-    "id": 167,
+    "id": 112,
     "scenario": "sort the clothes",
     "steps": [
       "grab the bag of dirty clothes",
@@ -2489,7 +1673,7 @@
     "loop_step": "wait for clothes to wash"
   },
   {
-    "id": 168,
+    "id": 113,
     "scenario": "buy the makeup",
     "steps": [
       "walk to cashier with makeup selections",
@@ -2504,7 +1688,7 @@
     "loop_step": "wait in line"
   },
   {
-    "id": 169,
+    "id": 114,
     "scenario": "get bleach to use",
     "steps": [
       "put hand on cabinet door",
@@ -2519,7 +1703,7 @@
     "loop_step": "browse to find the bleach"
   },
   {
-    "id": 170,
+    "id": 115,
     "scenario": "start packing up baked goods",
     "steps": [
       "continue baking more",
@@ -2534,22 +1718,7 @@
     "loop_step": "wait for the sweets to finish baking"
   },
   {
-    "id": 171,
-    "scenario": "get paid from job",
-    "steps": [
-      "work at job",
-      "request a paycheck",
-      "have lots of patience",
-      "wait for pay day",
-      "pay day arrives",
-      "check is delivered",
-      "get paid from job"
-    ],
-    "loop_idx": 3,
-    "loop_step": "wait for pay day"
-  },
-  {
-    "id": 172,
+    "id": 116,
     "scenario": "walk up to store entrance",
     "steps": [
       "get out of car",
@@ -2566,7 +1735,7 @@
     "loop_step": "Continue until entrance is reached"
   },
   {
-    "id": 173,
+    "id": 117,
     "scenario": "Receive an income from work",
     "steps": [
       "Apply for a job",
@@ -2581,7 +1750,7 @@
     "loop_step": "Keep working for 14 days"
   },
   {
-    "id": 174,
+    "id": 118,
     "scenario": "fix grammatical errors",
     "steps": [
       "write a first draft",
@@ -2596,22 +1765,7 @@
     "loop_step": "read through draft"
   },
   {
-    "id": 175,
-    "scenario": "take a nap on the bed",
-    "steps": [
-      "sit on the bed for a little",
-      "pull back the blanket",
-      "pull back the sheet",
-      "fluff up the pillow",
-      "lay down on the bed",
-      "fall asleep on the bed",
-      "take a nap on the bed"
-    ],
-    "loop_idx": 5,
-    "loop_step": "fall asleep on the bed"
-  },
-  {
-    "id": 176,
+    "id": 119,
     "scenario": "exit the bus",
     "steps": [
       "Take bus to roller skating rink",
@@ -2627,7 +1781,7 @@
     "loop_step": "wait for the bus to get to the destination"
   },
   {
-    "id": 177,
+    "id": 120,
     "scenario": "park the car",
     "steps": [
       "drive to where the boating trip is",
@@ -2642,7 +1796,7 @@
     "loop_step": "make sure car is between lines"
   },
   {
-    "id": 178,
+    "id": 121,
     "scenario": "Give the draft to the editor",
     "steps": [
       "Read through the draft",
@@ -2659,22 +1813,7 @@
     "loop_step": "fix any typos"
   },
   {
-    "id": 179,
-    "scenario": "talk to receptionist",
-    "steps": [
-      "go inside the shop",
-      "Walk toward where receptionist is located",
-      "Make sure receptionist isn't too busy",
-      "Look receptionist in the eye",
-      "Speak to the receptionist",
-      "Wait for receptionist to respond",
-      "talk to receptionist"
-    ],
-    "loop_idx": 5,
-    "loop_step": "Wait for receptionist to respond"
-  },
-  {
-    "id": 180,
+    "id": 122,
     "scenario": "walk to the car",
     "steps": [
       "exit the makeup shop",

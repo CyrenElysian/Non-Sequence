@@ -1,64 +1,4142 @@
 [
   {
     "id": 1,
-    "scenario": "Sign new lease",
+    "scenario": "build a computer since buying one was expensive",
     "steps": [
-      "Submit application to landlord",
-      "wait patiently for landlord to make a decision",
-      "landlord calls the tenant",
-      "answer cell phone",
-      "landlord reveals the good news to accept tenant",
-      "landlord meets with new tenants again",
-      "hand over deposit and first month rent check",
-      "Sign new lease"
+      "Get the instructions",
+      "Read the instructions carefully",
+      "Buy the various computer parts",
+      "Put each part in piece by piece",
+      "Check that everything is in the right place",
+      "Test out the computer",
+      "Use the computer happily",
+      "build a computer since buying one was expensive"
     ],
-    "loop_idx": 1,
-    "loop_step": "wait patiently for landlord to make a decision",
+    "loop_idx": 3,
+    "loop_step": "Put each part in piece by piece",
     "descriptions": [
       [
-        "the landlord has not yet called",
+        "there are still computer parts remaining to be installed",
         1,
         "easy"
       ],
       [
-        "the rental listing is still active online",
+        "the case side panel remains off",
         1,
         "medium"
       ],
       [
-        "the landlord sends a text asking to verify your previous address",
+        "the motherboard is still resting on its anti-static bag outside the case",
         1,
         "hard"
       ],
       [
-        "the tenant’s cell phone rings and the caller ID shows the landlord’s number",
+        "the box of computer parts is empty",
         0,
         "easy"
       ],
       [
-        "the period of uncertainty concludes as the decision-maker initiates a call",
+        "you're looking at a fully assembled tower with its case closed",
         0,
         "medium"
       ],
       [
-        "the tenant's memory of the landlord's promise to call by Friday aligns with the phone's sudden alert on Thursday evening",
+        "the anti-static wrist strap is unbuckled and set aside",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 2,
+    "scenario": "print a comic book series",
+    "steps": [
+      "turn on the computer",
+      "go search online",
+      "look for comics online",
+      "chose a comic book series",
+      "press control and p on the keyboard",
+      "wait for the comic to print",
+      "print a comic book series"
+    ],
+    "loop_idx": 5,
+    "loop_step": "wait for the comic to print",
+    "descriptions": [
+      [
+        "the printer's status still shows \"printing in progress",
+        1,
+        "easy"
+      ],
+      [
+        "a blank sheet of paper just got pulled from the input tray",
+        1,
+        "medium"
+      ],
+      [
+        "the printer's warm-up cycle just finished",
+        1,
+        "hard"
+      ],
+      [
+        "the printed comic sits in the printer's output tray",
+        0,
+        "easy"
+      ],
+      [
+        "the printer's busy indicator light stops blinking",
+        0,
+        "medium"
+      ],
+      [
+        "the stack of paper in the output tray stops getting taller",
         0,
         "hard"
       ],
       [
-        "The tenant's phone buzzes with a spam text about an extended car warranty during the call.",
+        "A stack of blank paper sits next to the printer.",
         2,
         "na"
       ],
       [
-        "A neighbor's wind chimes clink faintly in the breeze while the tenant waits.",
+        "The desk lamp casts a warm glow on the keyboard.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 2,
+    "id": 3,
+    "scenario": "go to this concert",
+    "steps": [
+      "Drive to the venue",
+      "Find and pay for parking",
+      "Walk to the venue",
+      "Wait in line",
+      "Present tickets at the door",
+      "Enter the venue",
+      "Find a spot to watch the band",
+      "go to this concert"
+    ],
+    "loop_idx": 3,
+    "loop_step": "Wait in line",
+    "descriptions": [
+      [
+        "the doors have not opened yet",
+        1,
+        "easy"
+      ],
+      [
+        "you can see the venue staff still laying out the stanchions by the entrance",
+        1,
+        "medium"
+      ],
+      [
+        "the ticket scanners by the door are still covered in their protective plastic",
+        1,
+        "hard"
+      ],
+      [
+        "you are next in line to present your ticket",
+        0,
+        "easy"
+      ],
+      [
+        "the person directly in front of you is now handing their ticket to the door staff",
+        0,
+        "medium"
+      ],
+      [
+        "you hear the heavy entrance door unlatch and swing open",
+        0,
+        "hard"
+      ],
+      [
+        "A group of fans behind you are chatting excitedly about the opening act.",
+        2,
+        "na"
+      ],
+      [
+        "A street vendor is selling band T-shirts and glow sticks nearby.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 4,
+    "scenario": "catch a butterfly for a pet",
+    "steps": [
+      "Sit down at computer",
+      "Input Amazon.com into web bar",
+      "Order butterfly catching setup from Amazon",
+      "Wait for delivery",
+      "Receive package in mail",
+      "Travel to field near house",
+      "Search for butterflies",
+      "catch a butterfly for a pet"
+    ],
+    "loop_idx": 6,
+    "loop_step": "Search for butterflies",
+    "descriptions": [
+      [
+        "no butterflies are in sight",
+        1,
+        "easy"
+      ],
+      [
+        "the flowers remain perfectly still",
+        1,
+        "medium"
+      ],
+      [
+        "nothing has stirred the petals except my own breath when I leaned close",
+        1,
+        "hard"
+      ],
+      [
+        "a butterfly is spotted fluttering near a bush",
+        0,
+        "easy"
+      ],
+      [
+        "a gentle flapping sound is heard among the leaves",
+        0,
+        "medium"
+      ],
+      [
+        "a small, erratic shadow dances on the ground ahead",
+        0,
+        "hard"
+      ],
+      [
+        "The field is dotted with small yellow wildflowers.",
+        2,
+        "na"
+      ],
+      [
+        "A distant airplane leaves a faint contrail in the sky.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 5,
+    "scenario": "wash some clothes",
+    "steps": [
+      "grab the bag of dirty clothes",
+      "walk to the washing machine",
+      "open the washing machine",
+      "put in the dirty clothes",
+      "add some detergent",
+      "set the cycle",
+      "wait for the cycle",
+      "wash some clothes"
+    ],
+    "loop_idx": 6,
+    "loop_step": "wait for the cycle",
+    "descriptions": [
+      [
+        "the washing machine is still running",
+        1,
+        "easy"
+      ],
+      [
+        "the lid is locked",
+        1,
+        "medium"
+      ],
+      [
+        "the digital countdown hasn't reached zero",
+        1,
+        "hard"
+      ],
+      [
+        "the washing machine beeps",
+        0,
+        "easy"
+      ],
+      [
+        "the clothes have stopped spinning",
+        0,
+        "medium"
+      ],
+      [
+        "the steady background hum suddenly cuts to silence",
+        0,
+        "hard"
+      ],
+      [
+        "The laundry room door is slightly ajar, letting in a faint draft from the hallway.",
+        2,
+        "na"
+      ],
+      [
+        "A stray sock lies forgotten on the floor near the baseboard.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 6,
+    "scenario": "learn how to dance in college",
+    "steps": [
+      "read a flyer for a dance club",
+      "go online to the web site",
+      "sign up for the class",
+      "wait until the first class",
+      "go to the class every week",
+      "learn how to dance in college"
+    ],
+    "loop_idx": 4,
+    "loop_step": "go to the class every week",
+    "descriptions": [
+      [
+        "the semester still has several weeks remaining",
+        1,
+        "easy"
+      ],
+      [
+        "the autumn leaves on campus are only just beginning to turn",
+        1,
+        "medium"
+      ],
+      [
+        "the playlist for the class only goes up to the cha-cha, while the course description promised salsa and swing as well",
+        1,
+        "hard"
+      ],
+      [
+        "the semester ends",
+        0,
+        "easy"
+      ],
+      [
+        "your dance instructor starts collecting end-of-term feedback forms",
+        0,
+        "medium"
+      ],
+      [
+        "the schedule for the next semester's classes is posted on the bulletin board",
+        0,
+        "hard"
+      ],
+      [
+        "The dance studio is located in the basement of the student union building.",
+        2,
+        "na"
+      ],
+      [
+        "The flyer mentioned that the instructor is a former professional dancer.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 7,
+    "scenario": "try high diving",
+    "steps": [
+      "sign up for a diving class",
+      "attend weekly diving classes",
+      "learn proper diving form",
+      "practice diving from a low board",
+      "climb to the high dive",
+      "stand at the edge of the high dive",
+      "try high diving"
+    ],
+    "loop_idx": 3,
+    "loop_step": "practice diving from a low board",
+    "descriptions": [
+      [
+        "the diver still hesitates before jumping",
+        1,
+        "easy"
+      ],
+      [
+        "the surface of the water below the low board remains completely calm",
+        1,
+        "medium"
+      ],
+      [
+        "the instructor is still demonstrating the entry technique on the pool deck",
+        1,
+        "hard"
+      ],
+      [
+        "you can consistently dive from the low board with proper form and no splash",
+        0,
+        "easy"
+      ],
+      [
+        "you start to notice the pattern of tiles on the bottom of the pool",
+        0,
+        "medium"
+      ],
+      [
+        "the pool water becomes still between your dives",
+        0,
+        "hard"
+      ],
+      [
+        "The pool water shimmers under the overhead lights.",
+        2,
+        "na"
+      ],
+      [
+        "A faint hum comes from the filtration system.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 8,
+    "scenario": "bake an apple pie",
+    "steps": [
+      "Find the recipe for the pie",
+      "Walk to the car",
+      "Go to the store for the ingredients",
+      "Bring the ingredients into the house",
+      "Put the ingredients on the counter",
+      "Put the ingredients together",
+      "Put the unbaked pie in the oven",
+      "bake an apple pie"
+    ],
+    "loop_idx": 7,
+    "loop_step": "bake an apple pie",
+    "descriptions": [
+      [
+        "the pie crust is still pale and doughy",
+        1,
+        "easy"
+      ],
+      [
+        "the aroma of baking apples and cinnamon hasn't filled the kitchen yet",
+        1,
+        "medium"
+      ],
+      [
+        "the ice cream for the pie is still a frozen block in the freezer",
+        1,
+        "hard"
+      ],
+      [
+        "the crust turns golden brown and the filling is bubbling",
+        0,
+        "easy"
+      ],
+      [
+        "the sweet aroma of apple pie begins to waft from the oven",
+        0,
+        "medium"
+      ],
+      [
+        "the oven window has steamed up and then cleared",
+        0,
+        "hard"
+      ],
+      [
+        "The kitchen floor tiles are a checkerboard pattern of white and pale blue.",
+        2,
+        "na"
+      ],
+      [
+        "A wooden spoon rests in a ceramic utensil holder by the stove.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 9,
+    "scenario": "eat a late night snack",
+    "steps": [
+      "Get up from the couch",
+      "Walk into the kitchen",
+      "Go through the cabinets",
+      "Find something tasty",
+      "Reach for the treat",
+      "eat a late night snack"
+    ],
+    "loop_idx": 2,
+    "loop_step": "Go through the cabinets",
+    "descriptions": [
+      [
+        "the cabinets checked so far contain only dishes and canned vegetables",
+        1,
+        "easy"
+      ],
+      [
+        "the quiet rustle of a snack wrapper hasn't reached your ears yet",
+        1,
+        "medium"
+      ],
+      [
+        "the faint scent of dish soap is the only aroma coming from the cabinets you've searched",
+        1,
+        "hard"
+      ],
+      [
+        "your fingers close around a crinkling bag of chips",
+        0,
+        "easy"
+      ],
+      [
+        "your fingertips no longer brush against unfamiliar packaging",
+        0,
+        "medium"
+      ],
+      [
+        "a familiar crinkle of cellophane answers the brush of your knuckles",
+        0,
+        "hard"
+      ],
+      [
+        "The soft hum of the refrigerator cycles on in the background.",
+        2,
+        "na"
+      ],
+      [
+        "A faint breeze rustles the leaves just outside the kitchen window.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 10,
+    "scenario": "play basketball in high school",
+    "steps": [
+      "Check daily for team postings",
+      "Figure out when tryouts take place",
+      "Stay after school to try out for the team",
+      "Read the list of people who made the team",
+      "Stay after school for practice",
+      "Play in basketball games",
+      "play basketball in high school"
+    ],
+    "loop_idx": 0,
+    "loop_step": "Check daily for team postings",
+    "descriptions": [
+      [
+        "the tryout schedule has not been posted on the bulletin board yet",
+        1,
+        "easy"
+      ],
+      [
+        "the hallway bulletin board is bare except for a leftover lunch menu from last month",
+        1,
+        "medium"
+      ],
+      [
+        "the faculty member responsible for updating the bulletin boards hasn't been assigned for the new semester yet",
+        1,
+        "hard"
+      ],
+      [
+        "the team tryout dates are posted",
+        0,
+        "easy"
+      ],
+      [
+        "you notice a cluster of students reading a fresh sheet on the gym bulletin board",
+        0,
+        "medium"
+      ],
+      [
+        "a friend asks if you're going to tryouts on Tuesday",
+        0,
+        "hard"
+      ],
+      [
+        "The hallway smells of floor wax and old sneakers.",
+        2,
+        "na"
+      ],
+      [
+        "A group of students is laughing near the lockers.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 11,
+    "scenario": "ride the bus",
+    "steps": [
+      "Put on shoes",
+      "Walk outside towards bus stop",
+      "Wait for the bus to approach",
+      "Enter bus through steps",
+      "Pay for bus ticket",
+      "Find a seat on the bus",
+      "ride the bus"
+    ],
+    "loop_idx": 2,
+    "loop_step": "Wait for the bus to approach",
+    "descriptions": [
+      [
+        "the bus has not yet arrived at the stop",
+        1,
+        "easy"
+      ],
+      [
+        "the others at the stop remain stationary, still staring at their phones",
+        1,
+        "medium"
+      ],
+      [
+        "no one has pocketed their phone and stepped toward the curb in the last few minutes",
+        1,
+        "hard"
+      ],
+      [
+        "the bus pulls up to the stop",
+        0,
+        "easy"
+      ],
+      [
+        "you hear the hydraulic hiss of the bus doors opening",
+        0,
+        "medium"
+      ],
+      [
+        "the reflection of headlights sweeps across the shelter glass",
+        0,
+        "hard"
+      ],
+      [
+        "The bus stop sign has a small dent on its edge.",
+        2,
+        "na"
+      ],
+      [
+        "A cool breeze carries the faint scent of fresh bread from the bakery nearby.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 12,
+    "scenario": "earn a lot of money this summer",
+    "steps": [
+      "apply for a job",
+      "go to interview",
+      "get the job",
+      "start at work",
+      "work every day",
+      "earn a lot of money this summer"
+    ],
+    "loop_idx": 4,
+    "loop_step": "work every day",
+    "descriptions": [
+      [
+        "the summer is not over",
+        1,
+        "easy"
+      ],
+      [
+        "my uniform is laid out for tomorrow",
+        1,
+        "medium"
+      ],
+      [
+        "the staff group chat is still buzzing with shift-swap requests",
+        1,
+        "hard"
+      ],
+      [
+        "the summer ends",
+        0,
+        "easy"
+      ],
+      [
+        "the morning air turns crisp and fallen leaves gather on the sidewalk",
+        0,
+        "medium"
+      ],
+      [
+        "the days have become noticeably shorter",
+        0,
+        "hard"
+      ],
+      [
+        "The company cafeteria offers free coffee.",
+        2,
+        "na"
+      ],
+      [
+        "Your desk is near a window.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 13,
+    "scenario": "learn to play violin",
+    "steps": [
+      "look up violin lessons",
+      "drive to lessons",
+      "enter instructor building",
+      "meet with instructor",
+      "go to lessons everyday for practice",
+      "learn to play violin"
+    ],
+    "loop_idx": 4,
+    "loop_step": "go to lessons everyday for practice",
+    "descriptions": [
+      [
+        "the student still struggles to play the assigned étude without mistakes",
+        1,
+        "easy"
+      ],
+      [
+        "the violin case by the front door is still packed and ready each morning",
+        1,
+        "medium"
+      ],
+      [
+        "the calendar on the fridge still has today's date circled in red",
+        1,
+        "hard"
+      ],
+      [
+        "the instructor tells you that you no longer need lessons",
+        0,
+        "easy"
+      ],
+      [
+        "your instructor stops correcting your posture and begins discussing stage presence",
+        0,
+        "medium"
+      ],
+      [
+        "the instructor hands you back the deposit check for the rental violin",
+        0,
+        "hard"
+      ],
+      [
+        "The instructor’s studio has a blue door.",
+        2,
+        "na"
+      ],
+      [
+        "There is a coffee shop across the street from the building.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 14,
+    "scenario": "learn to play a new game",
+    "steps": [
+      "go online and search games",
+      "keep looking at reviews",
+      "create a top 3 list",
+      "pick a game to play",
+      "watch tutorial videos",
+      "learn to play a new game"
+    ],
+    "loop_idx": 1,
+    "loop_step": "keep looking at reviews",
+    "descriptions": [
+      [
+        "the review site still shows additional pages of reviews",
+        1,
+        "easy"
+      ],
+      [
+        "you haven't yet encountered a review mentioning any game released before 2020",
+        1,
+        "medium"
+      ],
+      [
+        "the total number of distinct reviewers you've read opinions from is still in the single digits",
+        1,
+        "hard"
+      ],
+      [
+        "your shortlist contains three promising games",
+        0,
+        "easy"
+      ],
+      [
+        "you catch yourself reading reviews for games you already dismissed",
+        0,
+        "medium"
+      ],
+      [
+        "the reviews you read now only compare the same three games to each other",
+        0,
+        "hard"
+      ],
+      [
+        "A cat is curled up asleep on the armchair nearby.",
+        2,
+        "na"
+      ],
+      [
+        "The faint hum of a refrigerator can be heard in the background.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 15,
+    "scenario": "make some kool aid",
+    "steps": [
+      "Get a pitcher",
+      "Add water to pitcher",
+      "Add kool-aid and sugar",
+      "Stir and mix ingredients up",
+      "Let cool in refrigerator",
+      "make some kool aid"
+    ],
+    "loop_idx": 3,
+    "loop_step": "Stir and mix ingredients up",
+    "descriptions": [
+      [
+        "there are still visible clumps of undissolved powder",
+        1,
+        "easy"
+      ],
+      [
+        "when the stirring spoon is lifted, small grains cling to its surface",
+        1,
+        "medium"
+      ],
+      [
+        "you can still see the bottom of the pitcher in crisp detail through the liquid",
+        1,
+        "hard"
+      ],
+      [
+        "the powder has completely dissolved and the liquid is uniformly colored",
+        0,
+        "easy"
+      ],
+      [
+        "the sound of the spoon scraping the bottom becomes purely a soft swish instead of a gritty crunch",
+        0,
+        "medium"
+      ],
+      [
+        "the effort required to stir the mixture stops increasing and remains steady",
+        0,
+        "hard"
+      ],
+      [
+        "The sun is shining through the kitchen window.",
+        2,
+        "na"
+      ],
+      [
+        "A faint scent of freshly cut grass wafts in from outside.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 16,
+    "scenario": "play in the leafs",
+    "steps": [
+      "go to the garage",
+      "find the rake",
+      "take the rake outside",
+      "rake the leaves into a pile",
+      "jump into the pile",
+      "play in the leafs"
+    ],
+    "loop_idx": 3,
+    "loop_step": "rake the leaves into a pile",
+    "descriptions": [
+      [
+        "there are still loose leaves scattered across the lawn",
+        1,
+        "easy"
+      ],
+      [
+        "your feet still crunch with every step you take",
+        1,
+        "medium"
+      ],
+      [
+        "the garden hose is still completely visible along its length",
+        1,
+        "hard"
+      ],
+      [
+        "the ground is clear of leaves",
+        0,
+        "easy"
+      ],
+      [
+        "the rake’s tines scrape only dirt, no longer rustling through leaves",
+        0,
+        "medium"
+      ],
+      [
+        "the rake, stuck into the mound, stands balanced without support",
+        0,
+        "hard"
+      ],
+      [
+        "The rake has a wooden handle with a faded red grip.",
+        2,
+        "na"
+      ],
+      [
+        "A light breeze occasionally rustles the remaining leaves on the trees.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 17,
+    "scenario": "bake cookies at home",
+    "steps": [
+      "Preheat the oven",
+      "Add ingredients to a bowl",
+      "Mix the ingredients",
+      "Place baking sheet on the counter",
+      "Scoop dough from the bowl with a spoon",
+      "Put cookie dough on baking sheet",
+      "Put baking sheet with dough in the oven",
+      "bake cookies at home"
+    ],
+    "loop_idx": 2,
+    "loop_step": "Mix the ingredients",
+    "descriptions": [
+      [
+        "dry pockets of flour remain visible in the bowl",
+        1,
+        "easy"
+      ],
+      [
+        "streaks of butter remain distinct from the sugar",
+        1,
+        "medium"
+      ],
+      [
+        "the mixture feels distinctly cooler in places when you touch the spoon",
+        1,
+        "hard"
+      ],
+      [
+        "the mixture forms a homogeneous dough with no streaks of flour",
+        0,
+        "easy"
+      ],
+      [
+        "the spoon leaves a clean trail through the dough that slowly closes back in on itself",
+        0,
+        "medium"
+      ],
+      [
+        "the clinking of the spoon against the metal bowl softens into a dull, thudding scrape",
+        0,
+        "hard"
+      ],
+      [
+        "A bag of flour sits open on the counter.",
+        2,
+        "na"
+      ],
+      [
+        "Soft music plays from a radio in the corner.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 18,
+    "scenario": "learn how to bake",
+    "steps": [
+      "open chrome app",
+      "search for cooking classes",
+      "sign up for classes",
+      "wait for classes to start",
+      "drive to cooking class every day",
+      "learn how to bake"
+    ],
+    "loop_idx": 5,
+    "loop_step": "drive to cooking class every day",
+    "descriptions": [
+      [
+        "today is only the second day of the five-day course",
+        1,
+        "easy"
+      ],
+      [
+        "the syllabus still shows a class on 'decorating cakes' scheduled for the day after tomorrow",
+        1,
+        "medium"
+      ],
+      [
+        "the flour dust on the passenger seat is still fresh from this morning's class",
+        1,
+        "hard"
+      ],
+      [
+        "the cooking class course has reached its final session date",
+        0,
+        "easy"
+      ],
+      [
+        "the daily reminder notification from the cooking school fails to appear",
+        0,
+        "medium"
+      ],
+      [
+        "the sign outside the cooking school has changed from \"Class in Session\" to \"Available for Private Events",
+        0,
+        "hard"
+      ],
+      [
+        "The route you take to the cooking class passes a bright yellow house with a white picket fence.",
+        2,
+        "na"
+      ],
+      [
+        "Your car's air conditioner makes a faint humming sound even when it's off.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 19,
+    "scenario": "stop having a monotonous boring life",
+    "steps": [
+      "find a hobby",
+      "find location to practice hobby",
+      "drive to locations",
+      "enter hobby location",
+      "go everyday to stop having a boring life",
+      "stop having a monotonous boring life"
+    ],
+    "loop_idx": 4,
+    "loop_step": "go everyday to stop having a boring life",
+    "descriptions": [
+      [
+        "the feeling of boredom returns the next morning",
+        1,
+        "easy"
+      ],
+      [
+        "the new membership card for the hobby location remains uncreased in a drawer",
+        1,
+        "medium"
+      ],
+      [
+        "the houseplant on the windowsill has a new leaf, but the car keys haven't moved from the hook",
+        1,
+        "hard"
+      ],
+      [
+        "you begin to feel a sense of loss on days you skip, showing the hobby has become a genuine interest",
+        0,
+        "easy"
+      ],
+      [
+        "your calendar for the month fills with non-hobby commitments that you resent",
+        0,
+        "medium"
+      ],
+      [
+        "you find yourself buying coffee at the café next door to the hobby location without even glancing at its door",
+        0,
+        "hard"
+      ],
+      [
+        "The walls of the hobby location are decorated with abstract paintings.",
+        2,
+        "na"
+      ],
+      [
+        "A faint hum of traffic can be heard from outside the building.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 20,
+    "scenario": "learn how to do a backflip",
+    "steps": [
+      "Pull up an instruction youtube video",
+      "Watch the instruction video",
+      "Practice a lot",
+      "Ask someone else for feedback",
+      "Keep practicing from the video",
+      "learn how to do a backflip"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Keep practicing from the video",
+    "descriptions": [
+      [
+        "your back still touches the ground at the end of each attempt",
+        1,
+        "easy"
+      ],
+      [
+        "the playhead never passes the slow-motion breakdown section of the video to reach the full-speed demonstration at the end",
+        1,
+        "medium"
+      ],
+      [
+        "the landing mat still lacks a pair of parallel foot scuffs aligned with the direction of the jump",
+        1,
+        "hard"
+      ],
+      [
+        "you can consistently land a backflip without watching the video",
+        0,
+        "easy"
+      ],
+      [
+        "the exact words of the video’s cues pop into your mind as you jump",
+        0,
+        "medium"
+      ],
+      [
+        "the pause button on the video is no longer worn out",
+        0,
+        "hard"
+      ],
+      [
+        "There's a faint hum from the refrigerator in the next room.",
+        2,
+        "na"
+      ],
+      [
+        "A small crack runs along the ceiling above the practice mat.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 21,
+    "scenario": "build more muscle",
+    "steps": [
+      "Go on internet and search for muscle building exercises",
+      "Drive to health club",
+      "Register to become member",
+      "Pay for membership",
+      "Go into weight room",
+      "Begin to workout with weights",
+      "Continue doing exercises everyday",
+      "build more muscle"
+    ],
+    "loop_idx": 7,
+    "loop_step": "Continue doing exercises everyday",
+    "descriptions": [
+      [
+        "you can only complete 5 push-ups before your arms give out",
+        1,
+        "easy"
+      ],
+      [
+        "your workout log shows the same maximum bench press weight for the past two weeks",
+        1,
+        "medium"
+      ],
+      [
+        "you can still fit into your shirts the same way as before",
+        1,
+        "hard"
+      ],
+      [
+        "the measuring tape shows an increase in bicep circumference by 2 inches",
+        0,
+        "easy"
+      ],
+      [
+        "you notice your reflection showing a fuller upper arm when you flex in the mirror",
+        0,
+        "medium"
+      ],
+      [
+        "the scale shows the same number as last week, but your belt feels looser",
+        0,
+        "hard"
+      ],
+      [
+        "The health club has a smoothie bar near the entrance.",
+        2,
+        "na"
+      ],
+      [
+        "The weight room floor is made of black rubber tiles.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 22,
+    "scenario": "try practicing yoga",
+    "steps": [
+      "Look up yoga tutorials online",
+      "Pick a video",
+      "Play the video",
+      "Pause the video",
+      "Practice the move",
+      "Hold the move for a few seconds",
+      "Play the video again",
+      "try practicing yoga"
+    ],
+    "loop_idx": 6,
+    "loop_step": "Play the video again",
+    "descriptions": [
+      [
+        "the video has more moves to demonstrate",
+        1,
+        "easy"
+      ],
+      [
+        "the video's progress bar is only halfway across the screen",
+        1,
+        "medium"
+      ],
+      [
+        "the background music still has an energetic tempo typical of the middle of a session",
+        1,
+        "hard"
+      ],
+      [
+        "the video ends",
+        0,
+        "easy"
+      ],
+      [
+        "the screen displays a replay icon over the video thumbnail",
+        0,
+        "medium"
+      ],
+      [
+        "I notice I've been holding the pose far longer than the usual count",
+        0,
+        "hard"
+      ],
+      [
+        "The yoga mat is a deep shade of purple, slightly worn at the edges.",
+        2,
+        "na"
+      ],
+      [
+        "In the background, the faint hum of a refrigerator can be heard.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 23,
+    "scenario": "get into better shape",
+    "steps": [
+      "go to google",
+      "search for a gym",
+      "go to the sign up page",
+      "sign up for the gym",
+      "pay the fee",
+      "go to the gym most days",
+      "get into better shape"
+    ],
+    "loop_idx": 6,
+    "loop_step": "go to the gym most days",
+    "descriptions": [
+      [
+        "the week's gym attendance stands at 2 days out of 7",
+        1,
+        "easy"
+      ],
+      [
+        "a thin layer of dust has settled on the gym sneakers by the door",
+        1,
+        "medium"
+      ],
+      [
+        "the 'recently played' section of their music streaming service hasn't featured any workout playlists this month",
+        1,
+        "hard"
+      ],
+      [
+        "the gym membership expires",
+        0,
+        "easy"
+      ],
+      [
+        "the gym's front desk staff no longer recognizes your face",
+        0,
+        "medium"
+      ],
+      [
+        "the locker you always used now has someone else's lock on it",
+        0,
+        "hard"
+      ],
+      [
+        "The gym's floor is covered with interlocking rubber mats.",
+        2,
+        "na"
+      ],
+      [
+        "There is a large mural of a mountain landscape on one wall.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 24,
+    "scenario": "join the beauty pageant to win 1st prize",
+    "steps": [
+      "get ready at home",
+      "get inside car",
+      "drive to pageant",
+      "wait in line for auditions",
+      "kill the auditions",
+      "join the beauty pageant to win 1st prize"
+    ],
+    "loop_idx": 3,
+    "loop_step": "wait in line for auditions",
+    "descriptions": [
+      [
+        "the person in front of you is still auditioning",
+        1,
+        "easy"
+      ],
+      [
+        "your feet are starting to ache from standing in the same spot",
+        1,
+        "medium"
+      ],
+      [
+        "the same pair of shoes is still visible through the gap under the audition door",
+        1,
+        "hard"
+      ],
+      [
+        "you are called to audition",
+        0,
+        "easy"
+      ],
+      [
+        "the previous contestant exits the audition room",
+        0,
+        "medium"
+      ],
+      [
+        "the floor manager folds the velvet rope that had been guiding the queue",
+        0,
+        "hard"
+      ],
+      [
+        "The waiting room has a faint smell of hairspray and perfume.",
+        2,
+        "na"
+      ],
+      [
+        "You notice a small scuff mark on your left heel.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 25,
+    "scenario": "learn how to play drums",
+    "steps": [
+      "look up drum lessons",
+      "drive to lessons",
+      "enter the building",
+      "meet with instructor",
+      "go to lessons everyday to learn",
+      "learn how to play drums"
+    ],
+    "loop_idx": 4,
+    "loop_step": "go to lessons everyday to learn",
+    "descriptions": [
+      [
+        "the student still cannot play a full song without mistakes",
+        1,
+        "easy"
+      ],
+      [
+        "the lesson fee for next month has already been deducted from his account",
+        1,
+        "medium"
+      ],
+      [
+        "the instructor's notes for today still include a reminder to 'count out loud",
+        1,
+        "hard"
+      ],
+      [
+        "the instructor tells you that you have completed the drum lessons and no more are scheduled",
+        0,
+        "easy"
+      ],
+      [
+        "the instructor's nameplate has been removed from the lesson room door",
+        0,
+        "medium"
+      ],
+      [
+        "the monthly schedule posted in the hallway shows no drum lessons listed for next week",
+        0,
+        "hard"
+      ],
+      [
+        "The drum studio has a large mirror on one wall.",
+        2,
+        "na"
+      ],
+      [
+        "A vending machine in the hallway sells snacks and drinks.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 26,
+    "scenario": "go to a concert with friends",
+    "steps": [
+      "Sit down at computer",
+      "Search upcoming concerts",
+      "Decide which concert to go to",
+      "Send group message to friends inquiring about desire to go",
+      "Wait for friend responses",
+      "Confirm date of concert",
+      "Travel to concert",
+      "go to a concert with friends"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Wait for friend responses",
+    "descriptions": [
+      [
+        "not all friends have replied yet",
+        1,
+        "easy"
+      ],
+      [
+        "the conversation has shifted entirely to sharing memes and reminiscing about past shows without anyone yet acknowledging your concert suggestion",
+        1,
+        "medium"
+      ],
+      [
+        "a single 'laugh' emoji reaction from a friend notorious for noncommittal replies is the only feedback since your message",
+        1,
+        "hard"
+      ],
+      [
+        "you receive the last outstanding reply",
+        0,
+        "easy"
+      ],
+      [
+        "the RSVP deadline you gave in the message has just passed",
+        0,
+        "medium"
+      ],
+      [
+        "the conversation in the group chat has shifted to discussing what to wear",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 27,
+    "scenario": "join the swim team",
+    "steps": [
+      "Go to school",
+      "Walk to coach's office",
+      "Knock on coach's door",
+      "Ask coach about swim team tryouts",
+      "Practice for swim team tryouts",
+      "Travel to swim team tryouts when specified and tryout",
+      "join the swim team"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Practice for swim team tryouts",
+    "descriptions": [
+      [
+        "you have not yet consistently met the tryout qualifying time in practice",
+        1,
+        "easy"
+      ],
+      [
+        "you still belly-flop every time you attempt a racing dive",
+        1,
+        "medium"
+      ],
+      [
+        "you still instinctively hold your nose when pushing off the wall",
+        1,
+        "hard"
+      ],
+      [
+        "the coach posts the tryout schedule",
+        0,
+        "easy"
+      ],
+      [
+        "the morning announcements state that the pool is open for use",
+        0,
+        "medium"
+      ],
+      [
+        "the vending machine beside the pool gate is restocked with fresh snacks",
+        0,
+        "hard"
+      ],
+      [
+        "The pool water is slightly cooler than usual today.",
+        2,
+        "na"
+      ],
+      [
+        "You notice a faint echo off the tiled walls with each stroke.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 28,
+    "scenario": "make a garden",
+    "steps": [
+      "Travel to gardening store",
+      "Ask store clerk about needed materials for garden",
+      "Purchase needed materials",
+      "Load materials and drive home",
+      "Unload materials and make garden plot",
+      "Plant seeds in garden soil",
+      "Water daily as needed",
+      "make a garden"
+    ],
+    "loop_idx": 6,
+    "loop_step": "Water daily as needed",
+    "descriptions": [
+      [
+        "the soil moisture level remains below the recommended range",
+        1,
+        "easy"
+      ],
+      [
+        "each morning, a finger pressed into the soil comes out clean and dry",
+        1,
+        "medium"
+      ],
+      [
+        "the garden has no shade from the midday heat",
+        1,
+        "hard"
+      ],
+      [
+        "the plants have become established and the soil retains moisture for several days",
+        0,
+        "easy"
+      ],
+      [
+        "a thick layer of straw mulch now covers the garden bed",
+        0,
+        "medium"
+      ],
+      [
+        "a fresh cobweb stretches from the outdoor faucet handle to the wall",
+        0,
+        "hard"
+      ],
+      [
+        "The garden plot is bordered by a low wooden fence painted white.",
+        2,
+        "na"
+      ],
+      [
+        "A pair of gardening gloves rests on the edge of the wheelbarrow.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 29,
+    "scenario": "learn the Tango",
+    "steps": [
+      "look up dance lessons",
+      "schedule the lessons",
+      "drive to lessons",
+      "enter the building",
+      "take lessons everyday to learn",
+      "learn the Tango"
+    ],
+    "loop_idx": 4,
+    "loop_step": "take lessons everyday to learn",
+    "descriptions": [
+      [
+        "the student is still practicing basic steps with frequent corrections from the instructor",
+        1,
+        "easy"
+      ],
+      [
+        "the studio's monthly schedule still lists upcoming tango lessons for their group",
+        1,
+        "medium"
+      ],
+      [
+        "their name is still on the sign-in sheet for the next week's tango class",
+        1,
+        "hard"
+      ],
+      [
+        "you can dance a full Tango song with a partner from start to finish without any mistakes or guidance",
+        0,
+        "easy"
+      ],
+      [
+        "the instructor hands you a flyer for a local milonga and says 'see you there",
+        0,
+        "medium"
+      ],
+      [
+        "the studio’s resident cat no longer bolts from the room when you dance",
+        0,
+        "hard"
+      ],
+      [
+        "The studio's wooden floor has a faint scent of lemon polish",
+        2,
+        "na"
+      ],
+      [
+        "A poster on the wall shows a tango pose with the words 'Tango: The Embrace'",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 30,
+    "scenario": "eat Italian food for lunch",
+    "steps": [
+      "decide what to eat",
+      "invite friends to lunch",
+      "get in the car",
+      "drive to restaurant",
+      "go inside the restaurant",
+      "eat Italian food for lunch"
+    ],
+    "loop_idx": 3,
+    "loop_step": "drive to restaurant",
+    "descriptions": [
+      [
+        "the car hasn't arrived at the restaurant",
+        1,
+        "easy"
+      ],
+      [
+        "the view through the windshield still shows moving lanes of traffic",
+        1,
+        "medium"
+      ],
+      [
+        "everyone’s seatbelt remains fastened",
+        1,
+        "hard"
+      ],
+      [
+        "the car is parked in the restaurant's parking lot",
+        0,
+        "easy"
+      ],
+      [
+        "the engine rumbles to a halt and the car falls silent",
+        0,
+        "medium"
+      ],
+      [
+        "the hum of the tires on pavement fades to a gritty crunch of gravel",
+        0,
+        "hard"
+      ],
+      [
+        "My friend Jane suggested the restaurant last week.",
+        2,
+        "na"
+      ],
+      [
+        "The restaurant's phone number ends with 321.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 31,
+    "scenario": "pick up school supplies",
+    "steps": [
+      "drive to store",
+      "enter the store",
+      "walk to school supplies",
+      "pick out supplies",
+      "pick up supplies",
+      "pick up school supplies"
+    ],
+    "loop_idx": 0,
+    "loop_step": "drive to store",
+    "descriptions": [
+      [
+        "the car has not yet arrived at the store",
+        1,
+        "easy"
+      ],
+      [
+        "the parking brake has remained disengaged since the trip began",
+        1,
+        "medium"
+      ],
+      [
+        "the liquid in the cup holder is still rippling",
+        1,
+        "hard"
+      ],
+      [
+        "the car is parked in the store's parking lot",
+        0,
+        "easy"
+      ],
+      [
+        "a parking meter's timer is ticking down right outside your window",
+        0,
+        "medium"
+      ],
+      [
+        "the scent of hot asphalt and hand sanitizer drifts through the air conditioning vent",
+        0,
+        "hard"
+      ],
+      [
+        "The radio is playing a nostalgic 90s pop song.",
+        2,
+        "na"
+      ],
+      [
+        "A faint scent of vanilla from the air freshener hangs in the car.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 32,
+    "scenario": "play soccer in a league",
+    "steps": [
+      "search top leagues in the area",
+      "contact one of the leagues",
+      "sign up through the website",
+      "suit up for the game",
+      "drive to location",
+      "play soccer in a league"
+    ],
+    "loop_idx": 4,
+    "loop_step": "drive to location",
+    "descriptions": [
+      [
+        "the destination is still 10 miles away",
+        1,
+        "easy"
+      ],
+      [
+        "the team's group chat hasn't lit up with \"I'm here\" messages yet",
+        1,
+        "medium"
+      ],
+      [
+        "the radio station hasn't started to crackle with the local game day broadcast yet",
+        1,
+        "hard"
+      ],
+      [
+        "your car's navigation system alerts you that you have reached the destination",
+        0,
+        "easy"
+      ],
+      [
+        "the sound of a referee's whistle drifts through your open window",
+        0,
+        "medium"
+      ],
+      [
+        "the reflection of the soccer field's floodlights flickers on your hood",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 33,
+    "scenario": "go out for dinner",
+    "steps": [
+      "dress for the dinner",
+      "get into car",
+      "drive to the restaurant",
+      "check in with front desk",
+      "sit down for dinner",
+      "eat the dinner",
+      "go out for dinner"
+    ],
+    "loop_idx": 2,
+    "loop_step": "drive to the restaurant",
+    "descriptions": [
+      [
+        "the restaurant is not yet visible",
+        1,
+        "easy"
+      ],
+      [
+        "the passenger asks \"Are we there yet?",
+        1,
+        "medium"
+      ],
+      [
+        "the radio volume hasn't been turned down in anticipation of arrival",
+        1,
+        "hard"
+      ],
+      [
+        "the car's GPS announces \"you have arrived at your destination",
+        0,
+        "easy"
+      ],
+      [
+        "you notice the restaurant's neon sign glowing through the windshield",
+        0,
+        "medium"
+      ],
+      [
+        "the steering wheel suddenly becomes much easier to turn",
+        0,
+        "hard"
+      ],
+      [
+        "The restaurant's specialty is seafood paella.",
+        2,
+        "na"
+      ],
+      [
+        "The car's dashboard clock shows the time but is slightly fast.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 34,
+    "scenario": "have money to buy things",
+    "steps": [
+      "apply for a job",
+      "get in the car",
+      "drive to the interview",
+      "get hired for the job",
+      "start saving money",
+      "have money to buy things"
+    ],
+    "loop_idx": 2,
+    "loop_step": "drive to the interview",
+    "descriptions": [
+      [
+        "the car hasn't arrived at the interview location yet",
+        1,
+        "easy"
+      ],
+      [
+        "the car's odometer reading is still increasing",
+        1,
+        "medium"
+      ],
+      [
+        "the parking brake remains disengaged",
+        1,
+        "hard"
+      ],
+      [
+        "you have reached the interview location",
+        0,
+        "easy"
+      ],
+      [
+        "you turn off the car engine",
+        0,
+        "medium"
+      ],
+      [
+        "the GPS voice finally falls silent",
+        0,
+        "hard"
+      ],
+      [
+        "The car's dashboard has a small chip on the left side.",
+        2,
+        "na"
+      ],
+      [
+        "A faded air freshener hangs from the rearview mirror.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 35,
+    "scenario": "run a race",
+    "steps": [
+      "look for a local race either competitive or for charity",
+      "make sure scheduled day is free",
+      "contact the race organizers",
+      "sign up for the race",
+      "practice until day of race",
+      "dress in running clothes",
+      "show up to race",
+      "run a race"
+    ],
+    "loop_idx": 4,
+    "loop_step": "practice until day of race",
+    "descriptions": [
+      [
+        "the race day hasn't arrived yet",
+        1,
+        "easy"
+      ],
+      [
+        "your race bib is still sitting in its envelope on the kitchen counter",
+        1,
+        "medium"
+      ],
+      [
+        "the race organizers' latest email mentions picking up your race packet next week",
+        1,
+        "hard"
+      ],
+      [
+        "the current date matches the race date",
+        0,
+        "easy"
+      ],
+      [
+        "you receive an email from the organizers with final race-day instructions",
+        0,
+        "medium"
+      ],
+      [
+        "the timing mats at the start line are successfully tested",
+        0,
+        "hard"
+      ],
+      [
+        "The pavement along the river path has new cracks after the winter.",
+        2,
+        "na"
+      ],
+      [
+        "A friendly stray cat often watches me stretch near the park bench.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 36,
+    "scenario": "walk to work!",
+    "steps": [
+      "plan the walk with enough time",
+      "dress in work attire",
+      "put on comfortable shoes",
+      "walk out of house",
+      "lock the door",
+      "walk to work!"
+    ],
+    "loop_idx": 5,
+    "loop_step": "walk to work!",
+    "descriptions": [
+      [
+        "the navigation app has not yet announced \"You have arrived",
+        1,
+        "easy"
+      ],
+      [
+        "I can still hear birds chirping in the residential area instead of the traffic hum near the office.",
+        1,
+        "medium"
+      ],
+      [
+        "the recycling bins are still out on the curb from yesterday's collection",
+        1,
+        "hard"
+      ],
+      [
+        "you have reached the entrance of your office building",
+        0,
+        "easy"
+      ],
+      [
+        "the familiar squeak of the office building's front door is heard",
+        0,
+        "medium"
+      ],
+      [
+        "your watch shows the exact time you scheduled to arrive",
+        0,
+        "hard"
+      ],
+      [
+        "Your shoelaces are double-knotted.",
+        2,
+        "na"
+      ],
+      [
+        "You have a slight ache in your shoulder from carrying your bag.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 37,
+    "scenario": "try to use the edger",
+    "steps": [
+      "get in the car",
+      "drive to the store",
+      "go inside the store",
+      "purchase the edger",
+      "drive back home",
+      "try to use the edger"
+    ],
+    "loop_idx": 1,
+    "loop_step": "drive to the store",
+    "descriptions": [
+      [
+        "the car has not yet reached the store's parking lot",
+        1,
+        "easy"
+      ],
+      [
+        "the sound of the tires humming against the pavement remains constant",
+        1,
+        "medium"
+      ],
+      [
+        "the scent of pine trees from the last stretch of road still fills the car",
+        1,
+        "hard"
+      ],
+      [
+        "the car is parked in front of the store",
+        0,
+        "easy"
+      ],
+      [
+        "you see the store's sign right outside the windshield",
+        0,
+        "medium"
+      ],
+      [
+        "the odometer's numbers remain fixed as you glance at the dashboard",
+        0,
+        "hard"
+      ],
+      [
+        "The car's clock is stuck at 3:17.",
+        2,
+        "na"
+      ],
+      [
+        "A faded parking permit hangs from the rearview mirror.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 38,
+    "scenario": "go to the drive in",
+    "steps": [
+      "get dressed to go out",
+      "walk out of the house",
+      "walk to the car",
+      "start the car again",
+      "pick up a date",
+      "go to the drive in"
+    ],
+    "loop_idx": 5,
+    "loop_step": "go to the drive in",
+    "descriptions": [
+      [
+        "the car hasn't arrived at the drive-in yet",
+        1,
+        "easy"
+      ],
+      [
+        "the car is still in drive",
+        1,
+        "medium"
+      ],
+      [
+        "the radio is still playing a regular FM station, not the drive-in's movie audio channel",
+        1,
+        "hard"
+      ],
+      [
+        "the car is shifted into park facing the screen",
+        0,
+        "easy"
+      ],
+      [
+        "a speaker post appears next to the car window",
+        0,
+        "medium"
+      ],
+      [
+        "the car ahead's tail lights no longer shift against the brightness of the screen",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 39,
+    "scenario": "cross the river",
+    "steps": [
+      "Find shallow water",
+      "Put left foot in the water",
+      "Move the other foot forward",
+      "Put right foot in the water",
+      "Find a solid spot to take another step",
+      "Continue stepping until reaching the riverbank",
+      "cross the river"
+    ],
+    "loop_idx": 5,
+    "loop_step": "Continue stepping until reaching the riverbank",
+    "descriptions": [
+      [
+        "your feet are still in the water and the opposite riverbank is still ahead",
+        1,
+        "easy"
+      ],
+      [
+        "the ground underfoot remains soft and yielding",
+        1,
+        "medium"
+      ],
+      [
+        "each step stirs up silt that clouds the water",
+        1,
+        "hard"
+      ],
+      [
+        "your foot lands on dry ground",
+        0,
+        "easy"
+      ],
+      [
+        "you smell damp earth and grass",
+        0,
+        "medium"
+      ],
+      [
+        "you notice the current's tug on your legs has stopped",
+        0,
+        "hard"
+      ],
+      [
+        "The sound of rustling leaves drifts from the trees along the bank.",
+        2,
+        "na"
+      ],
+      [
+        "A fish jumps out of the water a few yards downstream.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 40,
+    "scenario": "eat some leftovers",
+    "steps": [
+      "walk into the kitchen",
+      "walk to the fridge",
+      "open the fridge",
+      "search for leftovers",
+      "take out leftovers",
+      "walk to the counter",
+      "eat some leftovers"
+    ],
+    "loop_idx": 3,
+    "loop_step": "search for leftovers",
+    "descriptions": [
+      [
+        "there are still unsearched shelves and containers in the fridge",
+        1,
+        "easy"
+      ],
+      [
+        "you are still standing upright",
+        1,
+        "medium"
+      ],
+      [
+        "your hands are empty",
+        1,
+        "hard"
+      ],
+      [
+        "you find a container of leftover lasagna",
+        0,
+        "easy"
+      ],
+      [
+        "a red sauce smear on a container lid catches your eye",
+        0,
+        "medium"
+      ],
+      [
+        "a fork with dried tomato sauce on its tines sits on a shelf",
+        0,
+        "hard"
+      ],
+      [
+        "The refrigerator hums softly in the background.",
+        2,
+        "na"
+      ],
+      [
+        "A grocery list is pinned to the fridge with a magnet.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 41,
+    "scenario": "learn a new sport",
+    "steps": [
+      "Decide on which sport is of interest",
+      "Sit down at computer",
+      "go to youtube.com",
+      "search how-to videos on desired sport",
+      "Watch all highest rated videos",
+      "learn a new sport"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Watch all highest rated videos",
+    "descriptions": [
+      [
+        "there remain unwatched videos in the highest rated results list",
+        1,
+        "easy"
+      ],
+      [
+        "the 'Liked videos' playlist lacks entries for some of the highest rated how-to videos.",
+        1,
+        "medium"
+      ],
+      [
+        "the coffee next to the laptop is still steaming",
+        1,
+        "hard"
+      ],
+      [
+        "there are no more highest rated videos left to watch",
+        0,
+        "easy"
+      ],
+      [
+        "the 'Up Next' autoplay queue now shows only kitten videos",
+        0,
+        "medium"
+      ],
+      [
+        "the search results page only displays videos marked with a 'Watched' badge, even after refreshing",
+        0,
+        "hard"
+      ],
+      [
+        "The desk lamp casts a warm glow over the keyboard",
+        2,
+        "na"
+      ],
+      [
+        "A faint traffic noise drifts in from the window",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 42,
+    "scenario": "go to Iceland",
+    "steps": [
+      "Buy a plane ticket",
+      "Take a vehicle to the airport",
+      "Check in at the desk",
+      "Go through security line",
+      "Go to boarding area",
+      "Board the plane",
+      "Sit in the seat",
+      "go to Iceland"
+    ],
+    "loop_idx": 3,
+    "loop_step": "Go through security line",
+    "descriptions": [
+      [
+        "you are still standing in the queue",
+        1,
+        "easy"
+      ],
+      [
+        "your shoes are still on",
+        1,
+        "medium"
+      ],
+      [
+        "the person in front of you is still wearing their belt",
+        1,
+        "hard"
+      ],
+      [
+        "you have passed through the metal detector and are in the secure area",
+        0,
+        "easy"
+      ],
+      [
+        "you notice a row of duty-free shops just ahead",
+        0,
+        "medium"
+      ],
+      [
+        "the signage changes from pictograms of shoes and laptops to pictograms of planes and gates",
+        0,
+        "hard"
+      ],
+      [
+        "A vending machine near the security line sells Icelandic chocolate bars.",
+        2,
+        "na"
+      ],
+      [
+        "Overhead monitors display flight statuses, including a delayed flight to Akureyri.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 43,
+    "scenario": "buy lunch at school",
+    "steps": [
+      "pack up books",
+      "walk to the cafeteria",
+      "grab a tray",
+      "wait in line",
+      "put food on the tray",
+      "check out at the end",
+      "buy lunch at school"
+    ],
+    "loop_idx": 3,
+    "loop_step": "wait in line",
+    "descriptions": [
+      [
+        "there is still a person in front of you",
+        1,
+        "easy"
+      ],
+      [
+        "you can still smell the food being served but not see the menu",
+        1,
+        "medium"
+      ],
+      [
+        "the sound of a tray clattering came from behind you, not ahead",
+        1,
+        "hard"
+      ],
+      [
+        "you have reached the front of the line",
+        0,
+        "easy"
+      ],
+      [
+        "the person behind you nudges your elbow",
+        0,
+        "medium"
+      ],
+      [
+        "the lunch lady is looking at you expectantly",
+        0,
+        "hard"
+      ],
+      [
+        "The cafeteria menu today includes pizza and salad.",
+        2,
+        "na"
+      ],
+      [
+        "The floor is slightly sticky from spilled juice.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 44,
+    "scenario": "go on the roller coaster",
+    "steps": [
+      "Walk to the roller coaster",
+      "Wait in line",
+      "Sit in desired cart",
+      "Buckle the safety belt",
+      "Allow attendants to check safety belt",
+      "Wait for ride to start",
+      "go on the roller coaster"
+    ],
+    "loop_idx": 1,
+    "loop_step": "Wait in line",
+    "descriptions": [
+      [
+        "the line in front of you is still moving, and you haven't reached the boarding platform yet",
+        1,
+        "easy"
+      ],
+      [
+        "you can still hear the pre-recorded safety spiel echoing from the station speakers",
+        1,
+        "medium"
+      ],
+      [
+        "the family in front of you is still arguing over whether to sit in the front or back",
+        1,
+        "hard"
+      ],
+      [
+        "You are at the front of the line.",
+        0,
+        "easy"
+      ],
+      [
+        "The family directly ahead of you is being waved through the turnstile.",
+        0,
+        "medium"
+      ],
+      [
+        "the exit gate clicks shut behind the disembarking riders",
+        0,
+        "hard"
+      ],
+      [
+        "The roller coaster is painted with bright blue supports and white track.",
+        2,
+        "na"
+      ],
+      [
+        "The distant sound of carnival music mixes with the chatter of the crowd.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 45,
+    "scenario": "eat some soup",
+    "steps": [
+      "go to the kitchen",
+      "look for a bowl",
+      "find the bowls",
+      "pour soup in the bowl",
+      "microwave the soup",
+      "eat some soup"
+    ],
+    "loop_idx": 1,
+    "loop_step": "look for a bowl",
+    "descriptions": [
+      [
+        "no bowl has been spotted yet",
+        1,
+        "easy"
+      ],
+      [
+        "the soup is still in the pot",
+        1,
+        "medium"
+      ],
+      [
+        "the ladle remains untouched in the drawer",
+        1,
+        "hard"
+      ],
+      [
+        "you open a cabinet and see a stack of bowls",
+        0,
+        "easy"
+      ],
+      [
+        "you see a dish towel draped over a curved object on the counter",
+        0,
+        "medium"
+      ],
+      [
+        "you see a corner of a white ceramic object peeking out from under a pile of junk mail.",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 46,
+    "scenario": "ride a large roller coaster",
+    "steps": [
+      "go to the amusement park",
+      "buy tickets for the park",
+      "find the roller coaster",
+      "wait in line for the roller coaster",
+      "get strapped into the roller coaster",
+      "ride a large roller coaster"
+    ],
+    "loop_idx": 3,
+    "loop_step": "wait in line for the roller coaster",
+    "descriptions": [
+      [
+        "there are still people ahead of you in line",
+        1,
+        "easy"
+      ],
+      [
+        "you are still standing next to the same green trash can you noticed when you first joined the line",
+        1,
+        "medium"
+      ],
+      [
+        "the same child ahead of you is still fanning herself with the same torn map",
+        1,
+        "hard"
+      ],
+      [
+        "you reach the front of the line",
+        0,
+        "easy"
+      ],
+      [
+        "the person directly ahead of you is stepping into the coaster seat",
+        0,
+        "medium"
+      ],
+      [
+        "the ride attendant steps back from the track area",
+        0,
+        "hard"
+      ],
+      [
+        "The roller coaster's steel track is painted vibrant orange and has a double corkscrew section.",
+        2,
+        "na"
+      ],
+      [
+        "There is a faded advertisement for cotton candy on a nearby fence.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 47,
+    "scenario": "run in a marathon",
+    "steps": [
+      "Search for marathons to participate in",
+      "Decide on marathon to run",
+      "Plan out training regiment",
+      "Train until date of marathon",
+      "Travel to marathon start on date",
+      "run in a marathon"
+    ],
+    "loop_idx": 3,
+    "loop_step": "Train until date of marathon",
+    "descriptions": [
+      [
+        "the marathon date is still in the future",
+        1,
+        "easy"
+      ],
+      [
+        "the alarm set for race morning hasn't gone off yet",
+        1,
+        "medium"
+      ],
+      [
+        "the banana you bought to eat on race morning is still green",
+        1,
+        "hard"
+      ],
+      [
+        "the current date matches the marathon date",
+        0,
+        "easy"
+      ],
+      [
+        "the alarm is set for race morning",
+        0,
+        "medium"
+      ],
+      [
+        "last night’s pasta dinner",
+        0,
+        "hard"
+      ],
+      [
+        "My favorite running route goes along the river.",
+        2,
+        "na"
+      ],
+      [
+        "I always wear a hat when it's sunny.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 48,
+    "scenario": "park the car",
+    "steps": [
+      "drive to the airport",
+      "find parking garage",
+      "get parking booth ticket",
+      "enter parking garage",
+      "drive down aisle",
+      "locate open parking spot",
+      "park the car"
+    ],
+    "loop_idx": 5,
+    "loop_step": "locate open parking spot",
+    "descriptions": [
+      [
+        "the spotted parking space is occupied",
+        1,
+        "easy"
+      ],
+      [
+        "the parking space lines gleam with fresh, wet paint",
+        1,
+        "medium"
+      ],
+      [
+        "a shallow puddle reflects the garage lights, and beneath its surface, the word \"RESERVED\" is stenciled in fading paint",
+        1,
+        "hard"
+      ],
+      [
+        "an empty parking space bounded by lines, with no vehicle, cone, or reserved sign present",
+        0,
+        "easy"
+      ],
+      [
+        "a car's tail lights illuminate and it reverses out of a space a few cars ahead, then drives away",
+        0,
+        "medium"
+      ],
+      [
+        "a parking payment kiosk prints a receipt and the screen flashes 'thank you",
+        0,
+        "hard"
+      ],
+      [
+        "The fluorescent lights hum faintly overhead, casting long shadows between the parked cars.",
+        2,
+        "na"
+      ],
+      [
+        "A discarded coffee cup sits upright against a concrete pillar near the stairwell.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 49,
+    "scenario": "park the car",
+    "steps": [
+      "drive to the camp",
+      "look for a parking spot",
+      "get to the parking spot",
+      "stop the car",
+      "pull up the windows",
+      "get out of the car",
+      "close the car doors",
+      "park the car"
+    ],
+    "loop_idx": 1,
+    "loop_step": "look for a parking spot",
+    "descriptions": [
+      [
+        "no empty parking space has been spotted yet",
+        1,
+        "easy"
+      ],
+      [
+        "the car's turn signal has been blinking continuously",
+        1,
+        "medium"
+      ],
+      [
+        "the gear selector remains in 'Drive",
+        1,
+        "hard"
+      ],
+      [
+        "a parking spot is found",
+        0,
+        "easy"
+      ],
+      [
+        "the driver begins aligning the car with a space between two other vehicles",
+        0,
+        "medium"
+      ],
+      [
+        "the turn signal starts clicking and the car decelerates to a walking pace",
+        0,
+        "hard"
+      ],
+      [
+        "The radio is playing a soft jazz tune.",
+        2,
+        "na"
+      ],
+      [
+        "A light drizzle begins to fall outside the car.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 50,
+    "scenario": "Go into the locker room",
+    "steps": [
+      "Go to the gym",
+      "find a parking spot",
+      "park car in spot",
+      "walk inside gym",
+      "show front desk gym pass",
+      "walk to locker room",
+      "Go into the locker room"
+    ],
+    "loop_idx": 1,
+    "loop_step": "find a parking spot",
+    "descriptions": [
+      [
+        "the driver has not yet spotted an empty parking space",
+        1,
+        "easy"
+      ],
+      [
+        "the driver is still coasting past occupied spaces",
+        1,
+        "medium"
+      ],
+      [
+        "the driver's seatbelt remains securely fastened",
+        1,
+        "hard"
+      ],
+      [
+        "the driver spots an empty parking space",
+        0,
+        "easy"
+      ],
+      [
+        "the reverse lights of a nearby car flash on",
+        0,
+        "medium"
+      ],
+      [
+        "a car's interior dome light turns on",
+        0,
+        "hard"
+      ],
+      [
+        "The gym's neon sign flickers slightly in the evening light.",
+        2,
+        "na"
+      ],
+      [
+        "A faint thumping of exercise music can be heard from the building.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 51,
+    "scenario": "let cool after removing",
+    "steps": [
+      "bake in the oven as instructed",
+      "get cooling rack out of cabinet",
+      "let baking pan rest on counter",
+      "remove from pan",
+      "let rest on cooling rack",
+      "let cool after removing",
+      "put on serving plate"
+    ],
+    "loop_idx": 5,
+    "loop_step": "let cool after removing",
+    "descriptions": [
+      [
+        "the dish is still warm to the touch",
+        1,
+        "easy"
+      ],
+      [
+        "butter placed on the surface softens quickly",
+        1,
+        "medium"
+      ],
+      [
+        "your glasses fog up when you lean close to check",
+        1,
+        "hard"
+      ],
+      [
+        "the baked item is no longer warm to the touch",
+        0,
+        "easy"
+      ],
+      [
+        "steam no longer rises from it",
+        0,
+        "medium"
+      ],
+      [
+        "the air above the rack no longer shimmers",
+        0,
+        "hard"
+      ],
+      [
+        "The countertop is made of butcher block wood.",
+        2,
+        "na"
+      ],
+      [
+        "A smudge of flour dusts the front of the apron hanging on a hook.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 52,
+    "scenario": "gather capturing equipment",
+    "steps": [
+      "look around the house for the equipment",
+      "go to the front door",
+      "walk outside of the door",
+      "open the garage up",
+      "find capturing equipment in the garage",
+      "gather capturing equipment"
+    ],
+    "loop_idx": 0,
+    "loop_step": "look around the house for the equipment",
+    "descriptions": [
+      [
+        "the downstairs rooms contained only old towels and a broken camera",
+        1,
+        "easy"
+      ],
+      [
+        "the hooks by the back door held only empty camera straps",
+        1,
+        "medium"
+      ],
+      [
+        "the camera was missing from its usual charging dock on the counter",
+        1,
+        "hard"
+      ],
+      [
+        "the house has been fully searched without finding any capturing equipment",
+        0,
+        "easy"
+      ],
+      [
+        "a faint beep from the garage suggests the equipment might be out there",
+        0,
+        "medium"
+      ],
+      [
+        "you step on a stray piece of bubble wrap that leads toward the back door",
+        0,
+        "hard"
+      ],
+      [
+        "The living room has a faint scent of lavender from a candle on the coffee table.",
+        2,
+        "na"
+      ],
+      [
+        "A family photo hangs slightly crooked on the hallway wall.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 53,
+    "scenario": "pull up files",
+    "steps": [
+      "turn on the computer",
+      "Wait for a few seconds for the computer to boot",
+      "Click on the file folder on the home screen",
+      "Look for the files",
+      "Select a file",
+      "Click the file to open",
+      "Repeat steps 4 and 5 for other files",
+      "pull up files"
+    ],
+    "loop_idx": 6,
+    "loop_step": "Repeat steps 4 and 5 for other files",
+    "descriptions": [
+      [
+        "there remain additional files to be opened",
+        1,
+        "easy"
+      ],
+      [
+        "the taskbar displays only a single document window",
+        1,
+        "medium"
+      ],
+      [
+        "the system's memory usage has barely budged from its idle level",
+        1,
+        "hard"
+      ],
+      [
+        "the user stops clicking on files",
+        0,
+        "easy"
+      ],
+      [
+        "the file folder window is closed",
+        0,
+        "medium"
+      ],
+      [
+        "the only icon on the taskbar is the start button",
+        0,
+        "hard"
+      ],
+      [
+        "The desktop wallpaper is a serene beach sunset.",
+        2,
+        "na"
+      ],
+      [
+        "A small houseplant sits on the desk next to the monitor.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 54,
+    "scenario": "Log into Netflix",
+    "steps": [
+      "Open up computer",
+      "load the page open",
+      "wait for the page to load",
+      "find passwords to start",
+      "type in the passwords",
+      "sign into the netflix",
+      "Log into Netflix"
+    ],
+    "loop_idx": 2,
+    "loop_step": "wait for the page to load",
+    "descriptions": [
+      [
+        "the loading spinner is still visible",
+        1,
+        "easy"
+      ],
+      [
+        "the page background hasn't turned black yet",
+        1,
+        "medium"
+      ],
+      [
+        "the activity light on the network port is still flashing",
+        1,
+        "hard"
+      ],
+      [
+        "the browser's loading spinner disappears and the Netflix homepage renders completely",
+        0,
+        "easy"
+      ],
+      [
+        "the computer's fan noise quiets down from a noticeable whir to its usual soft hum",
+        0,
+        "medium"
+      ],
+      [
+        "the mouse cursor's spinning wheel disappears and it returns to a simple arrow",
+        0,
+        "hard"
+      ],
+      [
+        "A faint trace of dust dances in the shaft of sunlight falling across the desk.",
+        2,
+        "na"
+      ],
+      [
+        "The soft hum of the refrigerator in the next room cycles on.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 55,
+    "scenario": "Mix the ingredients",
+    "steps": [
+      "Open utensil drawer",
+      "Find a mixing spoon",
+      "Pick up mixing spoon",
+      "Close utensil drawer",
+      "Add ingredients to a bowl",
+      "Place mixing spoon in bowl",
+      "Mix the ingredients"
+    ],
+    "loop_idx": 6,
+    "loop_step": "Mix the ingredients",
+    "descriptions": [
+      [
+        "the ingredients are not yet uniformly combined",
+        1,
+        "easy"
+      ],
+      [
+        "you can hear the slight gritty sound of sugar crystals scraping the bowl as you stir",
+        1,
+        "medium"
+      ],
+      [
+        "a dusting of fine white powder clings to the sides of the bowl just above the mixture's surface",
+        1,
+        "hard"
+      ],
+      [
+        "the mixture reaches a uniform consistency with no streaks of separate ingredients visible",
+        0,
+        "easy"
+      ],
+      [
+        "the appearance of the mixture remains the same after several stirs",
+        0,
+        "medium"
+      ],
+      [
+        "the sound of stirring changes from a gritty scrape to a smooth, consistent swish",
+        0,
+        "hard"
+      ],
+      [
+        "The mixing bowl is made of ceramic with a blue rim.",
+        2,
+        "na"
+      ],
+      [
+        "A small amount of flour dust settles on the countertop beside the bowl.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 56,
+    "scenario": "sign up for air balooning",
+    "steps": [
+      "go to front desk",
+      "wait in the line",
+      "once at front greet attendant",
+      "ask about balloon lessons",
+      "get sign up sheet",
+      "enter details on sheet",
+      "sign up for air balooning"
+    ],
+    "loop_idx": 1,
+    "loop_step": "wait in the line",
+    "descriptions": [
+      [
+        "you are still standing behind other people",
+        1,
+        "easy"
+      ],
+      [
+        "the attendant hasn't glanced in your direction",
+        1,
+        "medium"
+      ],
+      [
+        "the attendant's pen is still scratching across a page",
+        1,
+        "hard"
+      ],
+      [
+        "you have reached the front of the line",
+        0,
+        "easy"
+      ],
+      [
+        "the space directly in front of you is empty",
+        0,
+        "medium"
+      ],
+      [
+        "a colorful balloon-shaped flyer on the desk, which you couldn't see before, is now in plain sight",
+        0,
+        "hard"
+      ],
+      [
+        "A framed certificate on the wall shows the company's founding date.",
+        2,
+        "na"
+      ],
+      [
+        "The faint scent of fresh coffee drifts from a back office.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 57,
+    "scenario": "Place the game on the counter",
+    "steps": [
+      "Take the game to the cashier",
+      "begin to walk down the aisle",
+      "move right foot forward",
+      "move left foot forward",
+      "repeat the right foot left foot forward to reach cashier",
+      "lift hand holding game to counter height",
+      "Place the game on the counter"
+    ],
+    "loop_idx": 4,
+    "loop_step": "repeat the right foot left foot forward to reach cashier",
+    "descriptions": [
+      [
+        "the cashier is still out of reach",
+        1,
+        "easy"
+      ],
+      [
+        "the sound of the register beeps is still faint",
+        1,
+        "medium"
+      ],
+      [
+        "the person in front of you is still picking up a magazine",
+        1,
+        "hard"
+      ],
+      [
+        "you are standing directly in front of the cashier's counter",
+        0,
+        "easy"
+      ],
+      [
+        "the cashier looks up and asks for your items",
+        0,
+        "medium"
+      ],
+      [
+        "the reflection of the overhead lights on the counter's surface becomes crisp and detailed",
+        0,
+        "hard"
+      ],
+      [
+        "The game case's plastic wrapping crinkles softly with each step.",
+        2,
+        "na"
+      ],
+      [
+        "An announcer's voice echoes over the store speakers about a sale on garden hoses.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 58,
+    "scenario": "Train until date of marathon",
+    "steps": [
+      "Plan out training regiment",
+      "Put on the running gear",
+      "Practice running for 20 minutes",
+      "Freshen up after the practice run",
+      "Repeat steps 2, 3, and 4 for next 28 days",
+      "Increase the training time gradually next time",
+      "Train until date of marathon"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Repeat steps 2, 3, and 4 for next 28 days",
+    "descriptions": [
+      [
+        "the loop counter has not reached 28 days",
+        1,
+        "easy"
+      ],
+      [
+        "the distinct new-shoe smell still lingers in your running shoes",
+        1,
+        "medium"
+      ],
+      [
+        "the cumulative mileage on your running app is still in single digits",
+        1,
+        "hard"
+      ],
+      [
+        "28 days have elapsed",
+        0,
+        "easy"
+      ],
+      [
+        "the number of empty energy gel wrappers in the bin matches the days in a typical February",
+        0,
+        "medium"
+      ],
+      [
+        "the robin's eggs you spotted on your first run have now hatched, and the chicks are fully feathered and about to take their first flight",
+        0,
+        "hard"
+      ],
+      [
+        "The park's cherry blossoms are in full bloom this week.",
+        2,
+        "na"
+      ],
+      [
+        "Your running playlist shuffled to an upbeat song you haven't heard in a while.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 59,
+    "scenario": "Watch out window for rain to stop",
+    "steps": [
+      "wonder if rain has stopped",
+      "get up from seat",
+      "walk to window",
+      "grab window blinds",
+      "open window blinds",
+      "Watch out window for rain to stop"
+    ],
+    "loop_idx": 5,
+    "loop_step": "Watch out window for rain to stop",
+    "descriptions": [
+      [
+        "rain is still falling",
+        1,
+        "easy"
+      ],
+      [
+        "the glass is beaded with fresh droplets",
+        1,
+        "medium"
+      ],
+      [
+        "a robin on the lawn keeps shaking its feathers",
+        1,
+        "hard"
+      ],
+      [
+        "the windowpane is no longer being struck by raindrops",
+        0,
+        "easy"
+      ],
+      [
+        "the neighbor across the street has just stepped outside without an umbrella",
+        0,
+        "medium"
+      ],
+      [
+        "the cat that had been sheltering under the porch has begun to stretch and wander out onto the lawn",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 60,
+    "scenario": "Sign up for roller blade lessons",
+    "steps": [
+      "Take bus to roller skating rink",
+      "exit the bus",
+      "walk across the roller skating rink's parking lot",
+      "open the door to the skating rink",
+      "enter the roller skating rink",
+      "wait in line at the main desk in the rink",
+      "Sign up for roller blade lessons"
+    ],
+    "loop_idx": 5,
+    "loop_step": "wait in line at the main desk in the rink",
+    "descriptions": [
+      [
+        "there are still people ahead of you in line",
+        1,
+        "easy"
+      ],
+      [
+        "the receptionist is still talking to the person at the front of the line",
+        1,
+        "medium"
+      ],
+      [
+        "the pen on the counter is still in its holder",
+        1,
+        "hard"
+      ],
+      [
+        "you have reached the front of the line and the desk clerk says \"Next",
+        0,
+        "easy"
+      ],
+      [
+        "the scuff marks on the floor directly in front of the counter come into view",
+        0,
+        "medium"
+      ],
+      [
+        "the reflection of the clerk's name badge appears on the polished countertop, no longer obscured by a silhouette",
+        0,
+        "hard"
+      ],
+      [
+        "The air inside the rink carries a faint mix of floor wax and sweat.",
+        2,
+        "na"
+      ],
+      [
+        "A poster on the nearby wall promotes an upcoming 80s-themed roller disco night.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 61,
+    "scenario": "Make sure to have supplies",
+    "steps": [
+      "Find the classes and pay money",
+      "receive list of necessary supplies",
+      "go home to check inventory",
+      "cross off items already in possession",
+      "make shopping list for needed items",
+      "leave for the art supplies store",
+      "Make sure to have supplies"
+    ],
+    "loop_idx": 3,
+    "loop_step": "cross off items already in possession",
+    "descriptions": [
+      [
+        "the list still contains items that haven't been verified against the home inventory",
+        1,
+        "easy"
+      ],
+      [
+        "a dusty box marked \"school projects\" sits in the corner, still sealed, suggesting there may be more supplies yet to be found",
+        1,
+        "medium"
+      ],
+      [
+        "your sibling casually mentions they borrowed your graphite pencils for a project last month and never brought them back",
+        1,
+        "hard"
+      ],
+      [
+        "the entire list of necessary supplies has been checked against the home inventory",
+        0,
+        "easy"
+      ],
+      [
+        "they are now writing a shopping list for the items they need",
+        0,
+        "medium"
+      ],
+      [
+        "the necessity list is now fully annotated",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 62,
+    "scenario": "get inside car",
+    "steps": [
+      "Unlock the car",
+      "Reach for the door handle",
+      "Grasp the handle",
+      "Pull on the handle",
+      "Continue to pull and open the car door",
+      "get inside car"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Continue to pull and open the car door",
+    "descriptions": [
+      [
+        "the door remains closed",
+        1,
+        "easy"
+      ],
+      [
+        "no outside sound has filtered in",
+        1,
+        "medium"
+      ],
+      [
+        "the loose parking stub on the dashboard hasn't stirred",
+        1,
+        "hard"
+      ],
+      [
+        "the door is completely open and cannot swing any further",
+        0,
+        "easy"
+      ],
+      [
+        "you no longer feel the door's weight shifting in your hand",
+        0,
+        "medium"
+      ],
+      [
+        "the dome light settles to a steady glow",
+        0,
+        "hard"
+      ],
+      [
+        "A slight breeze rustles the leaves on a nearby tree",
+        2,
+        "na"
+      ],
+      [
+        "A dog barks somewhere in the distance",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 63,
+    "scenario": "make final choice from options",
+    "steps": [
+      "try on for size and adjust accordingly",
+      "Try another ring with a different color",
+      "Try another ring with a different shape",
+      "Repeat steps 1 and 2",
+      "Pick the most appealing one",
+      "Check for any damages on the final pick",
+      "make final choice from options"
+    ],
+    "loop_idx": 3,
+    "loop_step": "Repeat steps 1 and 2",
+    "descriptions": [
+      [
+        "the ring currently being tried does not sit flush against the finger",
+        1,
+        "easy"
+      ],
+      [
+        "the ring's metal tone clashes subtly with the clasp of her bracelet",
+        1,
+        "medium"
+      ],
+      [
+        "she keeps glancing back at the display case where the rose gold bands are nestled",
+        1,
+        "hard"
+      ],
+      [
+        "there are no more rings left to try",
+        0,
+        "easy"
+      ],
+      [
+        "the ring display drawer slides shut with a soft click",
+        0,
+        "medium"
+      ],
+      [
+        "the small velvet bag lies empty beside the tray",
+        0,
+        "hard"
+      ],
+      [
+        "The jewelry store's soft instrumental music is barely audible over the quiet murmur of other customers.",
+        2,
+        "na"
+      ],
+      [
+        "A small display of ring cleaning cloths sits on the counter beside the velvet tray.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 64,
+    "scenario": "Buy guitar chord/song book",
+    "steps": [
+      "Choose guitar liked most",
+      "Walk over to the book section of the music store",
+      "Browse the guitar song books",
+      "Pick out a book that seems suitable",
+      "Take the book to the register",
+      "Wait in line and purchase the book",
+      "Buy guitar chord/song book"
+    ],
+    "loop_idx": 5,
+    "loop_step": "Wait in line and purchase the book",
+    "descriptions": [
+      [
+        "the cashier has not yet rung up the book",
+        1,
+        "easy"
+      ],
+      [
+        "the person ahead of you is still paying",
+        1,
+        "medium"
+      ],
+      [
+        "the cash register drawer is still open",
+        1,
+        "hard"
+      ],
+      [
+        "the cashier hands you the receipt and the book",
+        0,
+        "easy"
+      ],
+      [
+        "the cashier asks the person behind you how they're doing",
+        0,
+        "medium"
+      ],
+      [
+        "the line behind you is now one person shorter",
+        0,
+        "hard"
+      ],
+      [
+        "A poster on the wall advertises a local band's upcoming concert.",
+        2,
+        "na"
+      ],
+      [
+        "The book's pages are slightly bent from being handled by other customers.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 65,
+    "scenario": "get in the car",
+    "steps": [
+      "wait for the uber",
+      "let the uber park",
+      "greet the driver",
+      "open the uber door",
+      "enter the car",
+      "get in the car"
+    ],
+    "loop_idx": 0,
+    "loop_step": "wait for the uber",
+    "descriptions": [
+      [
+        "the Uber's ETA on the app still shows several minutes remaining",
+        1,
+        "easy"
+      ],
+      [
+        "you haven't received a notification that the driver has arrived",
+        1,
+        "medium"
+      ],
+      [
+        "the only cars that passed by in the last two minutes were both white, and your ride is a blue sedan",
+        1,
+        "hard"
+      ],
+      [
+        "the Uber vehicle with matching license plate pulls up at your location",
+        0,
+        "easy"
+      ],
+      [
+        "the street is empty except for one car that has just pulled over beside you",
+        0,
+        "medium"
+      ],
+      [
+        "the face visible through the car window seems familiar from the driver's profile photo",
+        0,
+        "hard"
+      ],
+      [
+        "The sidewalk is wet from a recent drizzle.",
+        2,
+        "na"
+      ],
+      [
+        "A car alarm goes off in the distance.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 66,
+    "scenario": "get the laptop",
+    "steps": [
+      "search for laptops online",
+      "make list of desired laptops",
+      "pick from list of laptops",
+      "pay for laptop",
+      "wait for laptop to arrive",
+      "get the laptop"
+    ],
+    "loop_idx": 4,
+    "loop_step": "wait for laptop to arrive",
+    "descriptions": [
+      [
+        "the tracking information shows the package is still in transit",
+        1,
+        "easy"
+      ],
+      [
+        "the front door hasn't been knocked on all day",
+        1,
+        "medium"
+      ],
+      [
+        "a dust-free space on the desk is still waiting for its new occupant",
+        1,
+        "hard"
+      ],
+      [
+        "the package containing the laptop is physically delivered to your door",
+        0,
+        "easy"
+      ],
+      [
+        "the tracking number's status updates to \"delivered",
+        0,
+        "medium"
+      ],
+      [
+        "the sound of a delivery van’s sliding door closing, followed by its engine starting and pulling away from outside your home",
+        0,
+        "hard"
+      ],
+      [
+        "The sound of a distant lawnmower hums outside.",
+        2,
+        "na"
+      ],
+      [
+        "A coffee mug sits on the desk, still half full.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 67,
+    "scenario": "park the car",
+    "steps": [
+      "drive to the fair",
+      "Pull into fair parking lot",
+      "Drive around parking lot looking for a spot",
+      "Spot a car leaving the space",
+      "Wait for car to leave",
+      "park the car",
+      "Pay for parking"
+    ],
+    "loop_idx": 2,
+    "loop_step": "Drive around parking lot looking for a spot",
+    "descriptions": [
+      [
+        "the vehicle remains in motion along the rows of parked cars",
+        1,
+        "easy"
+      ],
+      [
+        "no turn signal has been activated since entering the lot",
+        1,
+        "medium"
+      ],
+      [
+        "the driver’s seatbelt is still fastened",
+        1,
+        "hard"
+      ],
+      [
+        "a car's reverse lights illuminate",
+        0,
+        "easy"
+      ],
+      [
+        "a person slides into a parked car and a seatbelt clicks into place",
+        0,
+        "medium"
+      ],
+      [
+        "a car's dome light extinguishes",
+        0,
+        "hard"
+      ],
+      [
+        "The faint scent of cotton candy and fried dough drifts through the open car windows.",
+        2,
+        "na"
+      ],
+      [
+        "A pair of seagulls circle lazily above the lot, occasionally swooping toward a discarded food wrapper.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 68,
+    "scenario": "converse with a chick",
+    "steps": [
+      "socialize with people",
+      "Survey room to see a good chick to converse with",
+      "Wait for chick to look not busy",
+      "Select a chick",
+      "Walk over to chick",
+      "Make introductions with chick",
+      "Start making small talk",
+      "converse with a chick"
+    ],
+    "loop_idx": 2,
+    "loop_step": "Wait for chick to look not busy",
+    "descriptions": [
+      [
+        "the chick is still deep in conversation with her friends",
+        1,
+        "easy"
+      ],
+      [
+        "her laughter mingles with a chorus of other voices, and no one in the group has glanced away",
+        1,
+        "medium"
+      ],
+      [
+        "she hasn't once looked down at her watch or the door",
+        1,
+        "hard"
+      ],
+      [
+        "she looks up from her phone and glances around the room",
+        0,
+        "easy"
+      ],
+      [
+        "She places her phone on the table, screen down, and sighs.",
+        0,
+        "medium"
+      ],
+      [
+        "she closes her notebook and tucks the pen behind her ear",
+        0,
+        "hard"
+      ],
+      [
+        "A faint bassline from a distant speaker vibrates through the floor.",
+        2,
+        "na"
+      ],
+      [
+        "Someone nearby is mixing a drink with a lot of ice.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 69,
+    "scenario": "park the car",
+    "steps": [
+      "drive to the playground",
+      "pull the car into playground parking lot",
+      "look for available parking spot",
+      "find available spot",
+      "drive over to available parking spot",
+      "pull car into available parking spot",
+      "stop the car",
+      "put the car's transmission into park",
+      "park the car"
+    ],
+    "loop_idx": 2,
+    "loop_step": "look for available parking spot",
+    "descriptions": [
+      [
+        "all visible parking spots are occupied",
+        1,
+        "easy"
+      ],
+      [
+        "the turn signal has not been activated",
+        1,
+        "medium"
+      ],
+      [
+        "the same parked car is seen for the second time",
+        1,
+        "hard"
+      ],
+      [
+        "an available parking spot is spotted",
+        0,
+        "easy"
+      ],
+      [
+        "the shadow of a nearby building shows a gap where no car silhouette is cast",
+        0,
+        "medium"
+      ],
+      [
+        "a discarded candy wrapper flutters across the asphalt for five meters in a straight line without veering around any obstacle",
+        0,
+        "hard"
+      ],
+      [
+        "The afternoon sun casts long shadows across the playground.",
+        2,
+        "na"
+      ],
+      [
+        "A distant ice cream truck jingle can be heard.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 70,
+    "scenario": "stand in line at the counter",
+    "steps": [
+      "enter the office through front door",
+      "enter the office",
+      "look at map for directions",
+      "locate the line",
+      "walk towards line",
+      "stop at back of line",
+      "stand in line at the counter"
+    ],
+    "loop_idx": 6,
+    "loop_step": "stand in line at the counter",
+    "descriptions": [
+      [
+        "the person is not yet at the front of the line",
+        1,
+        "easy"
+      ],
+      [
+        "the person can hear the clerk assisting another customer",
+        1,
+        "medium"
+      ],
+      [
+        "the person sees the same scuff mark on the floor that was directly in front of them when they first stopped",
+        1,
+        "hard"
+      ],
+      [
+        "the person immediately in front of you steps away from the counter",
+        0,
+        "easy"
+      ],
+      [
+        "the clerk finishes stamping a document and slides it across the counter",
+        0,
+        "medium"
+      ],
+      [
+        "the customer directly in front of you signs a form on the counter",
+        0,
+        "hard"
+      ],
+      [
+        "The air carries a faint scent of fresh photocopier toner.",
+        2,
+        "na"
+      ],
+      [
+        "A small potted plant sits on the windowsill with slightly wilted leaves.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 71,
+    "scenario": "Get a box",
+    "steps": [
+      "get in car",
+      "drive to store",
+      "go to box aisle",
+      "find the correct box size",
+      "grab desired box",
+      "go to checkout",
+      "Get a box"
+    ],
+    "loop_idx": 3,
+    "loop_step": "find the correct box size",
+    "descriptions": [
+      [
+        "the box you are holding is not the correct size",
+        1,
+        "easy"
+      ],
+      [
+        "you hear the crinkle of cardboard as you set a box back on the shelf",
+        1,
+        "medium"
+      ],
+      [
+        "you count the box's dimensions on your fingers and then check your note again",
+        1,
+        "hard"
+      ],
+      [
+        "the box dimensions printed on its label match the required measurements",
+        0,
+        "easy"
+      ],
+      [
+        "the box's label shows a diagram of the object you need to pack, centered neatly within its outline",
+        0,
+        "medium"
+      ],
+      [
+        "a faint pencil tracing of the object's footprint is drawn on the bottom of the box",
+        0,
+        "hard"
+      ],
+      [
+        "The overhead fluorescent lights hum softly, casting a uniform glow on the shelves.",
+        2,
+        "na"
+      ],
+      [
+        "A faint scent of cardboard and packing tape lingers in the air.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 72,
+    "scenario": "socialize with people",
+    "steps": [
+      "drive to the bar",
+      "finding parking space",
+      "park the car",
+      "turn the car off",
+      "get out of the car",
+      "enter the bar",
+      "socialize with people"
+    ],
+    "loop_idx": 1,
+    "loop_step": "finding parking space",
+    "descriptions": [
+      [
+        "the car continues to roll forward while the driver cranes their neck looking for an open spot",
+        1,
+        "easy"
+      ],
+      [
+        "the driver's seatbelt remains buckled",
+        1,
+        "medium"
+      ],
+      [
+        "no silhouette has separated from the car to cross the lot toward the bar door",
+        1,
+        "hard"
+      ],
+      [
+        "a vacant parking spot is identified and the car is aligned to park",
+        0,
+        "easy"
+      ],
+      [
+        "the driver shifts into reverse gear",
+        0,
+        "medium"
+      ],
+      [
+        "the driver's head turns sharply to look over their shoulder",
+        0,
+        "hard"
+      ],
+      [
+        "The bar's wooden sign has a faded painting of a frosted beer mug.",
+        2,
+        "na"
+      ],
+      [
+        "A street musician plays a slow blues tune on the corner nearby.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 73,
+    "scenario": "parked the car",
+    "steps": [
+      "drove to grocery store",
+      "enter parking lot",
+      "look around lot for empty spot",
+      "drive to empty spot",
+      "maneuver car in spot",
+      "turn off the car",
+      "parked the car"
+    ],
+    "loop_idx": 2,
+    "loop_step": "look around lot for empty spot",
+    "descriptions": [
+      [
+        "no empty spot is in sight",
+        1,
+        "easy"
+      ],
+      [
+        "no patch of asphalt shows between vehicles",
+        1,
+        "medium"
+      ],
+      [
+        "the row of parked cars forms an unbroken wall of sheet metal",
+        1,
+        "hard"
+      ],
+      [
+        "an empty spot is spotted",
+        0,
+        "easy"
+      ],
+      [
+        "the driver’s gaze stops scanning and fixates on a gap between two parked vehicles",
+        0,
+        "medium"
+      ],
+      [
+        "the turn signal indicator begins flashing after a long period of inactivity",
+        0,
+        "hard"
+      ],
+      [
+        "The grocery store has a large red sign with white letters.",
+        2,
+        "na"
+      ],
+      [
+        "There is a slight breeze causing a few leaves to drift across the asphalt.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 74,
+    "scenario": "set up an area for the large animal",
+    "steps": [
+      "drive to the zoo",
+      "get out of the car",
+      "close the door",
+      "walk towards the zoo",
+      "search for a big area",
+      "organize the materials needed",
+      "set up an area for the large animal"
+    ],
+    "loop_idx": 4,
+    "loop_step": "search for a big area",
+    "descriptions": [
+      [
+        "the current empty area has a sign indicating it is reserved for small mammals only",
+        1,
+        "easy"
+      ],
+      [
+        "the enclosure's gate latch is at knee height",
+        1,
+        "medium"
+      ],
+      [
+        "a few hollow logs lie nearby, their openings just wide enough for a raccoon to squeeze through",
+        1,
+        "hard"
+      ],
+      [
+        "a large, open enclosure with no obstructions comes into view",
+        0,
+        "easy"
+      ],
+      [
+        "a series of low wooden posts marks the perimeter of a grassy field completely free of trees or bushes",
+        0,
+        "medium"
+      ],
+      [
+        "the pavement underfoot gives way to grass and the background animal calls suddenly drop away",
+        0,
+        "hard"
+      ],
+      [
+        "A peacock is wandering near the entrance.",
+        2,
+        "na"
+      ],
+      [
+        "The sound of monkeys chattering fills the air.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 75,
     "scenario": "Walk to the car",
     "steps": [
       "Remember where the car is parked",
@@ -74,49 +4152,49 @@
     "loop_step": "Continue lifting and extending legs until arrival at the car",
     "descriptions": [
       [
-        "the car is still several steps away",
+        "the car is still some distance away",
         1,
         "easy"
       ],
       [
-        "the silhouette of the apartment building still looms behind you",
+        "the pedestrian has not yet taken out the car keys",
         1,
         "medium"
       ],
       [
-        "the faint smell of the building's lobby carpet still hangs in the air",
+        "the pedestrian's hand is still swinging freely by their side",
         1,
         "hard"
       ],
       [
-        "the person is close enough to reach out and touch the car",
+        "you are standing next to the car door",
         0,
         "easy"
       ],
       [
-        "the person's breath fogs the car's window",
+        "your shadow falls across the driver's side door",
         0,
         "medium"
       ],
       [
-        "the skin on their cheeks tightens from the cold radiating off the glass, making them instinctively stop and exhale in relief",
+        "the echo of your footfall shortens to a crisp thud reflected from the car door panel",
         0,
         "hard"
       ],
       [
-        "The sun reflects off a nearby building's windows, casting a warm light on the sidewalk.",
+        "The sun casts long shadows on the pavement.",
         2,
         "na"
       ],
       [
-        "A distant siren briefly wails and then fades into the city noise.",
+        "A distant siren wails somewhere in the city.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 3,
+    "id": 76,
     "scenario": "Receive package in mail",
     "steps": [
       "Wait for delivery",
@@ -131,106 +4209,49 @@
     "loop_step": "Wait until status says delivered",
     "descriptions": [
       [
-        "the tracking information still reads 'In Transit",
+        "the tracking information still shows \"out for delivery",
         1,
         "easy"
       ],
       [
-        "the front door camera hasn't alerted me to any motion",
+        "the front porch remains empty",
         1,
         "medium"
       ],
       [
-        "the dog hasn't barked once this afternoon",
+        "the dog hasn't barked once all morning",
         1,
         "hard"
       ],
       [
-        "the tracking information updates to show \"Delivered\" with a timestamp",
+        "the delivery status updates to \"Delivered",
         0,
         "easy"
       ],
       [
-        "a notification arrives confirming the package has been left at the doorstep",
+        "a package appears on the front door camera feed",
         0,
         "medium"
       ],
       [
-        "the latest entry on the tracking page no longer displays an estimated time of arrival but instead shows a static location marker at the destination address",
+        "a delivery feedback text from the carrier arrives, asking to rate the service",
         0,
         "hard"
       ],
       [
-        "The front porch has a wooden swing next to the door.",
+        "The front door is painted a deep shade of blue.",
         2,
         "na"
       ],
       [
-        "A light drizzle is falling outside.",
-        2,
-        "na"
-      ]
-    ]
-  },
-  {
-    "id": 4,
-    "scenario": "receive the large animal",
-    "steps": [
-      "set up the paperwork",
-      "wait for the paperwork to be approved",
-      "received certified mail with notarized licenses",
-      "order food for the new animal",
-      "order medicine and toys",
-      "wait for transport to arrive",
-      "receive the large animal"
-    ],
-    "loop_idx": 5,
-    "loop_step": "wait for transport to arrive",
-    "descriptions": [
-      [
-        "the transport truck’s GPS still shows it two states away",
-        1,
-        "easy"
-      ],
-      [
-        "the custom-fit halter with the animal’s name tag still hangs untouched on the hook by the unloading chute",
-        1,
-        "medium"
-      ],
-      [
-        "the sticky note on the office calendar still reads \"Call vet after arrival\" in yesterday's handwriting",
-        1,
-        "hard"
-      ],
-      [
-        "the sound of a large vehicle engine accompanied by the sight of the transport company's truck with the matching license plate number pulling into the facility's designated unloading bay",
-        0,
-        "easy"
-      ],
-      [
-        "the dispatch tracking app pinged with an \"arrived\" status update and the facility's external intercom emitted the driver's muffled voice asking for the loading dock to be opened",
-        0,
-        "medium"
-      ],
-      [
-        "the voice on the intercom carried the faint background squeal of air brakes releasing, a sound that only occurs when the truck has fully stopped and engaged its parking brake at the dock, confirming the app's alert was not a false track and the driver was physically present at the door",
-        0,
-        "hard"
-      ],
-      [
-        "A faint smell of hay lingers in the storage room, though it's currently empty.",
-        2,
-        "na"
-      ],
-      [
-        "The facility's wall clock ticks audibly, its hands pointing to the late afternoon.",
+        "A half-empty cup of coffee sits on the hallway table.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 5,
+    "id": 77,
     "scenario": "open the refrigerator",
     "steps": [
       "walk to the refrigerator",
@@ -245,49 +4266,49 @@
     "loop_step": "Continue pulling until the door is opened",
     "descriptions": [
       [
-        "the door remains firmly shut",
+        "the refrigerator door remains closed",
         1,
         "easy"
       ],
       [
-        "the interior light hasn't switched on",
+        "the fridge's interior light remains off",
         1,
         "medium"
       ],
       [
-        "the slight but constant tug of the magnetic seal persists",
+        "no gap has appeared between the door and the unit",
         1,
         "hard"
       ],
       [
-        "the magnetic seal breaks with a slight pop and the door swings freely away from the frame",
+        "the door seal breaks and cold air escapes",
         0,
         "easy"
       ],
       [
-        "the door’s resistance suddenly gives way",
+        "a sudden hiss fills the air",
         0,
         "medium"
       ],
       [
-        "a sliver of light from the interior spills onto the floor near your feet",
+        "a soft click echoes from inside",
         0,
         "hard"
       ],
       [
-        "The kitchen floor is made of beige tiles with a few faint scuff marks near the sink",
+        "The kitchen floor is tiled in a checkerboard pattern.",
         2,
         "na"
       ],
       [
-        "A faint hum comes from the refrigerator's compressor, unchanged regardless of door position",
+        "A faint hum comes from the refrigerator's motor.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 6,
+    "id": 78,
     "scenario": "Purchase zoo ticket",
     "steps": [
       "Start car and drive to zoo",
@@ -303,17 +4324,17 @@
     "loop_step": "drive around looking for space",
     "descriptions": [
       [
-        "all visible parking spots are occupied",
+        "every parking spot they pass is already occupied",
         1,
         "easy"
       ],
       [
-        "you spot the same car circling past you for the third time",
+        "the odometer has added 0.4 miles since they entered the lot",
         1,
         "medium"
       ],
       [
-        "you haven't seen anyone walking with keys in hand toward a parked car",
+        "they have already circled past the same silver sedan with a broken taillight twice",
         1,
         "hard"
       ],
@@ -323,29 +4344,29 @@
         "easy"
       ],
       [
-        "a vehicle's reverse lights illuminate and it begins to back out of a parking space",
+        "a pedestrian motions towards an empty spot",
         0,
         "medium"
       ],
       [
-        "a moment before, the distinct thud of a car door shutting came from that direction, and given that the vehicle is wedged between two others without room to creep forward, shifting into reverse almost certainly means the occupant has returned and is about to vacate the space entirely",
+        "a car door slams shut",
         0,
         "hard"
       ],
       [
-        "The scent of freshly mown grass mixes with the distant sound of animal calls.",
+        "The car's air freshener smells like pine trees.",
         2,
         "na"
       ],
       [
-        "A light drizzle begins to dot the windshield as you pull into the parking lot.",
+        "A podcast about wildlife conservation plays through the speakers.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 7,
+    "id": 79,
     "scenario": "boil water for noodles",
     "steps": [
       "turn on the stove",
@@ -360,107 +4381,39 @@
     "loop_step": "wait for the water to boil",
     "descriptions": [
       [
-        "the water is still and no bubbles are rising to the surface",
+        "the water is still and no bubbles are breaking the surface",
         1,
         "easy"
       ],
       [
-        "the kitchen window remains clear of fog",
+        "you can still see your reflection clearly on the water surface",
         1,
         "medium"
       ],
       [
-        "the unopened box of noodles sits on the counter",
+        "small bubbles cling to the bottom of the pot without floating up",
         1,
         "hard"
       ],
       [
-        "large bubbles are rapidly rising to the surface and breaking",
+        "the water is at a rolling boil",
         0,
         "easy"
       ],
       [
-        "the surface agitation has become violent and unrelenting",
+        "large bubbles are breaking the surface rapidly and the lid is clattering",
         0,
         "medium"
       ],
       [
-        "the sporadic clinking of the lid has been replaced by a continuous, faint hiss and tremor",
+        "the shimmering reflection on the water's surface has vanished",
         0,
         "hard"
-      ],
-      [
-        "The kitchen smells faintly of the bread that was toasted earlier.",
-        2,
-        "na"
-      ],
-      [
-        "A refrigerator hums softly in the background.",
-        2,
-        "na"
       ]
     ]
   },
   {
-    "id": 8,
-    "scenario": "Browse through the jackets",
-    "steps": [
-      "Go to the store",
-      "pull into the store parking lot",
-      "look for available parking spot",
-      "pull into available parking spot",
-      "park the car",
-      "get out of the car",
-      "walk into the store",
-      "Browse through the jackets"
-    ],
-    "loop_idx": 2,
-    "loop_step": "look for available parking spot",
-    "descriptions": [
-      [
-        "the nearest rows are completely full",
-        1,
-        "easy"
-      ],
-      [
-        "no other cars are pulling out of spaces",
-        1,
-        "medium"
-      ],
-      [
-        "the only motion is a shopping cart drifting slowly across the asphalt",
-        1,
-        "hard"
-      ],
-      [
-        "an empty parking space is spotted",
-        0,
-        "easy"
-      ],
-      [
-        "a gap in the otherwise solid line of parked cars becomes apparent",
-        0,
-        "medium"
-      ],
-      [
-        "a car's reversing lights suddenly snuff out and a puff of exhaust marks the spot where it just stood",
-        0,
-        "hard"
-      ],
-      [
-        "The store's ventilation hums softly in the background.",
-        2,
-        "na"
-      ],
-      [
-        "A faint trace of perfume lingers near the jacket rack.",
-        2,
-        "na"
-      ]
-    ]
-  },
-  {
-    "id": 9,
+    "id": 80,
     "scenario": "enter the arena",
     "steps": [
       "take out tickets",
@@ -471,53 +4424,110 @@
       "gain entrance to arena",
       "enter the arena"
     ],
-    "loop_idx": 4,
-    "loop_step": "wait for employee to verify tickets",
+    "loop_idx": 2,
+    "loop_step": "wait in line to enter",
     "descriptions": [
       [
-        "the employee is still holding the tickets up to the light",
+        "there are still people ahead in line",
         1,
         "easy"
       ],
       [
-        "the employee's lips are pursed in concentration",
+        "you can overhear the employee saying \"next, please\" to someone else",
         1,
         "medium"
       ],
       [
-        "the tickets look slightly worn at the edges",
+        "the employee's gaze is fixed on the group a few steps ahead",
         1,
         "hard"
       ],
       [
-        "the employee returns the ticket stubs and gestures for you to proceed through the turnstile",
+        "you reach the front of the line",
         0,
         "easy"
       ],
       [
-        "a series of short, high-pitched beeps comes from the scanning device",
+        "the person directly ahead hands their ticket to the employee",
         0,
         "medium"
       ],
       [
-        "the employee's thumb, which had been resting on the reject stamp, now moves to the side as they exhale audibly",
+        "the employee nods in your general direction",
         0,
         "hard"
       ],
       [
-        "The arena's massive LED screen flashes advertisements for upcoming concerts and monster truck rallies.",
+        "The distant aroma of popcorn and hot dogs wafts through the air.",
         2,
         "na"
       ],
       [
-        "A group of rowdy fans behind you keeps singing a loud, off-key fight song.",
+        "A light breeze carries the muffled beat of a pre-show playlist from inside.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 11,
+    "id": 81,
+    "scenario": "read salsa making articles",
+    "steps": [
+      "look up how to make salsa",
+      "read through search results",
+      "determine which link to click",
+      "click the link",
+      "wait for webpage to open",
+      "scroll down webpage",
+      "read salsa making articles"
+    ],
+    "loop_idx": 4,
+    "loop_step": "wait for webpage to open",
+    "descriptions": [
+      [
+        "the page’s loading indicator is still spinning",
+        1,
+        "easy"
+      ],
+      [
+        "the address bar still shows the search results URL",
+        1,
+        "medium"
+      ],
+      [
+        "the tab still displays the search site's favicon",
+        1,
+        "hard"
+      ],
+      [
+        "the webpage finishes loading and its content is visible on the screen",
+        0,
+        "easy"
+      ],
+      [
+        "the loading animation in the browser tab is replaced by the site's favicon",
+        0,
+        "medium"
+      ],
+      [
+        "the whirring sound from your computer's fan gradually fades",
+        0,
+        "hard"
+      ],
+      [
+        "The sun casts a warm glow through the window beside the desk.",
+        2,
+        "na"
+      ],
+      [
+        "A faint hum from the refrigerator fills the kitchen.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 82,
     "scenario": "launch a music playing app",
     "steps": [
       "open up the laptop",
@@ -532,49 +4542,49 @@
     "loop_step": "wait for computer to turn on",
     "descriptions": [
       [
-        "the screen is still dark and no startup sound has played",
+        "the login screen has not yet appeared",
         1,
         "easy"
       ],
       [
-        "the caps lock light remains unchanged after pressing the key",
+        "the manufacturer's logo is still on the screen",
         1,
         "medium"
       ],
       [
-        "the fan vents expel no air",
+        "the caps lock key light does not toggle when pressed",
         1,
         "hard"
       ],
       [
-        "the login screen appears on the laptop display",
+        "the login screen is displayed",
         0,
         "easy"
       ],
       [
-        "the screen transitions from a loading animation to a static state featuring a blinking text cursor",
+        "the laptop emits a brief startup chime",
         0,
         "medium"
       ],
       [
-        "the rhythmic flickering of the disk activity indicator ceases, indicating the operating system has completed loading its core components and is now idle, awaiting user input",
+        "your fingers, resting on the keyboard, feel a tiny vibration",
         0,
         "hard"
       ],
       [
-        "The laptop lid is covered in faded sticker residue from old decals.",
+        "the soft hum of the refrigerator drifts from the kitchen",
         2,
         "na"
       ],
       [
-        "A faint scent of coffee lingers in the air around the desk.",
+        "a faint smell of coffee lingers in the air",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 12,
+    "id": 83,
     "scenario": "tell the barber what haircut to receive",
     "steps": [
       "go inside the shop",
@@ -589,17 +4599,17 @@
     "loop_step": "take seat and wait for barber",
     "descriptions": [
       [
-        "the barber is still working on another client",
+        "the barber is still finishing up with the previous customer",
         1,
         "easy"
       ],
       [
-        "the buzz of electric clippers continues from the barber area",
+        "you can hear the snipping of scissors from the styling area",
         1,
         "medium"
       ],
       [
-        "no dusting brush has appeared",
+        "no one has exited the shop since you arrived",
         1,
         "hard"
       ],
@@ -609,29 +4619,29 @@
         "easy"
       ],
       [
-        "the reflection in the mirror shows an empty barber chair and a freshly swept floor",
+        "the previous customer gets up from the barber chair",
         0,
         "medium"
       ],
       [
-        "the scent of talcum powder reaches the waiting area",
+        "the barber starts sweeping the floor",
         0,
         "hard"
       ],
       [
-        "The sound of clippers buzzing blends with classic rock on the radio.",
+        "A muted television in the corner shows a silent nature documentary without subtitles.",
         2,
         "na"
       ],
       [
-        "A faint scent of aftershave and talcum powder fills the air.",
+        "Sunlight slants through the blinds, casting long stripes across the tiled floor.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 13,
+    "id": 84,
     "scenario": "Let the attendees into the party",
     "steps": [
       "Order hundreds of drinks to venue",
@@ -646,100 +4656,2178 @@
     "loop_step": "Repeat until all the attendees have arrived",
     "descriptions": [
       [
-        "there are still attendees waiting outside the door",
+        "some invited guests have not yet knocked on the door",
         1,
         "easy"
       ],
       [
-        "the stack of name badges at the entrance still has several left",
+        "the pile of party favors on the entrance table is still fully stocked",
         1,
         "medium"
       ],
       [
-        "the sealed box of blank badges under the registration table hasn't been opened yet",
+        "the parking lot outside the venue is still half-empty",
         1,
         "hard"
       ],
       [
-        "no more knocks are heard for five minutes after the last arrival",
+        "the host flips the entrance sign to \"Party in Progress",
         0,
         "easy"
       ],
       [
-        "the hallway beyond the door settles into an undisturbed quiet that stretches long enough to confirm the stream of arrivals has ended",
+        "the sound of the deadbolt sliding into place echoes from the front door",
         0,
         "medium"
       ],
       [
-        "the pattern of muffled footsteps that had grown sparser and sparser now leaves no fresh wet leaf prints on the mat outside the peephole, and even the building’s elevator stays silent for longer than any earlier pause between arrivals",
+        "the door's hinges finally fall silent for a full ten minutes",
         0,
         "hard"
       ],
       [
-        "The venue’s neon sign flickers slightly as the evening turns to night.",
+        "The bartender is polishing glasses behind the counter.",
         2,
         "na"
       ],
       [
-        "A batch of sparkling water bottles has been chilling in the fridge since noon.",
+        "A playlist of upbeat music fills the room.",
         2,
         "na"
       ]
     ]
   },
   {
-    "id": 14,
-    "scenario": "park the car",
+    "id": 85,
+    "scenario": "dress in running clothes",
     "steps": [
-      "drive to the zoo",
-      "pull into zoo's parking lot",
-      "look for available parking spot",
-      "notice available parking spot",
-      "drive to available parking spot",
-      "pull into available parking spot",
-      "stop the car",
-      "park the car"
+      "practice until day of race",
+      "set an alarm",
+      "turn off alarm",
+      "get out of bed",
+      "walk to the closet",
+      "retrieve running clothes",
+      "dress in running clothes"
     ],
-    "loop_idx": 2,
-    "loop_step": "look for available parking spot",
+    "loop_idx": 0,
+    "loop_step": "practice until day of race",
     "descriptions": [
       [
-        "every parking spot in view is currently taken",
+        "the race is still in the future",
         1,
         "easy"
       ],
       [
-        "every marked bay contains a vehicle centered between its lines",
+        "the running shoes haven’t been broken in yet",
         1,
         "medium"
       ],
       [
-        "the gaps between cars are just wide enough for doors to open, never wide enough for another vehicle to fit",
+        "the alarm clock is set for an early morning training run tomorrow",
         1,
         "hard"
       ],
       [
-        "an empty parking space comes into view",
+        "it is race day",
         0,
         "easy"
       ],
       [
-        "a continuous row of car roofs is broken by a gap showing the ground markings beneath",
+        "you notice a race number pinned to your singlet",
         0,
         "medium"
       ],
       [
-        "the reverse lights of a parked car illuminate among the rows, hinting that its space will soon be free",
+        "a safety pin glints in the light as you unfold your singlet",
         0,
         "hard"
       ],
       [
-        "A flock of pigeons is pecking at something on the pavement near the lot.",
+        "The closet door has a small scratch from moving furniture last year.",
         2,
         "na"
       ],
       [
-        "The zoo's entrance archway is adorned with colorful animal sculptures.",
+        "There is a faint scent of lavender detergent in the air.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 86,
+    "scenario": "sort courses by languages taught",
+    "steps": [
+      "decide which language to learn",
+      "Pick out best available help tools",
+      "Separate each language from the others",
+      "Use the tools for better efficiency",
+      "Periodically check for mistakes",
+      "sort courses by languages taught",
+      "Double check work when completed"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Periodically check for mistakes",
+    "descriptions": [
+      [
+        "new sorting errors are still appearing each time you review the courses",
+        1,
+        "easy"
+      ],
+      [
+        "the stack of course folders needing a second look never shrinks after a review session",
+        1,
+        "medium"
+      ],
+      [
+        "the coffee machine in the hallway has been dripping onto the handwritten language labels on the course folders",
+        1,
+        "hard"
+      ],
+      [
+        "the latest sweep finds zero misgrouped courses",
+        0,
+        "easy"
+      ],
+      [
+        "all the sticky notes with question marks have been removed from the board",
+        0,
+        "medium"
+      ],
+      [
+        "the correction log shows the same number for three consecutive checks",
+        0,
+        "hard"
+      ],
+      [
+        "The spreadsheet includes columns for course code and enrollment numbers.",
+        2,
+        "na"
+      ],
+      [
+        "A faint hum comes from the overhead fluorescent lights.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 87,
+    "scenario": "get a person to perform wedding ceremony",
+    "steps": [
+      "ask person to get married",
+      "celebrate acceptance of wedding proposal",
+      "discuss with partner what kind of wedding to have",
+      "agree on type of religious officiate",
+      "call around to find available wedding officiate",
+      "schedule a date with wedding officiate",
+      "put a down payment to reserve the wedding officiant",
+      "get a person to perform wedding ceremony"
+    ],
+    "loop_idx": 4,
+    "loop_step": "call around to find available wedding officiate",
+    "descriptions": [
+      [
+        "the officiants reached so far were all unavailable that day",
+        1,
+        "easy"
+      ],
+      [
+        "no payment has been made toward an officiant's services",
+        1,
+        "medium"
+      ],
+      [
+        "the wedding website does not yet list an officiant name",
+        1,
+        "hard"
+      ],
+      [
+        "an officiant indicates they are available on your wedding date",
+        0,
+        "easy"
+      ],
+      [
+        "the person you called begins outlining their fee for the ceremony",
+        0,
+        "medium"
+      ],
+      [
+        "the conversation shifted from checking calendars to discussing costs",
+        0,
+        "hard"
+      ],
+      [
+        "The couple's wedding planning binder is on the coffee table, open to a page about flower arrangements.",
+        2,
+        "na"
+      ],
+      [
+        "A half-finished cup of tea sits beside the phone, still slightly warm.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 88,
+    "scenario": "park the car in the parking lot",
+    "steps": [
+      "drive around looking for a parking spot",
+      "turn on signal to turn into parking spot",
+      "pull into parking spot",
+      "put car in park",
+      "turn the car ignition off",
+      "park the car in the parking lot",
+      "Go to the theater"
+    ],
+    "loop_idx": 0,
+    "loop_step": "drive around looking for a parking spot",
+    "descriptions": [
+      [
+        "no empty parking spaces are visible",
+        1,
+        "easy"
+      ],
+      [
+        "the only spaces you see without cars are marked \"compact only\" and your vehicle is an SUV",
+        1,
+        "medium"
+      ],
+      [
+        "the one empty space you find has a 'No Parking' stencil on the curb that's almost completely obscured by weeds",
+        1,
+        "hard"
+      ],
+      [
+        "an empty parking space is located",
+        0,
+        "easy"
+      ],
+      [
+        "the turn signal begins to blink",
+        0,
+        "medium"
+      ],
+      [
+        "the music volume suddenly drops",
+        0,
+        "hard"
+      ],
+      [
+        "A light breeze rustles the leaves of a nearby tree.",
+        2,
+        "na"
+      ],
+      [
+        "Faint music drifts from the car's radio.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 89,
+    "scenario": "pull up the windows",
+    "steps": [
+      "stop the car",
+      "Locate window controls in car",
+      "Reach towards window controls with hand",
+      "Press window controls with finger",
+      "Hold on window controls until window stops",
+      "Check to see if window is closed fully",
+      "pull up the windows"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Hold on window controls until window stops",
+    "descriptions": [
+      [
+        "the window is still moving",
+        1,
+        "easy"
+      ],
+      [
+        "a soft humming sound is coming from the door",
+        1,
+        "medium"
+      ],
+      [
+        "the door panel is vibrating slightly",
+        1,
+        "hard"
+      ],
+      [
+        "the window glass stops moving upward",
+        0,
+        "easy"
+      ],
+      [
+        "the humming sound from the door panel ceases",
+        0,
+        "medium"
+      ],
+      [
+        "the gap between the top of the glass and the window frame disappears",
+        0,
+        "hard"
+      ],
+      [
+        "The car's engine is idling quietly.",
+        2,
+        "na"
+      ],
+      [
+        "A faint melody is playing from the radio.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 90,
+    "scenario": "put on serving plate",
+    "steps": [
+      "wait for pan to cool",
+      "pick up a knife",
+      "use the knife to loosen the edges",
+      "cut into bars",
+      "carefully remove the bars from the pan",
+      "let rest on cooling rack",
+      "put on serving plate"
+    ],
+    "loop_idx": 0,
+    "loop_step": "wait for pan to cool",
+    "descriptions": [
+      [
+        "the pan is still hot to the touch",
+        1,
+        "easy"
+      ],
+      [
+        "a few wisps of steam are still rising from the surface",
+        1,
+        "medium"
+      ],
+      [
+        "the edges of the parchment paper are still slightly curled upward",
+        1,
+        "hard"
+      ],
+      [
+        "the pan is cool to the touch",
+        0,
+        "easy"
+      ],
+      [
+        "the edges have begun to pull away from the sides of the pan",
+        0,
+        "medium"
+      ],
+      [
+        "the pan no longer emits steam when you lean over it",
+        0,
+        "hard"
+      ],
+      [
+        "The cookbook lies open to the recipe page, smeared with butter.",
+        2,
+        "na"
+      ],
+      [
+        "A gentle breeze from an open window carries the scent of vanilla.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 91,
+    "scenario": "pick up tickets",
+    "steps": [
+      "stand in line",
+      "wait in single file line",
+      "slowly move forward in line",
+      "get to front of the line",
+      "walk to ticket window",
+      "Give worker proof of ticket purchase",
+      "pick up tickets"
+    ],
+    "loop_idx": 2,
+    "loop_step": "slowly move forward in line",
+    "descriptions": [
+      [
+        "the ticket window is still several steps away and people remain in front of you",
+        1,
+        "easy"
+      ],
+      [
+        "the number on the ticket window screen hasn't changed to your number yet",
+        1,
+        "medium"
+      ],
+      [
+        "the person at the front of the line is still gesturing at a document and hasn't stepped aside",
+        1,
+        "hard"
+      ],
+      [
+        "they are now the first person in line, with no one ahead of them",
+        0,
+        "easy"
+      ],
+      [
+        "the velvet rope they have been holding onto abruptly runs out",
+        0,
+        "medium"
+      ],
+      [
+        "the fine print on the \"Tickets\" sign above the window becomes completely visible, with no shadow or outline blocking a single letter",
+        0,
+        "hard"
+      ],
+      [
+        "The ticket window has a small sign reading 'Please have ID ready'.",
+        2,
+        "na"
+      ],
+      [
+        "The ceiling lights hum faintly, casting a yellowish glow over the waiting area.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 92,
+    "scenario": "pull out credit card out of payment pad",
+    "steps": [
+      "wait for instruction",
+      "select accept on the payment pad",
+      "ensure accept was detected",
+      "follow remaining prompts",
+      "grip onto card",
+      "pull card from slot",
+      "pull out credit card out of payment pad"
+    ],
+    "loop_idx": 2,
+    "loop_step": "ensure accept was detected",
+    "descriptions": [
+      [
+        "the payment pad still shows the accept prompt",
+        1,
+        "easy"
+      ],
+      [
+        "no confirmation tone has sounded",
+        1,
+        "medium"
+      ],
+      [
+        "the accept button's backlight is still on",
+        1,
+        "hard"
+      ],
+      [
+        "the payment pad displays a confirmation message",
+        0,
+        "easy"
+      ],
+      [
+        "the 'Accept' button disappears from the screen",
+        0,
+        "medium"
+      ],
+      [
+        "the screen briefly dims and brightens",
+        0,
+        "hard"
+      ],
+      [
+        "The credit card has a small scratch near the corner.",
+        2,
+        "na"
+      ],
+      [
+        "A faint aroma of coffee lingers in the air.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 93,
+    "scenario": "Continue to alternate between feet",
+    "steps": [
+      "Choose where to move toward",
+      "Go in chosen direction",
+      "Start moving right leg",
+      "Move entire right leg forward including foot",
+      "Start moving left leg",
+      "Put left foot forward",
+      "Continue to alternate between feet"
+    ],
+    "loop_idx": 6,
+    "loop_step": "Continue to alternate between feet",
+    "descriptions": [
+      [
+        "the target destination has not been reached",
+        1,
+        "easy"
+      ],
+      [
+        "the step count is still less than the required total",
+        1,
+        "medium"
+      ],
+      [
+        "the world still appears to be sliding backward around you",
+        1,
+        "hard"
+      ],
+      [
+        "you have arrived at your destination",
+        0,
+        "easy"
+      ],
+      [
+        "your outstretched hand makes contact with a firm surface",
+        0,
+        "medium"
+      ],
+      [
+        "a sharp pain shoots through your stubbed toe",
+        0,
+        "hard"
+      ],
+      [
+        "The air carries the faint scent of blooming jasmine.",
+        2,
+        "na"
+      ],
+      [
+        "Sunlight filters through the canopy, dappling the ground with shifting patterns.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 94,
+    "scenario": "walk to locker room",
+    "steps": [
+      "show front desk gym pass",
+      "Look for locker room",
+      "Turn towards locker room",
+      "Lift left foot up",
+      "Move left foot forward",
+      "Lift right foot up",
+      "Move right foot forward",
+      "Continue to locker room",
+      "walk to locker room"
+    ],
+    "loop_idx": 7,
+    "loop_step": "Continue to locker room",
+    "descriptions": [
+      [
+        "the locker room door is still ahead",
+        1,
+        "easy"
+      ],
+      [
+        "your shadow still stretches ahead from the gym lights",
+        1,
+        "medium"
+      ],
+      [
+        "the echo of your footsteps hasn’t shortened into a closed-room sound",
+        1,
+        "hard"
+      ],
+      [
+        "your hand touches the locker room door handle",
+        0,
+        "easy"
+      ],
+      [
+        "you hear the faint clang of metal lockers closing",
+        0,
+        "medium"
+      ],
+      [
+        "the floor beneath your feet turns from carpet to damp tile",
+        0,
+        "hard"
+      ],
+      [
+        "The gym's air conditioning hums at a constant low pitch, unaffected by where anyone is standing.",
+        2,
+        "na"
+      ],
+      [
+        "A faint scent of rubber mats and cleaning solution lingers evenly throughout the corridor.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 95,
+    "scenario": "brush teeth in bathroom",
+    "steps": [
+      "dry off body",
+      "pick up the toothbrush",
+      "pick up the toothpaste",
+      "turn on sink",
+      "squeeze toothpaste onto brush",
+      "brush teeth and spit into sink",
+      "brush teeth in bathroom"
+    ],
+    "loop_idx": 5,
+    "loop_step": "brush teeth and spit into sink",
+    "descriptions": [
+      [
+        "there is still toothpaste foam in the mouth",
+        1,
+        "easy"
+      ],
+      [
+        "the toothbrush has not yet been cleaned under the tap",
+        1,
+        "medium"
+      ],
+      [
+        "the mirror above the sink has no fresh water droplets",
+        1,
+        "hard"
+      ],
+      [
+        "the toothbrush is rinsed and placed back in its holder",
+        0,
+        "easy"
+      ],
+      [
+        "the water swirling down the drain is completely clear",
+        0,
+        "medium"
+      ],
+      [
+        "only the faint scent of mint remains in the air",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 96,
+    "scenario": "show front desk gym pass",
+    "steps": [
+      "walk inside gym",
+      "reach hand into pocket",
+      "grab onto the wallet",
+      "pull wallet out from pocket",
+      "sift through wallet to find pass",
+      "pull out gym pass",
+      "show front desk gym pass"
+    ],
+    "loop_idx": 4,
+    "loop_step": "sift through wallet to find pass",
+    "descriptions": [
+      [
+        "the pass is still obscured by other cards in the wallet",
+        1,
+        "easy"
+      ],
+      [
+        "no card with the gym logo has been encountered yet",
+        1,
+        "medium"
+      ],
+      [
+        "a grocery store loyalty card is facing up beneath the thumb",
+        1,
+        "hard"
+      ],
+      [
+        "the pass is grasped",
+        0,
+        "easy"
+      ],
+      [
+        "the fingers stop moving among the cards",
+        0,
+        "medium"
+      ],
+      [
+        "He tilts the wallet so the light catches the front of a card.",
+        0,
+        "hard"
+      ],
+      [
+        "The gym's bright fluorescent lights flicker slightly overhead.",
+        2,
+        "na"
+      ],
+      [
+        "Someone in the distance drops a weight with a loud clang.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 97,
+    "scenario": "get measuring cup",
+    "steps": [
+      "walk to cupboard",
+      "open the cupboard",
+      "look for measuring cup",
+      "find measuring cup",
+      "put hand on measuring cup",
+      "get measuring cup",
+      "mix the dry ingredients"
+    ],
+    "loop_idx": 6,
+    "loop_step": "mix the dry ingredients",
+    "descriptions": [
+      [
+        "there are still streaks of flour visible in the mixture",
+        1,
+        "easy"
+      ],
+      [
+        "when you tilt the bowl, the dry ingredients don't slide together as one cohesive mixture",
+        1,
+        "medium"
+      ],
+      [
+        "when you run a finger through it, you feel alternating patches of gritty and smooth textures",
+        1,
+        "hard"
+      ],
+      [
+        "the dry ingredients are evenly combined",
+        0,
+        "easy"
+      ],
+      [
+        "the spoon slides through without catching on uneven patches",
+        0,
+        "medium"
+      ],
+      [
+        "small clouds of flour no longer puff up with each stir",
+        0,
+        "hard"
+      ],
+      [
+        "The kitchen smells faintly of vanilla from an earlier baking session.",
+        2,
+        "na"
+      ],
+      [
+        "A faint ticking sound comes from the egg timer on the counter.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 98,
+    "scenario": "open up car door",
+    "steps": [
+      "walk outside to the car",
+      "keep walking towards the car",
+      "stop in front of car door",
+      "take car key out of pocket",
+      "unlock car door",
+      "grab and pull on car door handle",
+      "open up car door"
+    ],
+    "loop_idx": 1,
+    "loop_step": "keep walking towards the car",
+    "descriptions": [
+      [
+        "the distance to the car is greater than zero",
+        1,
+        "easy"
+      ],
+      [
+        "your reflection is not yet visible in the car window",
+        1,
+        "medium"
+      ],
+      [
+        "you haven't yet stepped into the car’s shadow",
+        1,
+        "hard"
+      ],
+      [
+        "the car door is within arm's reach",
+        0,
+        "easy"
+      ],
+      [
+        "you can see your own reflection in the car door's window",
+        0,
+        "medium"
+      ],
+      [
+        "your footsteps begin to sound sharper, as if bouncing off a large, close surface just ahead",
+        0,
+        "hard"
+      ],
+      [
+        "The car's red paint reflects the afternoon sunlight.",
+        2,
+        "na"
+      ],
+      [
+        "You become aware of the slight breeze rustling the nearby trees.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 99,
+    "scenario": "practice running techniques",
+    "steps": [
+      "ask coach about training program",
+      "Get advice from coach",
+      "Put on running clothes",
+      "Put on running shoes",
+      "Walk to track field",
+      "Warm up exercise",
+      "practice running techniques"
+    ],
+    "loop_idx": 6,
+    "loop_step": "practice running techniques",
+    "descriptions": [
+      [
+        "the coach points out that arm swing and hip alignment still need adjustment",
+        1,
+        "easy"
+      ],
+      [
+        "the sound of footfalls is uneven, with a scuff on every third stride",
+        1,
+        "medium"
+      ],
+      [
+        "the runner can't seem to maintain a steady tempo without consciously counting",
+        1,
+        "hard"
+      ],
+      [
+        "the coach calls out that the session is over and directs everyone to cool down",
+        0,
+        "easy"
+      ],
+      [
+        "the coach picks up the clipboard and starts walking toward the center of the field",
+        0,
+        "medium"
+      ],
+      [
+        "the sprinklers on the infield suddenly hiss to life",
+        0,
+        "hard"
+      ],
+      [
+        "A faint smell of rubber from the track surface lingers in the air.",
+        2,
+        "na"
+      ],
+      [
+        "The distant hum of traffic from the adjacent road is just audible over your breathing.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 100,
+    "scenario": "get cookies to correct consistency",
+    "steps": [
+      "grip onto the whisk tightly",
+      "Mix the ingredients",
+      "move the whisk in circles",
+      "watch the thickness of the mixture",
+      "lift the whisk to check thickness",
+      "tap the whisk on the bowl",
+      "get cookies to correct consistency"
+    ],
+    "loop_idx": 1,
+    "loop_step": "Mix the ingredients",
+    "descriptions": [
+      [
+        "the mixture is still too runny and drips quickly off the whisk",
+        1,
+        "easy"
+      ],
+      [
+        "the whisk made a soft slopping sound against the bowl",
+        1,
+        "medium"
+      ],
+      [
+        "the tapping produced a light, tinny echo rather than a dull thud",
+        1,
+        "hard"
+      ],
+      [
+        "the mixture thickens to a soft, cohesive dough that pulls away from the sides of the bowl and clings to the whisk in a single mass",
+        0,
+        "easy"
+      ],
+      [
+        "the whisking sound shifts from a wet slosh to a muted, rhythmic thud",
+        0,
+        "medium"
+      ],
+      [
+        "the bowl starts to shift slightly on the counter with every push of the whisk",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 101,
+    "scenario": "Sit on the bench",
+    "steps": [
+      "Walk down sidewalk toward bus station",
+      "turn towards the bus stop",
+      "pick up left foot",
+      "continue moving feet",
+      "pick up right foot",
+      "stop moving feet at bus stop",
+      "Sit on the bench"
+    ],
+    "loop_idx": 3,
+    "loop_step": "continue moving feet",
+    "descriptions": [
+      [
+        "the bus stop is still ahead",
+        1,
+        "easy"
+      ],
+      [
+        "the bench remains out of sight",
+        1,
+        "medium"
+      ],
+      [
+        "only three lampposts have been passed since the turn",
+        1,
+        "hard"
+      ],
+      [
+        "the feet have reached the bus stop",
+        0,
+        "easy"
+      ],
+      [
+        "a bench leg comes into view directly in front of the swinging foot",
+        0,
+        "medium"
+      ],
+      [
+        "the hiss of air brakes and the shuffle of disembarking passengers suddenly fill the space just ahead",
+        0,
+        "hard"
+      ],
+      [
+        "A red bench is visible next to the bus stop shelter.",
+        2,
+        "na"
+      ],
+      [
+        "The sidewalk is made of gray concrete slabs with small cracks.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 102,
+    "scenario": "get to the car",
+    "steps": [
+      "get up and get dressed",
+      "Look in the desired direction",
+      "Make sure no obstacles are in the way",
+      "Put one foot in front of the other",
+      "Take another step toward the car",
+      "Stop walking when car is close enough",
+      "get to the car"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Take another step toward the car",
+    "descriptions": [
+      [
+        "the car is still several steps away",
+        1,
+        "easy"
+      ],
+      [
+        "your outstretched hand cannot yet touch the hood",
+        1,
+        "medium"
+      ],
+      [
+        "the hood ornament appears smaller than your thumbnail at arm's length",
+        1,
+        "hard"
+      ],
+      [
+        "you can reach the car door handle",
+        0,
+        "easy"
+      ],
+      [
+        "you can clearly see the keyhole on the car door",
+        0,
+        "medium"
+      ],
+      [
+        "you hear loose gravel crunching under your feet",
+        0,
+        "hard"
+      ],
+      [
+        "The car's windshield reflects the sky.",
+        2,
+        "na"
+      ],
+      [
+        "A bird is singing in a nearby tree.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 103,
+    "scenario": "once at front greet attendant",
+    "steps": [
+      "wait in the line",
+      "keep moving in line",
+      "wait for attendant's attention",
+      "look attendant in the eyes",
+      "smile and greet",
+      "engage in small talk",
+      "once at front greet attendant"
+    ],
+    "loop_idx": 1,
+    "loop_step": "keep moving in line",
+    "descriptions": [
+      [
+        "there are still people ahead of you in the line",
+        1,
+        "easy"
+      ],
+      [
+        "the customer in front of you is still being served",
+        1,
+        "medium"
+      ],
+      [
+        "the attendant is still looking down at the register",
+        1,
+        "hard"
+      ],
+      [
+        "you reach the front of the line",
+        0,
+        "easy"
+      ],
+      [
+        "the gap ahead of you opens up to the service counter",
+        0,
+        "medium"
+      ],
+      [
+        "the shadow of the person ahead disappears from the floor in front of you",
+        0,
+        "hard"
+      ],
+      [
+        "The carpet beneath your feet has a subtle geometric pattern, alternating between muted gray and navy blue tones.",
+        2,
+        "na"
+      ],
+      [
+        "Soft, instrumental jazz is playing quietly over the ceiling speakers, barely audible above the low hum of conversation.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 104,
+    "scenario": "scroll through results displayed",
+    "steps": [
+      "type employment in the search box",
+      "locate compurter mouse",
+      "put hand on mouse",
+      "move pointer to scrollbar",
+      "hold down right mouse button",
+      "pull mouse down",
+      "scroll through results displayed"
+    ],
+    "loop_idx": 6,
+    "loop_step": "scroll through results displayed",
+    "descriptions": [
+      [
+        "the scrollbar thumb has not reached the bottom of the track",
+        1,
+        "easy"
+      ],
+      [
+        "more employment listings are partially visible at the lower edge of the window",
+        1,
+        "medium"
+      ],
+      [
+        "the downward-pointing arrow on the scrollbar remains a dark, clickable color rather than a light, disabled shade",
+        1,
+        "hard"
+      ],
+      [
+        "the scrollbar thumb is at the bottom of the scrollbar",
+        0,
+        "easy"
+      ],
+      [
+        "no new results appear and the last visible entry is the final item in the list",
+        0,
+        "medium"
+      ],
+      [
+        "pulling the mouse down further does not move the scrollbar thumb",
+        0,
+        "hard"
+      ],
+      [
+        "The desk has a slight scratch near the keyboard.",
+        2,
+        "na"
+      ],
+      [
+        "A faint hum comes from the computer tower.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 105,
+    "scenario": "Negotiate the contract with the interviewer",
+    "steps": [
+      "Receive the job offer from the interviewer",
+      "Decide on an amount wanted",
+      "Make an offer higher than what is wanted",
+      "Listen to the counter offer",
+      "Lower the amount wanted",
+      "Keep trying until an agreement is reached",
+      "Negotiate the contract with the interviewer"
+    ],
+    "loop_idx": 5,
+    "loop_step": "Keep trying until an agreement is reached",
+    "descriptions": [
+      [
+        "the interviewer’s latest counteroffer is still below your adjusted asking amount",
+        1,
+        "easy"
+      ],
+      [
+        "the interviewer continues to respond with new numbers rather than a simple “yes”",
+        1,
+        "medium"
+      ],
+      [
+        "the salary line in the written offer remains blank",
+        1,
+        "hard"
+      ],
+      [
+        "the candidate says \"I agree to that number\" and the interviewer nods in confirmation",
+        0,
+        "easy"
+      ],
+      [
+        "the gap between their positions has narrowed to a trivial amount, and the candidate's shoulders have relaxed",
+        0,
+        "medium"
+      ],
+      [
+        "the interviewer's next question shifts to the candidate's preferred start date",
+        0,
+        "hard"
+      ],
+      [
+        "A framed motivational poster on the wall reads 'Teamwork' in bold letters.",
+        2,
+        "na"
+      ],
+      [
+        "The air conditioning hums softly in the background.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 106,
+    "scenario": "Put ingredients in bowl together one by one",
+    "steps": [
+      "Grab a bowl to put ingredients in",
+      "Locate the ingredients",
+      "Walk toward ingredients",
+      "Pick up ingredients",
+      "Walk back to the bowl",
+      "Move ingredients toward bowl",
+      "Put ingredients in bowl together one by one"
+    ],
+    "loop_idx": 6,
+    "loop_step": "Put ingredients in bowl together one by one",
+    "descriptions": [
+      [
+        "there are still ingredients outside the bowl",
+        1,
+        "easy"
+      ],
+      [
+        "the bag of flour is still tied shut on the pantry shelf",
+        1,
+        "medium"
+      ],
+      [
+        "the kitchen drawer with the scissors remains closed",
+        1,
+        "hard"
+      ],
+      [
+        "there are no more ingredients on the counter",
+        0,
+        "easy"
+      ],
+      [
+        "the shopping list beside the bowl has every item crossed off",
+        0,
+        "medium"
+      ],
+      [
+        "the oven preheat indicator light just turned on",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 107,
+    "scenario": "walk to the grill",
+    "steps": [
+      "walk through the door",
+      "close door after going through",
+      "turn towards grill",
+      "lift left foot",
+      "lift right foot",
+      "continue moving until standing in front of grill",
+      "walk to the grill"
+    ],
+    "loop_idx": 5,
+    "loop_step": "continue moving until standing in front of grill",
+    "descriptions": [
+      [
+        "the grill is still out of reach",
+        1,
+        "easy"
+      ],
+      [
+        "the smell of charcoal smoke is still faint",
+        1,
+        "medium"
+      ],
+      [
+        "the low brick wall surrounding the cooking area has not yet appeared",
+        1,
+        "hard"
+      ],
+      [
+        "they feel the heat radiating from the grill",
+        0,
+        "easy"
+      ],
+      [
+        "they see their shadow fall across the grill's grates",
+        0,
+        "medium"
+      ],
+      [
+        "they can no longer see the space between the grill and the wall behind it",
+        0,
+        "hard"
+      ],
+      [
+        "A gentle breeze rustles the leaves of the nearby tree.",
+        2,
+        "na"
+      ],
+      [
+        "The patio tiles are warm from the sun.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 108,
+    "scenario": "walk to the closet",
+    "steps": [
+      "turn off alarm",
+      "Look toward the direction of movement",
+      "Lift one foot",
+      "Set the foot down in front of the other",
+      "Do the same thing with the other foot",
+      "Repeat the process until standing near closet",
+      "walk to the closet"
+    ],
+    "loop_idx": 5,
+    "loop_step": "Repeat the process until standing near closet",
+    "descriptions": [
+      [
+        "the closet remains at a distance of several steps",
+        1,
+        "easy"
+      ],
+      [
+        "the air still smells of lavender from the hallway diffuser rather than the faint cedar of the closet",
+        1,
+        "medium"
+      ],
+      [
+        "their outstretched hand continues to brush against the textured wallpaper instead of the smooth closet door",
+        1,
+        "hard"
+      ],
+      [
+        "the person's outstretched hand touches the closet door",
+        0,
+        "easy"
+      ],
+      [
+        "the lifted foot detects a cool draft coming from under the door ahead",
+        0,
+        "medium"
+      ],
+      [
+        "the gap under the closet door is now close enough to channel the draft across the ankle",
+        0,
+        "hard"
+      ],
+      [
+        "The faint hum of the refrigerator comes from the kitchen.",
+        2,
+        "na"
+      ],
+      [
+        "A cat is curled up on the windowsill, sleeping.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 109,
+    "scenario": "request an application to fill out",
+    "steps": [
+      "open mouth to speak",
+      "use mouth to form words",
+      "ask the manager if any jobs are available",
+      "listen for the manager to say yes",
+      "request an application to fill out",
+      "wait for manager to hand over application",
+      "lift hand to take application"
+    ],
+    "loop_idx": 5,
+    "loop_step": "wait for manager to hand over application",
+    "descriptions": [
+      [
+        "the manager has not yet extended the application",
+        1,
+        "easy"
+      ],
+      [
+        "the manager is still rummaging through a drawer",
+        1,
+        "medium"
+      ],
+      [
+        "the manager mutters something about the disorganized files",
+        1,
+        "hard"
+      ],
+      [
+        "the manager extends the application toward you",
+        0,
+        "easy"
+      ],
+      [
+        "the manager reaches under the counter and retrieves a blank form",
+        0,
+        "medium"
+      ],
+      [
+        "the manager stops typing and slides his chair back",
+        0,
+        "hard"
+      ],
+      [
+        "The clock on the wall ticks slowly.",
+        2,
+        "na"
+      ],
+      [
+        "A mug of pens sits on the manager's desk.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 110,
+    "scenario": "cut the sod",
+    "steps": [
+      "clean lawn of debris",
+      "measure out the area",
+      "place markers to define the area",
+      "get out a shovel or sod cutter",
+      "start to dig within the markers",
+      "dig until all grass is removed",
+      "cut the sod"
+    ],
+    "loop_idx": 5,
+    "loop_step": "dig until all grass is removed",
+    "descriptions": [
+      [
+        "grass remains within the markers",
+        1,
+        "easy"
+      ],
+      [
+        "the ground still feels spongy underfoot",
+        1,
+        "medium"
+      ],
+      [
+        "the pile of removed sod is still noticeably smaller than the marked area",
+        1,
+        "hard"
+      ],
+      [
+        "there is no grass left within the markers",
+        0,
+        "easy"
+      ],
+      [
+        "the shovel blade only turns up dirt",
+        0,
+        "medium"
+      ],
+      [
+        "the shovel glides in with less resistance",
+        0,
+        "hard"
+      ],
+      [
+        "The morning dew is slowly evaporating off the surrounding flower beds.",
+        2,
+        "na"
+      ],
+      [
+        "A faint radio plays classic rock from the open garage door down the street.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 111,
+    "scenario": "turn into the shelter's parking lot",
+    "steps": [
+      "drive to the animal shelter",
+      "locate the entranceway",
+      "flick turn signal on",
+      "slow down while approaching",
+      "wait for traffic",
+      "turn into entrance",
+      "turn into the shelter's parking lot"
+    ],
+    "loop_idx": 4,
+    "loop_step": "wait for traffic",
+    "descriptions": [
+      [
+        "there are still oncoming vehicles",
+        1,
+        "easy"
+      ],
+      [
+        "the sound of an engine revving is getting louder from up the road",
+        1,
+        "medium"
+      ],
+      [
+        "approaching cars are not signaling a turn",
+        1,
+        "hard"
+      ],
+      [
+        "the road is clear of oncoming traffic",
+        0,
+        "easy"
+      ],
+      [
+        "the reflection of an approaching car in the shelter's window vanishes",
+        0,
+        "medium"
+      ],
+      [
+        "the thump of the car's subwoofer suddenly dies away",
+        0,
+        "hard"
+      ],
+      [
+        "The animal shelter's sign has a faded cartoon paw print near the roofline.",
+        2,
+        "na"
+      ],
+      [
+        "A forgotten parking ticket stub is tucked under the sun visor.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 112,
+    "scenario": "sort the clothes",
+    "steps": [
+      "grab the bag of dirty clothes",
+      "sort the clothes",
+      "put clothes in washer",
+      "wait for clothes to wash",
+      "put clothes in dryer",
+      "wait for clothes to dry",
+      "place clean clothes on table"
+    ],
+    "loop_idx": 3,
+    "loop_step": "wait for clothes to wash",
+    "descriptions": [
+      [
+        "the washing machine's cycle indicator light is still on",
+        1,
+        "easy"
+      ],
+      [
+        "a soft humming and occasional gurgling can be heard from the laundry area",
+        1,
+        "medium"
+      ],
+      [
+        "the lid of the washing machine refuses to budge when you lift it",
+        1,
+        "hard"
+      ],
+      [
+        "the washing machine buzzer sounds",
+        0,
+        "easy"
+      ],
+      [
+        "the laundry room falls silent",
+        0,
+        "medium"
+      ],
+      [
+        "the cat that had been dozing on the rumbling washer suddenly jumps to the floor",
+        0,
+        "hard"
+      ],
+      [
+        "A stray sock lies crumpled on the floor next to the washing machine.",
+        2,
+        "na"
+      ],
+      [
+        "The laundry room window is slightly fogged from the warm, humid air.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 113,
+    "scenario": "buy the makeup",
+    "steps": [
+      "walk to cashier with makeup selections",
+      "wait in line",
+      "hand items to cashier",
+      "wait for scanning",
+      "swipe card in machine",
+      "complete payment steps",
+      "buy the makeup"
+    ],
+    "loop_idx": 1,
+    "loop_step": "wait in line",
+    "descriptions": [
+      [
+        "the customer in front of me is still at the cashier",
+        1,
+        "easy"
+      ],
+      [
+        "the cashier hasn't glanced in my direction yet",
+        1,
+        "medium"
+      ],
+      [
+        "the cashier's pen is still pressed to a receipt on the counter",
+        1,
+        "hard"
+      ],
+      [
+        "you are now at the front of the line",
+        0,
+        "easy"
+      ],
+      [
+        "the customer in front of you just finished paying",
+        0,
+        "medium"
+      ],
+      [
+        "the payment terminal's display changes from \"approved\" to the store logo",
+        0,
+        "hard"
+      ],
+      [
+        "The glossy packaging of the lipstick reflects the fluorescent store lights.",
+        2,
+        "na"
+      ],
+      [
+        "A faint scent of a floral perfume lingers in the air.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 114,
+    "scenario": "get bleach to use",
+    "steps": [
+      "put hand on cabinet door",
+      "open the cabinet door",
+      "browse to find the bleach",
+      "take bleach and pick up",
+      "take bleach out of cabinet",
+      "get bleach to use",
+      "bring soap to use"
+    ],
+    "loop_idx": 2,
+    "loop_step": "browse to find the bleach",
+    "descriptions": [
+      [
+        "the item currently being examined is not bleach",
+        1,
+        "easy"
+      ],
+      [
+        "the bottle is clear and contains a blue liquid",
+        1,
+        "medium"
+      ],
+      [
+        "there is a squeegee in the cabinet beside it",
+        1,
+        "hard"
+      ],
+      [
+        "the bleach bottle is located",
+        0,
+        "easy"
+      ],
+      [
+        "the hand pauses its scanning motion over the shelf items and hovers steadily above a single white jug",
+        0,
+        "medium"
+      ],
+      [
+        "the row of spray cleaners has been checked, the disinfecting wipes pushed aside, and now a solid white jug sits directly ahead with no more bottles to inspect",
+        0,
+        "hard"
+      ],
+      [
+        "The cabinet shelves are lined with worn contact paper.",
+        2,
+        "na"
+      ],
+      [
+        "A stray piece of lint drifts across the floor.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 115,
+    "scenario": "start packing up baked goods",
+    "steps": [
+      "continue baking more",
+      "wait for the sweets to finish baking",
+      "put on oven mitts",
+      "open the oven",
+      "pull out the tray with the sweets",
+      "place the tray on kitchen counter",
+      "start packing up baked goods"
+    ],
+    "loop_idx": 1,
+    "loop_step": "wait for the sweets to finish baking",
+    "descriptions": [
+      [
+        "the oven timer has not sounded yet",
+        1,
+        "easy"
+      ],
+      [
+        "the dough still looks pale and soft through the oven window",
+        1,
+        "medium"
+      ],
+      [
+        "the kitchen still lacks the scent of freshly baked sweets",
+        1,
+        "hard"
+      ],
+      [
+        "the oven timer beeps",
+        0,
+        "easy"
+      ],
+      [
+        "you catch a glimpse of the pastries through the oven window turning golden brown",
+        0,
+        "medium"
+      ],
+      [
+        "a familiar sweet smell wafts through the kitchen",
+        0,
+        "hard"
+      ],
+      [
+        "The recipe card is written in neat cursive handwriting.",
+        2,
+        "na"
+      ],
+      [
+        "A small radio on the windowsill is playing classic jazz.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 116,
+    "scenario": "walk up to store entrance",
+    "steps": [
+      "get out of car",
+      "Identify store entrance",
+      "Turn towards entrance",
+      "Lift left foot",
+      "Move left foot forward",
+      "Lift right foot",
+      "Move right foot forward",
+      "Continue until entrance is reached",
+      "walk up to store entrance"
+    ],
+    "loop_idx": 7,
+    "loop_step": "Continue until entrance is reached",
+    "descriptions": [
+      [
+        "the distance to the store entrance is still more than a step away",
+        1,
+        "easy"
+      ],
+      [
+        "the store's sliding doors are still closed",
+        1,
+        "medium"
+      ],
+      [
+        "my shadow still falls on the parking lot",
+        1,
+        "hard"
+      ],
+      [
+        "the distance remaining to the entrance is zero",
+        0,
+        "easy"
+      ],
+      [
+        "your next footstep lands on the textured surface of the entrance mat",
+        0,
+        "medium"
+      ],
+      [
+        "the line where the building’s shadow meets the sunlit pavement has passed beneath your feet",
+        0,
+        "hard"
+      ],
+      [
+        "The parking lot has a fresh layer of asphalt",
+        2,
+        "na"
+      ],
+      [
+        "A light breeze is rustling some leaves near the curb",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 117,
+    "scenario": "Receive an income from work",
+    "steps": [
+      "Apply for a job",
+      "Go to the job interview",
+      "Get hired for the job",
+      "Start going to work everyday",
+      "Keep working for 14 days",
+      "Get a paycheck from work",
+      "Receive an income from work"
+    ],
+    "loop_idx": 4,
+    "loop_step": "Keep working for 14 days",
+    "descriptions": [
+      [
+        "the required 14 workdays have not yet been completed",
+        1,
+        "easy"
+      ],
+      [
+        "their alarm clock has gone off for only 8 work mornings so far",
+        1,
+        "medium"
+      ],
+      [
+        "the office's weekly team lunch has only been held once since their start date",
+        1,
+        "hard"
+      ],
+      [
+        "14 workdays have passed",
+        0,
+        "easy"
+      ],
+      [
+        "the agenda for next Monday's team meeting just landed in your inbox",
+        0,
+        "medium"
+      ],
+      [
+        "the temporary security pass the receptionist handed you on your first day just stopped working at the turnstile",
+        0,
+        "hard"
+      ],
+      [
+        "The break room has a vending machine that only takes exact change.",
+        2,
+        "na"
+      ],
+      [
+        "Your desk is next to a window overlooking a parking lot.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 118,
+    "scenario": "fix grammatical errors",
+    "steps": [
+      "write a first draft",
+      "scroll to top",
+      "turn on grammar checker",
+      "read through draft",
+      "pay attention for detected errors",
+      "correct errors individually",
+      "fix grammatical errors"
+    ],
+    "loop_idx": 3,
+    "loop_step": "read through draft",
+    "descriptions": [
+      [
+        "the grammar checker still highlights a mistake",
+        1,
+        "easy"
+      ],
+      [
+        "the draft extends beyond the bottom of the window",
+        1,
+        "medium"
+      ],
+      [
+        "the scroll bar is not at the very bottom",
+        1,
+        "hard"
+      ],
+      [
+        "no errors remain highlighted by the grammar checker",
+        0,
+        "easy"
+      ],
+      [
+        "the text cursor reaches the end of the document without any further interruption from the grammar tool",
+        0,
+        "medium"
+      ],
+      [
+        "the steady rhythm of tapping the \"ignore\" button has long since fallen silent",
+        0,
+        "hard"
+      ]
+    ]
+  },
+  {
+    "id": 119,
+    "scenario": "exit the bus",
+    "steps": [
+      "Take bus to roller skating rink",
+      "take a seat inside the bus",
+      "wait for the bus to get to the destination",
+      "wait for the bus to stop completely",
+      "get up from the seat",
+      "walk to the bus door",
+      "get off the bus",
+      "exit the bus"
+    ],
+    "loop_idx": 2,
+    "loop_step": "wait for the bus to get to the destination",
+    "descriptions": [
+      [
+        "the bus is still moving",
+        1,
+        "easy"
+      ],
+      [
+        "the large fountain that precedes the roller skating rink hasn't appeared yet",
+        1,
+        "medium"
+      ],
+      [
+        "none of the passengers have started gathering their belongings",
+        1,
+        "hard"
+      ],
+      [
+        "the bus arrives at the roller skating rink and comes to a complete stop",
+        0,
+        "easy"
+      ],
+      [
+        "you catch sight of the roller skating rink's neon sign through the bus window",
+        0,
+        "medium"
+      ],
+      [
+        "the engine's hum fades and passengers start rising from their seats",
+        0,
+        "hard"
+      ],
+      [
+        "A faded sticker on the seat in front of you reads 'Please keep your feet off the seats.'",
+        2,
+        "na"
+      ],
+      [
+        "You notice a faint scratch on the window, shaped like a crescent moon.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 120,
+    "scenario": "park the car",
+    "steps": [
+      "drive to where the boating trip is",
+      "look for parking spot",
+      "find parking spot",
+      "move car between the lines",
+      "make sure car is between lines",
+      "turn off car",
+      "park the car"
+    ],
+    "loop_idx": 4,
+    "loop_step": "make sure car is between lines",
+    "descriptions": [
+      [
+        "the tires are touching the white line",
+        1,
+        "easy"
+      ],
+      [
+        "the gap between the car and the next vehicle over is noticeably uneven",
+        1,
+        "medium"
+      ],
+      [
+        "the steering wheel is still turned",
+        1,
+        "hard"
+      ],
+      [
+        "the driver can see the parking lines in both side mirrors",
+        0,
+        "easy"
+      ],
+      [
+        "the car's shadow fits completely inside the painted lines",
+        0,
+        "medium"
+      ],
+      [
+        "the parking line in the side mirror appears perfectly straight, not curved",
+        0,
+        "hard"
+      ],
+      [
+        "A seagull cries overhead, circling near the docks.",
+        2,
+        "na"
+      ],
+      [
+        "The scent of saltwater drifts in through the slightly open window.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 121,
+    "scenario": "Give the draft to the editor",
+    "steps": [
+      "Read through the draft",
+      "run a spell checker",
+      "fix any typos",
+      "open an email program",
+      "attach the draft",
+      "hit the send button",
+      "call the editor",
+      "tell the editor to expect the draft",
+      "Give the draft to the editor"
+    ],
+    "loop_idx": 2,
+    "loop_step": "fix any typos",
+    "descriptions": [
+      [
+        "the document still contains spelling errors",
+        1,
+        "easy"
+      ],
+      [
+        "the \"Next Error\" button is still enabled",
+        1,
+        "medium"
+      ],
+      [
+        "the 'Add to Dictionary' button has not grayed out",
+        1,
+        "hard"
+      ],
+      [
+        "the spell checker reports no errors",
+        0,
+        "easy"
+      ],
+      [
+        "the red underlines have all disappeared",
+        0,
+        "medium"
+      ],
+      [
+        "I just typed the missing 'e' in 'receive",
+        0,
+        "hard"
+      ],
+      [
+        "The editor's name is written on a sticky note attached to your monitor.",
+        2,
+        "na"
+      ],
+      [
+        "The office window reveals a light drizzle outside.",
+        2,
+        "na"
+      ]
+    ]
+  },
+  {
+    "id": 122,
+    "scenario": "walk to the car",
+    "steps": [
+      "exit the makeup shop",
+      "Locate where car is",
+      "Turn body towards car",
+      "Lift left foot up",
+      "Move left foot forward",
+      "Lift right foot up",
+      "Move right foot forward",
+      "Repeat until car is reached",
+      "walk to the car"
+    ],
+    "loop_idx": 7,
+    "loop_step": "Repeat until car is reached",
+    "descriptions": [
+      [
+        "the car remains at a distance",
+        1,
+        "easy"
+      ],
+      [
+        "the sound of footsteps has not yet ceased",
+        1,
+        "medium"
+      ],
+      [
+        "the shadow of the car and the pedestrian's shadow have not yet touched",
+        1,
+        "hard"
+      ],
+      [
+        "the distance between the person and the car is zero",
+        0,
+        "easy"
+      ],
+      [
+        "the person's hand makes contact with the car",
+        0,
+        "medium"
+      ],
+      [
+        "the beam of the headlights hits the person's shins instead of the road",
+        0,
+        "hard"
+      ],
+      [
+        "The air carries the scent of freshly applied perfume from the makeup shop.",
+        2,
+        "na"
+      ],
+      [
+        "A slight breeze rustles the leaves of a nearby tree.",
         2,
         "na"
       ]

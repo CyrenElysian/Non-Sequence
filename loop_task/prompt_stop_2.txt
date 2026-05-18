@@ -3,5 +3,5 @@ One of the steps towards that is:{steps}.
 Step {loop_idx} "{loop_step}" involves a loop.
 Because {{please_insert}}, {reason_one}.
 
-(Give a less obvious but still sufficient description({{please_insert}}). It should require a little thought, not be a direct restatement. Try to avoid overly technical detail.)
+(Explanation: Now give a different description({{please_insert}}). This description must be less immediately obvious, requiring a small logical step to link it to the loop stop. It is a less direct observation that still independently implies the loop should stop or has stopped . Try to avoid overly professional knowledge.)
 Only output the text that should replace {{please_insert}}.

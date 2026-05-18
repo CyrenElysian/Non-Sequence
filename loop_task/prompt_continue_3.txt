@@ -3,5 +3,5 @@ One of the steps towards that is:{steps}.
 Step {loop_idx} "{loop_step}" involves a loop.
 Because {{please_insert}}, {reason_two}.
 
-(Give a subtle description({{please_insert}}) that still independently implies "continue", but requires excluding a superficial misinterpretation or combining subtle clues. It must not rely on overly specialized expert knowledge.)
+(Explanation: Give another different and subtle description({{please_insert}}) that still independently implies "continue", only requiring the exclusion of some distractions or the combination of clues to make a deduction based on common sense. Avoid overly long descriptions and excessive explanations. Try to avoid specialized knowledge. That is, the reasoning is longer and complex, not the knowledge more difficult, professional, or obscure.)
 Only output the text that should replace {{please_insert}}.

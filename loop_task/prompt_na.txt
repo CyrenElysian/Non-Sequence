@@ -1,9 +1,10 @@
 The scenario is "{scenario}".
 One of the steps towards that is:{steps}.
+Step {loop_idx} "{loop_step}" involves a loop.
 
-Give two pieces of contextual information that are related to the scene but have absolutely no causal bearing on the loop decision. The information should feel natural, but must not help decide whether the loop continues or stops.
+Give two pieces of contextual information that are related to the current scene but have absolutely no causal effect on the loop decision. The information should feel natural, but must not help decide whether the loop continues, stops or has already stopped.
 
-Critical: The information must not presuppose a state that could only be true if the loop had already ended or continued. For instance, if the loop is "wait for computer to turn on", you must not mention things visible only after the computer is on.
+Critical: In the current scenario, the information must not imply that the loop is ongoing, about to end, or has already ended. For instance, if the loop is "wait for computer to turn on", you must not mention things visible only after the computer is on.
 
 Return a JSON array of exactly two strings.
 Only output the JSON array, nothing else.

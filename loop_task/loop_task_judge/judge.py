@@ -1,7 +1,7 @@
 """
-隐藏答案评估脚本
+隐藏答案评估脚本（含混淆统计）
 读取 descriptions_dev.json，使用大模型对每个描述进行 0/1/2 判断，
-与标准答案对比，输出准确率统计。
+与标准答案对比，输出准确率统计和条件概率混淆矩阵。
 """
 import json
 import os
@@ -10,14 +10,15 @@ from collections import defaultdict
 from openai import OpenAI
 
 # ========== 配置 ==========
-INPUT_FILE = "../descriptions_dev.json"
+# INPUT_FILE = "../descriptions_dev.json"
+INPUT_FILE = "../generated_backup.json"
 PROMPT_FILE = "prompt_judge.txt"
-MODEL_NAME = "deepseek-v4-flash"
+MODEL_NAME = "deepseek-v4-pro"
 
 API_KEY_ENV = "DEEPSEEK_API_KEY"
 MAX_RETRIES = 3
-RETRY_DELAY = 3  # 秒
-SLEEP_BETWEEN_ITEMS = 1  # 每条数据间休息秒数
+RETRY_DELAY = 3
+SLEEP_BETWEEN_ITEMS = 1
 
 # ========== 初始化 ==========
 api_key = os.environ.get(API_KEY_ENV)
@@ -26,18 +27,14 @@ if not api_key:
 
 client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
 
-# 加载提示词
 with open(PROMPT_FILE, "r", encoding="utf-8") as f:
     eval_prompt_template = f.read()
 
-# 加载数据
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     data = json.load(f)
 
 
-# ========== 工具函数 ==========
 def call_api(messages):
-    """调用 DeepSeek API，返回文本响应"""
     for attempt in range(MAX_RETRIES):
         try:
             response = client.chat.completions.create(
@@ -59,16 +56,13 @@ def call_api(messages):
 
 
 def parse_prediction(raw):
-    """从模型输出中提取数字 0/1/2"""
     raw = raw.strip()
-    # 尝试直接转为整数
     try:
         val = int(raw)
         if val in (0, 1, 2):
             return val
     except:
         pass
-    # 尝试从内容中匹配第一个 0/1/2
     import re
     match = re.search(r'\b([012])\b', raw)
     if match:
@@ -77,8 +71,10 @@ def parse_prediction(raw):
 
 
 # ========== 评估主流程 ==========
-all_results = []  # 存储每个预测的详细信息
-stats = defaultdict(lambda: defaultdict(int))  # 统计准确率
+all_results = []
+stats = defaultdict(lambda: defaultdict(int))
+# 新增混淆统计：dict[(true_answer, difficulty)][predicted] = count
+confusion = defaultdict(lambda: defaultdict(int))
 
 total_items = len(data)
 correct_count = 0
@@ -93,9 +89,7 @@ for idx, item in enumerate(data, 1):
     loop_step = item["loop_step"]
     descriptions = item["descriptions"]
 
-    # 构建步骤文本
     steps_text = json.dumps(steps, ensure_ascii=False)
-
     print(f"\n处理 {idx}/{total_items}: {scenario} (loop: {loop_step})")
 
     for desc_idx, desc_entry in enumerate(descriptions):
@@ -103,19 +97,16 @@ for idx, item in enumerate(data, 1):
         true_answer = desc_entry[1]
         difficulty = desc_entry[2]
 
-        # 构建用户消息
         user_prompt = f"Scenario: \"{scenario}\"\n" \
                       f"Steps: {steps_text}\n" \
                       f"Loop step index: {loop_idx}, loop step content: \"{loop_step}\"\n" \
                       f"Description: \"{desc_text}\""
 
-        # 构建完整消息
         messages = [
             {"role": "system", "content": eval_prompt_template},
             {"role": "user", "content": user_prompt}
         ]
 
-        # 调用 API
         response = call_api(messages)
         if response is None:
             print(f"  描述 {desc_idx + 1}/{len(descriptions)}: API 失败，跳过")
@@ -131,7 +122,6 @@ for idx, item in enumerate(data, 1):
             correct_count += 1
         total_count += 1
 
-        # 记录详细信息
         all_results.append({
             "item_id": item["id"],
             "scenario": scenario,
@@ -143,33 +133,32 @@ for idx, item in enumerate(data, 1):
             "correct": is_correct
         })
 
-        # 统计
+        # 基本统计
         stats["overall"]["total"] += 1
         if is_correct:
             stats["overall"]["correct"] += 1
 
-        # 按答案类别统计
         answer_key = f"answer_{true_answer}"
         stats[answer_key]["total"] += 1
         if is_correct:
             stats[answer_key]["correct"] += 1
 
-        # 按难度统计
         diff_key = f"difficulty_{difficulty}" if difficulty != "na" else "difficulty_na"
         stats[diff_key]["total"] += 1
         if is_correct:
             stats[diff_key]["correct"] += 1
 
-        # 联合统计：答案+难度
         joint_key = f"{answer_key}_{difficulty}"
         stats[joint_key]["total"] += 1
         if is_correct:
             stats[joint_key]["correct"] += 1
 
+        # 混淆矩阵计数
+        confusion[(true_answer, difficulty)][pred] += 1
+
         print(f"  描述 {desc_idx + 1} [{difficulty}] 真实: {true_answer}, "
               f"预测: {pred} {'✓' if is_correct else '✗'}")
 
-    # 休息一下
     if idx < total_items:
         time.sleep(SLEEP_BETWEEN_ITEMS)
 
@@ -198,17 +187,86 @@ for diff in ["easy", "medium", "hard", "na"]:
     if key in stats:
         print_stat(f"  Difficulty = {diff}", stats[key])
 print("-" * 40)
-# 联合统计（答案×难度）
 for ans in [0, 1, 2]:
     for diff in ["easy", "medium", "hard", "na"]:
         joint_key = f"answer_{ans}_{diff}"
         if joint_key in stats and stats[joint_key]["total"] > 0:
-            print_stat(f"    Ans={ans}, Diff={diff}", stats[joint_key])
+            print_stat(f"  Ans={ans}, Diff={diff}", stats[joint_key])
+
+# ========== 追加条件概率混淆矩阵 ==========
+print("\n" + "=" * 60)
+print("条件概率混淆矩阵 (真实答案 → 预测分布)")
+print("=" * 60)
+
+col_width = 9  # 每列宽度（不含列间距）
+sep_str = " "  # 列间分隔符
+
+
+def make_row(first, values):
+    """生成对齐的行：第一列左对齐，后续每列右对齐，列间固定分隔符"""
+    row = f"{first:<{col_width}}"
+    for v in values:
+        row += sep_str + f"{v:>{col_width}}"
+    return row
+
+
+for diff in ["easy", "medium", "hard", "na"]:
+    print(f"\n难度: {diff}")
+    header = make_row("True/Pred", [0, 1, 2, "Total"])
+    sep_line = "-" * len(header)
+    print(header)
+    print(sep_line)
+
+    for true_ans in [0, 1, 2]:
+        key = (true_ans, diff)
+        total = sum(confusion[key].values())
+        if total == 0:
+            continue
+        counts = [confusion[key].get(p, 0) for p in [0, 1, 2]]
+        row = make_row(str(true_ans), counts + [total])
+        print(row)
+
+    print(sep_line)
+    total_counts = [sum(confusion[(t, diff)].get(p, 0) for t in [0, 1, 2]) for p in [0, 1, 2]]
+    total_all = sum(total_counts)
+    total_row = make_row("Total", total_counts + [total_all])
+    print(total_row)
+
+# 总体混淆矩阵
+print("\n" + "=" * 60)
+print("总体混淆矩阵（不区分难度）")
+print("=" * 60)
+header = make_row("True/Pred", [0, 1, 2, "Total"])
+sep_line = "-" * len(header)
+print(header)
+print(sep_line)
+
+for true_ans in [0, 1, 2]:
+    counts = []
+    for pred_ans in [0, 1, 2]:
+        count = 0
+        for d in ["easy", "medium", "hard", "na"]:
+            count += confusion[(true_ans, d)].get(pred_ans, 0)
+        counts.append(count)
+    total_true = sum(counts)
+    row = make_row(str(true_ans), counts + [total_true])
+    print(row)
+
+print(sep_line)
+grand_counts = []
+for pred_ans in [0, 1, 2]:
+    total_pred = 0
+    for true_ans in [0, 1, 2]:
+        for d in ["easy", "medium", "hard", "na"]:
+            total_pred += confusion[(true_ans, d)].get(pred_ans, 0)
+    grand_counts.append(total_pred)
+grand_total = sum(grand_counts)
+total_row = make_row("Total", grand_counts + [grand_total])
+print(total_row)
 
 # 保存详细结果
 with open("evaluation_details.json", "w", encoding="utf-8") as f:
     json.dump(all_results, f, indent=2, ensure_ascii=False)
 
 print(f"\n详细评估结果已保存至 evaluation_details.json")
-print(
-    f"总预测数: {total_count}, 正确数: {correct_count}, 总体准确率: {correct_count / total_count * 100:.2f}%" if total_count > 0 else "")
+print(f"总预测数: {total_count}, 正确数: {correct_count}, 总体准确率: {correct_count / total_count * 100:.2f}%" if total_count > 0 else "")

@@ -7,7 +7,7 @@ You will be given:
 - A description of the current state (one sentence).
 
 Your task is to classify what this state description implies about the loop step.
-- Answer **0** if the description logically implies that the loop should **stop** (i.e., the goal of the loop has been met or the loop must be exited).
+- Answer **0** if the description logically implies that the loop should **stop, or about to stop, or have already stopped** (i.e., the goal of the loop has been met or the loop must be exited).
 - Answer **1** if the description logically implies that the loop should **continue** (i.e., the goal has not yet been met and the loop must keep going).
 - Answer **2** if the description is **irrelevant** to the loop decision (i.e., it provides no causal information that helps decide whether to stop or continue).
 
@@ -33,5 +33,19 @@ Steps: ["find the charger and cable", "plug the charger into the power outlet", 
 Loop step index: 3, loop step content: "wait for the battery to reach 100%"
 Description: "the phone is brand new out of the box"
 Output: 2
+
+## Example 4
+Scenario: "tell the barber what haircut to receive"
+Steps: [
+      "go inside the shop",
+      "talk to receptionist",
+      "ask about waiting time",
+      "take seat and wait for barber",
+      "get called up to barber chair",
+      "take seat in front of mirror",
+      "tell the barber what haircut to receive" ]
+Loop step index: 3, loop step content: "take seat and wait for barber"
+Description: "the barber sweeps the floor around the chair"
+Output: 0
 
 Now, given the following input, output only the number (0, 1, or 2).

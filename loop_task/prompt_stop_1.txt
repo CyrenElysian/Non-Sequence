@@ -3,5 +3,5 @@ One of the steps towards that is:{steps}.
 Step {loop_idx} "{loop_step}" involves a loop.
 Because {{please_insert}}, the loop needs to stop.
 
-(Do not just state the loop's goal is achieved. Provide a concrete, observable signal from which completion can be directly inferred.)
+(Explanation: Do not simply state the loop's goal is achieved.  Instead, give a concise, concrete description can infer that the loop has ended. It should be a factual clue, not "the goal is met".)
 Only output the text that should replace {{please_insert}}.

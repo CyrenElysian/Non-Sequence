@@ -10,10 +10,10 @@ import time
 from openai import OpenAI
 
 # ========== 配置 ==========
-INPUT_FILE = "temp.json"  # "filter_dev.json"
+INPUT_FILE = "filter_dev.json"
 OUTPUT_FILE = "filter_loop_dev.json"
-PROMPT_FILE = "filter_loop_prompt.txt"
-MODEL_NAME = "deepseek-v4-flash"
+PROMPT_FILE = "filter_loop.txt"
+MODEL_NAME = "deepseek-v4-pro"
 
 BATCH_SIZE = 50
 SLEEP_BETWEEN_BATCHES = 2

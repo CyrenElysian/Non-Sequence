@@ -1,0 +1,3884 @@
+[
+  {
+    "id": 730,
+    "scenario": "get into car",
+    "unordered_nodes": {
+      "0": "unlock car door",
+      "1": "sit into car seat",
+      "2": "grab car door handle",
+      "3": "step into car",
+      "4": "open car door",
+      "5": "close car door",
+      "6": "grab car keys",
+      "7": "get into car"
+    },
+    "edges": [
+      "0->2",
+      "1->5",
+      "2->4",
+      "3->1",
+      "4->3",
+      "5->7",
+      "6->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "0",
+        "2",
+        "4",
+        "3",
+        "1",
+        "5",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 810,
+    "scenario": "apply to several jobs",
+    "unordered_nodes": {
+      "0": "Open job applications",
+      "1": "Read job descriptions",
+      "2": "Click on job links",
+      "3": "Attach resume to applications",
+      "4": "Fill out applications",
+      "5": "look online for postings",
+      "6": "apply to several jobs"
+    },
+    "edges": [
+      "0->4",
+      "1->0",
+      "2->1",
+      "3->6",
+      "4->3",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "0",
+        "4",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 142,
+    "scenario": "go to the bars with friends",
+    "unordered_nodes": {
+      "0": "have a drink while waiting for uber",
+      "1": "call a friend to go out",
+      "2": "wait for friend to come over",
+      "3": "take a shower and get ready",
+      "4": "take an uber out",
+      "5": "go to the bars with friends"
+    },
+    "edges": [
+      "0->4",
+      "1->3",
+      "2->0",
+      "3->2",
+      "4->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        "2",
+        "0",
+        "4",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 934,
+    "scenario": "pull out money",
+    "unordered_nodes": {
+      "0": "Find the wallet",
+      "1": "Choose which bills to use",
+      "2": "Sift through bills",
+      "3": "Open the wallet",
+      "4": "Unzip the bag",
+      "5": "Place bag down on counter",
+      "6": "go to the checkout",
+      "7": "pull out money"
+    },
+    "edges": [
+      "0->3",
+      "1->7",
+      "2->1",
+      "3->2",
+      "4->0",
+      "5->4",
+      "6->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "5",
+        "4",
+        "0",
+        "3",
+        "2",
+        "1",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 807,
+    "scenario": "Continue to alternate between feet",
+    "unordered_nodes": {
+      "0": "Start moving right leg",
+      "1": "Choose where to move toward",
+      "2": "Start moving left leg",
+      "3": "Move entire right leg forward including foot",
+      "4": "Go in chosen direction",
+      "5": "Put left foot forward",
+      "6": "Continue to alternate between feet"
+    },
+    "edges": [
+      "0->3",
+      "1->4",
+      "3->2",
+      "4->0",
+      "2->5",
+      "5->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "4",
+        "0",
+        "3",
+        "2",
+        "5",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 156,
+    "scenario": "make a fashion statement",
+    "unordered_nodes": {
+      "0": "look through clothing",
+      "1": "wear the outfit",
+      "2": "decide on a fashion trend",
+      "3": "search for fashion trends online",
+      "4": "set up an outfit",
+      "5": "make a fashion statement"
+    },
+    "edges": [
+      "0->4",
+      "1->5",
+      "2->0",
+      "3->2",
+      "4->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "2",
+        "0",
+        "4",
+        "1",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 302,
+    "scenario": "get some orange juice",
+    "unordered_nodes": {
+      "0": "open the fridge",
+      "1": "go to the kitchen",
+      "2": "look through the shelves",
+      "3": "decide on a drink",
+      "4": "get home from work",
+      "5": "get some orange juice"
+    },
+    "edges": [
+      "0->2",
+      "1->0",
+      "2->3",
+      "3->5",
+      "4->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "1",
+        "0",
+        "2",
+        "3",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 101,
+    "scenario": "learn to play violin",
+    "unordered_nodes": {
+      "0": "go to lessons everyday for practice",
+      "1": "enter instructor building",
+      "2": "meet with instructor",
+      "3": "drive to lessons",
+      "4": "look up violin lessons",
+      "5": "learn to play violin"
+    },
+    "edges": [
+      "0->5",
+      "1->2",
+      "2->0",
+      "3->1",
+      "4->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "3",
+        "1",
+        "2",
+        "0",
+        "5"
+      ]
+    }
+  },
+  {
+    "scenario": "get a shopping cart",
+    "unordered_nodes": {
+      "0": "search for the cart station",
+      "1": "wash hands vigorously",
+      "2": "take off sunglasses",
+      "3": "stop when in front of the carts",
+      "4": "slowly walk in direction of the cart station",
+      "5": "go inside the store",
+      "6": "get a shopping cart"
+    },
+    "edges": [
+      "0->4",
+      "1->0",
+      "2->0",
+      "3->6",
+      "4->3",
+      "5->2",
+      "5->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "0",
+        "4",
+        "3",
+        "6"
+      ]
+    },
+    "id": 687
+  },
+  {
+    "id": 473,
+    "scenario": "Head to the bench press machine",
+    "unordered_nodes": {
+      "0": "move towards bench press",
+      "1": "lock locker door",
+      "2": "close locker door",
+      "3": "locate the bench press",
+      "4": "head towards locker room exit",
+      "5": "Put on workout attire",
+      "6": "Head to the bench press machine"
+    },
+    "edges": [
+      "0->6",
+      "1->4",
+      "2->1",
+      "3->0",
+      "4->3",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "4",
+        "3",
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 424,
+    "scenario": "Take Xbox home",
+    "unordered_nodes": {
+      "0": "Take xbox out of the car",
+      "1": "carry xbox to the car",
+      "2": "Pay for Xbox",
+      "3": "get to the garage",
+      "4": "drive xbox home",
+      "5": "Pick up Xbox from counter",
+      "6": "Take Xbox home"
+    },
+    "edges": [
+      "0->6",
+      "1->4",
+      "2->1",
+      "3->0",
+      "4->3",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "4",
+        "3",
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 893,
+    "scenario": "walk to the grill",
+    "unordered_nodes": {
+      "0": "close door after going through",
+      "1": "continue moving until standing in front of grill",
+      "2": "lift left foot",
+      "3": "lift right foot",
+      "4": "turn towards grill",
+      "5": "walk through the door",
+      "6": "walk to the grill"
+    },
+    "edges": [
+      "0->4",
+      "1->6",
+      "2->3",
+      "3->1",
+      "4->2",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "2",
+        "3",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 581,
+    "scenario": "get hired for the job",
+    "unordered_nodes": {
+      "0": "answer interview questions",
+      "1": "get drug tested",
+      "2": "hand over resume",
+      "3": "ask questions about the job",
+      "4": "prepare answers for questions",
+      "5": "meet with interviewer",
+      "6": "shake interviewer's hand",
+      "7": "drive to the interview",
+      "8": "get hired for the job"
+    },
+    "edges": [
+      "0->3",
+      "1->8",
+      "2->0",
+      "3->1",
+      "4->7",
+      "5->6",
+      "6->2",
+      "7->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "7",
+        "5",
+        "6",
+        "2",
+        "0",
+        "3",
+        "1",
+        "8"
+      ]
+    }
+  },
+  {
+    "scenario": "go on a boating trip",
+    "unordered_nodes": {
+      "0": "gather the supplies",
+      "1": "drive to where the boating trip is",
+      "2": "look up local boating trips",
+      "3": "get on the boat",
+      "4": "go online on the computer",
+      "5": "choose a boating trip",
+      "6": "go on a boating trip"
+    },
+    "edges": [
+      "4->2",
+      "2->5",
+      "5->0",
+      "0->1",
+      "1->3",
+      "3->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "2",
+        "5",
+        "0",
+        "1",
+        "3",
+        "6"
+      ]
+    },
+    "id": 44
+  },
+  {
+    "id": 219,
+    "scenario": "own a bar",
+    "unordered_nodes": {
+      "0": "Obtain a liquor license",
+      "1": "Obtain a business license",
+      "2": "Buy a building property",
+      "3": "Have inspectors certify building",
+      "4": "Renovate building suitable for serving alcohol",
+      "5": "own a bar"
+    },
+    "edges": [
+      "0->5",
+      "1->0",
+      "2->4",
+      "3->0",
+      "4->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "2",
+              "4",
+              "3"
+            ]
+          }
+        },
+        "0",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 930,
+    "scenario": "walk back inside house",
+    "unordered_nodes": {
+      "0": "look for house",
+      "1": "turn body towards house",
+      "2": "find the house",
+      "3": "put right foot forward",
+      "4": "put left foot forward",
+      "5": "grab mail out of mailbox",
+      "6": "walk back inside house"
+    },
+    "edges": [
+      "5->0",
+      "0->2",
+      "2->1",
+      "1->3",
+      "3->4",
+      "4->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "2",
+        "1",
+        "3",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 162,
+    "scenario": "flip a car",
+    "unordered_nodes": {
+      "0": "drive to somewhere the road is straight and long",
+      "1": "put on protective gear",
+      "2": "drive down the road and pick up speed",
+      "3": "start the car",
+      "4": "steer sharply to one side",
+      "5": "flip a car"
+    },
+    "edges": [
+      "0->2",
+      "1->3",
+      "2->4",
+      "3->0",
+      "4->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        "0",
+        "2",
+        "4",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 839,
+    "scenario": "show up on wedding date",
+    "unordered_nodes": {
+      "0": "drive to the location",
+      "1": "wait for the wedding day",
+      "2": "verify that officiant is available on wedding day",
+      "3": "get dressed in wedding clothes",
+      "4": "pay the officiant in advance",
+      "5": "get a person to perform wedding ceremony",
+      "6": "show up on wedding date"
+    },
+    "edges": [
+      "2->4",
+      "2->5",
+      "5->1",
+      "4->3",
+      "1->3",
+      "3->0",
+      "0->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "5",
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "3",
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 901,
+    "scenario": "get tired after a while",
+    "unordered_nodes": {
+      "0": "do that something",
+      "1": "find something to do",
+      "2": "finish doing that something",
+      "3": "get bored of something",
+      "4": "run out of energy",
+      "5": "go and get dressed",
+      "6": "get tired after a while"
+    },
+    "edges": [
+      "5->1",
+      "1->0",
+      "0->3",
+      "0->4",
+      "3->2",
+      "4->2",
+      "2->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "2",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 225,
+    "scenario": "wear to class",
+    "unordered_nodes": {
+      "0": "Pick out a shirt",
+      "1": "Grab some accessories",
+      "2": "Put on outfit",
+      "3": "Go to the closet",
+      "4": "Pick out other items",
+      "5": "Pick out pants",
+      "6": "wear to class"
+    },
+    "edges": [
+      "0->2",
+      "1->2",
+      "2->6",
+      "3->0",
+      "3->5",
+      "3->4",
+      "3->1",
+      "4->2",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "5"
+            ],
+            "b3": [
+              "4"
+            ],
+            "b4": [
+              "1"
+            ]
+          }
+        },
+        "2",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 291,
+    "scenario": "go on a ride",
+    "unordered_nodes": {
+      "0": "Drive to destination",
+      "1": "Plan where to go",
+      "2": "start the car",
+      "3": "look at directions",
+      "4": "walk to car",
+      "5": "go on a ride"
+    },
+    "edges": [
+      "0->5",
+      "1->3",
+      "2->0",
+      "3->4",
+      "4->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        "4",
+        "2",
+        "0",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 181,
+    "scenario": "sprint for the school's track team",
+    "unordered_nodes": {
+      "0": "start to sprint",
+      "1": "stretch legs, arms and back",
+      "2": "do some warm up",
+      "3": "wait for whistle to blow",
+      "4": "go to start line",
+      "5": "sprint for the school's track team"
+    },
+    "edges": [
+      "0->5",
+      "1->4",
+      "2->1",
+      "3->0",
+      "4->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "1",
+        "4",
+        "3",
+        "0",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 358,
+    "scenario": "find a way to stay cool",
+    "unordered_nodes": {
+      "0": "Turn on the power button",
+      "1": "Locate the power button",
+      "2": "Go to the air conditioner",
+      "3": "Set the controls to blow cold air",
+      "4": "Stand in front of the cold air",
+      "5": "find a way to stay cool"
+    },
+    "edges": [
+      "0->3",
+      "1->0",
+      "2->1",
+      "3->4",
+      "4->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "1",
+        "0",
+        "3",
+        "4",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 363,
+    "scenario": "have our driveway paved",
+    "unordered_nodes": {
+      "0": "look for local pavement companies",
+      "1": "discuss driveway needs",
+      "2": "set up a date",
+      "3": "wait for the pavement company to arrive",
+      "4": "negotiate a price",
+      "5": "call the pavement company",
+      "6": "choose a pavement company",
+      "7": "have our driveway paved"
+    },
+    "edges": [
+      "0->6",
+      "1->4",
+      "2->3",
+      "3->7",
+      "4->2",
+      "5->1",
+      "6->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "6",
+        "5",
+        "1",
+        "4",
+        "2",
+        "3",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 251,
+    "scenario": "get some items for school",
+    "unordered_nodes": {
+      "0": "walk to school section",
+      "1": "enter the store",
+      "2": "browse through school items",
+      "3": "look for school section",
+      "4": "drive to store",
+      "5": "get some items for school"
+    },
+    "edges": [
+      "0->2",
+      "1->3",
+      "2->5",
+      "3->0",
+      "4->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "1",
+        "3",
+        "0",
+        "2",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 585,
+    "scenario": "get dressed for the concert",
+    "unordered_nodes": {
+      "0": "pick up tickets",
+      "1": "stand in line",
+      "2": "wait for concert day",
+      "3": "drive back home",
+      "4": "go to ticket location",
+      "5": "Buy tickets to a concert",
+      "6": "get dressed for the concert"
+    },
+    "edges": [
+      "0->3",
+      "1->0",
+      "2->6",
+      "3->2",
+      "4->1",
+      "5->4"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "1",
+        "0",
+        "3",
+        "2",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 574,
+    "scenario": "get in the car",
+    "unordered_nodes": {
+      "0": "wait for the uber",
+      "1": "open the uber door",
+      "2": "enter the car",
+      "3": "let the uber park",
+      "4": "greet the driver",
+      "5": "get in the car"
+    },
+    "edges": [
+      "0->3",
+      "1->2",
+      "2->5",
+      "3->4",
+      "4->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "3",
+        "4",
+        "1",
+        "2",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 270,
+    "scenario": "add a large animal",
+    "unordered_nodes": {
+      "0": "set up an area for the large animal",
+      "1": "receive the large animal",
+      "2": "drive to the zoo",
+      "3": "call about the large animal",
+      "4": "set up the paperwork",
+      "5": "add a large animal"
+    },
+    "edges": [
+      "0->5",
+      "1->5",
+      "2->4",
+      "2->0",
+      "3->2",
+      "4->1",
+      "0->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4"
+            ],
+            "b2": [
+              "0"
+            ]
+          }
+        },
+        "1",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 155,
+    "scenario": "go off roading",
+    "unordered_nodes": {
+      "0": "Start the truck",
+      "1": "Drive onto recreation trails",
+      "2": "Unlock garage door with beeper",
+      "3": "Drive to local vehicle recreation area",
+      "4": "Get into truck",
+      "5": "Pay the day use fee",
+      "6": "Walk into garage",
+      "7": "go off roading"
+    },
+    "edges": [
+      "0->3",
+      "1->7",
+      "2->3",
+      "3->5",
+      "4->0",
+      "5->1",
+      "6->4",
+      "2->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "6",
+        "4",
+        "0",
+        "3",
+        "5",
+        "1",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 534,
+    "scenario": "Save up money to buy the Xbox",
+    "unordered_nodes": {
+      "0": "apply for jobs",
+      "1": "get a job",
+      "2": "put money in bank account",
+      "3": "get paid from job",
+      "4": "work at job",
+      "5": "Save up money to buy the Xbox"
+    },
+    "edges": [
+      "0->1",
+      "1->4",
+      "2->5",
+      "3->2",
+      "4->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "1",
+        "4",
+        "3",
+        "2",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 606,
+    "scenario": "open chrome app",
+    "unordered_nodes": {
+      "0": "unlock the phone",
+      "1": "find chrome app button",
+      "2": "reach into pocket",
+      "3": "pull phone out",
+      "4": "feel around for phone",
+      "5": "open chrome app"
+    },
+    "edges": [
+      "0->1",
+      "1->5",
+      "2->4",
+      "3->0",
+      "4->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "4",
+        "3",
+        "0",
+        "1",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 540,
+    "scenario": "walk to the washing machine",
+    "unordered_nodes": {
+      "0": "get bleach to use",
+      "1": "Put dark colors separate",
+      "2": "sort the clothes",
+      "3": "bring soap to use",
+      "4": "put whites separate",
+      "5": "grab the bag of dirty clothes",
+      "6": "walk to the washing machine"
+    },
+    "edges": [
+      "0->6",
+      "1->3",
+      "2->4",
+      "2->1",
+      "3->0",
+      "4->3",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "3",
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 756,
+    "scenario": "get called up to barber chair",
+    "unordered_nodes": {
+      "0": "play with phone",
+      "1": "look at barber cutting hair",
+      "2": "grab a magazine",
+      "3": "look through magazine",
+      "4": "look at time",
+      "5": "take seat and wait for barber",
+      "6": "get called up to barber chair"
+    },
+    "edges": [
+      "0->4",
+      "1->6",
+      "2->3",
+      "3->6",
+      "4->6",
+      "5->2",
+      "5->1",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              "4"
+            ],
+            "b2": [
+              "1"
+            ],
+            "b3": [
+              "2",
+              "3"
+            ]
+          }
+        },
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 292,
+    "scenario": "bake a dozen chocolate chip cookies",
+    "unordered_nodes": {
+      "0": "mix ingredient according to recipe",
+      "1": "find a recipe for cookies",
+      "2": "take out bowl",
+      "3": "scoop cookie dough onto baking tray",
+      "4": "buy ingredients for cookies",
+      "5": "take out baking tray",
+      "6": "bake a dozen chocolate chip cookies"
+    },
+    "edges": [
+      "0->3",
+      "1->4",
+      "2->0",
+      "3->6",
+      "4->2",
+      "4->5",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "0"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 191,
+    "scenario": "go to a popular rock concert",
+    "unordered_nodes": {
+      "0": "call up friends to meet",
+      "1": "take out tickets",
+      "2": "enter the arena",
+      "3": "go to the seats",
+      "4": "meet friends at arena",
+      "5": "go to a popular rock concert"
+    },
+    "edges": [
+      "0->1",
+      "1->2",
+      "2->4",
+      "4->3",
+      "3->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "1",
+        "2",
+        "4",
+        "3",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 466,
+    "scenario": "buy ingredients for cookies",
+    "unordered_nodes": {
+      "0": "grab car keys",
+      "1": "get into car",
+      "2": "check kitchen for needed ingredients",
+      "3": "walk around finding needed ingredients",
+      "4": "drive to store",
+      "5": "jot down recipe on paper",
+      "6": "notice kitchen doesn't have  required ingredients",
+      "7": "find a recipe for cookies",
+      "8": "buy ingredients for cookies"
+    },
+    "edges": [
+      "0->1",
+      "1->4",
+      "2->6",
+      "3->8",
+      "4->3",
+      "5->6",
+      "6->0",
+      "7->5",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "7",
+        "5",
+        "2",
+        "6",
+        "0",
+        "1",
+        "4",
+        "3",
+        "8"
+      ]
+    }
+  },
+  {
+    "id": 865,
+    "scenario": "get to the car",
+    "unordered_nodes": {
+      "0": "Put one foot in front of the other",
+      "1": "Look in the desired direction",
+      "2": "Make sure no obstacles are in the way",
+      "3": "Stop walking when car is close enough",
+      "4": "Take another step toward the car",
+      "5": "get up and get dressed",
+      "6": "get to the car"
+    },
+    "edges": [
+      "0->4",
+      "1->2",
+      "2->0",
+      "3->6",
+      "4->3",
+      "5->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "2",
+        "0",
+        "4",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 883,
+    "scenario": "input payment amount on website",
+    "unordered_nodes": {
+      "0": "find payment website",
+      "1": "begin typing amount",
+      "2": "look for payment website",
+      "3": "open payment website",
+      "4": "remember payment amount",
+      "5": "calculate if enough for payment",
+      "6": "input payment amount on website"
+    },
+    "edges": [
+      "0->3",
+      "1->6",
+      "2->0",
+      "3->1",
+      "4->1",
+      "4->5",
+      "5->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "0",
+              "3"
+            ],
+            "b2": [
+              "4",
+              "5"
+            ]
+          }
+        },
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 337,
+    "scenario": "save money on plant milk",
+    "unordered_nodes": {
+      "0": "drive to the grocery store",
+      "1": "sign up for the rewards program",
+      "2": "go to checkout",
+      "3": "get a discount at checkout",
+      "4": "look for plant milk",
+      "5": "walk into the grocery store",
+      "6": "save money on plant milk"
+    },
+    "edges": [
+      "0->5",
+      "5->4",
+      "5->1",
+      "4->2",
+      "1->2",
+      "2->3",
+      "3->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "2",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 821,
+    "scenario": "try out for the spot",
+    "unordered_nodes": {
+      "0": "announce intention to try out",
+      "1": "look for tryout spot",
+      "2": "walk to tryout spot",
+      "3": "find tryout spot",
+      "4": "enter tryout spot",
+      "5": "go to the gym",
+      "6": "try out for the spot"
+    },
+    "edges": [
+      "0->5",
+      "5->1",
+      "1->3",
+      "3->2",
+      "2->4",
+      "4->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "5",
+        "1",
+        "3",
+        "2",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 1053,
+    "scenario": "talk to receptionist",
+    "unordered_nodes": {
+      "0": "Make sure receptionist isn't too busy",
+      "1": "Wait for receptionist to respond",
+      "2": "Walk toward where receptionist is located",
+      "3": "Look receptionist in the eye",
+      "4": "Speak to the receptionist",
+      "5": "go inside the shop",
+      "6": "talk to receptionist"
+    },
+    "edges": [
+      "0->3",
+      "1->6",
+      "2->0",
+      "3->4",
+      "4->1",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "0",
+        "3",
+        "4",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 494,
+    "scenario": "walk to the car",
+    "unordered_nodes": {
+      "0": "walk towards the door to the outside",
+      "1": "bag the groceries up",
+      "2": "put groceries in a cart",
+      "3": "exit the store",
+      "4": "get handed a receipt",
+      "5": "pay for everything",
+      "6": "walk to the car"
+    },
+    "edges": [
+      "0->3",
+      "1->2",
+      "2->0",
+      "3->6",
+      "4->2",
+      "5->4",
+      "5->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "2",
+        "0",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "scenario": "Walk to the car",
+    "unordered_nodes": {
+      "0": "put left foot forward",
+      "1": "look for car",
+      "2": "put right foot forward",
+      "3": "find the car",
+      "4": "turn body towards car",
+      "5": "Close the front door",
+      "6": "Walk to the car"
+    },
+    "edges": [
+      "1->3",
+      "3->4",
+      "4->0",
+      "0->2",
+      "2->6",
+      "6->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        "4",
+        "0",
+        "2",
+        "6",
+        "5"
+      ]
+    },
+    "id": 956
+  },
+  {
+    "id": 892,
+    "scenario": "get the tiller",
+    "unordered_nodes": {
+      "0": "look for tiller",
+      "1": "reach out to tiller",
+      "2": "walk to the tiller",
+      "3": "put hand on tiller",
+      "4": "find the tiller",
+      "5": "kill any weeds",
+      "6": "get the tiller"
+    },
+    "edges": [
+      "0->4",
+      "1->3",
+      "2->1",
+      "3->6",
+      "4->2",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "2",
+        "1",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 607,
+    "scenario": "Arrange wood in area outside",
+    "unordered_nodes": {
+      "0": "Kneel down by fire pit",
+      "1": "Walk to fire pit",
+      "2": "Walk out the door",
+      "3": "Close the door",
+      "4": "Open the door",
+      "5": "Collect match and fuel",
+      "6": "Arrange wood in area outside"
+    },
+    "edges": [
+      "0->6",
+      "1->0",
+      "2->3",
+      "3->1",
+      "4->2",
+      "5->4"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "2",
+        "3",
+        "1",
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 937,
+    "scenario": "Sign the form at the end",
+    "unordered_nodes": {
+      "0": "put pen to paper",
+      "1": "locate signature line",
+      "2": "start signing form",
+      "3": "grab a pen",
+      "4": "re-read the form",
+      "5": "Do not skip any lines",
+      "6": "Sign the form at the end"
+    },
+    "edges": [
+      "3->0",
+      "4->3",
+      "4->1",
+      "1->0",
+      "5->4",
+      "0->2",
+      "2->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "0",
+        "2",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 1017,
+    "scenario": "Increase the training time gradually next time",
+    "unordered_nodes": {
+      "0": "acknowledge what changes can be made",
+      "1": "check with the trainer about the time that was taken",
+      "2": "exit the locker room",
+      "3": "get dressed after freshening up",
+      "4": "locate the trainer who assisted",
+      "5": "Freshen up after the practice run",
+      "6": "Increase the training time gradually next time"
+    },
+    "edges": [
+      "0->6",
+      "1->0",
+      "2->4",
+      "3->2",
+      "4->1",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "2",
+        "4",
+        "1",
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 250,
+    "scenario": "do in life",
+    "unordered_nodes": {
+      "0": "Work at a career",
+      "1": "Get married to another",
+      "2": "Go through school",
+      "3": "Enjoy not working after retirement",
+      "4": "Go through college",
+      "5": "do in life"
+    },
+    "edges": [
+      "2->4",
+      "4->0",
+      "0->3",
+      "3->5",
+      "1->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              "3"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 478,
+    "scenario": "park the car",
+    "unordered_nodes": {
+      "0": "Align the car with the parking spot",
+      "1": "Look for an empty parking spot",
+      "2": "Shift the gear into park",
+      "3": "Turn off the vehicle",
+      "4": "Slowly pull into the parking spot",
+      "5": "Place foot on the brake",
+      "6": "drive to pier",
+      "7": "park the car"
+    },
+    "edges": [
+      "0->4",
+      "1->0",
+      "2->3",
+      "3->7",
+      "4->5",
+      "5->2",
+      "6->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "1",
+        "0",
+        "4",
+        "5",
+        "2",
+        "3",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 531,
+    "scenario": "walk into the kitchen",
+    "unordered_nodes": {
+      "0": "Stand up from seating position",
+      "1": "Walk toward the kitchen",
+      "2": "Turn toward the kitchen",
+      "3": "Exit the room",
+      "4": "Enter the kitchen",
+      "5": "Walk through the room",
+      "6": "walk into the kitchen"
+    },
+    "edges": [
+      "0->2",
+      "2->5",
+      "5->3",
+      "3->1",
+      "1->4",
+      "4->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        "5",
+        "3",
+        "1",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 189,
+    "scenario": "raise money for their trip",
+    "unordered_nodes": {
+      "0": "Collect the money",
+      "1": "Set up a table for baked goods",
+      "2": "Repeat until goal is met",
+      "3": "Set up fundraiser on social media",
+      "4": "Send social media page to friends",
+      "5": "Bake sweets to sell",
+      "6": "Offer baked goods to paying customers",
+      "7": "raise money for their trip"
+    },
+    "edges": [
+      "0->2",
+      "1->6",
+      "2->7",
+      "3->4",
+      "4->0",
+      "5->1",
+      "6->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3",
+              "4"
+            ],
+            "b2": [
+              "5",
+              "1",
+              "6"
+            ]
+          }
+        },
+        "0",
+        "2",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 84,
+    "scenario": "play basketball in high school",
+    "unordered_nodes": {
+      "0": "Stay after school to try out for the team",
+      "1": "Stay after school for practice",
+      "2": "Check daily for team postings",
+      "3": "Read the list of people who made the team",
+      "4": "Play in basketball games",
+      "5": "Figure out when tryouts take place",
+      "6": "play basketball in high school"
+    },
+    "edges": [
+      "0->3",
+      "1->4",
+      "2->5",
+      "3->1",
+      "4->6",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "5",
+        "0",
+        "3",
+        "1",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 850,
+    "scenario": "get sign up sheet",
+    "unordered_nodes": {
+      "0": "walk towards sheet",
+      "1": "look for sheet",
+      "2": "ask where signup sheet is",
+      "3": "put hand on sheet",
+      "4": "find the sheet",
+      "5": "ask about balloon lessons",
+      "6": "get sign up sheet"
+    },
+    "edges": [
+      "0->3",
+      "1->4",
+      "2->1",
+      "3->6",
+      "4->0",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "4",
+        "0",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 495,
+    "scenario": "get ready for school",
+    "unordered_nodes": {
+      "0": "brush and floss teeth",
+      "1": "grab the back pack",
+      "2": "take a shower",
+      "3": "get dressed in the outfit",
+      "4": "pick out an outfit",
+      "5": "get ready for school"
+    },
+    "edges": [
+      "0->4",
+      "1->5",
+      "2->4",
+      "3->1",
+      "4->3",
+      "2->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "4",
+        "3",
+        "1",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 748,
+    "scenario": "Put dark colors separate",
+    "unordered_nodes": {
+      "0": "decide if item is dark or light",
+      "1": "place light items in a different pile",
+      "2": "place dark items in one pile",
+      "3": "look at the item",
+      "4": "pick up each clothing item",
+      "5": "sort the clothes",
+      "6": "Put dark colors separate"
+    },
+    "edges": [
+      "4->3",
+      "3->0",
+      "0->1",
+      "0->2",
+      "1->5",
+      "2->5",
+      "5->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "3",
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "2"
+            ]
+          }
+        },
+        "5",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 218,
+    "scenario": "take a trip to the jungle",
+    "unordered_nodes": {
+      "0": "Enter the jungle",
+      "1": "Pay for the trip",
+      "2": "Go to a travel agent",
+      "3": "Select a trip to country with a jungle",
+      "4": "Travel to the country by plane",
+      "5": "Check in at tour guide center",
+      "6": "take a trip to the jungle"
+    },
+    "edges": [
+      "6->2",
+      "2->3",
+      "3->1",
+      "1->4",
+      "4->5",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "2",
+        "3",
+        "1",
+        "4",
+        "5",
+        "0"
+      ]
+    }
+  },
+  {
+    "id": 945,
+    "scenario": "put the guitar in the car",
+    "unordered_nodes": {
+      "0": "grab keys from pocket",
+      "1": "put car key in keyhole",
+      "2": "turn key to unlock",
+      "3": "pull handle to open car door",
+      "4": "grab car door handle",
+      "5": "walk to the car",
+      "6": "put the guitar in the car"
+    },
+    "edges": [
+      "0->1",
+      "1->2",
+      "2->4",
+      "3->6",
+      "4->3",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "1",
+        "2",
+        "4",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 773,
+    "scenario": "glance through results",
+    "unordered_nodes": {
+      "0": "find the results page's location",
+      "1": "find polls information",
+      "2": "go to the results page",
+      "3": "skim through the information",
+      "4": "start reading the results",
+      "5": "look for polls information",
+      "6": "glance through results"
+    },
+    "edges": [
+      "0->2",
+      "2->5",
+      "2->6",
+      "5->1",
+      "1->3",
+      "6->3",
+      "3->4"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "6"
+            ],
+            "b2": [
+              "5",
+              "1"
+            ]
+          }
+        },
+        "3",
+        "4"
+      ]
+    }
+  },
+  {
+    "id": 993,
+    "scenario": "get off of the couch",
+    "unordered_nodes": {
+      "0": "push body with arms",
+      "1": "take butt of couch",
+      "2": "stand up straight",
+      "3": "push body with legs",
+      "4": "grab the couch's arm rest",
+      "5": "put the legs on the floor",
+      "6": "get off of the couch"
+    },
+    "edges": [
+      "0->1",
+      "1->2",
+      "2->6",
+      "3->1",
+      "4->0",
+      "5->4",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4",
+              "0"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "1",
+        "2",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 935,
+    "scenario": "Confer with colleagues",
+    "unordered_nodes": {
+      "0": "Compare candidates qualities",
+      "1": "Tell colleagues to meet",
+      "2": "Ask questions about candidates",
+      "3": "Sit down with colleagues",
+      "4": "Give opinions about candidates",
+      "5": "Ask quality questions",
+      "6": "Confer with colleagues"
+    },
+    "edges": [
+      "1->3",
+      "3->2",
+      "3->4",
+      "3->5",
+      "2->0",
+      "4->0",
+      "5->0",
+      "0->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4"
+            ],
+            "b3": [
+              "5"
+            ]
+          }
+        },
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 989,
+    "scenario": "get out of bed",
+    "unordered_nodes": {
+      "0": "try to stay awake",
+      "1": "take blankets off",
+      "2": "grab the phone",
+      "3": "wake up to alarm",
+      "4": "stop the alarm",
+      "5": "get out of bed"
+    },
+    "edges": [
+      "0->5",
+      "1->5",
+      "2->4",
+      "3->2",
+      "4->0",
+      "4->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "2",
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 362,
+    "scenario": "eat at a restaurant she's never been to",
+    "unordered_nodes": {
+      "0": "turn on cell phone screen",
+      "1": "open GPS on phone",
+      "2": "input new restaurant address for navigation",
+      "3": "begin driving to the restaurant",
+      "4": "enter the restaurant",
+      "5": "enter the car",
+      "6": "exit the house",
+      "7": "eat at a restaurant she's never been to"
+    },
+    "edges": [
+      "0->1",
+      "1->2",
+      "2->3",
+      "3->4",
+      "4->7",
+      "5->3",
+      "6->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              "1",
+              "2"
+            ],
+            "b2": [
+              "6",
+              "5"
+            ]
+          }
+        },
+        "3",
+        "4",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 605,
+    "scenario": "turn on the stereo",
+    "unordered_nodes": {
+      "0": "make sure all wires are connected correctly",
+      "1": "move hand towards stereo power button",
+      "2": "look for location of power button",
+      "3": "adjust to standing up position",
+      "4": "press the power button",
+      "5": "plug in speakers",
+      "6": "turn on the stereo"
+    },
+    "edges": [
+      "0->3",
+      "1->4",
+      "2->1",
+      "3->2",
+      "4->6",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "3",
+        "2",
+        "1",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 129,
+    "scenario": "try a new tv show",
+    "unordered_nodes": {
+      "0": "Select a show that is popular",
+      "1": "Cast Netflix to TV",
+      "2": "Log into Netflix",
+      "3": "Open up computer",
+      "4": "Scroll through popular shows",
+      "5": "Start the show",
+      "6": "try a new tv show"
+    },
+    "edges": [
+      "3->2",
+      "2->4",
+      "4->0",
+      "0->1",
+      "1->5",
+      "5->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "2",
+        "4",
+        "0",
+        "1",
+        "5",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 752,
+    "scenario": "pick out an outfit",
+    "unordered_nodes": {
+      "0": "remove from the closet",
+      "1": "browse through the clothes",
+      "2": "grab onto the clothing pieces",
+      "3": "place clothing elsewhere",
+      "4": "open the closet",
+      "5": "take a shower",
+      "6": "pick out an outfit"
+    },
+    "edges": [
+      "0->3",
+      "1->2",
+      "2->0",
+      "3->6",
+      "4->1",
+      "5->4"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "1",
+        "2",
+        "0",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 562,
+    "scenario": "fill up gas tank",
+    "unordered_nodes": {
+      "0": "park next to the gas pump",
+      "1": "open up the gas tank",
+      "2": "get out of the car",
+      "3": "drive to the gas station",
+      "4": "select fuel type",
+      "5": "get family in car",
+      "6": "fill up gas tank"
+    },
+    "edges": [
+      "0->2",
+      "1->6",
+      "2->1",
+      "2->4",
+      "3->0",
+      "4->6",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "0",
+        "2",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 423,
+    "scenario": "pull up files",
+    "unordered_nodes": {
+      "0": "Repeat steps 4 and 5 for other files",
+      "1": "Click on the file folder on the home screen",
+      "2": "Look for the files",
+      "3": "Select a file",
+      "4": "Click the file to open",
+      "5": "Wait for a few seconds for the computer to boot",
+      "6": "turn on the computer",
+      "7": "pull up files"
+    },
+    "edges": [
+      "0->7",
+      "1->2",
+      "2->3",
+      "3->4",
+      "4->0",
+      "5->1",
+      "6->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "5",
+        "1",
+        "2",
+        "3",
+        "4",
+        "0",
+        "7"
+      ]
+    }
+  },
+  {
+    "scenario": "do something nice",
+    "unordered_nodes": {
+      "0": "think of a person to do something nice for",
+      "1": "follow through doing the item",
+      "2": "think about what sort of stuff enjoyed by the person",
+      "3": "make a list of possibilities",
+      "4": "choose one of the items",
+      "5": "do something nice"
+    },
+    "edges": [
+      "0->2",
+      "1->5",
+      "2->3",
+      "3->4",
+      "4->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "2",
+        "3",
+        "4",
+        "1",
+        "5"
+      ]
+    },
+    "id": 296
+  },
+  {
+    "id": 343,
+    "scenario": "go to Iceland",
+    "unordered_nodes": {
+      "0": "Check in at the desk",
+      "1": "Go through security line",
+      "2": "Take a vehicle to the airport",
+      "3": "Sit in the seat",
+      "4": "Board the plane",
+      "5": "Go to boarding area",
+      "6": "Buy a plane ticket",
+      "7": "go to Iceland"
+    },
+    "edges": [
+      "0->1",
+      "1->5",
+      "2->0",
+      "3->7",
+      "4->3",
+      "5->4",
+      "6->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "2",
+        "0",
+        "1",
+        "5",
+        "4",
+        "3",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 866,
+    "scenario": "pull the closet doors apart",
+    "unordered_nodes": {
+      "0": "pull back with right hand",
+      "1": "pull back with left hand",
+      "2": "grab closet handle with left hand",
+      "3": "reach out to closet with right hand",
+      "4": "reach out to closet with left hand",
+      "5": "grab closet handle with right hand",
+      "6": "unlock the closet doors",
+      "7": "pull the closet doors apart"
+    },
+    "edges": [
+      "0->7",
+      "1->7",
+      "2->1",
+      "3->5",
+      "4->2",
+      "5->0",
+      "6->4",
+      "6->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3",
+              "5",
+              "0"
+            ],
+            "b2": [
+              "4",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 1075,
+    "scenario": "grab keysfrom table",
+    "unordered_nodes": {
+      "0": "look for keys on table",
+      "1": "put hand on keys",
+      "2": "move towards keys",
+      "3": "find the keys",
+      "4": "reach hand towards keys",
+      "5": "check hair and makeup",
+      "6": "grab keysfrom table"
+    },
+    "edges": [
+      "5->0",
+      "0->3",
+      "3->2",
+      "2->4",
+      "4->1",
+      "1->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "3",
+        "2",
+        "4",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 923,
+    "scenario": "pull into the parking spot",
+    "unordered_nodes": {
+      "0": "drive to parking spot",
+      "1": "drive towards the parking lot",
+      "2": "locate empty spot",
+      "3": "enter the parking lot",
+      "4": "look around for empty spot",
+      "5": "look both ways for other cars",
+      "6": "pull into the parking spot"
+    },
+    "edges": [
+      "1->5",
+      "5->3",
+      "1->3",
+      "3->4",
+      "4->2",
+      "2->0",
+      "0->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "5",
+        "3",
+        "4",
+        "2",
+        "0",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 258,
+    "scenario": "make a handmade gift",
+    "unordered_nodes": {
+      "0": "get in the car",
+      "1": "purchase the materials",
+      "2": "drive back home",
+      "3": "go inside the store",
+      "4": "drive to the store",
+      "5": "make a handmade gift"
+    },
+    "edges": [
+      "0->4",
+      "1->2",
+      "2->5",
+      "3->1",
+      "4->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "4",
+        "3",
+        "1",
+        "2",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 115,
+    "scenario": "buy a lot of bottled water",
+    "unordered_nodes": {
+      "0": "pick up water",
+      "1": "give money to cashier",
+      "2": "find water in store",
+      "3": "get total from cashier",
+      "4": "bring water to register",
+      "5": "buy a lot of bottled water"
+    },
+    "edges": [
+      "2->0",
+      "0->4",
+      "4->3",
+      "3->1",
+      "1->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "4",
+        "3",
+        "1",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 206,
+    "scenario": "watch a movie about a dying mother",
+    "unordered_nodes": {
+      "0": "Decide on which movie to select",
+      "1": "Turn on TV",
+      "2": "Sit down on couch",
+      "3": "Search through movies for dying mother films",
+      "4": "Click play button",
+      "5": "Click on Netflix app",
+      "6": "watch a movie about a dying mother"
+    },
+    "edges": [
+      "0->4",
+      "1->5",
+      "2->1",
+      "3->0",
+      "4->6",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "1",
+        "5",
+        "3",
+        "0",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 593,
+    "scenario": "place the plant in the hole",
+    "unordered_nodes": {
+      "0": "carry plant to hole",
+      "1": "remove plant from temporary planter",
+      "2": "go to car",
+      "3": "take plant out of car",
+      "4": "hold on to temporary planter",
+      "5": "dig a hole in the yard",
+      "6": "place the plant in the hole"
+    },
+    "edges": [
+      "0->4",
+      "1->6",
+      "2->3",
+      "3->0",
+      "4->1",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "3",
+        "0",
+        "4",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 475,
+    "scenario": "Practice running every week",
+    "unordered_nodes": {
+      "0": "Make a plan to run",
+      "1": "Purchase running shoes",
+      "2": "Stick to the new running schedule",
+      "3": "Purchase running clothes",
+      "4": "Set aside time to run for the week",
+      "5": "Sign up for race",
+      "6": "Practice running every week"
+    },
+    "edges": [
+      "0->4",
+      "1->4",
+      "2->6",
+      "3->4",
+      "4->2",
+      "6->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "1"
+            ],
+            "b3": [
+              "3"
+            ]
+          }
+        },
+        "4",
+        "2",
+        "6",
+        "5"
+      ]
+    }
+  },
+  {
+    "scenario": "eat a kale salad",
+    "unordered_nodes": {
+      "0": "enter a restaurant",
+      "1": "start putting salad in mouth",
+      "2": "order salad from waiter",
+      "3": "pick up fork",
+      "4": "get seated by staff",
+      "5": "eat a kale salad"
+    },
+    "edges": [
+      "0->4",
+      "1->5",
+      "2->3",
+      "3->1",
+      "4->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "4",
+        "2",
+        "3",
+        "1",
+        "5"
+      ]
+    },
+    "id": 132
+  },
+  {
+    "id": 857,
+    "scenario": "download the program",
+    "unordered_nodes": {
+      "0": "Click on download icon",
+      "1": "Wait for download to complete",
+      "2": "Look for download icon on screen",
+      "3": "Hold mouse with hand",
+      "4": "Move mouse to download icon",
+      "5": "Purchase an affordable e-file program",
+      "6": "download the program"
+    },
+    "edges": [
+      "0->1",
+      "1->6",
+      "2->4",
+      "3->4",
+      "4->0",
+      "5->3",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "4",
+        "0",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 871,
+    "scenario": "apply for jobs",
+    "unordered_nodes": {
+      "0": "find websites for job applications",
+      "1": "find good jobs",
+      "2": "decide which jobs to apply for",
+      "3": "click apply link",
+      "4": "make list of jobs",
+      "5": "apply for jobs"
+    },
+    "edges": [
+      "0->1",
+      "1->4",
+      "4->2",
+      "2->3",
+      "3->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "1",
+        "4",
+        "2",
+        "3",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 692,
+    "scenario": "boil water for noodles",
+    "unordered_nodes": {
+      "0": "place a lid on the pot",
+      "1": "place pot with water on stove",
+      "2": "add salt to the water and stir",
+      "3": "wait for the water to boil",
+      "4": "allow the water to get hot",
+      "5": "turn on the stove",
+      "6": "boil water for noodles"
+    },
+    "edges": [
+      "5->1",
+      "1->0",
+      "0->4",
+      "4->3",
+      "3->2",
+      "2->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "0",
+        "4",
+        "3",
+        "2",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 419,
+    "scenario": "get undressed fully",
+    "unordered_nodes": {
+      "0": "walk to closet",
+      "1": "pick out clothing to wear",
+      "2": "decide to try on clothing",
+      "3": "open closet door",
+      "4": "put away laptop",
+      "5": "get tickets to the festival",
+      "6": "get undressed fully"
+    },
+    "edges": [
+      "0->3",
+      "1->6",
+      "2->6",
+      "3->1",
+      "3->2",
+      "4->0",
+      "5->4"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "0",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "2"
+            ]
+          }
+        },
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 601,
+    "scenario": "get in the car",
+    "unordered_nodes": {
+      "0": "pick up wallet",
+      "1": "exit the house",
+      "2": "pick up car keys",
+      "3": "find car keys",
+      "4": "look for wallet",
+      "5": "get ready to leave",
+      "6": "get in the car"
+    },
+    "edges": [
+      "0->1",
+      "1->6",
+      "2->1",
+      "3->2",
+      "4->0",
+      "5->4",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "4",
+              "0"
+            ],
+            "b2": [
+              "3",
+              "2"
+            ]
+          }
+        },
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 801,
+    "scenario": "Walk into bedroom",
+    "unordered_nodes": {
+      "0": "walk down the hall",
+      "1": "grab the door knob",
+      "2": "turn the door knob",
+      "3": "push the door open",
+      "4": "step through the doorway",
+      "5": "Put towel around waist",
+      "6": "Walk into bedroom"
+    },
+    "edges": [
+      "5->0",
+      "0->1",
+      "1->2",
+      "2->3",
+      "3->4",
+      "4->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 814,
+    "scenario": "Set the alarm",
+    "unordered_nodes": {
+      "0": "open the clock app on a cell phone",
+      "1": "tap to set a new alarm",
+      "2": "make sure am/pm is set correctly",
+      "3": "set time for alarm",
+      "4": "set the alarm sound to be used",
+      "5": "Decide on an alarm time",
+      "6": "Set the alarm"
+    },
+    "edges": [
+      "5->0",
+      "0->1",
+      "1->3",
+      "1->4",
+      "3->2",
+      "2->6",
+      "4->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "3",
+              "2"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 148,
+    "scenario": "get a laser",
+    "unordered_nodes": {
+      "0": "park the car",
+      "1": "go inside the mall",
+      "2": "get in the car",
+      "3": "go to the right shop",
+      "4": "drive to the mall",
+      "5": "get a laser"
+    },
+    "edges": [
+      "0->1",
+      "1->3",
+      "2->4",
+      "3->5",
+      "4->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "4",
+        "0",
+        "1",
+        "3",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 557,
+    "scenario": "Put ingredients on kitchen counter",
+    "unordered_nodes": {
+      "0": "get out of the car",
+      "1": "switch off the engine",
+      "2": "Drive to the parking lot",
+      "3": "park the car",
+      "4": "walk to the house",
+      "5": "carry the grocery",
+      "6": "Drive back home",
+      "7": "Put ingredients on kitchen counter"
+    },
+    "edges": [
+      "0->5",
+      "1->0",
+      "2->3",
+      "3->1",
+      "4->7",
+      "5->4",
+      "6->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "2",
+        "3",
+        "1",
+        "0",
+        "5",
+        "4",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 413,
+    "scenario": "click on page for polls",
+    "unordered_nodes": {
+      "0": "type in what the search is for",
+      "1": "look for polls information",
+      "2": "choose the best choice",
+      "3": "glance through results",
+      "4": "go to a search engine",
+      "5": "search current election polls",
+      "6": "click on page for polls"
+    },
+    "edges": [
+      "4->0",
+      "0->5",
+      "5->1",
+      "1->3",
+      "3->2",
+      "2->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "5",
+        "1",
+        "3",
+        "2",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 878,
+    "scenario": "lock the door",
+    "unordered_nodes": {
+      "0": "put hand in pocket",
+      "1": "find the keyhole",
+      "2": "take key out of pocket",
+      "3": "walk to door",
+      "4": "put key in keyhole",
+      "5": "prepare and get dressed",
+      "6": "lock the door"
+    },
+    "edges": [
+      "0->2",
+      "1->4",
+      "2->4",
+      "3->1",
+      "3->0",
+      "4->6",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0",
+              "2"
+            ],
+            "b2": [
+              "1"
+            ]
+          }
+        },
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 497,
+    "scenario": "Make the track team",
+    "unordered_nodes": {
+      "0": "look around for track tryout info",
+      "1": "tryout for track",
+      "2": "head to tryouts",
+      "3": "sign up for tryout",
+      "4": "decide to join track",
+      "5": "Make the track team"
+    },
+    "edges": [
+      "0->3",
+      "1->5",
+      "2->1",
+      "3->2",
+      "4->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        "0",
+        "3",
+        "2",
+        "1",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 353,
+    "scenario": "learn to play the guitar to impress girls",
+    "unordered_nodes": {
+      "0": "get in the car",
+      "1": "purchase a guitar",
+      "2": "go online and watch tutorial videos",
+      "3": "bring guitar back home",
+      "4": "drive to guitar store",
+      "5": "learn to play the guitar to impress girls"
+    },
+    "edges": [
+      "0->4",
+      "1->3",
+      "2->5",
+      "3->2",
+      "4->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "4",
+        "1",
+        "3",
+        "2",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 178,
+    "scenario": "give up on work this morning",
+    "unordered_nodes": {
+      "0": "brush teeth for a while",
+      "1": "go out to the car",
+      "2": "take a shower",
+      "3": "drive to the park",
+      "4": "get dressed for the day",
+      "5": "get out of bed",
+      "6": "give up on work this morning"
+    },
+    "edges": [
+      "0->4",
+      "1->3",
+      "2->0",
+      "3->6",
+      "4->1",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "0",
+        "4",
+        "1",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 694,
+    "scenario": "buy ticket enter park",
+    "unordered_nodes": {
+      "0": "locate the ticket stand",
+      "1": "greet the person selling tickets",
+      "2": "park the car",
+      "3": "walk to the ticket stand",
+      "4": "get out of the car",
+      "5": "drive to the park",
+      "6": "buy ticket enter park"
+    },
+    "edges": [
+      "5->2",
+      "2->4",
+      "4->3",
+      "3->0",
+      "0->1",
+      "1->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "4",
+        "3",
+        "0",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 965,
+    "scenario": "grab a cart on the way",
+    "unordered_nodes": {
+      "0": "grab onto cart",
+      "1": "walk over to the carts",
+      "2": "look for the carts storage",
+      "3": "push the cart away",
+      "4": "pull cart away from other carts",
+      "5": "start walking to entrance",
+      "6": "grab a cart on the way"
+    },
+    "edges": [
+      "0->4",
+      "1->0",
+      "2->1",
+      "3->6",
+      "4->3",
+      "5->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "2",
+        "1",
+        "0",
+        "4",
+        "3",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 558,
+    "scenario": "get in the car",
+    "unordered_nodes": {
+      "0": "pull the handle forward to open the door",
+      "1": "close car door",
+      "2": "approach the car",
+      "3": "unlock the car door",
+      "4": "take out the key to the car",
+      "5": "bend down to sit in vehicle's seat",
+      "6": "grab onto the car door handle",
+      "7": "get in the car"
+    },
+    "edges": [
+      "0->5",
+      "1->7",
+      "2->4",
+      "3->6",
+      "4->3",
+      "5->1",
+      "6->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "4",
+        "3",
+        "6",
+        "0",
+        "5",
+        "1",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 1083,
+    "scenario": "walk to cashier with makeup selections",
+    "unordered_nodes": {
+      "0": "look through make up",
+      "1": "locate checkout area",
+      "2": "walk out of makeup aisle",
+      "3": "put makeup on basket",
+      "4": "grab some makeup",
+      "5": "shop for makeup",
+      "6": "walk to cashier with makeup selections"
+    },
+    "edges": [
+      "0->4",
+      "1->6",
+      "2->1",
+      "3->2",
+      "4->3",
+      "5->0"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "0",
+        "4",
+        "3",
+        "2",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 913,
+    "scenario": "coach hands paperwork over",
+    "unordered_nodes": {
+      "0": "extend left arm toward the coach",
+      "1": "lift left arm",
+      "2": "stand up in front of coach",
+      "3": "watch coach get paperwork",
+      "4": "open left hand",
+      "5": "wait for coach to respond",
+      "6": "coach hands paperwork over"
+    },
+    "edges": [
+      "0->4",
+      "1->0",
+      "2->0",
+      "3->2",
+      "3->1",
+      "4->6",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "2"
+            ]
+          }
+        },
+        "0",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "scenario": "put plate on counter",
+    "unordered_nodes": {
+      "0": "Walk toward counter",
+      "1": "Locate the counter",
+      "2": "Move plate above counter",
+      "3": "Ensure that plate is securely in hand",
+      "4": "Let go of plate",
+      "5": "take out a plate",
+      "6": "put plate on counter"
+    },
+    "edges": [
+      "0->2",
+      "1->0",
+      "2->4",
+      "3->1",
+      "4->6",
+      "5->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "3",
+        "1",
+        "0",
+        "2",
+        "4",
+        "6"
+      ]
+    },
+    "id": 876
+  },
+  {
+    "id": 567,
+    "scenario": "walk in the gas station",
+    "unordered_nodes": {
+      "0": "close car door",
+      "1": "lock car door",
+      "2": "step out of car",
+      "3": "open car door",
+      "4": "turn off the car",
+      "5": "take off seat belt",
+      "6": "park the car",
+      "7": "walk in the gas station"
+    },
+    "edges": [
+      "0->1",
+      "1->7",
+      "2->0",
+      "3->2",
+      "4->5",
+      "5->3",
+      "6->4"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "4",
+        "5",
+        "3",
+        "2",
+        "0",
+        "1",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 85,
+    "scenario": "learn how to juggle",
+    "unordered_nodes": {
+      "0": "buy some juggling balls",
+      "1": "go to amazon.com",
+      "2": "wait for the package",
+      "3": "practice every day",
+      "4": "find an instructional video and watch",
+      "5": "go to youtube",
+      "6": "take out the balls",
+      "7": "learn how to juggle"
+    },
+    "edges": [
+      "1->0",
+      "0->2",
+      "2->6",
+      "5->4",
+      "4->3",
+      "6->3",
+      "3->7"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1",
+              "0",
+              "2",
+              "6"
+            ],
+            "b2": [
+              "5",
+              "4"
+            ]
+          }
+        },
+        "3",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 759,
+    "scenario": "get racing experience",
+    "unordered_nodes": {
+      "0": "look for races nearby",
+      "1": "practice driving fast",
+      "2": "enter some races",
+      "3": "get a racing car",
+      "4": "win a few races",
+      "5": "start weightlifting program",
+      "6": "get racing experience"
+    },
+    "edges": [
+      "0->2",
+      "2->4",
+      "4->6",
+      "3->5",
+      "5->0",
+      "0->1",
+      "1->2"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "3",
+        "5",
+        "0",
+        "1",
+        "2",
+        "4",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 336,
+    "scenario": "learn the saxophone",
+    "unordered_nodes": {
+      "0": "schedule lessons with teacher",
+      "1": "attend weekly lessons",
+      "2": "find a saxophone teacher",
+      "3": "buy a saxophone",
+      "4": "practice every week",
+      "5": "learn the saxophone"
+    },
+    "edges": [
+      "2->0",
+      "0->1",
+      "1->4",
+      "4->5",
+      "3->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2",
+              "0"
+            ],
+            "b2": [
+              "3"
+            ]
+          }
+        },
+        "1",
+        "4",
+        "5"
+      ]
+    }
+  },
+  {
+    "id": 1058,
+    "scenario": "walk into grocery store",
+    "unordered_nodes": {
+      "0": "turn towards store",
+      "1": "look for grocery store",
+      "2": "lift left foot",
+      "3": "find grocery store",
+      "4": "lift right foot",
+      "5": "get out of the car",
+      "6": "walk into grocery store"
+    },
+    "edges": [
+      "0->2",
+      "0->4",
+      "1->3",
+      "2->6",
+      "3->0",
+      "4->6",
+      "5->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        "3",
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 438,
+    "scenario": "choose a camping spot",
+    "unordered_nodes": {
+      "0": "search for camping options",
+      "1": "decide the fun activity",
+      "2": "select a desirable option",
+      "3": "book the camping site",
+      "4": "decide on camping",
+      "5": "look online for a camping spot",
+      "6": "choose a camping spot"
+    },
+    "edges": [
+      "4->1",
+      "4->5",
+      "5->0",
+      "1->0",
+      "0->2",
+      "2->6",
+      "6->3"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "4",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "5"
+            ]
+          }
+        },
+        "0",
+        "2",
+        "6",
+        "3"
+      ]
+    }
+  },
+  {
+    "id": 493,
+    "scenario": "Put snacks in bowls",
+    "unordered_nodes": {
+      "0": "open snack bags",
+      "1": "decide how to split snacks",
+      "2": "walk to kitchen",
+      "3": "place bowl on counter or table",
+      "4": "get a bowl",
+      "5": "get back home",
+      "6": "Buy preferred snacks",
+      "7": "Put snacks in bowls"
+    },
+    "edges": [
+      "6->5",
+      "5->2",
+      "2->1",
+      "1->0",
+      "1->4",
+      "4->3",
+      "0->3",
+      "3->7"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "6",
+        "5",
+        "2",
+        "1",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "0"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "3",
+        "7"
+      ]
+    }
+  },
+  {
+    "id": 714,
+    "scenario": "sprinkle asparagus with salt",
+    "unordered_nodes": {
+      "0": "grab the salt",
+      "1": "open the salt",
+      "2": "find the salt",
+      "3": "close the cabinet door",
+      "4": "open cabinet door",
+      "5": "put asparagus on plate",
+      "6": "sprinkle asparagus with salt"
+    },
+    "edges": [
+      "0->1",
+      "0->3",
+      "1->6",
+      "2->0",
+      "3->6",
+      "4->2",
+      "5->4",
+      "3->1"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "4",
+        "2",
+        "0",
+        "3",
+        "1",
+        "6"
+      ]
+    }
+  },
+  {
+    "id": 50,
+    "scenario": "make something for an upcoming potluck",
+    "unordered_nodes": {
+      "0": "cook the dish",
+      "1": "look for a recipe online",
+      "2": "gather the ingredients",
+      "3": "put together the ingredients",
+      "4": "gather the cooking tools",
+      "5": "chose a recipe",
+      "6": "make something for an upcoming potluck"
+    },
+    "edges": [
+      "0->6",
+      "1->5",
+      "2->3",
+      "3->0",
+      "4->3",
+      "5->2",
+      "5->4"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "1",
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4"
+            ]
+          }
+        },
+        "3",
+        "0",
+        "6"
+      ]
+    }
+  }
+]

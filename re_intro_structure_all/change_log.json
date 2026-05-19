@@ -1,0 +1,72 @@
+[
+    {
+        "id": 68,
+        "type": "structure_changed",
+        "details": "deleted duplicate end node 7 ('go vacationing in the Bahamas') because it was redundant after node 3 ('stay in the Bahamas'); removed node 7 and edge 3->7"
+    },
+    {
+        "id": 260,
+        "type": "structure_changed",
+        "details": "deleted duplicate end node 5 ('buy a new jacket') because it was redundant after node 3 ('Pay for the jacket'); removed node 5 and edge 3->5"
+    },
+    {
+        "id": 415,
+        "type": "spelling_fix",
+        "details": "corrected double space in scenario 'make updates to  resume' to 'make updates to resume'"
+    },
+    {
+        "id": 415,
+        "type": "structure_changed",
+        "details": "changed node 5 from 'make updates to  resume' to 'edit the resume document' to avoid duplication with scenario and better reflect its intermediate editing role"
+    },
+    {
+        "id": 522,
+        "type": "spelling_fix",
+        "details": "corrected 'determine' to 'determine' in node 1"
+    },
+    {
+        "id": 522,
+        "type": "structure_changed",
+        "details": "deleted duplicate end node 6 ('meet with instructor') and removed edge 4->6; updated script_graph to end at node 4"
+    },
+    {
+        "id": 523,
+        "type": "deletion",
+        "details": "removed due to implicit loop/select logic (determine if eligible) not properly handled and duplicate end node; restructuring inconvenient"
+    },
+    {
+        "id": 595,
+        "type": "structure_changed",
+        "details": "renamed node 5 from 'Call the doctor's office' to 'speak with the office staff' to avoid duplicate scenario node and logically complete the call."
+    },
+    {
+        "id": 706,
+        "type": "structure_changed",
+        "details": "introduced loop for password retry (added nodes 'see incorrect password message' and 'see desktop with icons'), renamed node 6 from 'launch a music playing app' to 'successfully open the music app' to avoid duplicate scenario node."
+    },
+    {
+        "id": 710,
+        "type": "structure_changed",
+        "details": "Introduced loop for letting in attendees: entry 'Listen for a knock' (1), retry 'Open the door' (0) and 'Let the attendees into the party' (6), exit changed to 'All attendees have arrived' (2, was 'Repeat until all the attendees have arrived'); removed old edge 6->2, added edges 6->1 and 1->2."
+    },
+    {
+        "id": 915,
+        "type": "structure_changed",
+        "details": "Introduced loop for walking to car: added node 'gauge distance to car' (9), changed node 1 from 'alternate feet until car is reached' to 'reach the car', restructured edges to form loop (entry 9, retry 5,6, exit 1); removed old edges 0->5, 0->6, 5->1, 6->1, added new edges 0->9, 9->5, 9->1, 5->6, 6->9."
+    },
+    {
+        "id": 941,
+        "type": "spelling_fix",
+        "details": "corrected 'meet' to 'meet' in node 4"
+    },
+    {
+        "id": 941,
+        "type": "structure_changed",
+        "details": "introduced loop for receiving feedback, redrawing plan, and finalizing; modified duplicate end node 6 to 'finalize the plan'"
+    },
+    {
+        "id": 976,
+        "type": "structure_changed",
+        "details": "introduced loop to represent daily school routine for a year; changed node 5 from 'Repeat for one year' to 'wake up in the morning' and set as loop entry"
+    }
+]

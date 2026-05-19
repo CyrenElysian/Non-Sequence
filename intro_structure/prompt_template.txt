@@ -2,9 +2,9 @@ You are given a dataset. Each item contains: id (int), scenario (string), unorde
 
 The current event graphs have the following problems:
 1) There may be spelling errors in scenario and unordered_nodes.
-2) Due to previous task limitations, only "sequence" and "and_join" structures are annotated. "and_join" is defined as a structure with weak simultaneity and exchangeable (unordered) branches: branches have no strong dependencies and can be executed in any order or interleaved, but all must be completed before proceeding. Inside each branch, events have a logical order.
+2) Due to previous task limitations, only "sequence" and "and_join" structures are annotated. "and_join" is defined as a structure with weak simultaneity and exchangeable (unordered) branches: branches have no strong dependencies and can be executed in any order or interleaved, but all must be completed before the merge node. Inside each branch, events have a logical order.
 3) Some events graphs actually contain "select" or "loop" patterns, but were mis-annotated as "sequence" or "and_join".
-**Note:** The input dataset may have been partially corrected by a previous model, but errors can still remain. You should not assume that the edges and script_graph are fully correct. Use your own judgment to identify logical inconsistencies and to decide whether an item should be removed or restructured.
+**Note:** The input dataset may have been partially corrected by a previous model, but errors can still remain. You should not assume that the edges and script_graph are fully correct. Use your own judgment to identify logical errors and to decide whether an item should be removed or restructured.
 
 Your task for every item in the dataset:
 - Correct spelling errors in scenario and unordered_nodes (only fix obvious misspellings, do not change the intended meaning).
@@ -13,10 +13,9 @@ Your task for every item in the dataset:
   - Imagination is highly encouraged, but the logic must be natural and not forced. If there is no suitable option/loop introduction plan, it is acceptable to keep the project unchanged.
   - The selected branches must be mutually exclusive and significantly different. For example, choosing between chopsticks and a spoon as a tool for eating is inappropriate because the subsequent events resulting from these two options would have very little difference. On the other hand, when considering dinner, deciding whether to cook at home or dine out can easily lead to subsequent events with significant differences.
   - For loops: There must be an edge from entry to exit with reasonable logic. (i.e., when the logical condition is met, the loop does not need to execute). Within the loop body, the sequence of edges logically must form a chain from the entry, passing through , and returning to the entry via retry. And the last element of retry must be the keyword 'continue'.
-  - For select specifically: each option's last node must have an edge to the same merge point after the select.
+  - For select specifically: each option's last node must have an edge to the s0.ame merge point after the select.
   - Remove all old edges that are no longer valid because the script_graph has been restructured. If a previous edge contradicts the new control flow, it must be deleted.
   - After generating the new script_graph and edges, double-check them together: verify that every transition implied by the script_graph has a corresponding edge in the edges list, and that no extra edges exist that would create bypasses or dangling nodes.
-  - **Every node must appear exactly once in the entire event graph (no duplicate nodes in different control paths).**
 ** Note:** The above tasks can be completed following these steps: For each data entry, first correct any spelling errors, then check whether the logic contains select or loop structures. If such structures exist, determine whether modifications are needed; if not, consider whether a select or loop structure can be introduced.
 
 Additional correction rule (scenario-duplicate end node):
@@ -67,7 +66,7 @@ For example:
   }
 }
 In this case, the core goal of the scenario is already accomplished once the control flow reaches node "1" (wait for answer). Appending the redundant node begin by calling first person on list afterward creates illogical and awkward flow.
-To fix this issue, we are allowed to either delete the duplicate scenario-matching node (node 6) or modify the meaning of it into a logically coherent closing node, such as successfully talked with the other party. All corresponding references in unordered_nodes and edges must be revised accordingly to maintain consistent logic.
+To fix this issue, we are allowed to either delete the duplicate scenario-matching node (node 6) or modify the meaning of it into a logically coherent closing node, such as successfully talked with the other party. Modify unordered_nodes, edges, and script_graph to make the logic correct.
 When you apply this correction (deleting the node or modifying its meaning), you must record the change in the change log under the type "structure_changed".
 
 Output Constraints (applies to the processed data file):
@@ -85,9 +84,9 @@ Output Constraints (applies to the processed data file):
 - ** rules that must be emphasized: **
   - sequence: Internal elements are strictly ordered.
   - select: All options must eventually merge to the same node; options are mutually exclusive with no edges crossing between them. IMPORTANT: The "options" array is unordered. For consistency and ease of comparison, output the options in ascending numerical order of the node IDs. For example, output "options":["2","3"] instead of "options":["3","2"]. If an option is a nested structure, sort by the first node ID within that structure. For example, output "options": ["1", {"type":"sequence", "script": ["3", "2"]}] instead of "options": [{"type":"sequence", "script": ["3", "2"]}, "1"]
-  - loop: Both entry and exit are single nodes representing specific events. Neither the entry nor the retry segment may contain rigid judgment-based phrases such as "decide if" or "decide whether". The retry is an array representing the loop body and may contain any nested substructures. The final element of the retry array must be the keyword "continue". A logically valid path from entry to exit is required to allow the loop to be skipped entirely. If the retry segment is executed, control must return to the entry node. No paths within the loop body may lead directly to the exit.
+  - loop: Both entry and exit are single nodes representing specific events. Neither the entry nor the retry segment may contain rigid judgment-based phrases such as "decide if" or "decide whether". The retry is an array may contain any nested substructures. Entry and retry constitute a complete loop body. The final element of the retry array must be the keyword "continue". A logically valid path from entry to exit in edges is required to allow the loop to be skipped entirely. If the retry segment is executed, control must return to the entry node. No paths within the loop body may lead directly to the exit.
   - and_join: Branches are unordered among themselves but all must complete before the join node. The join node appears after and_join in the surrounding sequence and is not inside branches_set.
-
+  - **Every node must appear exactly once in the entire script_graph .**
 Standard Examples (ideal structure with select/loop/and_join):
 
 Example 1: sequence + select + loop (online shopping)

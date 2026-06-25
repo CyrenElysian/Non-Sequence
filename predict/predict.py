@@ -9,9 +9,9 @@ BASE_URL = "https://api.deepseek.com"
 API_KEY = os.getenv("DEEPSEEK_API_KEY")
 client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
 
-CHECKPOINT_FILE = "gold_eval_checkpoint_v4-flash.json"
-OUTPUT_FILE = "gold_results_v4-flash.json"
-SUMMARY_FILE = "gold_eval_summary_v4-flash.json"
+CHECKPOINT_FILE = "eval_checkpoint_v4-flash.json"
+OUTPUT_FILE = "results_v4-flash.json"
+SUMMARY_FILE = "eval_summary_v4-flash.json"
 
 # ---------- 辅助函数 ----------
 def load_prompt_template(filepath):
@@ -354,7 +354,7 @@ def save_summary(summary):
 if __name__ == "__main__":
     template = load_prompt_template("prompt_predict.txt")
 
-    with open("../intro_structure/stats/gold_with_stats.json", "r", encoding="utf-8") as f:
+    with open("../intro_structure/stats/processed_data_check_with_stats.json", "r", encoding="utf-8") as f:
         dataset = json.load(f)
 
     reference_graphs = {}

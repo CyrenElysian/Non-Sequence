@@ -1,2 +1,0 @@
-抽取并合并gold集合
-注意：这里的processed_data_check_with_stats.json 与 stats 中的不同，有部分数据经过修改

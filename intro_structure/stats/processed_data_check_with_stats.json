@@ -201,14 +201,14 @@
             "2": "Drive to pizza place",
             "3": "Purchase a pizza",
             "4": "Put pizza on the table",
-            "5": "eat some food"
+            "5": "Eat some food"
         },
         "edges": [
-            "0->4",
-            "1->0",
+            "0->5",
+            "1->4",
             "2->3",
             "3->1",
-            "4->5"
+            "4->0"
         ],
         "script_graph": {
             "type": "sequence",
@@ -216,8 +216,8 @@
                 "2",
                 "3",
                 "1",
-                "0",
                 "4",
+                "0",
                 "5"
             ]
         },
@@ -1233,14 +1233,11 @@
                         "b1": [
                             "2"
                         ],
-                        "b2": {
-                            "type": "sequence",
-                            "script": [
-                                "6",
-                                "0",
-                                "4"
-                            ]
-                        }
+                        "b2": [
+                            "6",
+                            "0",
+                            "4"
+                        ]
                     }
                 },
                 "1",
@@ -1853,17 +1850,17 @@
         "edges": [
             "2->5",
             "3->1",
-            "1->0",
-            "0->4",
-            "4->2"
+            "1->4",
+            "0->2",
+            "4->0"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "3",
                 "1",
-                "0",
                 "4",
+                "0",
                 "2",
                 "5"
             ]
@@ -2147,7 +2144,7 @@
             "5": "go to We Fest",
             "6": "start preparations",
             "7": "buy tickets online",
-            "8": "buy tickets at the gate"
+            "8": "prepare to buy tickets at the gate"
         },
         "edges": [
             "6->2",
@@ -3057,8 +3054,8 @@
             "6->2",
             "2->0",
             "0->8",
-            "8->2",
-            "2->4",
+            "8->0",
+            "0->4",
             "4->1",
             "1->5",
             "5->3"
@@ -3067,11 +3064,11 @@
             "type": "sequence",
             "script": [
                 "6",
+                "2",
                 {
                     "type": "loop",
-                    "entry": "2",
+                    "entry": "0",
                     "retry": [
-                        "0",
                         "8",
                         "continue"
                     ],
@@ -3366,7 +3363,7 @@
             "6": "check progress"
         },
         "edges": [
-            "0->4",
+            "0->3",
             "3->4",
             "4->5",
             "4->2",
@@ -3377,17 +3374,8 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "3"
-                        ]
-                    }
-                },
+                "0",
+                "3",
                 {
                     "type": "loop",
                     "entry": "4",
@@ -3406,8 +3394,8 @@
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 1,
-            "total": 3
+            "and_join": 0,
+            "total": 2
         }
     },
     {
@@ -3577,7 +3565,6 @@
         "scenario": "learn to play chess like a grand master",
         "unordered_nodes": {
             "0": "practice a game solo",
-            "1": "set up a chess board",
             "2": "challenge others as practice",
             "3": "read about the movements of the pieces",
             "4": "learn to play chess like a grand master",
@@ -3587,8 +3574,7 @@
             "8": "discuss game with opponent"
         },
         "edges": [
-            "3->1",
-            "1->5",
+            "3->5",
             "5->0",
             "5->2",
             "5->6",
@@ -3602,7 +3588,6 @@
             "type": "sequence",
             "script": [
                 "3",
-                "1",
                 {
                     "type": "loop",
                     "entry": "5",
@@ -5723,44 +5708,34 @@
             "7": "Receive the marriage certificate"
         },
         "edges": [
-            "1->0",
-            "2->1",
-            "2->4",
-            "3->6",
-            "4->0",
             "5->2",
-            "0->3",
-            "6->7"
+            "2->3",
+            "3->6",
+            "6->4",
+            "4->1",
+            "1->0",
+            "0->7"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "5",
                 "2",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1"
-                        ],
-                        "b2": [
-                            "4"
-                        ]
-                    }
-                },
-                "0",
                 "3",
                 "6",
+                "4",
+                "1",
+                "0",
                 "7"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -5834,53 +5809,6 @@
             "loop": 0,
             "and_join": 0,
             "total": 1
-        }
-    },
-    {
-        "id": 130,
-        "scenario": "try out for cheerleader",
-        "unordered_nodes": {
-            "0": "Memorize a routine",
-            "1": "Practice a routine",
-            "2": "Exercise by stretching",
-            "3": "Produce a massive smile",
-            "4": "Plan a routine",
-            "5": "Complete the tryout"
-        },
-        "edges": [
-            "4->1",
-            "2->1",
-            "1->0",
-            "0->3",
-            "3->5"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "2"
-                        ],
-                        "b2": [
-                            "4"
-                        ]
-                    }
-                },
-                "1",
-                "0",
-                "3",
-                "5"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 1,
-            "total": 2
         }
     },
     {
@@ -6464,9 +6392,9 @@
         },
         "edges": [
             "3->1",
+            "8->1",
             "1->2",
             "2->0",
-            "8->2",
             "0->4",
             "4->6",
             "6->5",
@@ -6478,16 +6406,11 @@
                 {
                     "type": "select",
                     "options": [
-                        {
-                            "type": "sequence",
-                            "script": [
-                                "3",
-                                "1"
-                            ]
-                        },
+                        "3",
                         "8"
                     ]
                 },
+                "1",
                 "2",
                 "0",
                 "4",
@@ -6496,13 +6419,13 @@
                 "7"
             ]
         },
-        "max_depth": 3,
+        "max_depth": 2,
         "type_cnt": {
-            "sequence": 2,
+            "sequence": 1,
             "select": 1,
             "loop": 0,
             "and_join": 0,
-            "total": 3
+            "total": 2
         }
     },
     {
@@ -6793,9 +6716,9 @@
             "0->4",
             "1->4",
             "3->4",
-            "4->8",
+            "4->5",
             "5->6",
-            "6->0",
+            "6->8",
             "8->7",
             "8->9",
             "9->8"
@@ -6807,19 +6730,19 @@
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "1"
+                            "0"
                         ],
                         "b2": [
-                            "3"
+                            "1"
                         ],
                         "b3": [
-                            "5",
-                            "6",
-                            "0"
+                            "3"
                         ]
                     }
                 },
                 "4",
+                "5",
+                "6",
                 {
                     "type": "loop",
                     "entry": "8",
@@ -7162,36 +7085,43 @@
         "unordered_nodes": {
             "0": "watch movies in bed",
             "1": "take naps in house",
-            "2": "relax in bed",
             "3": "don't leave the house",
             "4": "find relaxing things to do",
             "5": "relax on Saturday"
         },
         "edges": [
-            "0->2",
-            "1->0",
-            "2->5",
             "3->4",
-            "4->1"
+            "4->0",
+            "4->1",
+            "0->5",
+            "1->5"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "3",
                 "4",
-                "1",
-                "0",
-                "2",
+                {
+                    "type": "and_join",
+                    "branches_set": {
+                        "b1": [
+                            "0"
+                        ],
+                        "b2": [
+                            "1"
+                        ]
+                    }
+                },
                 "5"
             ]
         },
-        "max_depth": 1,
+        "max_depth": 2,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 0,
-            "total": 1
+            "and_join": 1,
+            "total": 2
         }
     },
     {
@@ -8086,44 +8016,6 @@
         }
     },
     {
-        "id": 180,
-        "scenario": "meet the president",
-        "unordered_nodes": {
-            "0": "Have team members go through background check",
-            "1": "Have team management speak with White House Staff",
-            "2": "Win the Super Bowl",
-            "3": "Have parade in team home town televised",
-            "4": "Schedule date for team to travel to White House",
-            "5": "visit the White House"
-        },
-        "edges": [
-            "0->4",
-            "1->0",
-            "2->3",
-            "3->1",
-            "4->5"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "2",
-                "3",
-                "1",
-                "0",
-                "4",
-                "5"
-            ]
-        },
-        "max_depth": 1,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
-        }
-    },
-    {
         "id": 181,
         "scenario": "sprint for the school's track team",
         "unordered_nodes": {
@@ -8176,12 +8068,11 @@
             "8": "pay adoption fee"
         },
         "edges": [
-            "0->4",
+            "3->1",
             "1->2",
             "2->0",
-            "3->1",
+            "0->4",
             "4->5",
-            "3->6",
             "6->7",
             "7->8",
             "8->5"
@@ -8189,13 +8080,13 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                "3",
                 {
                     "type": "select",
                     "options": [
                         {
                             "type": "sequence",
                             "script": [
+                                "3",
                                 "1",
                                 "2",
                                 "0",
@@ -8582,19 +8473,19 @@
             "5": "enjoy the rock concert"
         },
         "edges": [
-            "0->1",
+            "0->4",
+            "4->1",
             "1->2",
-            "2->4",
-            "4->3",
+            "2->3",
             "3->5"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "0",
+                "4",
                 "1",
                 "2",
-                "4",
                 "3",
                 "5"
             ]
@@ -10857,23 +10748,20 @@
                 {
                     "type": "and_join",
                     "branches_set": {
-                        "b1": {
-                            "type": "sequence",
-                            "script": [
-                                {
-                                    "type": "and_join",
-                                    "branches_set": {
-                                        "b1": [
-                                            "1"
-                                        ],
-                                        "b2": [
-                                            "4"
-                                        ]
-                                    }
-                                },
-                                "3"
-                            ]
-                        },
+                        "b1": [
+                            {
+                                "type": "and_join",
+                                "branches_set": {
+                                    "b1": [
+                                        "1"
+                                    ],
+                                    "b2": [
+                                        "4"
+                                    ]
+                                }
+                            },
+                            "3"
+                        ],
                         "b2": [
                             "5",
                             "0"
@@ -10884,42 +10772,39 @@
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 2,
+            "total": 3
         }
     },
     {
         "id": 241,
         "scenario": "cut the grass at the edge of our yard",
         "unordered_nodes": {
-            "0": "Carefully line up with edge",
-            "1": "Turn on mower",
-            "2": "Get to lawnmower",
-            "3": "Ensure adequate gas",
-            "4": "Choose starting place",
-            "5": "cut the grass at the edge of our yard"
+            "0": "Turn on mower",
+            "1": "Get to lawnmower",
+            "2": "Ensure adequate gas",
+            "3": "Choose starting place",
+            "4": "cut the grass at the edge of our yard"
         },
         "edges": [
+            "1->2",
             "2->3",
-            "3->4",
-            "4->1",
-            "1->0",
-            "0->5"
+            "3->0",
+            "0->4"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
+                "1",
                 "2",
                 "3",
-                "4",
-                "1",
                 "0",
-                "5"
+                "4"
             ]
         },
         "max_depth": 1,
@@ -11771,8 +11656,8 @@
             "1->0",
             "0->2",
             "2->7",
-            "7->0",
-            "0->6",
+            "7->2",
+            "2->6",
             "6->4",
             "4->3",
             "3->5"
@@ -11781,11 +11666,11 @@
             "type": "sequence",
             "script": [
                 "1",
+                "0",
                 {
                     "type": "loop",
-                    "entry": "0",
+                    "entry": "2",
                     "retry": [
-                        "2",
                         "7",
                         "continue"
                     ],
@@ -11910,26 +11795,29 @@
             "6": "go to a concert on the weekend"
         },
         "edges": [
-            "0->1",
-            "0->2",
+            "5->0",
+            "5->1",
+            "5->2",
+            "0->4",
             "1->4",
             "2->4",
-            "3->6",
             "4->3",
-            "5->0"
+            "3->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "5",
-                "0",
                 {
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "1"
+                            "0"
                         ],
                         "b2": [
+                            "1"
+                        ],
+                        "b3": [
                             "2"
                         ]
                     }
@@ -12068,8 +11956,8 @@
             "8": "Red car not found, broaden search"
         },
         "edges": [
-            "1->4",
-            "4->0",
+            "1->6",
+            "6->4",
             "4->8",
             "8->6",
             "6->4",
@@ -12082,6 +11970,7 @@
             "type": "sequence",
             "script": [
                 "1",
+                "6",
                 {
                     "type": "loop",
                     "entry": "4",
@@ -12334,14 +12223,14 @@
             "0->2",
             "1->0",
             "2->5",
-            "3->1",
-            "4->3"
+            "3->4",
+            "4->1"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "4",
                 "3",
+                "4",
                 "1",
                 "0",
                 "2",
@@ -12879,11 +12768,9 @@
             "3": "order school supplies",
             "4": "look up books required for class",
             "5": "fly to the college",
-            "6": "apply for financial aid",
             "7": "live in the dorms next year"
         },
         "edges": [
-            "6->1",
             "1->4",
             "4->2",
             "4->3",
@@ -12895,7 +12782,6 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                "6",
                 "1",
                 "4",
                 {
@@ -13546,50 +13432,6 @@
             "loop": 0,
             "and_join": 1,
             "total": 3
-        }
-    },
-    {
-        "id": 300,
-        "scenario": "play soccer in a league",
-        "unordered_nodes": {
-            "0": "contact one of the leagues",
-            "1": "drive to location",
-            "2": "sign up through the website",
-            "3": "search top leagues in the area",
-            "4": "suit up for the game",
-            "5": "play soccer in a league"
-        },
-        "edges": [
-            "3->0",
-            "3->2",
-            "0->4",
-            "2->4",
-            "4->1",
-            "1->5"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "3",
-                {
-                    "type": "select",
-                    "options": [
-                        "0",
-                        "2"
-                    ]
-                },
-                "4",
-                "1",
-                "5"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 1,
-            "loop": 0,
-            "and_join": 0,
-            "total": 2
         }
     },
     {
@@ -14253,30 +14095,40 @@
         "unordered_nodes": {
             "0": "reach the riverbank",
             "1": "Find shallow water",
-            "2": "Put left foot in the water",
+            "2": "Put one foot in the water",
             "3": "Move the other foot forward",
-            "4": "Put right foot in the water",
+            "4": "Put the other foot in the water",
             "5": "Find a solid spot to take another step"
         },
         "edges": [
-            "1->5",
+            "1->2",
+            "1->4",
+            "2->5",
+            "4->5",
             "5->0",
-            "5->2",
-            "2->3",
-            "3->4",
-            "4->5"
+            "5->3",
+            "3->5"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "1",
                 {
+                    "type": "and_join",
+                    "branches_set": {
+                        "b1": [
+                            "2"
+                        ],
+                        "b2": [
+                            "4"
+                        ]
+                    }
+                },
+                {
                     "type": "loop",
                     "entry": "5",
                     "retry": [
-                        "2",
                         "3",
-                        "4",
                         "continue"
                     ],
                     "exit": "0"
@@ -14288,8 +14140,8 @@
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 0,
-            "total": 2
+            "and_join": 1,
+            "total": 3
         }
     },
     {
@@ -14663,7 +14515,7 @@
         },
         "edges": [
             "0->3",
-            "1->0",
+            "1->6",
             "2->1",
             "4->6",
             "5->2",
@@ -14687,12 +14539,12 @@
                         {
                             "type": "sequence",
                             "script": [
-                                "4",
-                                "6"
+                                "4"
                             ]
                         }
                     ]
                 },
+                "6",
                 "0",
                 "3"
             ]
@@ -14717,7 +14569,8 @@
             "4": "Sign up for roller blade lessons",
             "5": "Take bus to roller skating rink",
             "6": "Wait for bus to arrive",
-            "8": "Bring own roller blades"
+            "8": "Use own roller blades",
+            "9": "Start learning to rollerblade"
         },
         "edges": [
             "0->3",
@@ -14728,7 +14581,8 @@
             "5->0",
             "5->8",
             "6->5",
-            "8->3"
+            "8->3",
+            "3->9"
         ],
         "script_graph": {
             "type": "sequence",
@@ -14754,7 +14608,8 @@
                         ]
                     }
                 },
-                "3"
+                "3",
+                "9"
             ]
         },
         "max_depth": 3,
@@ -14991,40 +14846,30 @@
             "5": "Compete in the Olympic running events"
         },
         "edges": [
-            "4->3",
-            "3->0",
-            "3->1",
-            "0->2",
+            "4->0",
+            "0->1",
             "1->2",
-            "2->5"
+            "2->3",
+            "3->5"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "4",
-                "3",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "1"
-                        ]
-                    }
-                },
+                "0",
+                "1",
                 "2",
+                "3",
                 "5"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -16482,26 +16327,23 @@
             "0": "Filter museums by ones with dragons",
             "1": "Select the top of dragon museums",
             "2": "Drive to the museum",
-            "3": "Narrow the choices down to the best museum",
-            "4": "Look up museums",
-            "5": "visit the museum to see dragons"
+            "3": "Look up museums",
+            "4": "visit the museum to see dragons"
         },
         "edges": [
-            "4->0",
+            "3->0",
             "0->1",
-            "1->3",
-            "3->2",
-            "2->5"
+            "1->2",
+            "2->4"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "4",
+                "3",
                 "0",
                 "1",
-                "3",
                 "2",
-                "5"
+                "4"
             ]
         },
         "max_depth": 1,
@@ -18128,7 +17970,6 @@
         "scenario": "stand in line at the cash register",
         "unordered_nodes": {
             "0": "Look for the open cash register",
-            "1": "Walk to the cash register",
             "2": "Check the price of the book",
             "3": "Check for any damage",
             "4": "Go to the open cash register",
@@ -18139,8 +17980,7 @@
             "2->5",
             "3->5",
             "5->0",
-            "0->1",
-            "1->4",
+            "0->4",
             "4->6"
         ],
         "script_graph": {
@@ -18159,7 +17999,6 @@
                 },
                 "5",
                 "0",
-                "1",
                 "4",
                 "6"
             ]
@@ -18290,28 +18129,25 @@
         "scenario": "load bags into car",
         "unordered_nodes": {
             "0": "drop bags on ground near car",
-            "1": "take bags outside",
-            "2": "start putting bags in car",
-            "3": "pick up bags",
-            "4": "unlock the car",
-            "5": "pack some bags"
+            "1": "start putting bags in car",
+            "2": "pick up bags",
+            "3": "unlock the car",
+            "4": "pack some bags"
         },
         "edges": [
-            "0->4",
-            "1->0",
+            "0->3",
+            "2->0",
             "3->1",
-            "4->2",
-            "5->3"
+            "4->2"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
-                "3",
-                "1",
-                "0",
                 "4",
-                "2"
+                "2",
+                "0",
+                "3",
+                "1"
             ]
         },
         "max_depth": 1,
@@ -18879,10 +18715,9 @@
         },
         "edges": [
             "0->3",
-            "1->6",
             "2->6",
             "3->1",
-            "3->2",
+            "1->2",
             "4->0",
             "5->4"
         ],
@@ -18893,27 +18728,18 @@
                 "4",
                 "0",
                 "3",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1"
-                        ],
-                        "b2": [
-                            "2"
-                        ]
-                    }
-                },
+                "1",
+                "2",
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -19129,27 +18955,24 @@
             "0": "Take xbox out of the car",
             "1": "carry xbox to the car",
             "2": "Pay for Xbox",
-            "3": "get to the garage",
             "4": "drive xbox home",
             "5": "Pick up Xbox from counter",
             "6": "Take Xbox home"
         },
         "edges": [
-            "0->6",
+            "2->5",
+            "5->1",
             "1->4",
-            "2->1",
-            "3->0",
-            "4->3",
-            "5->2"
+            "4->0",
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "2",
+                "5",
                 "1",
                 "4",
-                "3",
                 "0",
                 "6"
             ]
@@ -19640,10 +19463,9 @@
         "edges": [
             "5->3",
             "3->2",
-            "2->0",
             "2->1",
-            "0->4",
-            "1->4"
+            "1->0",
+            "0->4"
         ],
         "script_graph": {
             "type": "sequence",
@@ -19651,27 +19473,18 @@
                 "5",
                 "3",
                 "2",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "1"
-                        ]
-                    }
-                },
+                "1",
+                "0",
                 "4"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -19813,57 +19626,6 @@
             "select": 0,
             "loop": 1,
             "and_join": 0,
-            "total": 2
-        }
-    },
-    {
-        "id": 438,
-        "scenario": "choose a camping spot",
-        "unordered_nodes": {
-            "0": "search for camping options",
-            "1": "decide the fun activity",
-            "2": "select a desirable option",
-            "3": "book the camping site",
-            "4": "decide on camping",
-            "5": "look online for a camping spot",
-            "6": "choose a camping spot"
-        },
-        "edges": [
-            "4->1",
-            "4->5",
-            "5->0",
-            "1->0",
-            "0->2",
-            "2->6",
-            "6->3"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "4",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1"
-                        ],
-                        "b2": [
-                            "5"
-                        ]
-                    }
-                },
-                "0",
-                "2",
-                "6",
-                "3"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 1,
             "total": 2
         }
     },
@@ -20342,19 +20104,16 @@
             "6": "watch the movie"
         },
         "edges": [
-            "0->6",
-            "1->4",
-            "2->1",
-            "2->3",
-            "3->4",
+            "1->5",
+            "3->5",
+            "5->2",
+            "2->4",
             "4->0",
-            "5->2"
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
-                "2",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -20366,6 +20125,8 @@
                         ]
                     }
                 },
+                "5",
+                "2",
                 "4",
                 "0",
                 "6"
@@ -20910,11 +20671,11 @@
             "8": "finish grooming"
         },
         "edges": [
-            "5->0",
+            "5->2",
+            "2->0",
             "0->8",
             "0->7",
-            "7->2",
-            "2->4",
+            "7->4",
             "4->0",
             "8->1",
             "8->3",
@@ -20925,12 +20686,12 @@
             "type": "sequence",
             "script": [
                 "5",
+                "2",
                 {
                     "type": "loop",
                     "entry": "0",
                     "retry": [
                         "7",
-                        "2",
                         "4",
                         "continue"
                     ],
@@ -20974,10 +20735,9 @@
             "8": "upload documents online"
         },
         "edges": [
-            "4->6",
             "4->5",
+            "5->6",
             "6->2",
-            "5->3",
             "2->3",
             "3->1",
             "3->8",
@@ -20989,18 +20749,9 @@
             "type": "sequence",
             "script": [
                 "4",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "5"
-                        ],
-                        "b2": [
-                            "6",
-                            "2"
-                        ]
-                    }
-                },
+                "5",
+                "6",
+                "2",
                 "3",
                 {
                     "type": "select",
@@ -21018,8 +20769,8 @@
             "sequence": 1,
             "select": 1,
             "loop": 0,
-            "and_join": 1,
-            "total": 3
+            "and_join": 0,
+            "total": 2
         }
     },
     {
@@ -21238,31 +20989,21 @@
                 {
                     "type": "select",
                     "options": [
-                        {
-                            "type": "sequence",
-                            "script": [
-                                "7"
-                            ]
-                        },
-                        {
-                            "type": "sequence",
-                            "script": [
-                                "8"
-                            ]
-                        }
+                        "7",
+                        "8"
                     ]
                 },
                 "0",
                 "6"
             ]
         },
-        "max_depth": 3,
+        "max_depth": 2,
         "type_cnt": {
-            "sequence": 3,
+            "sequence": 1,
             "select": 1,
             "loop": 0,
             "and_join": 0,
-            "total": 4
+            "total": 2
         }
     },
     {
@@ -21506,8 +21247,8 @@
             "3->4",
             "4->2",
             "2->6",
-            "2->5",
-            "6->2"
+            "6->4",
+            "4->5"
         ],
         "script_graph": {
             "type": "sequence",
@@ -21526,11 +21267,11 @@
                         ]
                     }
                 },
-                "4",
                 {
                     "type": "loop",
-                    "entry": "2",
+                    "entry": "4",
                     "retry": [
+                        "2",
                         "6",
                         "continue"
                     ],
@@ -21562,7 +21303,8 @@
         "edges": [
             "5->2",
             "2->0",
-            "0->3",
+            "2->3",
+            "0->2",
             "3->2",
             "2->7",
             "7->4",
@@ -21576,8 +21318,17 @@
                     "type": "loop",
                     "entry": "2",
                     "retry": [
-                        "0",
-                        "3",
+                        {
+                            "type": "and_join",
+                            "branches_set": {
+                                "b1": [
+                                    "0"
+                                ],
+                                "b2": [
+                                    "3"
+                                ]
+                            }
+                        },
                         "continue"
                     ],
                     "exit": "7"
@@ -21586,13 +21337,13 @@
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 0,
-            "total": 2
+            "and_join": 1,
+            "total": 3
         }
     },
     {
@@ -21791,47 +21542,6 @@
         }
     },
     {
-        "id": 481,
-        "scenario": "type the message",
-        "unordered_nodes": {
-            "0": "choose contact to compose message",
-            "1": "sign in to message application",
-            "2": "click on the contact name",
-            "3": "click on compose message",
-            "4": "scroll through list of contacts",
-            "5": "open the message application",
-            "6": "type the message"
-        },
-        "edges": [
-            "0->2",
-            "1->4",
-            "2->3",
-            "3->6",
-            "4->0",
-            "5->1"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                "1",
-                "4",
-                "0",
-                "2",
-                "3",
-                "6"
-            ]
-        },
-        "max_depth": 1,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
-        }
-    },
-    {
         "id": 482,
         "scenario": "Plan a routine",
         "unordered_nodes": {
@@ -21900,23 +21610,21 @@
         "id": 483,
         "scenario": "get ready to leave",
         "unordered_nodes": {
-            "0": "decide what to wear",
-            "1": "apply makeup and style hair",
-            "2": "grab purse and jacket",
-            "3": "take a shower and do grooming",
-            "4": "get dressed, choose shoes"
+            "0": "apply makeup and style hair",
+            "1": "grab purse",
+            "2": "take a shower and do grooming",
+            "3": "get dressed, choose shoes"
         },
         "edges": [
-            "3->0",
-            "3->1",
-            "0->4",
-            "1->4",
-            "4->2"
+            "2->3",
+            "2->0",
+            "0->1",
+            "3->1"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "3",
+                "2",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -21924,12 +21632,11 @@
                             "0"
                         ],
                         "b2": [
-                            "1"
+                            "3"
                         ]
                     }
                 },
-                "4",
-                "2"
+                "1"
             ]
         },
         "max_depth": 2,
@@ -23240,25 +22947,32 @@
             "8": "pick the pink lipstick"
         },
         "edges": [
+            "3->2",
+            "3->1",
+            "1->5",
             "5->0",
-            "0->1",
-            "1->2",
+            "0->3",
             "2->4",
-            "4->3",
-            "3->7",
-            "3->8",
+            "4->7",
+            "4->8",
             "7->6",
             "8->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
-                "0",
-                "1",
-                "2",
+                {
+                    "type": "loop",
+                    "entry": "3",
+                    "retry": [
+                        "1",
+                        "5",
+                        "0",
+                        "continue"
+                    ],
+                    "exit": "2"
+                },
                 "4",
-                "3",
                 {
                     "type": "select",
                     "options": [
@@ -23273,63 +22987,9 @@
         "type_cnt": {
             "sequence": 1,
             "select": 1,
-            "loop": 0,
+            "loop": 1,
             "and_join": 0,
-            "total": 2
-        }
-    },
-    {
-        "id": 515,
-        "scenario": "enter building through door",
-        "unordered_nodes": {
-            "0": "look through door to see inside",
-            "1": "peer through opening",
-            "2": "use shoulder to push door open",
-            "3": "take step inside building",
-            "4": "reach out with hand to try opening door",
-            "5": "locate an unlocked door",
-            "6": "walk to hospital door",
-            "7": "close the door behind"
-        },
-        "edges": [
-            "5->6",
-            "6->0",
-            "6->4",
-            "0->2",
-            "4->2",
-            "2->1",
-            "1->3",
-            "3->7"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                "6",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "4"
-                        ]
-                    }
-                },
-                "2",
-                "1",
-                "3",
-                "7"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "total": 3
         }
     },
     {
@@ -24168,6 +23828,7 @@
         },
         "edges": [
             "0->1",
+            "1->6",
             "4->3",
             "3->2",
             "2->6",
@@ -24375,14 +24036,11 @@
             "2": "notice flyer for tryouts up on locker room bulletin board",
             "3": "walk over to locker room bulletin board",
             "4": "look over at locker room bulletin board",
-            "5": "read flyer for tryouts",
-            "6": "scan the room more carefully"
+            "5": "read flyer for tryouts"
         },
         "edges": [
             "0->4",
             "4->2",
-            "4->6",
-            "6->4",
             "2->3",
             "3->1",
             "1->5"
@@ -24391,27 +24049,20 @@
             "type": "sequence",
             "script": [
                 "0",
-                {
-                    "type": "loop",
-                    "entry": "4",
-                    "retry": [
-                        "6",
-                        "continue"
-                    ],
-                    "exit": "2"
-                },
+                "4",
+                "2",
                 "3",
                 "1",
                 "5"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
-            "loop": 1,
+            "loop": 0,
             "and_join": 0,
-            "total": 2
+            "total": 1
         }
     },
     {
@@ -24457,11 +24108,15 @@
                 },
                 "8",
                 {
-                    "type": "select",
-                    "options": [
-                        "3",
-                        "5"
-                    ]
+                    "type": "and_join",
+                    "branches_set": {
+                        "b1": [
+                            "3"
+                        ],
+                        "b2": [
+                            "5"
+                        ]
+                    }
                 },
                 "0",
                 "2",
@@ -24471,9 +24126,9 @@
         "max_depth": 2,
         "type_cnt": {
             "sequence": 1,
-            "select": 1,
+            "select": 0,
             "loop": 0,
-            "and_join": 1,
+            "and_join": 2,
             "total": 3
         }
     },
@@ -25175,11 +24830,10 @@
         },
         "edges": [
             "0->4",
-            "1->5",
             "4->2",
-            "2->1",
-            "1->3",
-            "3->1"
+            "2->3",
+            "3->1",
+            "1->5"
         ],
         "script_graph": {
             "type": "sequence",
@@ -25187,24 +24841,18 @@
                 "0",
                 "4",
                 "2",
-                {
-                    "type": "loop",
-                    "entry": "1",
-                    "retry": [
-                        "3",
-                        "continue"
-                    ],
-                    "exit": "5"
-                }
+                "3",
+                "1",
+                "5"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
-            "loop": 1,
+            "loop": 0,
             "and_join": 0,
-            "total": 2
+            "total": 1
         }
     },
     {
@@ -25664,13 +25312,12 @@
             "6": "finalize gym choice"
         },
         "edges": [
+            "4->0",
             "0->1",
             "1->2",
             "2->3",
             "3->6",
-            "6->5",
-            "6->3",
-            "4->0"
+            "6->5"
         ],
         "script_graph": {
             "type": "sequence",
@@ -25680,24 +25327,17 @@
                 "1",
                 "2",
                 "3",
-                {
-                    "type": "loop",
-                    "entry": "6",
-                    "retry": [
-                        "3",
-                        "continue"
-                    ],
-                    "exit": "5"
-                }
+                "6",
+                "5"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
-            "loop": 1,
+            "loop": 0,
             "and_join": 0,
-            "total": 2
+            "total": 1
         }
     },
     {
@@ -25714,10 +25354,10 @@
             "7": "Enter the house safely"
         },
         "edges": [
-            "6->4",
-            "1->0",
-            "4->0",
-            "0->2",
+            "4->6",
+            "6->0",
+            "0->1",
+            "1->2",
             "2->3",
             "3->5",
             "5->7"
@@ -25725,32 +25365,23 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1"
-                        ],
-                        "b2": [
-                            "6",
-                            "4"
-                        ]
-                    }
-                },
+                "4",
+                "6",
                 "0",
+                "1",
                 "2",
                 "3",
                 "5",
                 "7"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -26078,17 +25709,17 @@
         },
         "edges": [
             "0->3",
-            "1->2",
-            "3->4",
-            "4->1"
+            "3->1",
+            "1->4",
+            "4->2"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "0",
                 "3",
-                "4",
                 "1",
+                "4",
                 "2"
             ]
         },
@@ -26222,57 +25853,6 @@
             "loop": 0,
             "and_join": 0,
             "total": 1
-        }
-    },
-    {
-        "id": 578,
-        "scenario": "Click confirm to process amount from bank account",
-        "unordered_nodes": {
-            "0": "input payment amount on website",
-            "1": "decide whether to pay full or half",
-            "2": "double check have money in bank",
-            "3": "look at past due payment amount",
-            "4": "calculate if enough for payment",
-            "5": "Input rental amount owed",
-            "6": "Click confirm to process amount from bank account"
-        },
-        "edges": [
-            "5->3",
-            "3->1",
-            "3->2",
-            "1->0",
-            "0->4",
-            "2->4",
-            "4->6"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                "3",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1",
-                            "0"
-                        ],
-                        "b2": [
-                            "2"
-                        ]
-                    }
-                },
-                "4",
-                "6"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 1,
-            "total": 2
         }
     },
     {
@@ -26806,10 +26386,11 @@
             "7->8",
             "8->0",
             "9->5",
-            "5->2",
+            "9->2",
             "9->3",
             "2->4",
             "3->4",
+            "5->4",
             "4->6"
         ],
         "script_graph": {
@@ -26830,11 +26411,13 @@
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "3"
+                            "2"
                         ],
                         "b2": [
-                            "5",
-                            "2"
+                            "3"
+                        ],
+                        "b3": [
+                            "5"
                         ]
                     }
                 },
@@ -26951,10 +26534,10 @@
         "edges": [
             "5->2",
             "2->3",
-            "3->0",
-            "0->4",
+            "3->4",
             "4->1",
-            "1->6"
+            "1->0",
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
@@ -26962,9 +26545,9 @@
                 "5",
                 "2",
                 "3",
-                "0",
                 "4",
                 "1",
+                "0",
                 "6"
             ]
         },
@@ -26990,23 +26573,23 @@
             "6": "socialize with people"
         },
         "edges": [
-            "6->2",
             "2->1",
             "1->0",
             "0->3",
             "3->4",
-            "4->5"
+            "4->5",
+            "5->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "6",
                 "2",
                 "1",
                 "0",
                 "3",
                 "4",
-                "5"
+                "5",
+                "6"
             ]
         },
         "max_depth": 1,
@@ -27636,32 +27219,42 @@
             "6": "walk down the hall"
         },
         "edges": [
-            "0->5",
-            "1->2",
-            "2->4",
             "3->1",
-            "4->0",
-            "5->6"
+            "1->2",
+            "1->4",
+            "2->5",
+            "4->5",
+            "5->0",
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "3",
                 "1",
-                "2",
-                "4",
-                "0",
+                {
+                    "type": "and_join",
+                    "branches_set": {
+                        "b1": [
+                            "2"
+                        ],
+                        "b2": [
+                            "4"
+                        ]
+                    }
+                },
                 "5",
+                "0",
                 "6"
             ]
         },
-        "max_depth": 1,
+        "max_depth": 2,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 0,
-            "total": 1
+            "and_join": 1,
+            "total": 2
         }
     },
     {
@@ -27906,42 +27499,32 @@
             "6": "Choose highest paying HITS"
         },
         "edges": [
-            "5->4",
-            "4->0",
-            "4->2",
-            "2->3",
+            "4->5",
+            "5->0",
             "0->1",
-            "3->1",
-            "1->6"
+            "1->2",
+            "2->3",
+            "3->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "4",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "2",
-                            "3"
-                        ]
-                    }
-                },
+                "5",
+                "0",
                 "1",
+                "2",
+                "3",
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -28195,42 +27778,52 @@
             "6": "confirm book selection"
         },
         "edges": [
-            "0->3",
-            "1->0",
+            "1->2",
+            "1->4",
+            "1->5",
             "2->1",
-            "3->6",
             "4->1",
-            "5->2",
-            "5->4"
+            "5->1",
+            "1->0",
+            "0->3",
+            "3->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "2"
-                        ],
-                        "b2": [
-                            "4"
-                        ]
-                    }
+                    "type": "loop",
+                    "entry": "1",
+                    "retry": [
+                        {
+                            "type": "and_join",
+                            "branches_set": {
+                                "b1": [
+                                    "2"
+                                ],
+                                "b2": [
+                                    "4"
+                                ],
+                                "b3": [
+                                    "5"
+                                ]
+                            }
+                        },
+                        "continue"
+                    ],
+                    "exit": "0"
                 },
-                "1",
-                "0",
                 "3",
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
-            "loop": 0,
+            "loop": 1,
             "and_join": 1,
-            "total": 2
+            "total": 3
         }
     },
     {
@@ -28428,20 +28021,20 @@
             "5": "find out what everyone wants"
         },
         "edges": [
-            "5->2",
-            "2->4",
-            "4->1",
-            "1->3",
-            "3->0"
+            "2->5",
+            "5->4",
+            "4->3",
+            "3->1",
+            "1->0"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "2",
+                "5",
                 "4",
-                "1",
                 "3",
+                "1",
                 "0"
             ]
         },
@@ -29051,20 +28644,20 @@
         },
         "edges": [
             "0->7",
-            "1->4",
+            "4->1",
             "2->3",
             "2->5",
             "3->0",
-            "4->2",
+            "1->2",
             "5->0",
-            "6->1"
+            "6->4"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "6",
-                "1",
                 "4",
+                "1",
                 "2",
                 {
                     "type": "and_join",
@@ -29385,13 +28978,13 @@
             "1": "check address is correct",
             "2": "write down any private info",
             "3": "click the accept return button",
-            "4": "go to last page and esign",
+            "4": "go to last page and sign",
             "5": "Check tax return for errors"
         },
         "edges": [
-            "5->2",
-            "2->0",
-            "2->1",
+            "2->5",
+            "5->0",
+            "5->1",
             "0->4",
             "1->4",
             "4->3"
@@ -29399,8 +28992,8 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "2",
+                "5",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -30541,32 +30134,42 @@
             "6": "write down the steps"
         },
         "edges": [
-            "0->3",
-            "1->6",
-            "3->4",
-            "4->2",
-            "2->5",
-            "5->1"
+            "0->2",
+            "2->3",
+            "2->4",
+            "3->5",
+            "4->5",
+            "5->1",
+            "1->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "0",
-                "3",
-                "4",
                 "2",
+                {
+                    "type": "and_join",
+                    "branches_set": {
+                        "b1": [
+                            "3"
+                        ],
+                        "b2": [
+                            "4"
+                        ]
+                    }
+                },
                 "5",
                 "1",
                 "6"
             ]
         },
-        "max_depth": 1,
+        "max_depth": 2,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 0,
-            "total": 1
+            "and_join": 1,
+            "total": 2
         }
     },
     {
@@ -30692,10 +30295,10 @@
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "5"
+                            "0"
                         ],
                         "b2": [
-                            "0"
+                            "5"
                         ]
                     }
                 },
@@ -31090,16 +30693,14 @@
             "2": "open pantry door",
             "3": "grab sugar from pantry",
             "4": "open fridge door",
-            "5": "get out ingredients to make lemonade",
             "6": "make lemonade in kitchen"
         },
         "edges": [
             "4->0",
             "2->3",
-            "0->5",
-            "3->5",
-            "1->5",
-            "5->6"
+            "0->6",
+            "3->6",
+            "1->6"
         ],
         "script_graph": {
             "type": "sequence",
@@ -31120,7 +30721,6 @@
                         ]
                     }
                 },
-                "5",
                 "6"
             ]
         },
@@ -31780,19 +31380,17 @@
             "1": "pick up phone",
             "2": "find store owner's phone number",
             "3": "find name of store owner",
-            "4": "press the call button",
             "5": "Decide on desired store",
             "6": "Speak with owner",
             "7": "get busy signal"
         },
         "edges": [
-            "0->4",
-            "1->0",
-            "2->1",
-            "3->2",
-            "4->6",
-            "4->7",
             "5->3",
+            "3->2",
+            "2->1",
+            "1->0",
+            "0->6",
+            "0->7",
             "7->0"
         ],
         "script_graph": {
@@ -31802,13 +31400,11 @@
                 "3",
                 "2",
                 "1",
-                "0",
                 {
                     "type": "loop",
-                    "entry": "4",
+                    "entry": "0",
                     "retry": [
                         "7",
-                        "0",
                         "continue"
                     ],
                     "exit": "6"
@@ -31891,21 +31487,15 @@
                 {
                     "type": "and_join",
                     "branches_set": {
-                        "b1": {
-                            "type": "sequence",
-                            "script": [
-                                "3",
-                                "2",
-                                "1"
-                            ]
-                        },
-                        "b2": {
-                            "type": "sequence",
-                            "script": [
-                                "4",
-                                "5"
-                            ]
-                        }
+                        "b1": [
+                            "3",
+                            "2",
+                            "1"
+                        ],
+                        "b2": [
+                            "4",
+                            "5"
+                        ]
                     }
                 },
                 "0",
@@ -32009,14 +31599,14 @@
             "2": "Stand in front of the computer chair",
             "3": "Squat down onto the chair",
             "4": "Align back of body with the chair",
-            "5": "sit down in computer chair"
+            "5": "Finish sitting in computer chair"
         },
         "edges": [
             "0->1",
             "1->2",
-            "2->3",
-            "3->4",
-            "4->5"
+            "2->4",
+            "4->3",
+            "3->5"
         ],
         "script_graph": {
             "type": "sequence",
@@ -32024,8 +31614,8 @@
                 "0",
                 "1",
                 "2",
-                "3",
                 "4",
+                "3",
                 "5"
             ]
         },
@@ -32637,60 +32227,6 @@
         }
     },
     {
-        "id": 715,
-        "scenario": "walk to train to ride",
-        "unordered_nodes": {
-            "0": "Lift left leg off the ground",
-            "1": "Lift right leg off the ground",
-            "2": "Identify the location of the train stop",
-            "3": "Extend left leg in direction of the train stop",
-            "4": "Extend right leg in direction of the train stop",
-            "6": "pay for ticket",
-            "7": "walk to train to ride",
-            "8": "standing at the train stop",
-            "9": "reach train stop"
-        },
-        "edges": [
-            "0->3",
-            "1->4",
-            "2->8",
-            "3->1",
-            "4->8",
-            "6->7",
-            "8->0",
-            "8->9",
-            "9->6"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "2",
-                {
-                    "type": "loop",
-                    "entry": "8",
-                    "retry": [
-                        "0",
-                        "3",
-                        "1",
-                        "4",
-                        "continue"
-                    ],
-                    "exit": "9"
-                },
-                "6",
-                "7"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 1,
-            "and_join": 0,
-            "total": 2
-        }
-    },
-    {
         "id": 716,
         "scenario": "Be the best runner on the team",
         "unordered_nodes": {
@@ -32913,13 +32449,16 @@
             "7": "get in the car"
         },
         "edges": [
-            "4->2",
-            "0->2",
-            "5->2",
-            "2->6",
-            "2->3",
-            "6->1",
+            "2->0",
+            "2->5",
+            "4->0",
+            "4->5",
+            "0->3",
+            "0->6",
+            "5->3",
+            "5->6",
             "3->1",
+            "6->1",
             "1->7"
         ],
         "script_graph": {
@@ -32929,17 +32468,24 @@
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "0"
+                            "2"
                         ],
                         "b2": [
                             "4"
+                        ]
+                    }
+                },
+                {
+                    "type": "and_join",
+                    "branches_set": {
+                        "b1": [
+                            "0"
                         ],
-                        "b3": [
+                        "b2": [
                             "5"
                         ]
                     }
                 },
-                "2",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -32960,8 +32506,8 @@
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 2,
-            "total": 3
+            "and_join": 3,
+            "total": 4
         }
     },
     {
@@ -33129,44 +32675,6 @@
         }
     },
     {
-        "id": 725,
-        "scenario": "Plan where to go",
-        "unordered_nodes": {
-            "0": "look at the forecast",
-            "1": "check the hours of availability",
-            "2": "look for locations that provide the activity",
-            "3": "call in advance to get necessary information",
-            "4": "decide what looks fun for the day",
-            "6": "review availability of the location"
-        },
-        "edges": [
-            "4->0",
-            "0->2",
-            "2->1",
-            "1->6",
-            "6->3"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "4",
-                "0",
-                "2",
-                "1",
-                "6",
-                "3"
-            ]
-        },
-        "max_depth": 1,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
-        }
-    },
-    {
         "id": 726,
         "scenario": "choose a place that sells mopeds",
         "unordered_nodes": {
@@ -33215,47 +32723,6 @@
             "loop": 0,
             "and_join": 1,
             "total": 2
-        }
-    },
-    {
-        "id": 727,
-        "scenario": "sort courses by languages taught",
-        "unordered_nodes": {
-            "0": "Double check work when completed",
-            "1": "Pick out best available help tools",
-            "2": "Use the tools for better efficiency",
-            "3": "Periodically check for mistakes",
-            "4": "Separate each language from the others",
-            "5": "identify the target languages for sorting",
-            "6": "sort courses by languages taught"
-        },
-        "edges": [
-            "5->1",
-            "1->4",
-            "4->2",
-            "2->6",
-            "6->3",
-            "3->0"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                "1",
-                "4",
-                "2",
-                "6",
-                "3",
-                "0"
-            ]
-        },
-        "max_depth": 1,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
         }
     },
     {
@@ -33994,24 +33461,26 @@
             "6": "lipstick choice finalized"
         },
         "edges": [
-            "0->6",
-            "1->0",
-            "2->4",
-            "3->1",
-            "4->1",
+            "3->5",
+            "5->4",
             "5->3",
-            "5->2"
+            "4->2",
+            "2->1",
+            "3->1",
+            "1->0",
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
+                "3",
                 "5",
                 {
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "2",
-                            "4"
+                            "4",
+                            "2"
                         ],
                         "b2": [
                             "3"
@@ -34337,10 +33806,10 @@
         },
         "edges": [
             "5->2",
-            "2->3",
-            "3->0",
-            "0->1",
-            "0->4",
+            "2->0",
+            "0->3",
+            "3->1",
+            "3->4",
             "1->6",
             "4->6"
         ],
@@ -34349,8 +33818,8 @@
             "script": [
                 "5",
                 "2",
-                "3",
                 "0",
+                "3",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -35493,7 +34962,7 @@
         "scenario": "mix with the mixer",
         "unordered_nodes": {
             "0": "Turn off mixer",
-            "1": "Hold mixer firmly",
+            "1": "Hold mixer firmly above the bowl to avoid splashing",
             "2": "Mix until the instructions say to stop",
             "3": "Set mixer to desired speed",
             "4": "Turn on the mixer",
@@ -35971,67 +35440,6 @@
             "loop": 0,
             "and_join": 1,
             "total": 2
-        }
-    },
-    {
-        "id": 785,
-        "scenario": "narrow down the choices",
-        "unordered_nodes": {
-            "0": "decide criteria for best reviews",
-            "1": "find best reviews by criteria",
-            "2": "choose the best reviews",
-            "3": "sort out the best reviews",
-            "4": "decide how many reviews to narrow down to",
-            "5": "read reviews about the store",
-            "6": "decisions narrowed down",
-            "7": "review the narrowed list"
-        },
-        "edges": [
-            "5->7",
-            "7->0",
-            "7->6",
-            "0->1",
-            "0->4",
-            "1->3",
-            "4->3",
-            "3->2",
-            "2->7"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                {
-                    "type": "loop",
-                    "entry": "7",
-                    "retry": [
-                        "0",
-                        {
-                            "type": "and_join",
-                            "branches_set": {
-                                "b1": [
-                                    "1"
-                                ],
-                                "b2": [
-                                    "4"
-                                ]
-                            }
-                        },
-                        "3",
-                        "2",
-                        "continue"
-                    ],
-                    "exit": "6"
-                }
-            ]
-        },
-        "max_depth": 3,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 1,
-            "and_join": 1,
-            "total": 3
         }
     },
     {
@@ -36846,11 +36254,11 @@
         "edges": [
             "5->3",
             "3->1",
-            "1->0",
-            "0->2",
-            "0->4",
-            "2->6",
-            "4->6"
+            "1->2",
+            "1->4",
+            "2->0",
+            "4->0",
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
@@ -36858,7 +36266,6 @@
                 "5",
                 "3",
                 "1",
-                "0",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -36870,6 +36277,7 @@
                         ]
                     }
                 },
+                "0",
                 "6"
             ]
         },
@@ -37033,47 +36441,51 @@
             "7": "gauge distance to destination"
         },
         "edges": [
-            "0->3",
             "1->4",
-            "3->2",
-            "4->0",
+            "4->7",
+            "7->0",
+            "0->3",
+            "7->2",
             "2->5",
+            "3->7",
             "5->7",
-            "7->6",
-            "7->1"
+            "7->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "1",
                 "4",
-                "0",
-                "3",
-                "2",
-                "5",
                 {
                     "type": "loop",
                     "entry": "7",
                     "retry": [
-                        "1",
-                        "4",
-                        "0",
-                        "3",
-                        "2",
-                        "5",
+                        {
+                            "type": "and_join",
+                            "branches_set": {
+                                "b1": [
+                                    "0",
+                                    "3"
+                                ],
+                                "b2": [
+                                    "2",
+                                    "5"
+                                ]
+                            }
+                        },
                         "continue"
                     ],
                     "exit": "6"
                 }
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 0,
-            "total": 2
+            "and_join": 1,
+            "total": 3
         }
     },
     {
@@ -37496,54 +36908,6 @@
         }
     },
     {
-        "id": 817,
-        "scenario": "make a preliminary design",
-        "unordered_nodes": {
-            "0": "read important info",
-            "1": "sketch a mental outline",
-            "2": "write down design",
-            "3": "review notes and adjust",
-            "4": "take notes as needed",
-            "5": "look up more information"
-        },
-        "edges": [
-            "5->0",
-            "5->4",
-            "0->1",
-            "4->3",
-            "3->1",
-            "1->2"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "4",
-                            "3"
-                        ]
-                    }
-                },
-                "1",
-                "2"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 1,
-            "total": 2
-        }
-    },
-    {
         "id": 818,
         "scenario": "pull into parking lot",
         "unordered_nodes": {
@@ -37556,42 +36920,32 @@
             "6": "pull into parking lot"
         },
         "edges": [
-            "0->1",
-            "0->3",
-            "1->2",
-            "2->6",
+            "0->5",
+            "5->4",
+            "4->3",
             "3->2",
-            "4->0",
-            "5->4"
+            "2->1",
+            "1->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
+                "0",
                 "5",
                 "4",
-                "0",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1"
-                        ],
-                        "b2": [
-                            "3"
-                        ]
-                    }
-                },
+                "3",
                 "2",
+                "1",
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -37800,8 +37154,9 @@
             "7": "finish brushing"
         },
         "edges": [
+            "5->1",
             "5->2",
-            "2->1",
+            "2->4",
             "1->4",
             "4->0",
             "0->3",
@@ -37813,8 +37168,17 @@
             "type": "sequence",
             "script": [
                 "5",
-                "2",
-                "1",
+                {
+                    "type": "and_join",
+                    "branches_set": {
+                        "b1": [
+                            "1"
+                        ],
+                        "b2": [
+                            "2"
+                        ]
+                    }
+                },
                 "4",
                 "0",
                 "3",
@@ -37834,8 +37198,8 @@
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 0,
-            "total": 2
+            "and_join": 1,
+            "total": 3
         }
     },
     {
@@ -37903,9 +37267,9 @@
             "7": "skip receipt"
         },
         "edges": [
-            "5->1",
-            "1->2",
-            "1->4",
+            "1->5",
+            "5->2",
+            "5->4",
             "4->3",
             "4->7",
             "3->0",
@@ -37916,8 +37280,8 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "1",
+                "5",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -38006,9 +37370,9 @@
         "edges": [
             "1->4",
             "4->2",
-            "2->3",
-            "3->5",
-            "5->0"
+            "2->5",
+            "5->3",
+            "3->0"
         ],
         "script_graph": {
             "type": "sequence",
@@ -38016,8 +37380,8 @@
                 "1",
                 "4",
                 "2",
-                "3",
                 "5",
+                "3",
                 "0"
             ]
         },
@@ -39017,20 +38381,18 @@
             "8": "ask for directions again"
         },
         "edges": [
-            "0->3",
-            "1->4",
-            "1->7",
             "2->1",
-            "3->6",
-            "4->0",
-            "5->2",
+            "1->7",
             "7->8",
-            "8->1"
+            "8->1",
+            "1->4",
+            "4->0",
+            "0->3",
+            "3->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "2",
                 {
                     "type": "loop",
@@ -39196,50 +38558,6 @@
         }
     },
     {
-        "id": 854,
-        "scenario": "write the last activity",
-        "unordered_nodes": {
-            "0": "think how to do a fourth activity",
-            "1": "write the activity down",
-            "2": "sharpen broken lead pencil",
-            "3": "think about the next activity logically",
-            "4": "write the third activity down",
-            "5": "listen to a colleague about the final wrap up",
-            "6": "write down activity 2",
-            "7": "write the last activity"
-        },
-        "edges": [
-            "2->6",
-            "6->3",
-            "3->1",
-            "1->4",
-            "4->0",
-            "0->5",
-            "5->7"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "2",
-                "6",
-                "3",
-                "1",
-                "4",
-                "0",
-                "5",
-                "7"
-            ]
-        },
-        "max_depth": 1,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
-        }
-    },
-    {
         "id": 855,
         "scenario": "practice running techniques",
         "unordered_nodes": {
@@ -39292,40 +38610,30 @@
             "5": "Sign up for race"
         },
         "edges": [
-            "0->2",
             "1->2",
             "2->4",
             "3->0",
-            "3->1",
+            "0->1",
             "4->5"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "3",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "1"
-                        ]
-                    }
-                },
+                "0",
+                "1",
                 "2",
                 "4",
                 "5"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -39513,32 +38821,49 @@
             "6": "take a seat on the bench"
         },
         "edges": [
-            "5->0",
-            "0->3",
+            "5->2",
+            "2->3",
             "3->2",
             "2->4",
-            "4->1",
-            "1->6"
+            "4->2",
+            "2->1",
+            "1->0",
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "5",
+                {
+                    "type": "loop",
+                    "entry": "2",
+                    "retry": [
+                        {
+                            "type": "and_join",
+                            "branches_set": {
+                                "b1": [
+                                    "3"
+                                ],
+                                "b2": [
+                                    "4"
+                                ]
+                            }
+                        },
+                        "continue"
+                    ],
+                    "exit": "1"
+                },
                 "0",
-                "3",
-                "2",
-                "4",
-                "1",
                 "6"
             ]
         },
-        "max_depth": 1,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
+            "loop": 1,
+            "and_join": 1,
+            "total": 3
         }
     },
     {
@@ -40174,41 +39499,49 @@
             "8": "complete walking around the area"
         },
         "edges": [
-            "6->2",
             "2->3",
             "3->0",
             "0->4",
-            "4->5",
+            "3->5",
             "5->1",
+            "4->3",
             "1->3",
             "3->8"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "6",
                 "2",
                 {
                     "type": "loop",
                     "entry": "3",
                     "retry": [
-                        "0",
-                        "4",
-                        "5",
-                        "1",
+                        {
+                            "type": "and_join",
+                            "branches_set": {
+                                "b1": [
+                                    "0",
+                                    "4"
+                                ],
+                                "b2": [
+                                    "5",
+                                    "1"
+                                ]
+                            }
+                        },
                         "continue"
                     ],
                     "exit": "8"
                 }
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 0,
-            "total": 2
+            "and_join": 1,
+            "total": 3
         }
     },
     {
@@ -40258,27 +39591,24 @@
             "2": "move child toward vehicle",
             "3": "find the vehicle",
             "4": "move child outside",
-            "5": "Complete the final paperwork",
             "6": "buckle child into car seat"
         },
         "edges": [
-            "1->4",
-            "4->0",
-            "3->1",
-            "0->2",
-            "2->6",
-            "6->5"
+            "3->4",
+            "4->2",
+            "2->1",
+            "1->6",
+            "6->0"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "3",
-                "1",
                 "4",
-                "0",
                 "2",
+                "1",
                 "6",
-                "5"
+                "0"
             ]
         },
         "max_depth": 1,
@@ -40350,18 +39680,18 @@
             "5": "Grab a bowl to put ingredients in"
         },
         "edges": [
-            "0->3",
+            "5->3",
+            "3->0",
+            "0->1",
             "1->4",
-            "3->1",
-            "4->2",
-            "5->0"
+            "4->2"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "5",
-                "0",
                 "3",
+                "0",
                 "1",
                 "4",
                 "2"
@@ -40645,12 +39975,12 @@
         },
         "edges": [
             "5->3",
-            "3->2",
-            "3->1",
-            "2->0",
-            "1->4",
-            "0->6",
-            "4->6"
+            "3->0",
+            "3->4",
+            "0->2",
+            "4->1",
+            "2->6",
+            "1->6"
         ],
         "script_graph": {
             "type": "sequence",
@@ -40661,12 +39991,12 @@
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "1",
-                            "4"
+                            "0",
+                            "2"
                         ],
                         "b2": [
-                            "2",
-                            "0"
+                            "4",
+                            "1"
                         ]
                     }
                 },
@@ -40746,13 +40076,14 @@
             "6": "arrive at the location"
         },
         "edges": [
-            "5->4",
+            "5->3",
+            "3->4",
             "4->0",
-            "4->6",
-            "0->1",
+            "3->1",
             "1->2",
+            "0->3",
             "2->3",
-            "3->4"
+            "3->6"
         ],
         "script_graph": {
             "type": "sequence",
@@ -40760,76 +40091,34 @@
                 "5",
                 {
                     "type": "loop",
-                    "entry": "4",
+                    "entry": "3",
                     "retry": [
-                        "0",
-                        "1",
-                        "2",
-                        "3",
+                        {
+                            "type": "and_join",
+                            "branches_set": {
+                                "b1": [
+                                    "1",
+                                    "2"
+                                ],
+                                "b2": [
+                                    "4",
+                                    "0"
+                                ]
+                            }
+                        },
                         "continue"
                     ],
                     "exit": "6"
                 }
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 0,
-            "total": 2
-        }
-    },
-    {
-        "id": 889,
-        "scenario": "put parking pass in window",
-        "unordered_nodes": {
-            "0": "grab parking pass",
-            "1": "put hand on parking pass",
-            "2": "find a spot",
-            "3": "move pass towards open spot",
-            "4": "look for spot on window",
-            "5": "get a parking pass",
-            "6": "put parking pass in window"
-        },
-        "edges": [
-            "0->3",
-            "1->0",
-            "2->3",
-            "3->6",
-            "4->2",
-            "5->4",
-            "5->1"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1",
-                            "0"
-                        ],
-                        "b2": [
-                            "4",
-                            "2"
-                        ]
-                    }
-                },
-                "3",
-                "6"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
             "and_join": 1,
-            "total": 2
+            "total": 3
         }
     },
     {
@@ -40945,12 +40234,11 @@
             "2->1",
             "3->6",
             "4->2",
-            "5->0"
+            "6->5"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 {
                     "type": "loop",
                     "entry": "0",
@@ -40963,7 +40251,8 @@
                 "2",
                 "1",
                 "3",
-                "6"
+                "6",
+                "5"
             ]
         },
         "max_depth": 2,
@@ -41507,47 +40796,6 @@
         }
     },
     {
-        "id": 905,
-        "scenario": "Put right foot forward",
-        "unordered_nodes": {
-            "0": "affirm intent to walk",
-            "1": "scan the path",
-            "2": "initiate right foot movement",
-            "3": "think about intentions",
-            "4": "find the entrance",
-            "5": "Turn toward building",
-            "6": "Put right foot forward"
-        },
-        "edges": [
-            "3->0",
-            "0->5",
-            "5->4",
-            "4->1",
-            "1->2",
-            "2->6"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "3",
-                "0",
-                "5",
-                "4",
-                "1",
-                "2",
-                "6"
-            ]
-        },
-        "max_depth": 1,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
-        }
-    },
-    {
         "id": 906,
         "scenario": "fill out the application",
         "unordered_nodes": {
@@ -41639,35 +40887,35 @@
             "6": "jot down recipe on paper"
         },
         "edges": [
-            "5->1",
-            "5->3",
-            "5->4",
-            "1->2",
             "3->2",
-            "4->2",
-            "2->0",
-            "0->6"
+            "2->1",
+            "2->4",
+            "2->5",
+            "1->0",
+            "0->6",
+            "4->6",
+            "5->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
+                "3",
+                "2",
                 {
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "1"
+                            "1",
+                            "0"
                         ],
                         "b2": [
-                            "3"
+                            "4"
                         ],
                         "b3": [
-                            "4"
+                            "5"
                         ]
                     }
                 },
-                "2",
-                "0",
                 "6"
             ]
         },
@@ -41693,19 +40941,18 @@
             "6": "start cleaning up room"
         },
         "edges": [
-            "5->0",
-            "0->2",
-            "0->3",
+            "5->2",
+            "5->3",
             "2->4",
             "3->4",
-            "4->1",
+            "4->0",
+            "0->1",
             "1->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "5",
-                "0",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -41718,6 +40965,7 @@
                     }
                 },
                 "4",
+                "0",
                 "1",
                 "6"
             ]
@@ -41897,42 +41145,32 @@
             "6": "coach hands paperwork over"
         },
         "edges": [
-            "0->4",
-            "1->0",
-            "2->0",
             "3->2",
-            "3->1",
-            "4->6",
-            "5->3"
+            "2->1",
+            "1->0",
+            "0->4",
+            "4->5",
+            "5->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "3",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1"
-                        ],
-                        "b2": [
-                            "2"
-                        ]
-                    }
-                },
+                "2",
+                "1",
                 "0",
                 "4",
+                "5",
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -41998,12 +41236,13 @@
             "10": "arrive at car"
         },
         "edges": [
-            "2->7",
-            "7->0",
+            "7->2",
+            "2->0",
             "0->9",
             "9->10",
             "9->5",
-            "5->6",
+            "9->6",
+            "5->9",
             "6->9",
             "10->3",
             "10->4",
@@ -42013,15 +41252,24 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                "2",
                 "7",
+                "2",
                 "0",
                 {
                     "type": "loop",
                     "entry": "9",
                     "retry": [
-                        "5",
-                        "6",
+                        {
+                            "type": "and_join",
+                            "branches_set": {
+                                "b1": [
+                                    "5"
+                                ],
+                                "b2": [
+                                    "6"
+                                ]
+                            }
+                        },
                         "continue"
                     ],
                     "exit": "10"
@@ -42040,13 +41288,13 @@
                 "8"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 1,
-            "and_join": 1,
-            "total": 3
+            "and_join": 2,
+            "total": 4
         }
     },
     {
@@ -42376,30 +41624,25 @@
             "6": "application fully completed"
         },
         "edges": [
-            "0->6",
-            "1->0",
-            "2->1",
-            "3->1",
             "4->2",
-            "5->4",
-            "5->3"
+            "5->2",
+            "2->3",
+            "3->1",
+            "1->0",
+            "0->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "3"
-                        ],
-                        "b2": [
-                            "4",
-                            "2"
-                        ]
-                    }
+                    "type": "select",
+                    "options": [
+                        "4",
+                        "5"
+                    ]
                 },
+                "2",
+                "3",
                 "1",
                 "0",
                 "6"
@@ -42408,9 +41651,9 @@
         "max_depth": 2,
         "type_cnt": {
             "sequence": 1,
-            "select": 0,
+            "select": 1,
             "loop": 0,
-            "and_join": 1,
+            "and_join": 0,
             "total": 2
         }
     },
@@ -42538,8 +41781,8 @@
             "6": "take bags outside"
         },
         "edges": [
-            "5->3",
-            "3->2",
+            "3->5",
+            "5->2",
             "2->0",
             "0->6",
             "6->1",
@@ -42548,8 +41791,8 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "3",
+                "5",
                 "2",
                 "0",
                 "6",
@@ -42579,22 +41822,22 @@
             "6": "laptop in place"
         },
         "edges": [
-            "5->0",
-            "0->3",
+            "0->5",
+            "5->4",
+            "4->3",
             "3->1",
             "1->2",
-            "2->4",
-            "4->6"
+            "2->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "0",
+                "5",
+                "4",
                 "3",
                 "1",
                 "2",
-                "4",
                 "6"
             ]
         },
@@ -43089,18 +42332,18 @@
         },
         "edges": [
             "3->0",
-            "4->3",
-            "4->1",
+            "5->3",
+            "5->1",
             "1->0",
-            "5->4",
+            "4->5",
             "0->2",
             "2->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 "4",
+                "5",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -43517,14 +42760,16 @@
             "7": "finish dressing"
         },
         "edges": [
-            "0->2",
-            "1->4",
+            "6->1",
             "1->0",
-            "2->5",
-            "3->7",
+            "1->2",
+            "1->4",
+            "0->3",
+            "0->5",
+            "2->7",
             "4->7",
-            "5->3",
-            "6->1"
+            "3->7",
+            "5->7"
         ],
         "script_graph": {
             "type": "sequence",
@@ -43536,11 +42781,22 @@
                     "branches_set": {
                         "b1": [
                             "0",
-                            "2",
-                            "5",
-                            "3"
+                            {
+                                "type": "and_join",
+                                "branches_set": {
+                                    "b1": [
+                                        "3"
+                                    ],
+                                    "b2": [
+                                        "5"
+                                    ]
+                                }
+                            }
                         ],
                         "b2": [
+                            "2"
+                        ],
+                        "b3": [
                             "4"
                         ]
                     }
@@ -43548,13 +42804,13 @@
                 "7"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 2,
+            "total": 3
         }
     },
     {
@@ -44690,11 +43946,10 @@
         },
         "edges": [
             "0->2",
-            "1->2",
+            "1->0",
             "2->3",
             "3->6",
             "4->1",
-            "4->0",
             "5->4"
         ],
         "script_graph": {
@@ -44702,29 +43957,20 @@
             "script": [
                 "5",
                 "4",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "1"
-                        ]
-                    }
-                },
+                "1",
+                "0",
                 "2",
                 "3",
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -45020,7 +44266,6 @@
                         ]
                     }
                 },
-                "7",
                 {
                     "type": "loop",
                     "entry": "7",
@@ -45301,12 +44546,12 @@
             "6": "take the elevator down"
         },
         "edges": [
-            "0->3",
-            "1->4",
+            "5->2",
             "2->0",
-            "3->1",
-            "4->6",
-            "5->2"
+            "0->1",
+            "1->4",
+            "4->3",
+            "3->6"
         ],
         "script_graph": {
             "type": "sequence",
@@ -45314,9 +44559,9 @@
                 "5",
                 "2",
                 "0",
-                "3",
                 "1",
                 "4",
+                "3",
                 "6"
             ]
         },
@@ -45784,27 +45029,26 @@
             "6": "step away from couch"
         },
         "edges": [
-            "0->1",
-            "1->2",
-            "2->6",
-            "3->1",
             "4->0",
-            "5->4",
-            "5->3"
+            "0->1",
+            "5->3",
+            "3->1",
+            "1->2",
+            "2->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 {
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "3"
-                        ],
-                        "b2": [
                             "4",
                             "0"
+                        ],
+                        "b2": [
+                            "5",
+                            "3"
                         ]
                     }
                 },
@@ -45877,18 +45121,19 @@
             "7": "correct mistakes in payment fields"
         },
         "edges": [
+            "5->3",
             "3->1",
             "1->0",
             "0->6",
             "6->4",
-            "4->2",
-            "2->5",
             "4->7",
-            "7->4"
+            "7->4",
+            "4->2"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
+                "5",
                 "3",
                 "1",
                 "0",
@@ -45901,8 +45146,7 @@
                         "continue"
                     ],
                     "exit": "2"
-                },
-                "5"
+                }
             ]
         },
         "max_depth": 2,
@@ -45911,60 +45155,6 @@
             "select": 0,
             "loop": 1,
             "and_join": 0,
-            "total": 2
-        }
-    },
-    {
-        "id": 996,
-        "scenario": "add cruise to cart",
-        "unordered_nodes": {
-            "0": "Verify price of cruise",
-            "1": "Review cruise itinerary",
-            "2": "Verify date of cruise",
-            "3": "Verify cabin selected",
-            "4": "Make any adjustments",
-            "5": "add any options",
-            "6": "add cruise to cart"
-        },
-        "edges": [
-            "5->0",
-            "5->2",
-            "5->3",
-            "0->1",
-            "2->1",
-            "3->1",
-            "1->4",
-            "4->6"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "0"
-                        ],
-                        "b2": [
-                            "2"
-                        ],
-                        "b3": [
-                            "3"
-                        ]
-                    }
-                },
-                "1",
-                "4",
-                "6"
-            ]
-        },
-        "max_depth": 2,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 1,
             "total": 2
         }
     },
@@ -46417,42 +45607,32 @@
             "6": "sign into the netflix"
         },
         "edges": [
-            "5->2",
-            "5->4",
-            "2->1",
-            "4->1",
-            "1->3",
+            "5->3",
             "3->0",
-            "0->6"
+            "0->4",
+            "4->2",
+            "2->1",
+            "1->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "5",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "2"
-                        ],
-                        "b2": [
-                            "4"
-                        ]
-                    }
-                },
-                "1",
                 "3",
                 "0",
+                "4",
+                "2",
+                "1",
                 "6"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 0,
+            "total": 1
         }
     },
     {
@@ -46649,7 +45829,7 @@
             "3": "measure out an ingredient",
             "4": "pour the measured ingredient into the bowl",
             "5": "get a spoon",
-            "6": "Follow the recipe to add ingredients together",
+            "6": "prepare to follow the recipe to add ingredients together",
             "8": "take the next ingredient"
         },
         "edges": [
@@ -46762,41 +45942,34 @@
             "7": "arrive at the park entrance"
         },
         "edges": [
-            "0->5",
-            "1->7",
-            "2->3",
-            "3->4",
+            "3->6",
+            "6->2",
+            "2->4",
             "4->0",
+            "0->5",
             "5->1",
-            "6->4",
-            "4->2"
+            "1->7"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
+                "3",
                 "6",
-                {
-                    "type": "loop",
-                    "entry": "4",
-                    "retry": [
-                        "2",
-                        "3",
-                        "continue"
-                    ],
-                    "exit": "0"
-                },
+                "2",
+                "4",
+                "0",
                 "5",
                 "1",
                 "7"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 1,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
-            "loop": 1,
+            "loop": 0,
             "and_join": 0,
-            "total": 2
+            "total": 1
         }
     },
     {
@@ -46846,35 +46019,32 @@
                                 ]
                             }
                         },
-                        "b2": {
-                            "type": "sequence",
-                            "script": [
-                                "5",
-                                {
-                                    "type": "and_join",
-                                    "branches_set": {
-                                        "b1": [
-                                            "0"
-                                        ],
-                                        "b2": [
-                                            "2"
-                                        ]
-                                    }
+                        "b2": [
+                            "5",
+                            {
+                                "type": "and_join",
+                                "branches_set": {
+                                    "b1": [
+                                        "0"
+                                    ],
+                                    "b2": [
+                                        "2"
+                                    ]
                                 }
-                            ]
-                        }
+                            }
+                        ]
                     }
                 },
                 "7"
             ]
         },
-        "max_depth": 2,
+        "max_depth": 3,
         "type_cnt": {
             "sequence": 1,
             "select": 0,
             "loop": 0,
-            "and_join": 1,
-            "total": 2
+            "and_join": 2,
+            "total": 3
         }
     },
     {
@@ -47112,9 +46282,9 @@
             "6": "switch off the engine"
         },
         "edges": [
-            "5->0",
-            "0->3",
-            "3->1",
+            "5->3",
+            "3->0",
+            "0->1",
             "1->2",
             "2->4",
             "4->6"
@@ -47123,8 +46293,8 @@
             "type": "sequence",
             "script": [
                 "5",
-                "0",
                 "3",
+                "0",
                 "1",
                 "2",
                 "4",
@@ -47161,7 +46331,8 @@
             "3->1",
             "3->5",
             "5->2",
-            "6->4"
+            "6->4",
+            "4->3"
         ],
         "script_graph": {
             "type": "sequence",
@@ -47911,44 +47082,6 @@
         }
     },
     {
-        "id": 1039,
-        "scenario": "take a nap on the bed",
-        "unordered_nodes": {
-            "0": "pull back the sheet",
-            "1": "lay down on the bed",
-            "2": "pull back the blanket",
-            "3": "fall asleep on the bed",
-            "4": "fluff up the pillow",
-            "5": "sit on the bed for a little"
-        },
-        "edges": [
-            "5->2",
-            "2->0",
-            "0->4",
-            "4->1",
-            "1->3"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                "2",
-                "0",
-                "4",
-                "1",
-                "3"
-            ]
-        },
-        "max_depth": 1,
-        "type_cnt": {
-            "sequence": 1,
-            "select": 0,
-            "loop": 0,
-            "and_join": 0,
-            "total": 1
-        }
-    },
-    {
         "id": 1040,
         "scenario": "remove plant from temporary planter",
         "unordered_nodes": {
@@ -48667,21 +47800,21 @@
             "5": "ask friends if skills are improving"
         },
         "edges": [
-            "3->4",
-            "4->5",
+            "3->5",
             "5->2",
-            "2->1",
-            "1->0"
+            "2->0",
+            "0->4",
+            "4->1"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "3",
-                "4",
                 "5",
                 "2",
-                "1",
-                "0"
+                "0",
+                "4",
+                "1"
             ]
         },
         "max_depth": 1,
@@ -48853,10 +47986,10 @@
                     "type": "and_join",
                     "branches_set": {
                         "b1": [
-                            "4"
+                            "0"
                         ],
                         "b2": [
-                            "0"
+                            "4"
                         ]
                     }
                 },
@@ -48886,18 +48019,18 @@
             "5": "Walk to car with plant"
         },
         "edges": [
-            "0->1",
+            "5->0",
+            "0->3",
+            "3->1",
             "1->4",
-            "3->0",
-            "4->2",
-            "5->3"
+            "4->2"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "5",
-                "3",
                 "0",
+                "3",
                 "1",
                 "4",
                 "2"
@@ -49637,21 +48770,21 @@
         },
         "edges": [
             "2->3",
-            "3->1",
-            "1->4",
-            "4->0",
-            "0->5",
-            "5->6"
+            "3->5",
+            "5->1",
+            "1->0",
+            "0->4",
+            "4->6"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
                 "2",
                 "3",
-                "1",
-                "4",
-                "0",
                 "5",
+                "1",
+                "0",
+                "4",
                 "6"
             ]
         },
@@ -49728,13 +48861,13 @@
             "6": "Choose a class that fits both criteria"
         },
         "edges": [
-            "1->5",
-            "2->5",
-            "3->5",
-            "5->0",
-            "5->4",
-            "0->6",
-            "4->6"
+            "1->2",
+            "3->2",
+            "2->0",
+            "2->4",
+            "0->5",
+            "4->5",
+            "5->6"
         ],
         "script_graph": {
             "type": "sequence",
@@ -49746,14 +48879,11 @@
                             "1"
                         ],
                         "b2": [
-                            "2"
-                        ],
-                        "b3": [
                             "3"
                         ]
                     }
                 },
-                "5",
+                "2",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -49765,6 +48895,7 @@
                         ]
                     }
                 },
+                "5",
                 "6"
             ]
         },
@@ -49790,18 +48921,16 @@
             "6": "enter credit card info into form"
         },
         "edges": [
-            "5->4",
-            "5->2",
             "4->0",
             "0->3",
             "2->1",
             "1->6",
-            "3->6"
+            "3->6",
+            "6->5"
         ],
         "script_graph": {
             "type": "sequence",
             "script": [
-                "5",
                 {
                     "type": "and_join",
                     "branches_set": {
@@ -49816,7 +48945,8 @@
                         ]
                     }
                 },
-                "6"
+                "6",
+                "5"
             ]
         },
         "max_depth": 2,

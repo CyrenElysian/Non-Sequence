@@ -216,15 +216,15 @@
         "5"
       ]
     },
-    "edges_match": true,
-    "sg_match": true,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1": 1.0,
-    "iou": 1.0,
-    "ged": 0,
-    "e_del": 0,
-    "e_ins": 0
+    "edges_match": false,
+    "sg_match": false,
+    "precision": 0.4,
+    "recall": 0.4,
+    "f1": 0.4000000000000001,
+    "iou": 0.25,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 6,
@@ -1877,13 +1877,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4,
-    "f1": 0.4000000000000001,
-    "iou": 0.25,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "precision": 0.2,
+    "recall": 0.2,
+    "f1": 0.20000000000000004,
+    "iou": 0.1111111111111111,
+    "ged": 8,
+    "e_del": 4,
+    "e_ins": 4
   },
   {
     "id": 42,
@@ -3063,13 +3063,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5714285714285714,
-    "recall": 0.5,
-    "f1": 0.5333333333333333,
-    "iou": 0.36363636363636365,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
+    "precision": 0.8571428571428571,
+    "recall": 0.75,
+    "f1": 0.7999999999999999,
+    "iou": 0.6666666666666666,
+    "ged": 3,
+    "e_del": 1,
+    "e_ins": 2
   },
   {
     "id": 69,
@@ -3606,12 +3606,12 @@
     "edges_match": false,
     "sg_match": false,
     "precision": 0.375,
-    "recall": 0.3,
-    "f1": 0.33333333333333326,
-    "iou": 0.2,
-    "ged": 12,
+    "recall": 0.3333333333333333,
+    "f1": 0.35294117647058826,
+    "iou": 0.21428571428571427,
+    "ged": 11,
     "e_del": 5,
-    "e_ins": 7
+    "e_ins": 6
   },
   {
     "id": 81,
@@ -5700,15 +5700,15 @@
         "7"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.42857142857142855,
-    "recall": 0.375,
-    "f1": 0.39999999999999997,
-    "iou": 0.25,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 128,
@@ -5784,45 +5784,6 @@
     "ged": 0,
     "e_del": 0,
     "e_ins": 0
-  },
-  {
-    "id": 130,
-    "scenario": "try out for cheerleader",
-    "unordered_nodes": {
-      "0": "Memorize a routine",
-      "1": "Practice a routine",
-      "2": "Exercise by stretching",
-      "3": "Produce a massive smile",
-      "4": "Plan a routine",
-      "5": "Complete the tryout"
-    },
-    "edges": [
-      "4->0",
-      "0->2",
-      "2->1",
-      "1->3",
-      "3->5"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "4",
-        "0",
-        "2",
-        "1",
-        "3",
-        "5"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4,
-    "f1": 0.4000000000000001,
-    "iou": 0.25,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
   },
   {
     "id": 131,
@@ -6414,15 +6375,15 @@
         "7"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.875,
-    "recall": 0.875,
-    "f1": 0.875,
-    "iou": 0.7777777777777778,
-    "ged": 2,
-    "e_del": 1,
-    "e_ins": 1
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 144,
@@ -6751,13 +6712,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.45454545454545453,
-    "recall": 0.5555555555555556,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 10,
-    "e_del": 6,
-    "e_ins": 4
+    "precision": 0.6363636363636364,
+    "recall": 0.7777777777777778,
+    "f1": 0.7000000000000001,
+    "iou": 0.5384615384615384,
+    "ged": 6,
+    "e_del": 4,
+    "e_ins": 2
   },
   {
     "id": 151,
@@ -7128,13 +7089,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.42857142857142855,
-    "recall": 0.6,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 6,
-    "e_del": 4,
-    "e_ins": 2
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "f1": 0.8333333333333333,
+    "iou": 0.7142857142857143,
+    "ged": 2,
+    "e_del": 2,
+    "e_ins": 0
   },
   {
     "id": 160,
@@ -8016,58 +7977,6 @@
     "e_ins": 2
   },
   {
-    "id": 180,
-    "scenario": "meet the president",
-    "unordered_nodes": {
-      "0": "Have team members go through background check",
-      "1": "Have team management speak with White House Staff",
-      "2": "Win the Super Bowl",
-      "3": "Have parade in team home town televised",
-      "4": "Schedule date for team to travel to White House",
-      "5": "visit the White House"
-    },
-    "edges": [
-      "2->0",
-      "2->1",
-      "2->3",
-      "0->4",
-      "1->4",
-      "3->4",
-      "4->5"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "2",
-        {
-          "type": "and_join",
-          "branches_set": {
-            "b1": [
-              "0"
-            ],
-            "b2": [
-              "1"
-            ],
-            "b3": [
-              "3"
-            ]
-          }
-        },
-        "4",
-        "5"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.42857142857142855,
-    "recall": 0.6,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 6,
-    "e_del": 4,
-    "e_ins": 2
-  },
-  {
     "id": 181,
     "scenario": "sprint for the school's track team",
     "unordered_nodes": {
@@ -8159,15 +8068,15 @@
         "5"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
+    "edges_match": true,
+    "sg_match": true,
     "precision": 1.0,
-    "recall": 0.8888888888888888,
-    "f1": 0.9411764705882353,
-    "iou": 0.8888888888888888,
-    "ged": 1,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
     "e_del": 0,
-    "e_ins": 1
+    "e_ins": 0
   },
   {
     "id": 183,
@@ -8549,15 +8458,15 @@
         "5"
       ]
     },
-    "edges_match": true,
-    "sg_match": true,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1": 1.0,
-    "iou": 1.0,
-    "ged": 0,
-    "e_del": 0,
-    "e_ins": 0
+    "edges_match": false,
+    "sg_match": false,
+    "precision": 0.4,
+    "recall": 0.4,
+    "f1": 0.4000000000000001,
+    "iou": 0.25,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 192,
@@ -10825,12 +10734,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4,
-    "f1": 0.4000000000000001,
-    "iou": 0.25,
-    "ged": 6,
-    "e_del": 3,
+    "precision": 0.2,
+    "recall": 0.25,
+    "f1": 0.22222222222222224,
+    "iou": 0.125,
+    "ged": 7,
+    "e_del": 4,
     "e_ins": 3
   },
   {
@@ -11644,15 +11553,15 @@
         "5"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.75,
-    "recall": 0.75,
-    "f1": 0.75,
-    "iou": 0.6,
-    "ged": 4,
-    "e_del": 2,
-    "e_ins": 2
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 261,
@@ -11785,13 +11694,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.2857142857142857,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1": 0.5714285714285715,
+    "iou": 0.4,
+    "ged": 6,
+    "e_del": 2,
+    "e_ins": 4
   },
   {
     "id": 264,
@@ -11940,13 +11849,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4444444444444444,
-    "recall": 0.4444444444444444,
-    "f1": 0.4444444444444444,
-    "iou": 0.2857142857142857,
-    "ged": 10,
-    "e_del": 5,
-    "e_ins": 5
+    "precision": 0.5555555555555556,
+    "recall": 0.625,
+    "f1": 0.5882352941176471,
+    "iou": 0.4166666666666667,
+    "ged": 7,
+    "e_del": 4,
+    "e_ins": 3
   },
   {
     "id": 267,
@@ -12196,13 +12105,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4,
-    "f1": 0.4000000000000001,
-    "iou": 0.25,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "precision": 0.6,
+    "recall": 0.6,
+    "f1": 0.6,
+    "iou": 0.42857142857142855,
+    "ged": 4,
+    "e_del": 2,
+    "e_ins": 2
   },
   {
     "id": 273,
@@ -12774,14 +12683,14 @@
         "7"
       ]
     },
-    "edges_match": true,
-    "sg_match": true,
-    "precision": 1.0,
+    "edges_match": false,
+    "sg_match": false,
+    "precision": 0.875,
     "recall": 1.0,
-    "f1": 1.0,
-    "iou": 1.0,
-    "ged": 0,
-    "e_del": 0,
+    "f1": 0.9333333333333333,
+    "iou": 0.875,
+    "ged": 1,
+    "e_del": 1,
     "e_ins": 0
   },
   {
@@ -13377,51 +13286,6 @@
     "iou": 0.4,
     "ged": 6,
     "e_del": 2,
-    "e_ins": 4
-  },
-  {
-    "id": 300,
-    "scenario": "play soccer in a league",
-    "unordered_nodes": {
-      "0": "contact one of the leagues",
-      "1": "drive to location",
-      "2": "sign up through the website",
-      "3": "search top leagues in the area",
-      "4": "suit up for the game",
-      "5": "play soccer in a league"
-    },
-    "edges": [
-      "3->0",
-      "3->2",
-      "0->1",
-      "2->1",
-      "1->4",
-      "4->5"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "3",
-        {
-          "type": "select",
-          "options": [
-            "0",
-            "2"
-          ]
-        },
-        "1",
-        "4",
-        "5"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.3333333333333333,
-    "f1": 0.3333333333333333,
-    "iou": 0.2,
-    "ged": 8,
-    "e_del": 4,
     "e_ins": 4
   },
   {
@@ -14134,13 +13998,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.3333333333333333,
-    "f1": 0.3636363636363636,
-    "iou": 0.2222222222222222,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou": 0.0,
+    "ged": 12,
+    "e_del": 5,
+    "e_ins": 7
   },
   {
     "id": 318,
@@ -14542,13 +14406,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.42857142857142855,
-    "f1": 0.4615384615384615,
-    "iou": 0.3,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
+    "precision": 0.6666666666666666,
+    "recall": 0.5714285714285714,
+    "f1": 0.6153846153846153,
+    "iou": 0.4444444444444444,
+    "ged": 5,
+    "e_del": 2,
+    "e_ins": 3
   },
   {
     "id": 328,
@@ -14594,12 +14458,12 @@
     "edges_match": false,
     "sg_match": false,
     "precision": 0.625,
-    "recall": 0.5555555555555556,
-    "f1": 0.5882352941176471,
-    "iou": 0.4166666666666667,
-    "ged": 7,
+    "recall": 0.5,
+    "f1": 0.5555555555555556,
+    "iou": 0.38461538461538464,
+    "ged": 8,
     "e_del": 3,
-    "e_ins": 4
+    "e_ins": 5
   },
   {
     "id": 329,
@@ -14838,15 +14702,15 @@
         "5"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.2,
-    "recall": 0.16666666666666666,
-    "f1": 0.1818181818181818,
-    "iou": 0.1,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 335,
@@ -16286,12 +16150,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4,
-    "f1": 0.4000000000000001,
-    "iou": 0.25,
-    "ged": 6,
-    "e_del": 3,
+    "precision": 0.2,
+    "recall": 0.25,
+    "f1": 0.22222222222222224,
+    "iou": 0.125,
+    "ged": 7,
+    "e_del": 4,
     "e_ins": 3
   },
   {
@@ -17945,13 +17809,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.3333333333333333,
-    "f1": 0.3333333333333333,
-    "iou": 0.2,
-    "ged": 8,
-    "e_del": 4,
-    "e_ins": 4
+    "precision": 0.5,
+    "recall": 0.6,
+    "f1": 0.5454545454545454,
+    "iou": 0.375,
+    "ged": 5,
+    "e_del": 3,
+    "e_ins": 2
   },
   {
     "id": 404,
@@ -18088,13 +17952,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4,
-    "f1": 0.4000000000000001,
-    "iou": 0.25,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou": 0.0,
+    "ged": 9,
+    "e_del": 5,
+    "e_ins": 4
   },
   {
     "id": 407,
@@ -18696,13 +18560,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.6666666666666666,
-    "recall": 0.5714285714285714,
-    "f1": 0.6153846153846153,
-    "iou": 0.4444444444444444,
-    "ged": 5,
-    "e_del": 2,
-    "e_ins": 3
+    "precision": 0.8333333333333334,
+    "recall": 0.8333333333333334,
+    "f1": 0.8333333333333334,
+    "iou": 0.7142857142857143,
+    "ged": 2,
+    "e_del": 1,
+    "e_ins": 1
   },
   {
     "id": 420,
@@ -18933,15 +18797,15 @@
         "6"
       ]
     },
-    "edges_match": true,
-    "sg_match": true,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1": 1.0,
-    "iou": 1.0,
-    "ged": 0,
-    "e_del": 0,
-    "e_ins": 0
+    "edges_match": false,
+    "sg_match": false,
+    "precision": 0.3333333333333333,
+    "recall": 0.4,
+    "f1": 0.3636363636363636,
+    "iou": 0.2222222222222222,
+    "ged": 7,
+    "e_del": 4,
+    "e_ins": 3
   },
   {
     "id": 425,
@@ -19420,12 +19284,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.2,
-    "recall": 0.16666666666666666,
-    "f1": 0.1818181818181818,
-    "iou": 0.1,
-    "ged": 9,
-    "e_del": 4,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou": 0.0,
+    "ged": 10,
+    "e_del": 5,
     "e_ins": 5
   },
   {
@@ -19582,48 +19446,6 @@
     "ged": 0,
     "e_del": 0,
     "e_ins": 0
-  },
-  {
-    "id": 438,
-    "scenario": "choose a camping spot",
-    "unordered_nodes": {
-      "0": "search for camping options",
-      "1": "decide the fun activity",
-      "2": "select a desirable option",
-      "3": "book the camping site",
-      "4": "decide on camping",
-      "5": "look online for a camping spot",
-      "6": "choose a camping spot"
-    },
-    "edges": [
-      "4->1",
-      "1->0",
-      "0->5",
-      "5->2",
-      "2->3",
-      "3->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "4",
-        "1",
-        "0",
-        "5",
-        "2",
-        "3",
-        "6"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.2857142857142857,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
   },
   {
     "id": 439,
@@ -20149,12 +19971,12 @@
     "edges_match": false,
     "sg_match": false,
     "precision": 0.3333333333333333,
-    "recall": 0.42857142857142855,
-    "f1": 0.375,
-    "iou": 0.23076923076923078,
-    "ged": 10,
+    "recall": 0.5,
+    "f1": 0.4,
+    "iou": 0.25,
+    "ged": 9,
     "e_del": 6,
-    "e_ins": 4
+    "e_ins": 3
   },
   {
     "id": 451,
@@ -20731,15 +20553,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.7,
-    "recall": 0.7,
-    "f1": 0.7,
-    "iou": 0.5384615384615384,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 464,
@@ -20785,15 +20607,15 @@
         "7"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.8888888888888888,
-    "recall": 0.8,
-    "f1": 0.8421052631578948,
-    "iou": 0.7272727272727273,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 465,
@@ -21293,13 +21115,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.5714285714285714,
-    "f1": 0.5333333333333333,
-    "iou": 0.36363636363636365,
-    "ged": 7,
-    "e_del": 4,
-    "e_ins": 3
+    "precision": 0.75,
+    "recall": 0.8571428571428571,
+    "f1": 0.7999999999999999,
+    "iou": 0.6666666666666666,
+    "ged": 3,
+    "e_del": 2,
+    "e_ins": 1
   },
   {
     "id": 476,
@@ -21335,13 +21157,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.8333333333333334,
-    "recall": 0.7142857142857143,
-    "f1": 0.7692307692307692,
-    "iou": 0.625,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1": 0.5714285714285715,
+    "iou": 0.4,
+    "ged": 6,
+    "e_del": 2,
+    "e_ins": 4
   },
   {
     "id": 477,
@@ -21542,48 +21364,6 @@
     "e_ins": 3
   },
   {
-    "id": 481,
-    "scenario": "type the message",
-    "unordered_nodes": {
-      "0": "choose contact to compose message",
-      "1": "sign in to message application",
-      "2": "click on the contact name",
-      "3": "click on compose message",
-      "4": "scroll through list of contacts",
-      "5": "open the message application",
-      "6": "type the message"
-    },
-    "edges": [
-      "5->1",
-      "1->3",
-      "3->4",
-      "4->2",
-      "2->0",
-      "0->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "5",
-        "1",
-        "3",
-        "4",
-        "2",
-        "0",
-        "6"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.16666666666666666,
-    "recall": 0.16666666666666666,
-    "f1": 0.16666666666666666,
-    "iou": 0.09090909090909091,
-    "ged": 10,
-    "e_del": 5,
-    "e_ins": 5
-  },
-  {
     "id": 482,
     "scenario": "Plan a routine",
     "unordered_nodes": {
@@ -21669,13 +21449,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.4,
-    "f1": 0.4444444444444445,
-    "iou": 0.2857142857142857,
-    "ged": 5,
-    "e_del": 2,
-    "e_ins": 3
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou": 0.0,
+    "ged": 8,
+    "e_del": 4,
+    "e_ins": 4
   },
   {
     "id": 484,
@@ -22997,69 +22777,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4444444444444444,
-    "f1": 0.4210526315789474,
-    "iou": 0.26666666666666666,
-    "ged": 11,
-    "e_del": 6,
-    "e_ins": 5
-  },
-  {
-    "id": 515,
-    "scenario": "enter building through door",
-    "unordered_nodes": {
-      "0": "look through door to see inside",
-      "1": "peer through opening",
-      "2": "use shoulder to push door open",
-      "3": "take step inside building",
-      "4": "reach out with hand to try opening door",
-      "5": "locate an unlocked door",
-      "6": "walk to hospital door",
-      "7": "close the door behind"
-    },
-    "edges": [
-      "5->6",
-      "6->0",
-      "0->2",
-      "0->4",
-      "4->1",
-      "1->3",
-      "2->3",
-      "3->7"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "5",
-        "6",
-        "0",
-        {
-          "type": "select",
-          "options": [
-            "2",
-            {
-              "type": "sequence",
-              "script": [
-                "4",
-                "1"
-              ]
-            }
-          ]
-        },
-        "3",
-        "7"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.625,
-    "recall": 0.625,
-    "f1": 0.625,
-    "iou": 0.45454545454545453,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "precision": 0.9,
+    "recall": 0.9,
+    "f1": 0.9,
+    "iou": 0.8181818181818182,
+    "ged": 2,
+    "e_del": 1,
+    "e_ins": 1
   },
   {
     "id": 516,
@@ -23926,12 +23650,12 @@
     "edges_match": false,
     "sg_match": false,
     "precision": 0.8333333333333334,
-    "recall": 0.8333333333333334,
-    "f1": 0.8333333333333334,
-    "iou": 0.7142857142857143,
-    "ged": 2,
+    "recall": 0.7142857142857143,
+    "f1": 0.7692307692307692,
+    "iou": 0.625,
+    "ged": 3,
     "e_del": 1,
-    "e_ins": 1
+    "e_ins": 2
   },
   {
     "id": 535,
@@ -24121,12 +23845,12 @@
     "edges_match": false,
     "sg_match": false,
     "precision": 0.3333333333333333,
-    "recall": 0.2857142857142857,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
+    "recall": 0.4,
+    "f1": 0.3636363636363636,
+    "iou": 0.2222222222222222,
+    "ged": 7,
     "e_del": 4,
-    "e_ins": 5
+    "e_ins": 3
   },
   {
     "id": 539,
@@ -24899,13 +24623,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.2,
-    "recall": 0.16666666666666666,
-    "f1": 0.1818181818181818,
-    "iou": 0.1,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.4,
+    "recall": 0.4,
+    "f1": 0.4000000000000001,
+    "iou": 0.25,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 556,
@@ -25381,15 +25105,15 @@
         "5"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
+    "edges_match": true,
+    "sg_match": true,
     "precision": 1.0,
-    "recall": 0.8571428571428571,
-    "f1": 0.923076923076923,
-    "iou": 0.8571428571428571,
-    "ged": 1,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
     "e_del": 0,
-    "e_ins": 1
+    "e_ins": 0
   },
   {
     "id": 566,
@@ -25428,13 +25152,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.7142857142857143,
-    "recall": 0.7142857142857143,
-    "f1": 0.7142857142857143,
-    "iou": 0.5555555555555556,
-    "ged": 4,
-    "e_del": 2,
-    "e_ins": 2
+    "precision": 0.5714285714285714,
+    "recall": 0.5714285714285714,
+    "f1": 0.5714285714285714,
+    "iou": 0.4,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 567,
@@ -25777,15 +25501,15 @@
         "2"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.25,
-    "recall": 0.25,
-    "f1": 0.25,
-    "iou": 0.14285714285714285,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 575,
@@ -25912,48 +25636,6 @@
     "ged": 6,
     "e_del": 3,
     "e_ins": 3
-  },
-  {
-    "id": 578,
-    "scenario": "Click confirm to process amount from bank account",
-    "unordered_nodes": {
-      "0": "input payment amount on website",
-      "1": "decide whether to pay full or half",
-      "2": "double check have money in bank",
-      "3": "look at past due payment amount",
-      "4": "calculate if enough for payment",
-      "5": "Input rental amount owed",
-      "6": "Click confirm to process amount from bank account"
-    },
-    "edges": [
-      "5->3",
-      "3->2",
-      "2->1",
-      "1->0",
-      "0->4",
-      "4->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "5",
-        "3",
-        "2",
-        "1",
-        "0",
-        "4",
-        "6"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.8333333333333334,
-    "recall": 0.7142857142857143,
-    "f1": 0.7692307692307692,
-    "iou": 0.625,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
   },
   {
     "id": 579,
@@ -26510,15 +26192,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.8333333333333334,
-    "recall": 0.9090909090909091,
-    "f1": 0.8695652173913043,
-    "iou": 0.7692307692307693,
-    "ged": 3,
-    "e_del": 2,
-    "e_ins": 1
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 591,
@@ -26641,13 +26323,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.5,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "precision": 0.3333333333333333,
+    "recall": 0.3333333333333333,
+    "f1": 0.3333333333333333,
+    "iou": 0.2,
+    "ged": 8,
+    "e_del": 4,
+    "e_ins": 4
   },
   {
     "id": 594,
@@ -26683,13 +26365,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.3333333333333333,
-    "f1": 0.3333333333333333,
-    "iou": 0.2,
-    "ged": 8,
-    "e_del": 4,
-    "e_ins": 4
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5,
+    "iou": 0.3333333333333333,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 595,
@@ -27316,13 +26998,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.5,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "precision": 0.8333333333333334,
+    "recall": 0.7142857142857143,
+    "f1": 0.7692307692307692,
+    "iou": 0.625,
+    "ged": 3,
+    "e_del": 1,
+    "e_ins": 2
   },
   {
     "id": 609,
@@ -27571,15 +27253,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.2857142857142857,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 615,
@@ -27857,13 +27539,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.375,
-    "recall": 0.42857142857142855,
-    "f1": 0.39999999999999997,
-    "iou": 0.25,
+    "precision": 0.5,
+    "recall": 0.4444444444444444,
+    "f1": 0.47058823529411764,
+    "iou": 0.3076923076923077,
     "ged": 9,
-    "e_del": 5,
-    "e_ins": 4
+    "e_del": 4,
+    "e_ins": 5
   },
   {
     "id": 621,
@@ -28102,13 +27784,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.6,
-    "f1": 0.5454545454545454,
-    "iou": 0.375,
-    "ged": 5,
-    "e_del": 3,
-    "e_ins": 2
+    "precision": 0.16666666666666666,
+    "recall": 0.2,
+    "f1": 0.1818181818181818,
+    "iou": 0.1,
+    "ged": 9,
+    "e_del": 5,
+    "e_ins": 4
   },
   {
     "id": 626,
@@ -28725,13 +28407,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.8571428571428571,
-    "recall": 0.75,
-    "f1": 0.7999999999999999,
-    "iou": 0.6666666666666666,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
+    "precision": 0.42857142857142855,
+    "recall": 0.375,
+    "f1": 0.39999999999999997,
+    "iou": 0.25,
+    "ged": 9,
+    "e_del": 4,
+    "e_ins": 5
   },
   {
     "id": 640,
@@ -29068,13 +28750,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.2,
-    "recall": 0.16666666666666666,
-    "f1": 0.1818181818181818,
-    "iou": 0.1,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.4,
+    "recall": 0.3333333333333333,
+    "f1": 0.3636363636363636,
+    "iou": 0.2222222222222222,
+    "ged": 7,
+    "e_del": 3,
+    "e_ins": 4
   },
   {
     "id": 648,
@@ -30235,13 +29917,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "iou": 0.0,
-    "ged": 13,
-    "e_del": 7,
-    "e_ins": 6
+    "precision": 0.5714285714285714,
+    "recall": 0.5714285714285714,
+    "f1": 0.5714285714285714,
+    "iou": 0.4,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 673,
@@ -30772,13 +30454,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.25,
-    "recall": 0.3333333333333333,
-    "f1": 0.28571428571428575,
-    "iou": 0.16666666666666666,
-    "ged": 10,
-    "e_del": 6,
-    "e_ins": 4
+    "precision": 0.625,
+    "recall": 1.0,
+    "f1": 0.7692307692307693,
+    "iou": 0.625,
+    "ged": 3,
+    "e_del": 3,
+    "e_ins": 0
   },
   {
     "id": 684,
@@ -31451,13 +31133,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.875,
-    "recall": 0.875,
-    "f1": 0.875,
-    "iou": 0.7777777777777778,
-    "ged": 2,
-    "e_del": 1,
-    "e_ins": 1
+    "precision": 0.5,
+    "recall": 0.5714285714285714,
+    "f1": 0.5333333333333333,
+    "iou": 0.36363636363636365,
+    "ged": 7,
+    "e_del": 4,
+    "e_ins": 3
   },
   {
     "id": 699,
@@ -31653,15 +31335,15 @@
         "5"
       ]
     },
-    "edges_match": true,
-    "sg_match": true,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1": 1.0,
-    "iou": 1.0,
-    "ged": 0,
-    "e_del": 0,
-    "e_ins": 0
+    "edges_match": false,
+    "sg_match": false,
+    "precision": 0.4,
+    "recall": 0.4,
+    "f1": 0.4000000000000001,
+    "iou": 0.25,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 704,
@@ -32249,54 +31931,6 @@
     "e_ins": 0
   },
   {
-    "id": 715,
-    "scenario": "walk to train to ride",
-    "unordered_nodes": {
-      "0": "Lift left leg off the ground",
-      "1": "Lift right leg off the ground",
-      "2": "Identify the location of the train stop",
-      "3": "Extend left leg in direction of the train stop",
-      "4": "Extend right leg in direction of the train stop",
-      "6": "pay for ticket",
-      "7": "walk to train to ride",
-      "8": "standing at the train stop",
-      "9": "reach train stop"
-    },
-    "edges": [
-      "2->0",
-      "0->3",
-      "3->1",
-      "1->4",
-      "4->9",
-      "9->8",
-      "8->6",
-      "6->7"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "2",
-        "0",
-        "3",
-        "1",
-        "4",
-        "9",
-        "8",
-        "6",
-        "7"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.4444444444444444,
-    "f1": 0.47058823529411764,
-    "iou": 0.3076923076923077,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
-  },
-  {
     "id": 716,
     "scenario": "Be the best runner on the team",
     "unordered_nodes": {
@@ -32554,13 +32188,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.42857142857142855,
-    "recall": 0.375,
-    "f1": 0.39999999999999997,
-    "iou": 0.25,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.5714285714285714,
+    "recall": 0.36363636363636365,
+    "f1": 0.4444444444444444,
+    "iou": 0.2857142857142857,
+    "ged": 10,
+    "e_del": 3,
+    "e_ins": 7
   },
   {
     "id": 722,
@@ -32703,65 +32337,6 @@
     "e_ins": 2
   },
   {
-    "id": 725,
-    "scenario": "Plan where to go",
-    "unordered_nodes": {
-      "0": "look at the forecast",
-      "1": "check the hours of availability",
-      "2": "look for locations that provide the activity",
-      "3": "call in advance to get necessary information",
-      "4": "decide what looks fun for the day",
-      "6": "review availability of the location"
-    },
-    "edges": [
-      "4->0",
-      "4->2",
-      "2->1",
-      "2->6",
-      "0->3",
-      "1->3",
-      "6->3"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "4",
-        {
-          "type": "and_join",
-          "branches_set": {
-            "b1": [
-              "0"
-            ],
-            "b2": [
-              "2",
-              {
-                "type": "and_join",
-                "branches_set": {
-                  "b1": [
-                    "1"
-                  ],
-                  "b2": [
-                    "6"
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        "3"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.42857142857142855,
-    "recall": 0.6,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 6,
-    "e_del": 4,
-    "e_ins": 2
-  },
-  {
     "id": 726,
     "scenario": "choose a place that sells mopeds",
     "unordered_nodes": {
@@ -32802,55 +32377,6 @@
     "ged": 9,
     "e_del": 4,
     "e_ins": 5
-  },
-  {
-    "id": 727,
-    "scenario": "sort courses by languages taught",
-    "unordered_nodes": {
-      "0": "Double check work when completed",
-      "1": "Pick out best available help tools",
-      "2": "Use the tools for better efficiency",
-      "3": "Periodically check for mistakes",
-      "4": "Separate each language from the others",
-      "5": "identify the target languages for sorting",
-      "6": "sort courses by languages taught"
-    },
-    "edges": [
-      "5->1",
-      "1->2",
-      "2->4",
-      "4->6",
-      "6->3",
-      "3->6",
-      "6->0"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "5",
-        "1",
-        "2",
-        "4",
-        {
-          "type": "loop",
-          "entry": "6",
-          "retry": [
-            "3",
-            "continue"
-          ],
-          "exit": "0"
-        }
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.2857142857142857,
-    "recall": 0.3333333333333333,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
-    "e_del": 5,
-    "e_ins": 4
   },
   {
     "id": 728,
@@ -33562,13 +33088,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.2857142857142857,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1": 0.5714285714285715,
+    "iou": 0.4,
+    "ged": 6,
+    "e_del": 2,
+    "e_ins": 4
   },
   {
     "id": 744,
@@ -33880,13 +33406,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.42857142857142855,
-    "f1": 0.4615384615384615,
-    "iou": 0.3,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
+    "precision": 0.16666666666666666,
+    "recall": 0.14285714285714285,
+    "f1": 0.15384615384615383,
+    "iou": 0.08333333333333333,
+    "ged": 11,
+    "e_del": 5,
+    "e_ins": 6
   },
   {
     "id": 751,
@@ -35439,61 +34965,6 @@
     "e_ins": 0
   },
   {
-    "id": 785,
-    "scenario": "narrow down the choices",
-    "unordered_nodes": {
-      "0": "decide criteria for best reviews",
-      "1": "find best reviews by criteria",
-      "2": "choose the best reviews",
-      "3": "sort out the best reviews",
-      "4": "decide how many reviews to narrow down to",
-      "5": "read reviews about the store",
-      "6": "decisions narrowed down",
-      "7": "review the narrowed list"
-    },
-    "edges": [
-      "5->0",
-      "5->4",
-      "0->1",
-      "4->1",
-      "1->3",
-      "3->2",
-      "2->7",
-      "7->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "5",
-        {
-          "type": "and_join",
-          "branches_set": {
-            "b1": [
-              "0"
-            ],
-            "b2": [
-              "4"
-            ]
-          }
-        },
-        "1",
-        "3",
-        "2",
-        "7",
-        "6"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.625,
-    "recall": 0.5555555555555556,
-    "f1": 0.5882352941176471,
-    "iou": 0.4166666666666667,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
-  },
-  {
     "id": 786,
     "scenario": "read the revised draft",
     "unordered_nodes": {
@@ -36487,12 +35958,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.5,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 8,
-    "e_del": 4,
+    "precision": 0.625,
+    "recall": 0.5555555555555556,
+    "f1": 0.5882352941176471,
+    "iou": 0.4166666666666667,
+    "ged": 7,
+    "e_del": 3,
     "e_ins": 4
   },
   {
@@ -36913,45 +36384,6 @@
     "e_ins": 3
   },
   {
-    "id": 817,
-    "scenario": "make a preliminary design",
-    "unordered_nodes": {
-      "0": "read important info",
-      "1": "sketch a mental outline",
-      "2": "write down design",
-      "3": "review notes and adjust",
-      "4": "take notes as needed",
-      "5": "look up more information"
-    },
-    "edges": [
-      "0->5",
-      "5->4",
-      "4->1",
-      "1->2",
-      "2->3"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "0",
-        "5",
-        "4",
-        "1",
-        "2",
-        "3"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.3333333333333333,
-    "f1": 0.3636363636363636,
-    "iou": 0.2222222222222222,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
-  },
-  {
     "id": 818,
     "scenario": "pull into parking lot",
     "unordered_nodes": {
@@ -36985,12 +36417,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.42857142857142855,
-    "f1": 0.4615384615384615,
-    "iou": 0.3,
-    "ged": 7,
-    "e_del": 3,
+    "precision": 0.3333333333333333,
+    "recall": 0.3333333333333333,
+    "f1": 0.3333333333333333,
+    "iou": 0.2,
+    "ged": 8,
+    "e_del": 4,
     "e_ins": 4
   },
   {
@@ -37217,12 +36649,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.42857142857142855,
-    "recall": 0.375,
-    "f1": 0.39999999999999997,
-    "iou": 0.25,
-    "ged": 9,
-    "e_del": 4,
+    "precision": 0.5714285714285714,
+    "recall": 0.4444444444444444,
+    "f1": 0.5,
+    "iou": 0.3333333333333333,
+    "ged": 8,
+    "e_del": 3,
     "e_ins": 5
   },
   {
@@ -37315,13 +36747,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.4444444444444444,
-    "f1": 0.47058823529411764,
-    "iou": 0.3076923076923077,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.75,
+    "recall": 0.6666666666666666,
+    "f1": 0.7058823529411765,
+    "iou": 0.5454545454545454,
+    "ged": 5,
+    "e_del": 2,
+    "e_ins": 3
   },
   {
     "id": 826,
@@ -38403,12 +37835,12 @@
     "edges_match": false,
     "sg_match": false,
     "precision": 0.4,
-    "recall": 0.4444444444444444,
-    "f1": 0.4210526315789474,
-    "iou": 0.26666666666666666,
-    "ged": 11,
+    "recall": 0.5,
+    "f1": 0.4444444444444445,
+    "iou": 0.2857142857142857,
+    "ged": 10,
     "e_del": 6,
-    "e_ins": 5
+    "e_ins": 4
   },
   {
     "id": 851,
@@ -38543,51 +37975,6 @@
     "e_ins": 2
   },
   {
-    "id": 854,
-    "scenario": "write the last activity",
-    "unordered_nodes": {
-      "0": "think how to do a fourth activity",
-      "1": "write the activity down",
-      "2": "sharpen broken lead pencil",
-      "3": "think about the next activity logically",
-      "4": "write the third activity down",
-      "5": "listen to a colleague about the final wrap up",
-      "6": "write down activity 2",
-      "7": "write the last activity"
-    },
-    "edges": [
-      "2->3",
-      "3->6",
-      "6->4",
-      "4->0",
-      "0->1",
-      "1->5",
-      "5->7"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "2",
-        "3",
-        "6",
-        "4",
-        "0",
-        "1",
-        "5",
-        "7"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.2857142857142857,
-    "recall": 0.2857142857142857,
-    "f1": 0.2857142857142857,
-    "iou": 0.16666666666666666,
-    "ged": 10,
-    "e_del": 5,
-    "e_ins": 5
-  },
-  {
     "id": 855,
     "scenario": "practice running techniques",
     "unordered_nodes": {
@@ -38660,13 +38047,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.3333333333333333,
-    "f1": 0.3636363636363636,
-    "iou": 0.2222222222222222,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
+    "precision": 0.6,
+    "recall": 0.6,
+    "f1": 0.6,
+    "iou": 0.42857142857142855,
+    "ged": 4,
+    "e_del": 2,
+    "e_ins": 2
   },
   {
     "id": 857,
@@ -38868,13 +38255,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.16666666666666666,
-    "recall": 0.16666666666666666,
-    "f1": 0.16666666666666666,
-    "iou": 0.09090909090909091,
+    "precision": 0.3333333333333333,
+    "recall": 0.25,
+    "f1": 0.28571428571428575,
+    "iou": 0.16666666666666666,
     "ged": 10,
-    "e_del": 5,
-    "e_ins": 5
+    "e_del": 4,
+    "e_ins": 6
   },
   {
     "id": 862,
@@ -39529,13 +38916,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.25,
-    "recall": 0.25,
-    "f1": 0.25,
-    "iou": 0.14285714285714285,
-    "ged": 12,
-    "e_del": 6,
-    "e_ins": 6
+    "precision": 0.375,
+    "recall": 0.375,
+    "f1": 0.375,
+    "iou": 0.23076923076923078,
+    "ged": 10,
+    "e_del": 5,
+    "e_ins": 5
   },
   {
     "id": 876,
@@ -39619,13 +39006,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "iou": 0.0,
-    "ged": 12,
-    "e_del": 6,
-    "e_ins": 6
+    "precision": 0.6666666666666666,
+    "recall": 0.8,
+    "f1": 0.7272727272727272,
+    "iou": 0.5714285714285714,
+    "ged": 3,
+    "e_del": 2,
+    "e_ins": 1
   },
   {
     "id": 878,
@@ -39695,15 +39082,15 @@
         "2"
       ]
     },
-    "edges_match": true,
-    "sg_match": true,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1": 1.0,
-    "iou": 1.0,
-    "ged": 0,
-    "e_del": 0,
-    "e_ins": 0
+    "edges_match": false,
+    "sg_match": false,
+    "precision": 0.4,
+    "recall": 0.4,
+    "f1": 0.4000000000000001,
+    "iou": 0.25,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 881,
@@ -40086,55 +39473,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.8333333333333334,
-    "recall": 0.7142857142857143,
-    "f1": 0.7692307692307692,
-    "iou": 0.625,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
-  },
-  {
-    "id": 889,
-    "scenario": "put parking pass in window",
-    "unordered_nodes": {
-      "0": "grab parking pass",
-      "1": "put hand on parking pass",
-      "2": "find a spot",
-      "3": "move pass towards open spot",
-      "4": "look for spot on window",
-      "5": "get a parking pass",
-      "6": "put parking pass in window"
-    },
-    "edges": [
-      "5->4",
-      "4->2",
-      "2->1",
-      "1->0",
-      "0->3",
-      "3->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "5",
-        "4",
-        "2",
-        "1",
-        "0",
-        "3",
-        "6"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.8333333333333334,
-    "recall": 0.7142857142857143,
-    "f1": 0.7692307692307692,
-    "iou": 0.625,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1": 0.5714285714285715,
+    "iou": 0.4,
+    "ged": 6,
+    "e_del": 2,
+    "e_ins": 4
   },
   {
     "id": 890,
@@ -40789,48 +40134,6 @@
     "e_ins": 1
   },
   {
-    "id": 905,
-    "scenario": "Put right foot forward",
-    "unordered_nodes": {
-      "0": "affirm intent to walk",
-      "1": "scan the path",
-      "2": "initiate right foot movement",
-      "3": "think about intentions",
-      "4": "find the entrance",
-      "5": "Turn toward building",
-      "6": "Put right foot forward"
-    },
-    "edges": [
-      "3->0",
-      "0->1",
-      "1->4",
-      "4->5",
-      "5->2",
-      "2->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "3",
-        "0",
-        "1",
-        "4",
-        "5",
-        "2",
-        "6"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.3333333333333333,
-    "f1": 0.3333333333333333,
-    "iou": 0.2,
-    "ged": 8,
-    "e_del": 4,
-    "e_ins": 4
-  },
-  {
     "id": 906,
     "scenario": "fill out the application",
     "unordered_nodes": {
@@ -40956,15 +40259,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.25,
-    "recall": 0.25,
-    "f1": 0.25,
-    "iou": 0.14285714285714285,
-    "ged": 12,
-    "e_del": 6,
-    "e_ins": 6
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 909,
@@ -41000,13 +40303,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.8333333333333334,
-    "recall": 0.7142857142857143,
-    "f1": 0.7692307692307692,
-    "iou": 0.625,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
+    "precision": 0.3333333333333333,
+    "recall": 0.2857142857142857,
+    "f1": 0.30769230769230765,
+    "iou": 0.18181818181818182,
+    "ged": 9,
+    "e_del": 4,
+    "e_ins": 5
   },
   {
     "id": 910,
@@ -41198,13 +40501,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.42857142857142855,
-    "f1": 0.4615384615384615,
-    "iou": 0.3,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1": 0.6666666666666666,
+    "iou": 0.5,
+    "ged": 4,
+    "e_del": 2,
+    "e_ins": 2
   },
   {
     "id": 914,
@@ -41298,12 +40601,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3,
-    "recall": 0.2727272727272727,
-    "f1": 0.28571428571428564,
-    "iou": 0.16666666666666666,
-    "ged": 15,
-    "e_del": 7,
+    "precision": 0.4,
+    "recall": 0.3333333333333333,
+    "f1": 0.3636363636363636,
+    "iou": 0.2222222222222222,
+    "ged": 14,
+    "e_del": 6,
     "e_ins": 8
   },
   {
@@ -41648,13 +40951,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.2857142857142857,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou": 0.0,
+    "ged": 12,
+    "e_del": 6,
+    "e_ins": 6
   },
   {
     "id": 923,
@@ -41804,15 +41107,15 @@
         "4"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.6666666666666666,
-    "recall": 0.6666666666666666,
-    "f1": 0.6666666666666666,
-    "iou": 0.5,
-    "ged": 4,
-    "e_del": 2,
-    "e_ins": 2
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 926,
@@ -41848,13 +41151,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "iou": 0.0,
-    "ged": 12,
-    "e_del": 6,
-    "e_ins": 6
+    "precision": 0.3333333333333333,
+    "recall": 0.3333333333333333,
+    "f1": 0.3333333333333333,
+    "iou": 0.2,
+    "ged": 8,
+    "e_del": 4,
+    "e_ins": 4
   },
   {
     "id": 927,
@@ -42770,13 +42073,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.375,
-    "f1": 0.35294117647058826,
-    "iou": 0.21428571428571427,
-    "ged": 11,
-    "e_del": 6,
-    "e_ins": 5
+    "precision": 0.6666666666666666,
+    "recall": 0.6,
+    "f1": 0.631578947368421,
+    "iou": 0.46153846153846156,
+    "ged": 7,
+    "e_del": 3,
+    "e_ins": 4
   },
   {
     "id": 947,
@@ -43930,15 +43233,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.8333333333333334,
-    "recall": 0.7142857142857143,
-    "f1": 0.7692307692307692,
-    "iou": 0.625,
-    "ged": 3,
-    "e_del": 1,
-    "e_ins": 2
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 972,
@@ -44525,15 +43828,15 @@
         "6"
       ]
     },
-    "edges_match": true,
-    "sg_match": true,
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1": 1.0,
-    "iou": 1.0,
-    "ged": 0,
-    "e_del": 0,
-    "e_ins": 0
+    "edges_match": false,
+    "sg_match": false,
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5,
+    "iou": 0.3333333333333333,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 984,
@@ -44987,15 +44290,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
+    "edges_match": true,
+    "sg_match": true,
     "precision": 1.0,
-    "recall": 0.8571428571428571,
-    "f1": 0.923076923076923,
-    "iou": 0.8571428571428571,
-    "ged": 1,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
     "e_del": 0,
-    "e_ins": 1
+    "e_ins": 0
   },
   {
     "id": 994,
@@ -45083,68 +44386,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.625,
-    "recall": 0.625,
-    "f1": 0.625,
-    "iou": 0.45454545454545453,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
-  },
-  {
-    "id": 996,
-    "scenario": "add cruise to cart",
-    "unordered_nodes": {
-      "0": "Verify price of cruise",
-      "1": "Review cruise itinerary",
-      "2": "Verify date of cruise",
-      "3": "Verify cabin selected",
-      "4": "Make any adjustments",
-      "5": "add any options",
-      "6": "add cruise to cart"
-    },
-    "edges": [
-      "1->0",
-      "1->2",
-      "1->3",
-      "0->4",
-      "2->4",
-      "3->4",
-      "4->5",
-      "5->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "1",
-        {
-          "type": "and_join",
-          "branches_set": {
-            "b1": [
-              "0"
-            ],
-            "b2": [
-              "2"
-            ],
-            "b3": [
-              "3"
-            ]
-          }
-        },
-        "4",
-        "5",
-        "6"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "iou": 0.0,
-    "ged": 16,
-    "e_del": 8,
-    "e_ins": 8
+    "precision": 0.75,
+    "recall": 0.75,
+    "f1": 0.75,
+    "iou": 0.6,
+    "ged": 4,
+    "e_del": 2,
+    "e_ins": 2
   },
   {
     "id": 997,
@@ -45615,13 +44863,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.3333333333333333,
-    "recall": 0.2857142857142857,
-    "f1": 0.30769230769230765,
-    "iou": 0.18181818181818182,
-    "ged": 9,
-    "e_del": 4,
-    "e_ins": 5
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5,
+    "iou": 0.3333333333333333,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 1008,
@@ -45967,15 +45215,15 @@
         "7"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.5714285714285714,
-    "recall": 0.5,
-    "f1": 0.5333333333333333,
-    "iou": 0.36363636363636365,
-    "ged": 7,
-    "e_del": 3,
-    "e_ins": 4
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 1015,
@@ -46047,7 +45295,7 @@
       ]
     },
     "edges_match": true,
-    "sg_match": true,
+    "sg_match": false,
     "precision": 1.0,
     "recall": 1.0,
     "f1": 1.0,
@@ -46295,15 +45543,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.5,
-    "recall": 0.5,
-    "f1": 0.5,
-    "iou": 0.3333333333333333,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 1022,
@@ -46342,12 +45590,12 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.5714285714285714,
-    "recall": 0.5,
-    "f1": 0.5333333333333333,
-    "iou": 0.36363636363636365,
-    "ged": 7,
-    "e_del": 3,
+    "precision": 0.7142857142857143,
+    "recall": 0.5555555555555556,
+    "f1": 0.6250000000000001,
+    "iou": 0.45454545454545453,
+    "ged": 6,
+    "e_del": 2,
     "e_ins": 4
   },
   {
@@ -47083,45 +46331,6 @@
     "e_ins": 3
   },
   {
-    "id": 1039,
-    "scenario": "take a nap on the bed",
-    "unordered_nodes": {
-      "0": "pull back the sheet",
-      "1": "lay down on the bed",
-      "2": "pull back the blanket",
-      "3": "fall asleep on the bed",
-      "4": "fluff up the pillow",
-      "5": "sit on the bed for a little"
-    },
-    "edges": [
-      "4->0",
-      "0->2",
-      "2->5",
-      "5->1",
-      "1->3"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "4",
-        "0",
-        "2",
-        "5",
-        "1",
-        "3"
-      ]
-    },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.2,
-    "recall": 0.2,
-    "f1": 0.20000000000000004,
-    "iou": 0.1111111111111111,
-    "ged": 8,
-    "e_del": 4,
-    "e_ins": 4
-  },
-  {
     "id": 1040,
     "scenario": "remove plant from temporary planter",
     "unordered_nodes": {
@@ -47837,13 +47046,13 @@
     },
     "edges_match": false,
     "sg_match": false,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "iou": 0.0,
-    "ged": 10,
-    "e_del": 5,
-    "e_ins": 5
+    "precision": 0.4,
+    "recall": 0.4,
+    "f1": 0.4000000000000001,
+    "iou": 0.25,
+    "ged": 6,
+    "e_del": 3,
+    "e_ins": 3
   },
   {
     "id": 1056,
@@ -48049,15 +47258,15 @@
         "2"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.4,
-    "recall": 0.4,
-    "f1": 0.4000000000000001,
-    "iou": 0.25,
-    "ged": 6,
-    "e_del": 3,
-    "e_ins": 3
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 1061,
@@ -48859,15 +48068,15 @@
         "6"
       ]
     },
-    "edges_match": false,
-    "sg_match": false,
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "iou": 0.0,
-    "ged": 14,
-    "e_del": 7,
-    "e_ins": 7
+    "edges_match": true,
+    "sg_match": true,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "iou": 1.0,
+    "ged": 0,
+    "e_del": 0,
+    "e_ins": 0
   },
   {
     "id": 1080,
@@ -48914,12 +48123,12 @@
     "edges_match": false,
     "sg_match": false,
     "precision": 0.42857142857142855,
-    "recall": 0.42857142857142855,
-    "f1": 0.42857142857142855,
-    "iou": 0.2727272727272727,
-    "ged": 8,
+    "recall": 0.5,
+    "f1": 0.4615384615384615,
+    "iou": 0.3,
+    "ged": 7,
     "e_del": 4,
-    "e_ins": 4
+    "e_ins": 3
   },
   {
     "id": 1081,

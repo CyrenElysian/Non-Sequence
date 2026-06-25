@@ -8928,29 +8928,26 @@
     "id": 241,
     "scenario": "cut the grass at the edge of our yard",
     "unordered_nodes": {
-      "0": "Carefully line up with edge",
-      "1": "Turn on mower",
-      "2": "Get to lawnmower",
-      "3": "Ensure adequate gas",
-      "4": "Choose starting place",
-      "5": "cut the grass at the edge of our yard"
+      "0": "Turn on mower",
+      "1": "Get to lawnmower",
+      "2": "Ensure adequate gas",
+      "3": "Choose starting place",
+      "4": "cut the grass at the edge of our yard"
     },
     "edges": [
+      "1->2",
       "2->3",
-      "3->4",
-      "4->1",
-      "1->0",
-      "0->5"
+      "3->0",
+      "0->4"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
+        "1",
         "2",
         "3",
-        "4",
-        "1",
         "0",
-        "5"
+        "4"
       ]
     }
   },

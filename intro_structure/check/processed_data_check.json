@@ -10117,14 +10117,14 @@
       "0->2",
       "1->0",
       "2->5",
-      "3->1",
-      "4->3"
+      "3->4",
+      "4->1"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
-        "4",
         "3",
+        "4",
         "1",
         "0",
         "2",
@@ -11970,7 +11970,7 @@
     },
     "edges": [
       "0->3",
-      "1->0",
+      "1->6",
       "2->1",
       "4->6",
       "5->2",
@@ -11994,12 +11994,12 @@
             {
               "type": "sequence",
               "script": [
-                "4",
-                "6"
+                "4"
               ]
             }
           ]
         },
+        "6",
         "0",
         "3"
       ]
@@ -12016,7 +12016,8 @@
       "4": "Sign up for roller blade lessons",
       "5": "Take bus to roller skating rink",
       "6": "Wait for bus to arrive",
-      "8": "Bring own roller blades"
+      "8": "Bring own roller blades",
+      "9": "Start learning to rollerblade"
     },
     "edges": [
       "0->3",
@@ -12027,7 +12028,8 @@
       "5->0",
       "5->8",
       "6->5",
-      "8->3"
+      "8->3",
+      "3->9"
     ],
     "script_graph": {
       "type": "sequence",
@@ -12053,7 +12055,8 @@
             ]
           }
         },
-        "3"
+        "3",
+        "9"
       ]
     }
   },
@@ -13475,26 +13478,23 @@
       "0": "Filter museums by ones with dragons",
       "1": "Select the top of dragon museums",
       "2": "Drive to the museum",
-      "3": "Narrow the choices down to the best museum",
-      "4": "Look up museums",
-      "5": "visit the museum to see dragons"
+      "3": "Look up museums",
+      "4": "visit the museum to see dragons"
     },
     "edges": [
-      "4->0",
+      "3->0",
       "0->1",
-      "1->3",
-      "3->2",
-      "2->5"
+      "1->2",
+      "2->4"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
-        "4",
+        "3",
         "0",
         "1",
-        "3",
         "2",
-        "5"
+        "4"
       ]
     }
   },

@@ -6608,36 +6608,6 @@
     }
   },
   {
-    "id": 180,
-    "scenario": "meet the president",
-    "unordered_nodes": {
-      "0": "Have team members go through background check",
-      "1": "Have team management speak with White House Staff",
-      "2": "Win the Super Bowl",
-      "3": "Have parade in team home town televised",
-      "4": "Schedule date for team to travel to White House",
-      "5": "visit the White House"
-    },
-    "edges": [
-      "0->4",
-      "1->0",
-      "2->3",
-      "3->1",
-      "4->5"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "2",
-        "3",
-        "1",
-        "0",
-        "4",
-        "5"
-      ]
-    }
-  },
-  {
     "id": 181,
     "scenario": "sprint for the school's track team",
     "unordered_nodes": {

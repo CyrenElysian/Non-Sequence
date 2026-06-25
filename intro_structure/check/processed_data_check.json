@@ -1026,9 +1026,9 @@
               "2"
             ],
             "b2": [
-                "6",
-                "0",
-                "4"
+              "6",
+              "0",
+              "4"
             ]
           }
         },
@@ -4264,43 +4264,43 @@
     }
   },
   {
-        "id": 115,
-        "scenario": "buy a lot of bottled water",
-        "unordered_nodes": {
-            "0": "pick up water",
-            "1": "give money to cashier",
-            "2": "find water in store",
-            "3": "get total from cashier",
-            "4": "bring water to register",
-            "5": "leave the store with the water",
-            "6": "pay with credit card"
+    "id": 115,
+    "scenario": "buy a lot of bottled water",
+    "unordered_nodes": {
+      "0": "pick up water",
+      "1": "give money to cashier",
+      "2": "find water in store",
+      "3": "get total from cashier",
+      "4": "bring water to register",
+      "5": "leave the store with the water",
+      "6": "pay with credit card"
+    },
+    "edges": [
+      "2->0",
+      "0->4",
+      "4->3",
+      "3->1",
+      "3->6",
+      "1->5",
+      "6->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "2",
+        "0",
+        "4",
+        "3",
+        {
+          "type": "select",
+          "options": [
+            "1",
+            "6"
+          ]
         },
-        "edges": [
-            "2->0",
-            "0->4",
-            "4->3",
-            "3->1",
-            "3->6",
-            "1->5",
-            "6->5"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "2",
-                "0",
-                "4",
-                "3",
-                {
-                    "type": "select",
-                    "options": [
-                        "1",
-                        "6"
-                    ]
-                },
-                "5"
-            ]
-        }
+        "5"
+      ]
+    }
   },
   {
     "id": 116,
@@ -8900,19 +8900,19 @@
           "type": "and_join",
           "branches_set": {
             "b1": [
-                {
-                  "type": "and_join",
-                  "branches_set": {
-                    "b1": [
-                      "1"
-                    ],
-                    "b2": [
-                      "4"
-                    ]
-                  }
-                },
-                "3"
-              ],
+              {
+                "type": "and_join",
+                "branches_set": {
+                  "b1": [
+                    "1"
+                  ],
+                  "b2": [
+                    "4"
+                  ]
+                }
+              },
+              "3"
+            ],
             "b2": [
               "5",
               "0"
@@ -9484,55 +9484,55 @@
     }
   },
   {
-        "id": 256,
-        "scenario": "go into nature",
-        "unordered_nodes": {
-            "0": "look online for a trail",
-            "1": "be mindful in nature",
-            "2": "walk on the trail",
-            "3": "choose a trail",
-            "4": "drive to the trail",
-            "5": "arrive at trailhead",
-            "6": "ask a ranger for recommendations",
-            "7": "finish nature walk"
+    "id": 256,
+    "scenario": "go into nature",
+    "unordered_nodes": {
+      "0": "look online for a trail",
+      "1": "be mindful in nature",
+      "2": "walk on the trail",
+      "3": "choose a trail",
+      "4": "drive to the trail",
+      "5": "arrive at trailhead",
+      "6": "ask a ranger for recommendations",
+      "7": "finish nature walk"
+    },
+    "edges": [
+      "0->3",
+      "6->3",
+      "3->4",
+      "4->5",
+      "5->2",
+      "5->1",
+      "2->7",
+      "1->7"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        {
+          "type": "select",
+          "options": [
+            "0",
+            "6"
+          ]
         },
-        "edges": [
-            "0->3",
-            "6->3",
-            "3->4",
-            "4->5",
-            "5->2",
-            "5->1",
-            "2->7",
-            "1->7"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                {
-                    "type": "select",
-                    "options": [
-                        "0",
-                        "6"
-                    ]
-                },
-                "3",
-                "4",
-                "5",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "1"
-                        ],
-                        "b2": [
-                            "2"
-                        ]
-                    }
-                },
-                "7"
+        "3",
+        "4",
+        "5",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "1"
+            ],
+            "b2": [
+              "2"
             ]
-        }
+          }
+        },
+        "7"
+      ]
+    }
   },
   {
     "id": 257,
@@ -12829,46 +12829,46 @@
     }
   },
   {
-        "id": 350,
-        "scenario": "do some type of volunteer work",
-        "unordered_nodes": {
-            "0": "make an appointment to meet with volunteer group",
-            "1": "research local volunteer facilities",
-            "2": "drive to volunteer group's facility",
-            "3": "contact volunteer group via phone",
-            "5": "decide to do some volunteer work",
-            "6": "do some type of volunteer work",
-            "7": "choose animal shelter volunteer",
-            "8": "choose food bank volunteer"
+    "id": 350,
+    "scenario": "do some type of volunteer work",
+    "unordered_nodes": {
+      "0": "make an appointment to meet with volunteer group",
+      "1": "research local volunteer facilities",
+      "2": "drive to volunteer group's facility",
+      "3": "contact volunteer group via phone",
+      "5": "decide to do some volunteer work",
+      "6": "do some type of volunteer work",
+      "7": "choose animal shelter volunteer",
+      "8": "choose food bank volunteer"
+    },
+    "edges": [
+      "5->1",
+      "1->7",
+      "1->8",
+      "7->3",
+      "8->3",
+      "3->0",
+      "0->2",
+      "2->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "5",
+        "1",
+        {
+          "type": "select",
+          "options": [
+            "7",
+            "8"
+          ]
         },
-        "edges": [
-            "5->1",
-            "1->7",
-            "1->8",
-            "7->3",
-            "8->3",
-            "3->0",
-            "0->2",
-            "2->6"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "5",
-                "1",
-                {
-                    "type": "select",
-                    "options": [
-                        "7",
-                        "8"
-                    ]
-                },
-                "3",
-                "0",
-                "2",
-                "6"
-            ]
-        }
+        "3",
+        "0",
+        "2",
+        "6"
+      ]
+    }
   },
   {
     "id": 351,
@@ -18948,25 +18948,32 @@
       "8": "pick the pink lipstick"
     },
     "edges": [
+      "3->2",
+      "3->1",
+      "1->5",
       "5->0",
-      "0->1",
-      "1->2",
+      "0->3",
       "2->4",
-      "4->3",
-      "3->7",
-      "3->8",
+      "4->7",
+      "4->8",
       "7->6",
       "8->6"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
-        "5",
-        "0",
-        "1",
-        "2",
+        {
+          "type": "loop",
+          "entry": "3",
+          "retry": [
+            "1",
+            "5",
+            "0",
+            "continue"
+          ],
+          "exit": "2"
+        },
         "4",
-        "3",
         {
           "type": "select",
           "options": [
@@ -19782,89 +19789,89 @@
     }
   },
   {
-        "id": 537,
-        "scenario": "Cut eye holes in box",
-        "unordered_nodes": {
-            "0": "decide to cut eyes in box",
-            "1": "move box cutter to the box",
-            "2": "determine where eyes would go",
-            "3": "grab the box cutter",
-            "4": "locate box cutter",
-            "5": "Paint box black",
-            "6": "Cut eye holes in box",
-            "7": "Paint box white"
-        },
-        "edges": [
-            "0->2",
-            "0->4",
-            "0->5",
-            "0->7",
-            "4->3",
-            "3->1",
-            "1->6",
-            "2->6",
-            "5->6",
-            "7->6"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "0",
-                {
-                    "type": "and_join",
-                    "branches_set": {
-                        "b1": [
-                            "2"
-                        ],
-                        "b2": [
-                            "4",
-                            "3",
-                            "1"
-                        ],
-                        "b3": [
-                            {
-                                "type": "select",
-                                "options": [
-                                    "5",
-                                    "7"
-                                ]
-                            }
-                        ]
-                    }
-                },
-                "6"
+    "id": 537,
+    "scenario": "Cut eye holes in box",
+    "unordered_nodes": {
+      "0": "decide to cut eyes in box",
+      "1": "move box cutter to the box",
+      "2": "determine where eyes would go",
+      "3": "grab the box cutter",
+      "4": "locate box cutter",
+      "5": "Paint box black",
+      "6": "Cut eye holes in box",
+      "7": "Paint box white"
+    },
+    "edges": [
+      "0->2",
+      "0->4",
+      "0->5",
+      "0->7",
+      "4->3",
+      "3->1",
+      "1->6",
+      "2->6",
+      "5->6",
+      "7->6"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        {
+          "type": "and_join",
+          "branches_set": {
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4",
+              "3",
+              "1"
+            ],
+            "b3": [
+              {
+                "type": "select",
+                "options": [
+                  "5",
+                  "7"
+                ]
+              }
             ]
-        }
+          }
+        },
+        "6"
+      ]
+    }
   },
   {
-        "id": 538,
-        "scenario": "read flyer for tryouts",
-        "unordered_nodes": {
-            "0": "walk into school's locker room",
-            "1": "look up at flyer for tryouts",
-            "2": "notice flyer for tryouts up on locker room bulletin board",
-            "3": "walk over to locker room bulletin board",
-            "4": "look over at locker room bulletin board",
-            "5": "read flyer for tryouts"
-        },
-        "edges": [
-            "0->4",
-            "4->2",
-            "2->3",
-            "3->1",
-            "1->5"
-        ],
-        "script_graph": {
-            "type": "sequence",
-            "script": [
-                "0",
-                "4",
-                "2",
-                "3",
-                "1",
-                "5"
-            ]
-        }
+    "id": 538,
+    "scenario": "read flyer for tryouts",
+    "unordered_nodes": {
+      "0": "walk into school's locker room",
+      "1": "look up at flyer for tryouts",
+      "2": "notice flyer for tryouts up on locker room bulletin board",
+      "3": "walk over to locker room bulletin board",
+      "4": "look over at locker room bulletin board",
+      "5": "read flyer for tryouts"
+    },
+    "edges": [
+      "0->4",
+      "4->2",
+      "2->3",
+      "3->1",
+      "1->5"
+    ],
+    "script_graph": {
+      "type": "sequence",
+      "script": [
+        "0",
+        "4",
+        "2",
+        "3",
+        "1",
+        "5"
+      ]
+    }
   },
   {
     "id": 539,
@@ -20943,10 +20950,10 @@
       "7": "Enter the house safely"
     },
     "edges": [
-      "6->4",
-      "1->0",
-      "4->0",
-      "0->2",
+      "4->6",
+      "6->0",
+      "0->1",
+      "1->2",
       "2->3",
       "3->5",
       "5->7"
@@ -20954,19 +20961,10 @@
     "script_graph": {
       "type": "sequence",
       "script": [
-        {
-          "type": "and_join",
-          "branches_set": {
-            "b1": [
-              "1"
-            ],
-            "b2": [
-              "6",
-              "4"
-            ]
-          }
-        },
+        "4",
+        "6",
         "0",
+        "1",
         "2",
         "3",
         "5",
@@ -21353,49 +21351,6 @@
         "2",
         "0",
         "3",
-        "6"
-      ]
-    }
-  },
-  {
-    "id": 578,
-    "scenario": "Click confirm to process amount from bank account",
-    "unordered_nodes": {
-      "0": "input payment amount on website",
-      "1": "decide whether to pay full or half",
-      "2": "double check have money in bank",
-      "3": "look at past due payment amount",
-      "4": "calculate if enough for payment",
-      "5": "Input rental amount owed",
-      "6": "Click confirm to process amount from bank account"
-    },
-    "edges": [
-      "5->3",
-      "3->1",
-      "3->2",
-      "1->0",
-      "0->4",
-      "2->4",
-      "4->6"
-    ],
-    "script_graph": {
-      "type": "sequence",
-      "script": [
-        "5",
-        "3",
-        {
-          "type": "and_join",
-          "branches_set": {
-            "b1": [
-              "1",
-              "0"
-            ],
-            "b2": [
-              "2"
-            ]
-          }
-        },
-        "4",
         "6"
       ]
     }
@@ -22545,8 +22500,12 @@
         {
           "type": "and_join",
           "branches_set": {
-            "b1": ["2"],
-            "b2": ["4"]
+            "b1": [
+              "2"
+            ],
+            "b2": [
+              "4"
+            ]
           }
         },
         "5",
@@ -23008,9 +22967,15 @@
             {
               "type": "and_join",
               "branches_set": {
-                "b1": ["2"],
-                "b2": ["4"],
-                "b3": ["5"]
+                "b1": [
+                  "2"
+                ],
+                "b2": [
+                  "4"
+                ],
+                "b3": [
+                  "5"
+                ]
               }
             },
             "continue"
@@ -26064,16 +26029,16 @@
           "type": "and_join",
           "branches_set": {
             "b1": [
-                "3",
-                "2",
-                "1"
-            ]
-            },
-            "b2": [
-                "4",
-                "5"
+              "3",
+              "2",
+              "1"
             ]
           },
+          "b2": [
+            "4",
+            "5"
+          ]
+        },
         "0",
         "6"
       ]
@@ -26151,14 +26116,14 @@
       "2": "Stand in front of the computer chair",
       "3": "Squat down onto the chair",
       "4": "Align back of body with the chair",
-      "5": "sit down in computer chair"
+      "5": "Finish sitting in computer chair"
     },
     "edges": [
       "0->1",
       "1->2",
-      "2->3",
-      "3->4",
-      "4->5"
+      "2->4",
+      "4->3",
+      "3->5"
     ],
     "script_graph": {
       "type": "sequence",
@@ -26166,8 +26131,8 @@
         "0",
         "1",
         "2",
-        "3",
         "4",
+        "3",
         "5"
       ]
     }
@@ -27717,24 +27682,26 @@
       "6": "lipstick choice finalized"
     },
     "edges": [
-      "0->6",
-      "1->0",
-      "2->4",
-      "3->1",
-      "4->1",
+      "3->5",
+      "5->4",
       "5->3",
-      "5->2"
+      "4->2",
+      "2->1",
+      "3->1",
+      "1->0",
+      "0->6"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
+        "3",
         "5",
         {
           "type": "and_join",
           "branches_set": {
             "b1": [
-              "2",
-              "4"
+              "4",
+              "2"
             ],
             "b2": [
               "3"
@@ -28968,7 +28935,7 @@
     "scenario": "mix with the mixer",
     "unordered_nodes": {
       "0": "Turn off mixer",
-      "1": "Hold mixer firmly",
+      "1": "Hold mixer firmly above the bowl to avoid splashing",
       "2": "Mix until the instructions say to stop",
       "3": "Set mixer to desired speed",
       "4": "Turn on the mixer",
@@ -30954,9 +30921,9 @@
     "edges": [
       "1->4",
       "4->2",
-      "2->3",
-      "3->5",
-      "5->0"
+      "2->5",
+      "5->3",
+      "3->0"
     ],
     "script_graph": {
       "type": "sequence",
@@ -30964,8 +30931,8 @@
         "1",
         "4",
         "2",
-        "3",
         "5",
+        "3",
         "0"
       ]
     }
@@ -32163,8 +32130,12 @@
             {
               "type": "and_join",
               "branches_set": {
-                "b1": ["3"],
-                "b2": ["4"]
+                "b1": [
+                  "3"
+                ],
+                "b2": [
+                  "4"
+                ]
               }
             },
             "continue"
@@ -32846,18 +32817,18 @@
       "5": "Grab a bowl to put ingredients in"
     },
     "edges": [
-      "0->3",
+      "5->3",
+      "3->0",
+      "0->1",
       "1->4",
-      "3->1",
-      "4->2",
-      "5->0"
+      "4->2"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
         "5",
-        "0",
         "3",
+        "0",
         "1",
         "4",
         "2"
@@ -33198,8 +33169,14 @@
             {
               "type": "and_join",
               "branches_set": {
-                "b1": ["4","0"],
-                "b2": ["1","2"]
+                "b1": [
+                  "4",
+                  "0"
+                ],
+                "b2": [
+                  "1",
+                  "2"
+                ]
               }
             },
             "continue"
@@ -38127,20 +38104,20 @@
                 ]
               }
             },
-            "b2":[
-                "5",
-                {
-                  "type": "and_join",
-                  "branches_set": {
-                    "b1": [
-                      "0"
-                    ],
-                    "b2": [
-                      "2"
-                    ]
-                  }
+            "b2": [
+              "5",
+              {
+                "type": "and_join",
+                "branches_set": {
+                  "b1": [
+                    "0"
+                  ],
+                  "b2": [
+                    "2"
+                  ]
                 }
-              ]
+              }
+            ]
           }
         },
         "7"
@@ -39774,18 +39751,18 @@
       "5": "Walk to car with plant"
     },
     "edges": [
-      "0->1",
+      "5->0",
+      "0->3",
+      "3->1",
       "1->4",
-      "3->0",
-      "4->2",
-      "5->3"
+      "4->2"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
         "5",
-        "3",
         "0",
+        "3",
         "1",
         "4",
         "2"
@@ -40516,18 +40493,16 @@
       "6": "enter credit card info into form"
     },
     "edges": [
-      "5->4",
-      "5->2",
       "4->0",
       "0->3",
       "2->1",
       "1->6",
-      "3->6"
+      "3->6",
+      "6->5"
     ],
     "script_graph": {
       "type": "sequence",
       "script": [
-        "5",
         {
           "type": "and_join",
           "branches_set": {
@@ -40542,7 +40517,8 @@
             ]
           }
         },
-        "6"
+        "6",
+        "5"
       ]
     }
   },

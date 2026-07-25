@@ -376,9 +376,20 @@ if __name__ == "__main__":
         print(f"从检查点恢复，已处理 {len(merged_records)} 条数据。")
         refresh_edge_metrics_in_records(merged_records, reference_graphs)
 
-    # 获取已处理id集合，用于跳过
+    # ---------- 新增：过滤掉标准答案中不存在的 id ----------
+    valid_ids = set(reference_stats.keys())
+    before_filter = len(merged_records)
+    merged_records = [r for r in merged_records if r["id"] in valid_ids]
+    skipped = before_filter - len(merged_records)
+    if skipped > 0:
+        print(f"已跳过 {skipped} 条标准答案中不存在的记录，剩余 {len(merged_records)} 条有效记录。")
+    # --------------------------------------------------------
+
+    # 获取已处理id集合，用于跳过（后续不再有新数据时其实用不到）
     processed_ids = {r["id"] for r in merged_records}
 
+    # 注意：此时 dataset 中已经只包含有效 id，所以后续 for 循环不会重复处理
+    # 如果 checkpoint 已经包含了所有有效 id，则不会进入循环
     for item in dataset:
         rid = item["id"]
         if rid in processed_ids:
@@ -415,6 +426,7 @@ if __name__ == "__main__":
         json.dump(merged_records, f, ensure_ascii=False, indent=2)
 
     print(f"\n合并文件已保存至 {OUTPUT_FILE}")
+    # 注意：这里再次 refresh 时会自动跳过无效 id（函数内部有 continue）
     refresh_edge_metrics_in_records(merged_records, reference_graphs)
     summary = compute_statistics(merged_records, reference_stats)
     if summary:

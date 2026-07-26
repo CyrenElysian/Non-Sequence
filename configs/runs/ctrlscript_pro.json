@@ -1,0 +1,11 @@
+{
+  "run_name": "ctrlscript_pro_example",
+  "model_config": "configs/models/pro.json",
+  "task_config": "configs/tasks/graph_generation.json",
+  "output_path": "results/ctrlscript/results_v4-pro.json",
+  "summary_path": "results/ctrlscript/eval_summary_v4-pro.json",
+  "concurrency": 1,
+  "max_retries": 3,
+  "resume": true,
+  "validate_json": true
+}

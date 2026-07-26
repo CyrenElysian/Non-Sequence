@@ -1,20 +1,101 @@
-### Non-Sequence （详细内容参考 `Comprehensive.md`）
+# Non-Sequence
 
-1. 利用 **`cut.py`** 对proscript原始数据集进行修改，仅预留"scenario"，"events","gold_edges_for_prediction"
-2. 利用 `covert.py` 将proscript_simple中的数据转化为我们所定义的JSON结构（详见 `Comprehensive.md`），其中已包含**sequence和and_join**结构
-3. 利用 **`correct_edges.py`** 调用大模型API 修改 converted_dev.json 等数据的逻辑错误，同时生成修改日志，目前对小批量数据集 `temp`（20条）进行了评估，详见 `temp\evaluate.md`
-4. **利用`correct_edges.py`调用大模型API对 converted_dev.json 数据集中的逻辑错误进行修改，得到**`correct/llm_fixed_dev.json`（近1100条数据，需要注意，逻辑依然可能存在错误）
-5. 利用`select_loop.py`调用大模型API对修改后的进行筛选，判断哪些事件链适合引入选择和循环结构（或者都不合适），对合适的样本引入相应结构，具体情况如下：
-   - 修正**scenario**与**unordered_nodes**中的拼写错误（仅修正明显的拼写错误，不得改变原有语义）。
-   - 识别底层逻辑中**确实包含选择结构或循环结构**的条目。参照后续示例，修改此类条目的关联节点与脚本关系图（必要时允许修改节点信息），确保逻辑正确，并在修改记录中以「structure_changed」类型备注；若修改操作难以执行，则判定此类条目标注错误，将其从最终处理数据集中移除，并在修改记录中备注删除信息。
-   - 对于其余所有条目，选择合适的脚本，通过添加事件节点（数量不宜过多，控制整体复杂度）以引入 select 和 loop 结构，也可以修改原始事件节点含义具体，具体要求如下：
-     - 鼓励打开思维，但是新增逻辑需自然合理，杜绝生硬堆砌；若确实无合适的选择 / 循环结构引入方案，条目可保持原样。
-     - 原则上选择结构的分支必须相互独立、逻辑差异显著（例如：选择筷子或勺子用餐这类细微差异，不太符合要求）。
-     - 对于选择结构，所有选择分支的末端节点，必须统一关联至选择结构后的同一合并节点；`options` 中节点按大小顺序排列，方便检验
-     - 循环结构必须设置明确的终止条件，禁止出现无限循环。
-     - 对于循环结构，循环前置节点需连接至 `entry` 节点，循环出口节点 `exit` 需连接至循环后置节点，同时 `entry` 与 `exit` 之间需建立关联边；循环内部的节点链路，必须形成 $entry \to retry \to exit$ 的完整路径。
-     - 因脚本关系图重构而失效的原有关联关系，需全部删除；与新控制逻辑冲突的旧关联关系，必须移除。
-     - 得到新版 `edges` 与 `script_graph`，统一复核校验，着重检查 `unordered_nodes`中的事件是否均唯一的出现在`script_graph`中，`edges` 是否存在少边，多边，悬挂边的问题，`script_graph`逻辑是否存在问题，结构是否满足约束规范
-   - **注意事项**：以上所有操作需**一次性同步完成**，即对于一项数据，先修正拼写错误，再检查逻辑是否包含选择/循环结构，若包含则考虑是否修改，若不包含则考虑是否能引入
-6. `select_loop.py` 生成 `processed_data`，利用 `predict.py` 对读取其中的 `sceniro` 和 `unordered_nodes` 内容，预测 `edges` 和 `script_graph` ，与  `processed_data` 进行比较（ `edges` 采用集合相等，`script_graph` 采用字符串匹配）
-7. `evaluaition` 对 `processed_data` 进行 10% 的抽样，并进行了简单的人工检查，结果详见 `Comprehensive.md`
+Non-Sequence is a research repository for studying procedural event understanding beyond a single linear order. It represents procedures as directed event graphs and structured JSON programs containing `sequence`, `select`, `loop`, and `and_join` control structures. The repository also includes Loop Termination Judgment (LTJ), a discriminative task that asks whether a described state implies that a procedural loop should stop, continue, or is unaffected.
+
+This is a research artifact, not a production workflow engine. Dataset construction uses language models and human review; the annotations can contain ambiguity or residual errors.
+
+## Repository workflow
+
+1. Reduce ProScript records to scenarios, events, and reference edges.
+2. Convert linear and partially ordered procedures into the Non-Sequence JSON schema.
+3. Correct graph inconsistencies and record changes.
+4. Introduce and validate selection and loop structures where semantically appropriate.
+5. Predict edges and `script_graph` from only the scenario and unordered events.
+6. Evaluate exact graph recovery and soft edge-level similarity.
+7. Derive and filter candidate loop procedures for LTJ, generate state descriptions, and judge the three-way label.
+
+See [Pipeline](docs/PIPELINE.md) for stage details and [Dataset Card](docs/DATASET_CARD.md) for schemas and provenance.
+
+## Installation
+
+Python 3.10 or newer is required.
+
+```bash
+python -m venv .venv
+# Linux/macOS
+source .venv/bin/activate
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+pip install -e .
+```
+
+Copy `.env.example` to `.env`, then provide your own API credentials. Never commit `.env` or real keys.
+
+## Data
+
+Confirmed collection sizes:
+
+- ProScript: 3,252 train / 1,085 development / 2,077 test records.
+- CtrlScript: 1,061 graph-generation records.
+- LTJ filtering funnel: 715 sequence candidates → 180 loop candidates → 122 quality-filtered candidates → 115 final items.
+
+The active data is under `data/`. Prompts are under `prompts/`. Large, generated, or provider-derived artifacts may have separate usage constraints; see [Dataset Card](docs/DATASET_CARD.md) before redistribution.
+
+## CLI
+
+The package uses a `src/` layout. Each pipeline stage has a dedicated entry point:
+
+```bash
+nonsequence-cut --help
+nonsequence-convert --help
+nonsequence-correct-edges --help
+nonsequence-select-loop --help
+nonsequence-check --help
+nonsequence-count-structure --help
+nonsequence-predict --help
+nonsequence-evaluate --help
+nonsequence-ltj-filter-sequences --help
+nonsequence-ltj-filter-loops --help
+nonsequence-ltj-filter-quality --help
+nonsequence-ltj-generate --help
+nonsequence-ltj-judge --help
+```
+
+Example JSON configurations are provided in `configs/models/`, `configs/tasks/`, and `configs/runs/` as reproducibility manifests. Use the corresponding values as explicit CLI arguments; every command documents its accepted arguments through `--help`.
+
+## Evaluation and results
+
+Graph generation reports edge exact match, structured-graph exact match, joint exact match, precision, recall, F1, IoU (Jaccard), and graph edit distance (GED). Public CtrlScript summaries cover all 1,061 records:
+
+- Flash: joint exact match 43.83%, P/R/F1 0.7895/0.7754/0.7811, IoU 0.6998, GED 2.8709.
+- Pro: joint exact match 47.13%, P/R/F1 0.8125/0.8036/0.8068, IoU 0.7301, GED 2.5702.
+
+These values are read from `results/ctrlscript/eval_summary_v4-{flash,pro}.json`. No public LTJ result is reported in this repository. See [Results](docs/RESULTS.md) and [Evaluation](docs/EVALUATION.md).
+
+## Reproducibility
+
+Pin the model identifier, preserve the JSON configuration, record sampling and decoding settings, and retain raw responses and change logs. Hosted-model outputs may change across provider revisions even with identical settings. See [Reproducibility](docs/REPRODUCIBILITY.md).
+
+## Citation
+
+If you use this repository, please cite the accompanying paper. Citation metadata will be added when available.
+
+```bibtex
+@misc{nonsequence_placeholder,
+  title  = {Non-Sequence: Procedural Event Graphs with Non-Linear Control Structure},
+  author = {Anonymous},
+  year   = {TBD},
+  note   = {Citation placeholder}
+}
+```
+
+## Limitations
+
+- Some graph orderings are inherently ambiguous without temporal or causal evidence.
+- LLM-assisted transformation can introduce semantic drift, malformed structures, or provider-specific bias.
+- Exact match penalizes valid alternative graphs; soft metrics reduce but do not eliminate this issue.
+- Nonlinear and deeply nested structures are less frequent than simple sequences.
+- LTJ difficulty labels are generated heuristics and should not be treated as calibrated measures of human reasoning difficulty.
+- The current public results cover CtrlScript only.
+
+The original Chinese design drafts are retained in `docs/source/` as source notes. They document evolving ideas and may not match the finalized public interface.

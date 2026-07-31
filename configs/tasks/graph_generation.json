@@ -1,0 +1,30 @@
+{
+  "task": "graph_generation",
+  "input_path": "data/ctrlscript/CtrlScript_with_stats.json",
+  "prompt_path": "prompts/graph_prediction/prompt_predict.txt",
+  "input_fields": [
+    "scenario",
+    "unordered_nodes"
+  ],
+  "output_fields": [
+    "edges",
+    "script_graph"
+  ],
+  "structures": [
+    "sequence",
+    "select",
+    "loop",
+    "and_join"
+  ],
+  "metrics": [
+    "edge_exact_match",
+    "script_graph_exact_match",
+    "joint_exact_match",
+    "precision",
+    "recall",
+    "f1",
+    "iou",
+    "ged"
+  ],
+  "expected_records": 1061
+}

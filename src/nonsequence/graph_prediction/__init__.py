@@ -1,0 +1,1 @@
+"""Graph-prediction inference commands."""

@@ -1,0 +1,11 @@
+{
+  "run_name": "ctrlscript_flash_example",
+  "model_config": "configs/models/flash.json",
+  "task_config": "configs/tasks/graph_generation.json",
+  "output_path": "results/ctrlscript/results_v4-flash.json",
+  "summary_path": "results/ctrlscript/eval_summary_v4-flash.json",
+  "concurrency": 1,
+  "max_retries": 3,
+  "resume": true,
+  "validate_json": true
+}

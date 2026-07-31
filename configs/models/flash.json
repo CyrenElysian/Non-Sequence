@@ -1,0 +1,11 @@
+{
+  "name": "flash",
+  "provider": "openai-compatible",
+  "model": "deepseek-v4-flash",
+  "api_key_env": "DEEPSEEK_API_KEY",
+  "base_url": "https://api.deepseek.com",
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_output_tokens": 4096,
+  "response_format": "json_object"
+}

@@ -1,0 +1,2 @@
+# Pin the SDK used during the reported experiments when possible.
+openai>=2.0.0,<3

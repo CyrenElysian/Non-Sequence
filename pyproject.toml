@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nonsequence"
+version = "0.1.0"
+description = "Research tools for non-linear procedural event graphs and loop termination judgment"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "openai",
+]
+
+[project.scripts]
+nonsequence-cut = "nonsequence.preprocessing.cut:main"
+nonsequence-convert = "nonsequence.preprocessing.convert:main"
+nonsequence-correct-edges = "nonsequence.preprocessing.correct_edges:main"
+nonsequence-select-loop = "nonsequence.construction.select_loop:main"
+nonsequence-check = "nonsequence.construction.check:main"
+nonsequence-count-structure = "nonsequence.construction.count_structure:main"
+nonsequence-overall = "nonsequence.construction.overall:main"
+nonsequence-predict = "nonsequence.graph_prediction.predict:main"
+nonsequence-evaluate = "nonsequence.evaluation.evaluate:main"
+nonsequence-ltj-filter-sequences = "nonsequence.ltj.filter_dev:main"
+nonsequence-ltj-filter-loops = "nonsequence.ltj.filter_loop:main"
+nonsequence-ltj-filter-quality = "nonsequence.ltj.filter_loop_quality:main"
+nonsequence-ltj-generate = "nonsequence.ltj.description:main"
+nonsequence-ltj-judge = "nonsequence.ltj.judge:main"
+nonsequence-ltj-judge-reason = "nonsequence.ltj.judge_reason:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+nonsequence = ["py.typed"]

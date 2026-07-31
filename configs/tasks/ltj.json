@@ -1,0 +1,26 @@
+{
+  "task": "loop_termination_judgment",
+  "candidate_path": "data/ltj/filter_dev.json",
+  "loop_filtered_path": "data/ltj/filter_loop_dev.json",
+  "quality_filtered_path": "data/ltj/filter_loop_quality_dev.json",
+  "filter_prompt": "prompts/ltj/filter/prompt_filter.txt",
+  "quality_prompt": "prompts/ltj/filter/prompt_filter_quality.txt",
+  "judge_prompt": "prompts/ltj/judge/prompt_judge.txt",
+  "labels": {
+    "0": "stop",
+    "1": "continue",
+    "2": "irrelevant"
+  },
+  "difficulty": [
+    "easy",
+    "medium",
+    "hard",
+    "na"
+  ],
+  "confirmed_funnel": {
+    "sequence_candidates": 715,
+    "loop_candidates": 180,
+    "quality_filtered": 122,
+    "final_items": 115
+  }
+}

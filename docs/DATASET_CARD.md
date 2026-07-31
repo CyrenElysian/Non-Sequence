@@ -30,7 +30,7 @@ Supported structures are:
 
 - `sequence`: ordered execution via `script`.
 - `select`: mutually exclusive alternatives via `options`; branches reconverge.
-- `loop`: an `entry`, a retry body, and an `exit`.
+- `loop`: an `entry`, a `retry` body, and an `exit`.
 - `and_join`: internally ordered branches that may interleave, all of which must finish before a shared continuation.
 
 Graph completeness, connectivity, and agreement between `edges` and `script_graph` are intended invariants.
@@ -47,34 +47,10 @@ Difficulty tags use `easy`, `medium`, `hard`, and `na`; `na` is reserved for irr
 
 ## Construction and provenance
 
-The graph task begins with ProScript procedures, converts them to the repository schema, applies LLM-assisted correction and restructuring, and adds non-linear control structures where appropriate. LTJ starts from sequence-only candidates, filters for implicit loop semantics and quality, then generates state descriptions for termination judgments. Human inspection and correction are used, but the extent may vary by stage.
-
-The Chinese files in [`source/`](source/) are retained as original design notes. They record evolving decisions and can contain superseded terminology or constraints.
-
-## Intended uses
-
-- Benchmarking procedural graph induction.
-- Studying robustness to choices, loops, joins, and nesting.
-- Comparing exact and soft graph metrics.
-- Evaluating loop-state reasoning under controlled difficulty and irrelevant context.
-
-## Out-of-scope uses
-
-The data is not designed for safety-critical workflow execution, autonomous planning without validation, or conclusions about human cognitive ability. Labels should not be interpreted as exhaustive ground truth where multiple event orders are plausible.
-
-## Known risks and limitations
-
-- Temporal and causal ambiguity can permit multiple valid graphs.
-- LLM-assisted construction can create semantic drift and systematic model bias.
-- Exact structured matching is sensitive to serialization and equivalent alternatives.
-- Deep and mixed structures have fewer examples than simple sequences.
-- LTJ labels and difficulty levels may reflect annotator and prompt assumptions.
-- Source dataset and model-provider terms may impose additional redistribution or use conditions; users are responsible for checking them.
+The graph task begins with ProScript procedures, converts them to the repository schema, applies LLM-assisted correction and restructuring, and adds non-linear control structures where appropriate. LTJ starts from sequence-only candidates, filters for implicit loop semantics and quality, then generates state descriptions for termination judgments. 
 
 ## Data locations
 
 - Active datasets: `data/`
 - Prompt templates: `prompts/`
 - Published CtrlScript predictions and summaries: `results/ctrlscript/`
-
-No LTJ result directory is part of the documented public release.

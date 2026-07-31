@@ -61,7 +61,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--input",
         type=Path,
-        default=DEFAULT_INTERIM_CTRLSCRIPT_DIR / "llm_fixed_dev.json",
+        default=DEFAULT_INTERIM_CTRLSCRIPT_DIR / "correct_dev.json",
         help="Source control-script JSON.",
     )
     parser.add_argument(

@@ -22,8 +22,8 @@ LOGGER = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 INTERIM_DIR = PROJECT_ROOT / "data" / "interim" / "ctrlscript"
 DEFAULT_PROMPT = PROJECT_ROOT / "prompts" / "preprocessing" / "prompt_correct.txt"
-DEFAULT_INPUT = INTERIM_DIR / "converted_dev.json"
-DEFAULT_OUTPUT = INTERIM_DIR / "llm_fixed_dev.json"
+DEFAULT_INPUT = INTERIM_DIR / "convert_dev.json"
+DEFAULT_OUTPUT = INTERIM_DIR / "correct_dev.json"
 DEFAULT_CHANGE_LOG = INTERIM_DIR / "change_log.json"
 
 

@@ -6,7 +6,7 @@ import json
 from collections import defaultdict
 from typing import Any, Iterable, Mapping, MutableMapping, Sequence
 
-EDGE_METRIC_KEYS = ("precision", "recall", "f1", "iou", "ged", "e_del", "e_ins")
+EDGE_METRIC_KEYS = ("precision", "recall", "f1", "jaccard", "ged", "e_del", "e_ins")
 TYPE_NAMES = ("select", "loop", "and_join")
 
 
@@ -60,7 +60,7 @@ def compute_edge_metrics(
     predicted_edges: Iterable[str] | None,
     reference_edges: Iterable[str] | None,
 ) -> dict[str, float | int]:
-    """Compute macro-sample edge P/R/F1/IoU and edge-only GED."""
+    """Compute macro-sample edge P/R/F1/jaccard and edge-only GED."""
     predicted = set(predicted_edges or [])
     reference = set(reference_edges or [])
     intersection_size = len(predicted & reference)
@@ -73,12 +73,12 @@ def compute_edge_metrics(
         if precision + recall
         else 0.0
     )
-    iou = intersection_size / union_size if union_size else 0.0
+    jaccard = intersection_size / union_size if union_size else 0.0
     return {
         "precision": precision,
         "recall": recall,
         "f1": f1,
-        "iou": iou,
+        "jaccard": jaccard,
         **compute_edge_ged(predicted, reference),
     }
 

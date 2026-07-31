@@ -13,8 +13,8 @@ from nonsequence.common import atomic_write_json, load_json
 LOGGER = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 INTERIM_DIR = PROJECT_ROOT / "data" / "interim" / "ctrlscript"
-DEFAULT_INPUT = INTERIM_DIR / "proscript_simple_dev.json"
-DEFAULT_OUTPUT = INTERIM_DIR / "converted_dev.json"
+DEFAULT_INPUT = INTERIM_DIR / "cut_dev.json"
+DEFAULT_OUTPUT = INTERIM_DIR / "convert_dev.json"
 
 
 def build_graph(

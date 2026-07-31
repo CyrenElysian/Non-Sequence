@@ -26,7 +26,7 @@ Give the model only `scenario` and `unordered_nodes`. Request one JSON object co
 
 ### 6. Evaluate
 
-Compare predictions against references with exact edge-set match, exact structured-graph match, joint exact match, edge precision/recall/F1, IoU (Jaccard), and edge GED. Aggregate overall and by nesting depth, structure type, and structure combination.
+Compare predictions against references with exact edge-set match, exact structured-graph match, joint exact match, edge precision/recall/F1, Jaccard, and edge GED. Aggregate overall and by nesting depth, structure type, and structure combination.
 
 ## LTJ pipeline
 
@@ -45,10 +45,6 @@ Retain loops with meaningful state development and observable intermediate outco
 ### 4. Generate state descriptions
 
 Generate descriptions that imply continuation or termination at several prompt-defined difficulty levels, plus contextually related but causally irrelevant descriptions. Noise augmentation must preserve the original label.
-
-### 5. Judge and review
-
-Hide labels and difficulty from the judging model, collect three-way predictions, and inspect disagreements. The repository does not currently publish an LTJ result set.
 
 ## Configuration
 

@@ -1,0 +1,199 @@
+# ROLE AND OBJECTIVE
+
+You are an expert annotator of procedural event graphs. You will process a dataset of everyday scripts and output a refined dataset in which every item is logically correct.
+
+Each input item contains:
+- "id" (int): item identifier.
+- "scenario" (string): the goal of the event chain.
+- "unordered_nodes" (dict): node ID -> event description; events are unordered.
+- "edges" (list of "A->B" strings): directed edges; "A->B" means event B can directly follow event A in some execution of the script.
+- "script_graph" (nested JSON): the event flow described with control-flow primitives.
+
+The input may contain: (1) spelling errors in scenario and unordered_nodes; (2) logical errors in edges (extra edges, missing edges, or wrong edges); (3)logical or structural errors in script graphs (specifically, refer to the following rules); (4) It may only containthe sequence and and-join primitives, so the semantics aren't rich enough.
+
+# CONTROL-FLOW PRIMITIVES
+
+Notation: for an element x, first(x) is its first node ID — first(x) = x if x is a node ID, and first(first_element(x)) if x is a nested structure.
+
+1. sequence: { "type": "sequence", "script": [ ... ] }
+   - An ordered list of node IDs and nested structures, executed strictly in order.
+
+2. select: { "type": "select", "options": [ ... ] }
+   - Mutually exclusive options: exactly one option is executed.
+   - Options must be logically significantly different: the choice must lead to clearly different subsequent events. Trivial differences (e.g., chopsticks vs. spoon for the meal) are not recommended as options. You can refer to the excellent examples in STANDARD EXAMPLES and TRANSFORMATION EXAMPLES below (Example 4, Transformation 3 and so on).
+   - Every option must merge into the SAME node that directly follows the select in the enclosing script; each option's last node has an edge to it.
+   - There must be no edges between options (they never connect to each other).
+   - Each option is a node ID or a nested structure. Every option must be non-empty.
+   - Options are unordered; output them in ascending order of first(option). Output "options":["2","3"], not ["3","2"]; output "options":["1",{"type":"sequence","script":["3","2"]}], not [{"type":"sequence","script":["3","2"]},"1"].
+
+3. loop: { "type": "loop", "entry": "...", "retry": [ ... ], "exit": "..." }
+   - entry and exit are single node IDs describing concrete events or objective states. Neither may use rigid judgment phrasing such as "decide if", "decide whether", "determine whether", "check if", or "evaluate whether".
+   - entry and retry together form the loop body: execution cycles entry -> retry -> entry.
+   - retry is an array of node IDs and nested structures; its LAST element must be the literal keyword "continue" (the marker for returning to entry).
+   - A direct edge entry -> exit must exist: it is the channel for skipping the loop entirely when the exit condition is met.
+   - No node or path inside retry may lead directly to exit.
+   - The loop must terminate in principle: each pass through retry must make observable progress toward the exit condition.
+   - Node repetition exception: a node may appear exactly twice — once in the surrounding linear context and once inside retry — when the event genuinely recurs. Outside loops, every node appears exactly once.
+
+4. and_join: { "type": "and_join", "branches_set": { "b1": [ ... ], "b2": [ ... ], ... } }
+   - Concurrent branches with no temporal or causal order among themselves: they may run in any order, interleaved or even in parallel, but ALL must complete before the merge node.
+   - The merge node is the node immediately following the and_join in the enclosing script; every branch's last node has a direct edge to it. The merge node never appears inside branches_set.
+   - There must be no edges between branches.
+   - Each branch is an ordered list of node IDs and nested structures.
+   - Branches are unordered; name them b1, b2, ... in ascending order of first(branch) and output them in that order. Output {"b1":["2"],"b2":["3","1"]}, not {"b1":["3","1"],"b2":["2"]}. With nesting: {"b1":[{"type":"select","options":["1","4"]},"3"],"b2":["2"]} (first 1 < 2); {"b1":[{"type":"and_join","branches_set":{"b1":["1"],"b2":["4"]}},"3"],"b2":["2"]} (1 < 2 and 1 < 4).
+
+# GLOBAL CONSTRAINTS
+
+- Node usage: every node in unordered_nodes appears in script_graph exactly once — except in loop data, where a node may appear exactly twice (see the loop exception).
+- Edge consistency (bidirectional): "edges" must contain exactly the edges implied by the script_graph. No missing edges, no extra edges, no dangling nodes or edges.
+- Single flow: the graph is one connected control flow; every structure has a unique entry and a unique exit, and a substructure's exit connects to the next node of its parent.
+- Do not rename existing node IDs; new nodes take the next unused integer IDs. Do not invent events unrelated to the scenario.
+
+# CONSTRUCTION PROCEDURE
+
+For EVERY item, perform ALL steps in this order in one pass:
+
+Step 1 — Spelling. Fix obvious misspellings in scenario and unordered_nodes without changing the intended meaning. Log as "spelling_fix".
+
+Step 2 — Structure inspection. Decide whether the underlying logic already contains a select or a loop that was mis-annotated as sequence/and_join (words like "repeat", "until", "wait for", "or" are cues, not proof — judge the logic):
+   - If yes and it can be expressed correctly by adjusting nodes/edges: restructure it correctly and log "structure_changed". You can refer to the excellent examples in STANDARD EXAMPLES and TRANSFORMATION EXAMPLES below. (Transformation 2, 4 and so on)
+   - If yes but a correct restructure is not feasible: the item is an annotation error — remove it from processed_data and log "deletion" with the reason.
+
+Step 3 — Introduction. For the remaining items, consider introducing at least one select, loop, or and_join, possibly by adding a few nodes or making node meanings richer:
+   - Imagination is encouraged, but the logic must be natural, never forced. If there is no natural introduction plan, keep the item unchanged.
+   - Select: branches mutually exclusive and significantly different; all branches merge to the same following node.
+   - Loop: an explicit, observable termination condition; entry/exit wiring as specified above.
+   - Delete every old edge invalidated by the restructured control flow; remove any edge that contradicts the new control flow.
+
+Step 4 — Scenario-duplicate end node. Apply the dedicated rule below where relevant.
+
+After generating new edges and script_graph, double-check them TOGETHER using the checklist below.
+
+# ADDITIONAL CORRECTION RULE: SCENARIO-DUPLICATE END NODE
+
+One node in unordered_nodes usually repeats the scenario text and is meant to mark the end of the chain. Using the bare scenario phrase as the final event is often illogical, because the goal may already be achieved before it (e.g., the goal "begin by calling first person on list" is already accomplished once the control flow reaches "wait for answer"; appending the duplicate node afterwards creates an awkward tail). You may either delete that node, or rewrite it into a natural closing event (e.g., "successfully talked with the other party"). Whenever you apply this correction, log it as "structure_changed".
+
+Original:
+{"id":738,"scenario":"begin by calling first person on list","unordered_nodes":{"0":"dial number off list","1":"wait for answer","2":"locate a phone","3":"double check list","4":"press call button","5":"make a list","6":"begin by calling first person on list"},"edges":["0->4","1->6","2->0","3->0","4->1","5->3","5->2"],"script_graph":{"type":"sequence","script":["5",{"type":"and_join","branches_set":{"b1":["2"],"b2":["3"]}},"0","4","1","6"]}}
+
+Here node "6" duplicates the scenario and adds nothing after "1". Rewrite it into a coherent closing node (or delete it) and update edges and script_graph accordingly.
+
+# SELF-CHECK CHECKLIST
+
+Before finalizing, verify for every kept item:
+[ ] Every node appears exactly once in script_graph (or exactly twice — once inside, once outside a loop).
+[ ] "edges" equals the set of edges implied by script_graph: no missing, no extra, no dangling.
+[ ] select: options sorted ascending by first node; mutually exclusive; no cross-option edges; all options merge to the same next node.
+[ ] loop: entry/exit are concrete event/state nodes without rigid decision phrasing; retry ends with "continue"; an entry->exit edge exists; no path from retry to exit; the cycle returns to entry; completing the entry is compatible with both the retry and the exit; termination is plausible.
+[ ] and_join: branches sorted ascending; no cross-branch edges; every branch reaches the merge node; merge node not inside branches_set.
+[ ] change_log records every modification (spelling_fix / deletion / structure_changed).
+
+# STANDARD EXAMPLES (ideal items with select/loop/and_join)
+
+Example 1: sequence + select + loop (online shopping)
+{"id":1,"scenario":"online shopping","unordered_nodes":{"0":"search for products","1":"add to cart","2":"choose guest login","3":"choose account login (VIP)","4":"enter payment password","5":"incorrect password","6":"payment successful","7":"generate order"},"edges":["0->1","1->2","1->3","2->4","3->4","4->5","4->6","5->4","6->7"],"script_graph":{"type":"sequence","script":["0","1",{"type":"select","options":["2","3"]},{"type":"loop","entry":"4","retry":["5","continue"],"exit":"6"},"7"]}}
+
+Example 2: and_join, single-node branches (plan a weekend trip)
+{"id":2,"scenario":"plan a weekend trip","unordered_nodes":{"0":"decide destination","1":"check weather forecast","2":"book hotel","3":"buy train tickets","4":"pack luggage based on weather and hotel conditions","5":"confirm final itinerary","6":"set alarm for departure","7":"head to station"},"edges":["0->1","0->2","0->3","1->4","2->4","3->4","4->5","5->6","6->7"],"script_graph":{"type":"sequence","script":["0",{"type":"and_join","branches_set":{"b1":["1"],"b2":["2"],"b3":["3"]}},"4","5","6","7"]}}
+
+Example 3: and_join with ordered branches (replicate the pasta at the restaurant)
+{"id":3,"scenario":"replicate the pasta at the restaurant","unordered_nodes":{"0":"decided to replicate the pasta at the restaurant","1":"turn on the stove","2":"boil water for noodles","3":"heat sauce in a pot","4":"put noodles in the water","5":"combine noodles and sauce","6":"drain noodles over the sink","7":"plate noodles and sauce together","8":"replicate the pasta at the restaurant"},"edges":["0->1","1->2","1->3","2->4","4->6","6->5","3->5","5->7","7->8"],"script_graph":{"type":"sequence","script":["0","1",{"type":"and_join","branches_set":{"b1":["2","4","6"],"b2":["3"]}},"5","7","8"]}}
+
+Example 4: select with nested structures (solve the dinner problem)
+{"id":4,"scenario":"solve the dinner problem","unordered_nodes":{"0":"visit the wet market","1":"cook by oneself","2":"open the food delivery app","3":"order from a 30-minute guaranteed fast-food chain","4":"choose a highly-rated yet remote internet-famous restaurant","5":"wait for the takeaway","6":"invite friends to go out for dinner","7":"queue up at the internet-famous restaurant","8":"solve the dinner problem"},"edges":["0->1","2->3","2->4","3->5","4->5","6->7","1->8","5->8","7->8"],"script_graph":{"type":"sequence","script":[{"type":"select","options":[{"type":"sequence","script":["0","1"]},{"type":"sequence","script":["2",{"type":"select","options":["3","4"]},"5"]},{"type":"sequence","script":["6","7"]}]},"8"]}}
+
+Example 5: loop with a nested select in retry (adjust coffee strength until perfect)
+{"id":5,"scenario":"adjust coffee strength until perfect","unordered_nodes":{"0":"grind coffee beans","1":"brew a test cup","2":"taste and evaluate strength","3":"strength is perfect","4":"add more ground coffee","5":"extend brewing time","6":"re-brew coffee","7":"enjoy coffee"},"edges":["0->1","1->2","2->3","2->4","2->5","4->6","5->6","6->2","3->7"],"script_graph":{"type":"sequence","script":["0","1",{"type":"loop","entry":"2","retry":[{"type":"select","options":["4","5"]},"6","continue"],"exit":"3"},"7"]}}
+
+Example 6: and_join with a nested select branch (replicate the pasta, with sauce choice)
+{"id":6,"scenario":"replicate the pasta at the restaurant","unordered_nodes":{"0":"decide to replicate the pasta at the restaurant","1":"turn on the stove","2":"boil water for noodles","3":"heat sauce in a pot","4":"put noodles in the water","5":"combine noodles and sauce","6":"drain noodles over the sink","7":"plate noodles and sauce together","8":"choose red sauce","9":"choose white sauce","10":"replicate the pasta at the restaurant"},"edges":["0->1","1->2","1->3","2->4","4->6","6->5","3->5","5->7","7->10","3->8","3->9","8->5","9->5"],"script_graph":{"type":"sequence","script":["0","1",{"type":"and_join","branches_set":{"b1":["2","4","6"],"b2":["3",{"type":"select","options":["8","9"]}]}},"5","7","10"]}}
+
+# TRANSFORMATION EXAMPLES (how to convert flat sequences into graphs with select/loop)
+
+Transformation 1: adding a loop to a sequence
+Original (flat):
+{"id":25,"scenario":"buy a new necktie","unordered_nodes":{"0":"Order the necktie","1":"Find a necktie","2":"Research some neckties","3":"Go to a necktie website","4":"Send the necktie to yourself","5":"buy a new necktie"},"edges":["2->3","3->1","1->0","0->4","4->5"],"script_graph":{"type":"sequence","script":["2","3","1","0","4","5"]}}
+
+Reasoning: a person browsing neckties on a website is continuously comparing products — a repeating cycle: find a necktie (with mild interest) -> feel dissatisfied -> find another necktie. But instant preference and immediate purchase are also possible: find a necktie -> order the necktie. So we add one node "feel dissatisfied". The entry is "find a necktie", the exit is "order the necktie", the retry is "feel dissatisfied". Entry and exit are single nodes describing specific events or objective states, with no rigid phrasing such as "decide" or "determine whether". A direct path entry -> exit exists (find a necktie -> order the necktie), allowing the process to conclude without looping; and a valid cycle entry -> retry -> entry exists (find a necktie -> feel dissatisfied -> find a necktie).
+
+Transformed (added node 6 and a loop):
+{"id":25,"scenario":"buy a new necktie","unordered_nodes":{"0":"Order the necktie","1":"Find a necktie","2":"Research some neckties","3":"Go to a necktie website","4":"Send the necktie to yourself","5":"buy a new necktie","6":"feel dissatisfied"},"edges":["2->3","3->1","1->0","1->6","6->1","0->4","4->5"],"script_graph":{"type":"sequence","script":["2","3",{"type":"loop","entry":"1","retry":["6","continue"],"exit":"0"},"4","5"]}}
+
+Transformation 2: handling nodes with implicit loop keywords (e.g., "repeat", "wait for", "until" — always judge the logic, not the wording)
+Original (flat):
+{"id":80,"scenario":"learn to play chess like a grand master","unordered_nodes":{"0":"practice a game solo","1":"repeat until mastered","2":"setup up a chess board","3":"challenge others as practice","4":"read about the movements of the pieces","5":"learn to play chess like a grand master"},"edges":["2->0","4->0","0->3","3->1","1->5"],"script_graph":{"type":"sequence","script":[{"type":"and_join","branches_set":{"b1":["2"],"b2":["4"]}},"0","3","1","5"]}}
+
+Reasoning: node "1" contains "repeat", which indicates a loop, and the underlying logic is indeed a loop — repeatedly practicing chess until reaching grand master level — yet it is mis-annotated as sequence/and_join. Define an observable loop condition: "participate in a chess tournament to test level"; if the grand master standard is met the loop terminates, otherwise practice continues. Remove the node "repeat until mastered" and add two nodes: "participate in a chess tournament to test level" and "rated as master level". Entry: participate in a chess tournament to test level; exit: rated as master level; retry: practice a game solo / practice with others. A direct entry -> exit path exists (tournament -> rated as master level) — unlikely, but logically consistent; and a valid cycle entry -> retry -> entry exists. The retry carries a select: solo practice and peer practice are two distinct alternatives. They could also be a sequence (solo before peers) or an and_join ignoring chronology — both logically sound.
+
+Transformed (deleted node 1, added nodes 5-6, redesigned loop with a nested select):
+{"id":80,"scenario":"learn to play chess like a grand master","unordered_nodes":{"0":"practice a game solo","1":"setup up a chess board","2":"practice with others","3":"read about the movements of the pieces","4":"learn to play chess like a grand master","5":"participate in a chess tournament to test level","6":"rated as master level"},"edges":["3->1","1->5","5->6","5->0","5->2","0->5","2->5","6->4"],"script_graph":{"type":"sequence","script":["3","1",{"type":"loop","entry":"5","retry":[{"type":"select","options":["0","2"]}],"exit":"6"},"4"]}}
+
+Transformation 3: adding a select branch to a linear sequence
+Original (flat):
+{"id":15,"scenario":"deposit funds at the bank","unordered_nodes":{"0":"walk to car","1":"walk to a teller","2":"fill out a deposit slip","3":"get in the car","4":"drive to the bank","5":"leave the office building","6":"walk in the bank","7":"deposit funds at the bank"},"edges":["0->3","1->7","2->1","3->4","4->6","5->0","6->2"],"script_graph":{"type":"sequence","script":["5","0","3","4","6","2","1","7"]}}
+
+Reasoning: the original data offers only the manual-counter route. A genuinely different alternative is the ATM, and the two routes lead to clearly different subsequent events. Add four nodes: "go straight to the ATM", "insert card", "select deposit and insert cash", "obtain a receipt after the machine counts". Both routes merge into the same terminal node: teller path walk to a teller -> deposit funds at the bank; ATM path obtain a receipt after the machine counts -> deposit funds at the bank.
+
+Transformed (added nodes 8-11 creating the ATM branch):
+{"id":15,"scenario":"deposit funds at the bank","unordered_nodes":{"0":"walk to car","1":"walk to a teller","2":"fill out a deposit slip","3":"get in the car","4":"drive to the bank","5":"leave the office building","6":"walk in the bank","7":"deposit funds at the bank","8":"go straight to the ATM","9":"insert card","10":"select deposit and insert cash","11":"obtain a receipt after the machine counts"},"edges":["0->3","1->7","2->1","3->4","4->6","5->0","6->2","6->8","8->9","9->10","10->11","11->7"],"script_graph":{"type":"sequence","script":["5","0","3","4","6",{"type":"select","options":[{"type":"sequence","script":["2","1"]},{"type":"sequence","script":["8","9","10","11"]}]},"7"]}}
+
+Transformation 4: boundary case — decision-related wording alone does not justify a structure
+Original (flat):
+{"id":437,"scenario":"enter the restaurant","unordered_nodes":{"0":"get out of the car","1":"park in empty spot","2":"shut and lock the car door","3":"grab wallet or purse","4":"find an empty parking spot","5":"drive to seafood restaurant","6":"enter the restaurant"},"edges":["5->4","4->1","1->3","3->0","0->2","2->6"],"script_graph":{"type":"sequence","script":["5","4","1","3","0","2","6"]}}
+
+Reasoning: node 3, "grab wallet or purse", bundles two micro-alternatives, but they lead to virtually identical continuations, so it stays a single node — decision-related wording by itself never justifies splitting a node into a select. The genuine structure is elsewhere: searching for a parking spot is a repeatable action with a checkable condition. One new node ("drive around the parking lot again") turns the flat sequence into a loop: entry 4, retry ["7", "continue"], exit 1 (park in empty spot); the direct edge 4->1 lets the loop be skipped when a spot is found immediately. Note the entry wording: node 4 must be rephrased from "find an empty parking spot" to "look for an empty parking spot" — completing "find" would already imply the exit condition (a spot is found, so one would park, never drive around again), making the retry path contradictory; "look for" leaves both branches open. No other re-segmentation or nodes are needed.
+
+Transformed (rephrased node 4, added node 7 and a loop; node 3 stays atomic):
+{"id":437,"scenario":"enter the restaurant","unordered_nodes":{"0":"get out of the car","1":"park in empty spot","2":"shut and lock the car door","3":"grab wallet or purse","4":"look for an empty parking spot","5":"drive to seafood restaurant","6":"enter the restaurant","7":"drive around the parking lot again"},"edges":["5->4","4->1","1->3","3->0","0->2","2->6","4->7","7->4"],"script_graph":{"type":"sequence","script":["5",{"type":"loop","entry":"4","retry":["7","continue"],"exit":"1"},"3","0","2","6"]}}
+
+# COMMON MISTAKES (do not imitate these transformations)
+
+Wrong Example 1: rigid loop entry
+Original:
+{"id":57,"scenario":"learn how to dance in college","unordered_nodes":{"0":"read a flyer for a dance club","1":"go to the class every week","2":"go online to the web site","3":"sign up for the class","4":"wait until the first class","5":"learn how to dance in college"},"edges":["0->2","1->5","2->3","3->4","4->1"],"script_graph":{"type":"sequence","script":["0","2","3","4","1","5"]}}
+
+Bad transformation:
+{"id":57,"scenario":"learn how to dance in college","unordered_nodes":{"0":"read a flyer for a dance club","1":"go to the class every week","2":"go online to the web site","3":"sign up for the class","4":"wait until the first class","5":"learn how to dance in college","6":"decide whether to continue classes or stop","7":"complete the dance course"},"edges":["0->2","2->3","3->4","4->6","6->1","6->7","1->6","7->5"],"script_graph":{"type":"sequence","script":["0","2","3","4",{"type":"loop","entry":"6","retry":["1","continue"],"exit":"7"},"5"]}}
+
+Cause of error: the new node "decide whether to continue classes or stop" is semantically rigid and makes the flow unnatural. Loop entries must be concrete events or states.
+
+Wrong Example 2: rigid entry plus impossible edge
+Original:
+{"id":63,"scenario":"start learning a sport","unordered_nodes":{"0":"Think about which sports interest self","1":"Decide on sport to learn","2":"Sit down at computer","3":"Search how-to videos on sport chosen","4":"Watch how-to videos","5":"travel to youtube.com","6":"start learning a sport"},"edges":["0->1","1->2","2->5","5->3","3->4","4->6"],"script_graph":{"type":"sequence","script":["0","1","2","5","3","4","6"]}}
+
+Bad transformation:
+{"id":63,"scenario":"start learning a sport","unordered_nodes":{"0":"Think about which sports interest self","1":"Decide on sport to learn","2":"Sit down at computer","3":"Search how-to videos on sport chosen","4":"Watch how-to videos","5":"travel to youtube.com","6":"start learning a sport","7":"decide if want to watch more videos"},"edges":["0->1","1->2","2->5","5->7","7->3","7->6","3->4","4->7"],"script_graph":{"type":"sequence","script":["0","1","2","5",{"type":"loop","entry":"7","retry":["3","4","continue"],"exit":"6"}]}}
+
+Cause of error: node "decide if want to watch more videos" is rigid; moreover, as entry it creates the edge travel to youtube.com -> decide if want to watch more videos, which is impossible — one cannot decide whether to watch more before watching any.
+
+Wrong Example 3: illogical loop path
+Original:
+{"id":68,"scenario":"go vacationing in the Bahamas","unordered_nodes":{"0":"choose a vacation package for the Bahamas","1":"gather everything necessary","2":"look for a vacation package for the Bahamas","3":"stay in the Bahamas","4":"plan the trip","5":"fly to the Bahamas","6":"search online for vacationing deals","7":"go vacationing in the Bahamas"},"edges":["0->4","1->5","2->0","3->7","4->1","5->3","6->2"],"script_graph":{"type":"sequence","script":["6","2","0","4","1","5","3","7"]}}
+
+Bad transformation:
+{"id":68,"scenario":"go vacationing in the Bahamas","unordered_nodes":{"0":"choose a vacation package for the Bahamas","1":"gather everything necessary","2":"look for a vacation package for the Bahamas","3":"stay in the Bahamas","4":"plan the trip","5":"fly to the Bahamas","6":"search online for vacationing deals","7":"go vacationing in the Bahamas","8":"find the package unsatisfactory"},"edges":["0->4","1->5","2->0","3->7","4->1","4->8","5->3","6->2","8->4"],"script_graph":{"type":"sequence","script":["6","2","0",{"type":"loop","entry":"4","retry":["8","continue"],"exit":"1"},"5","3","7"]}}
+
+Cause of error: the cycle plan the trip -> find the package unsatisfactory -> plan the trip -> ... has no reasonable causal reading. A loop body must make sense when repeated.
+
+Wrong Example 4: rigid rephrasing plus invalid edges
+Original:
+{"id":92,"scenario":"find a hobby","unordered_nodes":{"0":"Gather the items necessary for the activity","1":"Repeat the activity whenever the time is right","2":"Think about the ways to complete the activity","3":"Complete the activity","4":"Pick the most appealing activity","5":"Look for the interesting activities","6":"find a hobby"},"edges":["0->3","1->6","2->0","3->1","4->2","5->4"],"script_graph":{"type":"sequence","script":["5","4","2","0","3","1","6"]}}
+
+Bad transformation:
+{"id":92,"scenario":"find a hobby","unordered_nodes":{"0":"Gather the items necessary for the activity","1":"Decide whether to repeat the activity","2":"Think about the ways to complete the activity","3":"Complete the activity","4":"Pick the most appealing activity","5":"Look for the interesting activities","6":"find a hobby"},"edges":["0->3","1->6","2->0","3->1","4->2","5->4","1->0"],"script_graph":{"type":"sequence","script":["5","4","2",{"type":"loop","entry":"0","retry":["3","1","continue"],"exit":"6"}]}}
+
+Cause of error: rewriting node 1 into "Decide whether to repeat the activity" is rigid. With entry 0 and exit 6, the required entry->exit edge (0->6) is missing while an invalid retry->exit edge (1->6) is included — retry nodes must not have edges to exit, as that would terminate the loop unintentionally. The edge 1->0 is also contradictory (repeating preparation after deciding to stop), and 0->6 is unreasonable (gathering supplies has no direct connection to finding a hobby). Both the entry->exit and entry->retry->entry paths are logically incoherent.
+
+# OUTPUT FORMAT
+
+Output exactly two JSON objects, clearly separated, in this order:
+1. "processed_data": an array containing all kept items after corrections and optional structure additions, each preserving the fields id, scenario, unordered_nodes, edges, script_graph. Items that were removed must NOT appear in this array.
+2. "change_log": an array of objects recording every modification. Each entry has "id" (the item id), "type" (one of "spelling_fix", "deletion", "structure_changed"), and "details" (a brief description). Do not include entries for unchanged items.
+
+Example change_log entries:
+{"id": 10, "type": "spelling_fix", "details": "corrected 'recieve' to 'receive' in scenario"}
+{"id": 554, "type": "deletion", "details": "removed due to implicit loop in edges (4->1)"}
+{"id": 25, "type": "structure_changed", "details": "introduced loop for password retry"}
+
+Now, process the entire dataset according to all the rules above. Output only the two JSON objects, clearly separated. For example:
+{"processed_data": [ ... ], "change_log": [ ... ]}

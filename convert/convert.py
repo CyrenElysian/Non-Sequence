@@ -149,8 +149,8 @@ def convert_scenario(item, idx):
     return new_item
 
 def main():
-    input_file = "proscript_simple/dev.json"
-    output_file = "converted_dev.json"
+    input_file = "simple/dev.json"
+    output_file = "converted.json"
 
     data = load_data(input_file)
     converted = []

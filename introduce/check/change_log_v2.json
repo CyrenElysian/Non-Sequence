@@ -1,0 +1,527 @@
+[
+  {
+    "id": 3,
+    "type": "structure_changed",
+    "details": "collapsed the redundant and_join of 'gather fishing tools' and 'gather fishing supplies' into a linear sequence (0 then 6) and updated the edges accordingly (3->0, 0->6, 6->1 instead of 3->0, 3->6, 0->1, 6->1)"
+  },
+  {
+    "id": 27,
+    "type": "structure_changed",
+    "details": "normalized and_join branch b2 from a nested sequence object to a plain ordered list of node IDs as required by the and_join branch format"
+  },
+  {
+    "id": 33,
+    "type": "logic_changed",
+    "details": "removed the weak/redundant loop between 'wait for other players' and 'wait a bit longer' and flattened it into a linear flow 2->8->7 with matching edges"
+  },
+  {
+    "id": 34,
+    "type": "logic_changed",
+    "details": "removed the weak loop (wait for the cycle -> look at the display -> back) since the two events are semantically redundant, flattening it into the linear sequence 4->8->7 with matching edges"
+  },
+  {
+    "id": 35,
+    "type": "logic_changed",
+    "details": "removed the weak search loop (look for the alligator -> look around the exhibit area -> back) as the events are redundant, flattening it into the linear sequence 7->8->6 with matching edges"
+  },
+  {
+    "id": 58,
+    "type": "logic_changed",
+    "details": "removed the weak/forced loop between 'measure poster fits on the wall' and 'adjust the poster's position on the wall' (adjusting only makes sense after pressing the poster up) and linearized the flow as 3->1->0->4->2->5->6, replacing loop edges 0->6 and 6->0 with the natural edge 5->6"
+  },
+  {
+    "id": 69,
+    "type": "logic_changed",
+    "details": "removed the weak loop around 'go inside the shelter' whose retry node 'leave without adopting a cat' is a terminal outcome that cannot sensibly cycle back to the entry, and flattened the flow into a linear sequence to adopting the cat"
+  },
+  {
+    "id": 81,
+    "type": "logic_changed",
+    "details": "removed the weak wait/check-tracking loop (no observable progress per cycle) and linearized it to wait for items -> check delivery tracking -> receive packages, updating edges accordingly"
+  },
+  {
+    "id": 83,
+    "type": "logic_changed",
+    "details": "removed the weak loop (search for books -> ask staff -> back to search) and flattened it into the natural linear flow search -> ask a staff member -> find the books, updating edges accordingly"
+  },
+  {
+    "id": 86,
+    "type": "structure_changed",
+    "details": "reordered and_join branches into ascending order of their first node IDs (b1: node 1, b2: nodes 2-3, b3: node 6)"
+  },
+  {
+    "id": 93,
+    "type": "logic_changed",
+    "details": "removed the forced loop (looking at mopeds and asking questions naturally completes in one pass) and linearized the flow to 4->2->5, updating edges accordingly"
+  },
+  {
+    "id": 99,
+    "type": "logic_changed",
+    "details": "Removed the forced weak loop around 'browse the selection' / 'read product labels and compare' (which naturally occur once) and linearized the flow as 3->6->1, removing the now-invalid edges 3->1 and 6->3."
+  },
+  {
+    "id": 123,
+    "type": "logic_changed",
+    "details": "replaced the implausible and_join of 'edit the draft' and 'rewrite weak spots' (which naturally proceed in order) with a linear sequence, updating the edges accordingly"
+  },
+  {
+    "id": 130,
+    "type": "logic_changed",
+    "details": "Reordered the flow so that planning/stretching lead into memorizing the routine before practicing it, and fixed the loop to exit from practicing (after forgetting and re-practicing) to producing a smile and then performing, instead of looping back into memorizing."
+  },
+  {
+    "id": 146,
+    "type": "logic_changed",
+    "details": "replaced the weak/unmotivated look-up-then-find-unappealing loop (1->7->1) with a natural narrowing-down cycle (entry 0 -> retry 1,7 -> back to 0 -> exit 3) and updated the edges to match"
+  },
+  {
+    "id": 175,
+    "type": "logic_changed",
+    "details": "corrected the spelling of 'endorman' to 'enderman' in the scenario and node 5"
+  },
+  {
+    "id": 176,
+    "type": "logic_changed",
+    "details": "removed the weak loop between 'Wait for callback from agency' and 'wait another day' (semantically redundant waiting) and linearized the flow as 1->7->8"
+  },
+  {
+    "id": 191,
+    "type": "logic_changed",
+    "details": "flattened the weak loop (look for friends / wait for friends) into a natural linear flow 6->7->4 and removed the forced retry cycle edges 6->7->6"
+  },
+  {
+    "id": 233,
+    "type": "logic_changed",
+    "details": "Removed the weak loop ('look for the hard drive on the shelf' -> 'ask an associate for help' -> back to searching) since both events are typically done once, and linearized it into 1->6->0 with matching edges"
+  },
+  {
+    "id": 238,
+    "type": "logic_changed",
+    "details": "removed the weak/semantically redundant loop between 'look for the wild ones' and 'continue searching for the wild ones', linearizing it as 4->7->0->2->3->1->5->6 with matching edges"
+  },
+  {
+    "id": 294,
+    "type": "structure_changed",
+    "details": "renamed the nested and_join branches from 'b21'/'b22' to the canonical 'b1'/'b2' keys to conform to the branch naming convention (branches already sorted ascending by first node)"
+  },
+  {
+    "id": 305,
+    "type": "logic_changed",
+    "details": "reordered the event chain so the phone agreement directly follows the call and identification is gathered before showing up to collect the car (2->3->0->1->4->5), updating edges accordingly"
+  },
+  {
+    "id": 322,
+    "type": "logic_changed",
+    "details": "reordered the sequence so 'walk down the hall' happens before reaching/opening the door and walking outside (instead of after walking outside of office), and updated the edges to match the corrected flow"
+  },
+  {
+    "id": 337,
+    "type": "logic_changed",
+    "details": "removed the weak loop (look for plant milk -> ask a store employee -> back) since searching and asking for help only need to happen once, linearizing it as 4->7->8 and updating the edges accordingly"
+  },
+  {
+    "id": 355,
+    "type": "logic_changed",
+    "details": "flattened the forced loop between 'look for a local parade' and 'read about events being held in the area' into a natural linear search sequence and updated the edges accordingly"
+  },
+  {
+    "id": 363,
+    "type": "logic_changed",
+    "details": "removed the forced loop between 'negotiate a price' and 'discuss driveway needs' (weak, non-progressing repetition) and linearized the flow to 5->1->4->2, dropping edge 4->1 and the duplicated node occurrence"
+  },
+  {
+    "id": 365,
+    "type": "logic_changed",
+    "details": "removed the weak forced loop between 'Drive to the museum' and 'wait in traffic' (waiting in traffic is a one-time part of the drive, not a repeatable loop body) and linearized the flow to 2->6->5, dropping the now-invalid edges 2->5 and 6->2"
+  },
+  {
+    "id": 370,
+    "type": "structure_changed",
+    "details": "added missing edge 4->1 to connect 'get ready for church' to 'drive to the church' as implied by the script_graph"
+  },
+  {
+    "id": 389,
+    "type": "structure_changed",
+    "details": "removed extra cross-branch edge 2->4 that violated the nested and_join (node 2 should only lead into the inner and_join via 2->3)"
+  },
+  {
+    "id": 409,
+    "type": "logic_changed",
+    "details": "rewrote off-topic node 3 text 'make the decision to get a new pet' to 'make the decision to get in the car' so it matches the scenario and the event chain"
+  },
+  {
+    "id": 438,
+    "type": "logic_changed",
+    "details": "removed the illogical edge 'decide the fun activity'->'search for camping options' and restructured the and_join so both branches (deciding the fun activity, and looking online/searching camping options) merge into 'select a desirable option' before confirming the spot"
+  },
+  {
+    "id": 440,
+    "type": "logic_changed",
+    "details": "Removed the unnatural 'discuss schedule -> find an instructor -> discuss schedule' loop (finding an instructor logically precedes discussing schedule) and linearized the flow as find instructor -> discuss schedule -> book lessons -> pay -> get into vehicle -> drive -> get out -> begin lessons, updating edges accordingly."
+  },
+  {
+    "id": 458,
+    "type": "logic_changed",
+    "details": "Removed the weak negotiation loop (Negotiate the contract <-> request better contract terms), since requesting better terms is already part of negotiating and one round naturally leads to the final contract; converted it into the linear flow 4->2->7->0 and updated the edges accordingly."
+  },
+  {
+    "id": 462,
+    "type": "structure_changed",
+    "details": "restructured the loop so its entry is the concrete event 'practice with friends' with 'ask friends if skills are improving' as the retry feedback step, moved 'invite friends over to practice' before the loop to avoid repeating it each cycle, and rewrote the edges to match"
+  },
+  {
+    "id": 470,
+    "type": "logic_changed",
+    "details": "moved 'Go to the theater' to the beginning of the chain (traveling to the venue precedes parking and buying) so the flow ends with the scenario goal 'pay for the movie ticket', and rewrote the edges to match the corrected order"
+  },
+  {
+    "id": 478,
+    "type": "logic_changed",
+    "details": "Corrected the mismatched node text 'drive to pier' to 'drive to the parking lot' so it fits the 'park the car' scenario and its position before the parking-spot search loop."
+  },
+  {
+    "id": 480,
+    "type": "logic_changed",
+    "details": "Smoothed the awkward scenario wording to 'Train until the date of the marathon'; the daily training loop (wake up -> train -> freshen up -> increase time -> back to waking up) and its edges were kept as they are logically sound."
+  },
+  {
+    "id": 493,
+    "type": "logic_changed",
+    "details": "Moved 'place bowl on counter or table' into the 'get a bowl' branch so the causal chain get a bowl -> place bowl is preserved, making the and_join merge at 'serve the snacks in bowls' (removed illogical edge 0->3, added 0->7)."
+  },
+  {
+    "id": 499,
+    "type": "logic_changed",
+    "details": "removed the weak forced loop (click listing -> scroll results -> click listing) and flattened the flow into a linear sequence 1->2->4->3->0->5, eliminating the duplicate use of node 3 and the extra edge 0->3"
+  },
+  {
+    "id": 539,
+    "type": "logic_changed",
+    "details": "replaced the implausible and_join of 'watch others try out' and 'try out for the spot' (a single person cannot do both concurrently) with the natural sequence 3->5, updating edges accordingly (added 3->5, removed 4->5 and 3->0)"
+  },
+  {
+    "id": 571,
+    "type": "logic_changed",
+    "details": "the look-around loop was weakly motivated since 'walk around to check the other side of the building' is a one-shot action that cannot sensibly repeat, so it was flattened into the linear flow look around -> check the other side -> start walking to entrance (edges 7->0 and 0->1 replaced by 7->1)"
+  },
+  {
+    "id": 584,
+    "type": "logic_changed",
+    "details": "flattened the unnatural loop between 'search for how to create a website' and 'learn how to create a website' into a linear flow (search, then learn, then choose host) and removed the forced back edge 2->3"
+  },
+  {
+    "id": 588,
+    "type": "logic_changed",
+    "details": "removed the forced loop (entry 'Drive around parking lot looking for a spot' and retry 'Continue driving around the parking lot' are semantically redundant) and linearized it into 3->7->4, updating the edges accordingly"
+  },
+  {
+    "id": 594,
+    "type": "logic_changed",
+    "details": "removed the weak survey/wait loop (a single pass already leads to selecting a chick) and linearized it to survey -> wait -> select, dropping edges 1->2 and 2->0 and adding 1->0"
+  },
+  {
+    "id": 597,
+    "type": "logic_changed",
+    "details": "moved the contact step (call the friends) before proposing the two ideas so the proposal has an audience, and reworded the incoherent option 'call a different friend' into 'call the friends one at a time' to make it a mutually exclusive alternative to the group call"
+  },
+  {
+    "id": 616,
+    "type": "logic_changed",
+    "details": "flattened the unnatural loop (look for the correct box size / ask an employee for help) into the linear flow 4->7->1, since asking for help normally resolves the search in a single pass, and updated the edges accordingly"
+  },
+  {
+    "id": 617,
+    "type": "logic_changed",
+    "details": "rewrote the branch event 'order the books online' (which implied a completed purchase before the later payment steps) into 'add the books to the online cart' so the two parallel branches both gather items before going to the virtual cart"
+  },
+  {
+    "id": 623,
+    "type": "logic_changed",
+    "details": "restructured the and_join so the unordered advance tasks (purchase plane ticket and order school supplies) run in parallel and both precede packing and driving to the airport, since the ticket must be purchased before the airport trip; updated edges accordingly (1->4 replaced by 1->2)"
+  },
+  {
+    "id": 634,
+    "type": "structure_changed",
+    "details": "reordered the and_join branches by first node ID so that b1 is node 0 and b2 is node 1 (edges were already consistent with the script graph)"
+  },
+  {
+    "id": 636,
+    "type": "logic_changed",
+    "details": "removed the off-scenario node 6 'look up the rules for tennis' (irrelevant to buying shoes) along with its edge 6->1, which collapsed the now single-branch and_join into a plain linear flow before the find/try-on loop"
+  },
+  {
+    "id": 647,
+    "type": "logic_changed",
+    "details": "Moved 'write down any private info' and the details/address checks before the error-check loop, and changed the loop exit to 'go to last page and esign' so the check-correct-recheck cycle logically precedes esigning and filing."
+  },
+  {
+    "id": 669,
+    "type": "structure_changed",
+    "details": "reordered and_join branches in ascending order of their first node IDs (b1: grab banana/peel banana, b2: grab measuring scoop/open flour package/reach into flour bag) to match the rule"
+  },
+  {
+    "id": 670,
+    "type": "logic_changed",
+    "details": "removed the weak and self-contradictory loop (entry state 'instructions are within readable distance' cannot lead back into the distance-adjusting retry) and simplified the flow into the linear sequence 5->1->0->2->3->4->6 with matching edges"
+  },
+  {
+    "id": 690,
+    "type": "logic_changed",
+    "details": "replaced the forced loop (find empty space -> drive around looking for space -> find empty space, which is unnatural since finding a space already ends the search) with a natural linear flow find parking lot -> drive around looking for space -> find empty space -> park, updating edges to 5->3 and 3->1 instead of 5->1 and 1->3"
+  },
+  {
+    "id": 691,
+    "type": "logic_changed",
+    "details": "removed the weak loop (search an individual studio -> look at the websites) since 'look at the websites' already implies visiting multiple studio sites, and flattened it into the linear flow 0->3->2 with matching edges"
+  },
+  {
+    "id": 692,
+    "type": "logic_changed",
+    "details": "removed the redundant loop between semantically overlapping 'allow the water to get hot' and 'wait for the water to boil', flattening it into a linear sequence 4->3->2 with corrected edges"
+  },
+  {
+    "id": 694,
+    "type": "logic_changed",
+    "details": "reordered 'locate the ticket stand' before 'walk to the ticket stand' (was walked to before locating it) and updated the corresponding edges 4->0, 0->3, 3->1"
+  },
+  {
+    "id": 733,
+    "type": "logic_changed",
+    "details": "removed the forced loop between 'observe the overall design of the ring' and 'notice the way the ring looks on the finger' and linearized it into 1->2->3, updating edges accordingly"
+  },
+  {
+    "id": 741,
+    "type": "logic_changed",
+    "details": "flattened the weak loop (search for news channel / keep flipping through channels were semantically redundant) into a natural linear flow 4->7->6 and removed the looping edges 4->7->4, keeping the valid and_join."
+  },
+  {
+    "id": 756,
+    "type": "logic_changed",
+    "details": "converted the waiting activities from an and_join (which required playing on the phone, watching the barber, and reading a magazine to all complete) into a select of mutually exclusive time-passing options, matching the common-sense reading of the flow while keeping the edges unchanged"
+  },
+  {
+    "id": 765,
+    "type": "logic_changed",
+    "details": "flattened the weak loop (look for the plant / search other parts of the car) into the natural linear order 0->7->4 and updated edges accordingly"
+  },
+  {
+    "id": 766,
+    "type": "logic_changed",
+    "details": "reordered the flow so the landlord's decision precedes the parallel phone/number lookup before the tenant answers the call (wait for decision -> makes final decision -> and_join{look for phone/find phone, look for tenant number/find tenant number} -> tenant answers the phone), and renamed the and_join branches in ascending order of their first node with matching edges"
+  },
+  {
+    "id": 779,
+    "type": "logic_changed",
+    "details": "removed the unnatural grab-handle/unlock retry loop (unlocking the car only needs to happen once) and rewrote the flow as a linear sequence 1->0->2->3->4->6 with matching edges"
+  },
+  {
+    "id": 786,
+    "type": "logic_changed",
+    "details": "removed the invalid and_join because its branches are causally ordered (the draft start must be located and confirmed before moving the eyes down the page) and linearized the flow into scroll to top -> look for start -> find start -> confirm start -> read down the page -> make needed changes -> finish reading"
+  },
+  {
+    "id": 809,
+    "type": "logic_changed",
+    "details": "removed the weak/redundant loop (scanning events 'move eyes around parking lot', 'look for cars flashing lights', 'look for cars moving' are semantically overlapping and make the cycle forced) and linearized it into 5-0-2-1-3-4-6 with matching edges"
+  },
+  {
+    "id": 811,
+    "type": "structure_changed",
+    "details": "added the missing intra-branch edge 4->5 required by and_join branch b2 [\"4\",\"5\"]"
+  },
+  {
+    "id": 812,
+    "type": "structure_changed",
+    "details": "reordered the and_join branches into ascending order of their first node (0, 3, 4)"
+  },
+  {
+    "id": 818,
+    "type": "logic_changed",
+    "details": "replaced the unnatural and_join (driving to the parking lot cannot complete in parallel with looking for signs before 'find signs for parking') with the natural linear flow drive to destination -> look for signs -> find signs -> drive to parking lot -> park the car, and updated edges accordingly"
+  },
+  {
+    "id": 821,
+    "type": "logic_changed",
+    "details": "removed the weak 'look for tryout spot' / 'keep searching' loop (whose retry merely restated the entry) and linearized it into look -> keep searching -> find, updating the edges to match"
+  },
+  {
+    "id": 824,
+    "type": "logic_changed",
+    "details": "removed the semantically redundant loop (entry 'look for clothing' / retry 'keep looking for clothing') and flattened it into the natural linear sequence look -> keep looking -> find, updating edges accordingly"
+  },
+  {
+    "id": 827,
+    "type": "logic_changed",
+    "details": "removed the weak loop (picking the best time does not naturally lead back to re-asking friends, which is usually done only once) and simplified to the linear flow ask friends -> list -> narrow down -> pick best -> confirm with everyone -> meeting time is set"
+  },
+  {
+    "id": 830,
+    "type": "logic_changed",
+    "details": "removed the weak wallet-search loop (sift through wallet -> search another compartment -> back) and rewrote it as the natural linear flow 1->7->0, with matching edges"
+  },
+  {
+    "id": 835,
+    "type": "logic_changed",
+    "details": "removed the weak, forced loop around 'move the mouse'/'wait for computer to unfreeze' (the retry already resolves the freeze) and linearized the flow to 5->2->3->0->1->4->6, updating edges accordingly (dropped 2->0 and 3->2, added 3->0)"
+  },
+  {
+    "id": 839,
+    "type": "logic_changed",
+    "details": "Secured the officiant before paying (payment presupposes getting a person to perform the ceremony) and rebuilt the and_join so only genuinely independent tasks (wait for the wedding day / pay the officiant in advance) run in parallel and merge at getting dressed."
+  },
+  {
+    "id": 843,
+    "type": "logic_changed",
+    "details": "removed the forced handle/unlock loop and replaced it with the natural linear flow take key -> unlock door -> pull handle -> door opens, updating edges accordingly"
+  },
+  {
+    "id": 844,
+    "type": "logic_changed",
+    "details": "removed the forced loop whose entry 'look for couch' and retry 'continue searching for couch' are semantically redundant, and linearized the flow to 3->6->0->2->1->4->5"
+  },
+  {
+    "id": 845,
+    "type": "logic_changed",
+    "details": "removed the weak loop whose entry 'look for the cell phone' and retry 'keep searching for the cell phone' are semantically redundant, and linearized the flow to 4->7->8->3->2->0->6"
+  },
+  {
+    "id": 853,
+    "type": "logic_changed",
+    "details": "moved 'improve skills with friends' to directly follow 'practice every day' (practice phase) instead of coming after 'impress everyone there', keeping the and_join of remembering skills vs. going/entering the game, and updated edges accordingly"
+  },
+  {
+    "id": 862,
+    "type": "logic_changed",
+    "details": "Removed the weak, semantically redundant loop (look for car -> continue searching -> look for car) and flattened it into the natural linear flow look for car -> continue searching -> find the car, updating the edges accordingly."
+  },
+  {
+    "id": 865,
+    "type": "logic_changed",
+    "details": "removed the forced walking loop (entry 'Take another step toward the car' and retry 'Put one foot in front of the other' describe the same repeated act) and linearized the flow as 2->0->4->3 with matching edges"
+  },
+  {
+    "id": 875,
+    "type": "logic_changed",
+    "details": "replaced the irrelevant starting node 'line the hole with rocks' with the coherent event 'Step outside' so the walk-around-the-area flow makes logical sense"
+  },
+  {
+    "id": 895,
+    "type": "logic_changed",
+    "details": "removed the weak/forced search loop ('look for vehicle door' -> 'continue searching for vehicle door' -> back to entry is a semantically redundant cycle) and linearized the search as 1->7->4, updating the edges accordingly"
+  },
+  {
+    "id": 907,
+    "type": "logic_changed",
+    "details": "Removed the weak loop over semantically redundant 'walk towards the mailbox'/'continue walking' and flattened it into the natural linear order 4->3->6->5 (walk towards the mailbox -> continue walking -> reach the mailbox), removing the 3->5 and 3->6 loop edges."
+  },
+  {
+    "id": 909,
+    "type": "logic_changed",
+    "details": "Removed the forced walking loop (entry 'continue walking towards room' with left/right foot steps) and simplified it into the linear flow 5->0->2->3->4->1->6, updating edges accordingly."
+  },
+  {
+    "id": 910,
+    "type": "logic_changed",
+    "details": "removed the weak loop around 'wait for manager to hand over application'/'continue waiting for the manager' (semantically redundant waiting events) and linearized it as 2->7->4, updating edges accordingly"
+  },
+  {
+    "id": 913,
+    "type": "logic_changed",
+    "details": "flattened the weak 'wait for coach to respond' / 'continue waiting' loop into the natural linear sequence 5->7->3 and replaced the redundant cycle edges with 5->7 and 7->3"
+  },
+  {
+    "id": 956,
+    "type": "logic_changed",
+    "details": "Removed the weak 'look for car -> walk around the parking lot -> look for car' loop (semantically redundant, forced repetition) and linearized it into 'look for car -> walk around the parking lot -> find the car', updating edges accordingly."
+  },
+  {
+    "id": 969,
+    "type": "logic_changed",
+    "details": "moved 'start to write' after the merge node 'put pen on paper' (it is impossible to start writing before placing the pen on the paper) and rebuilt the and_join as thinking about snacks (b1) in parallel with gathering pen/paper and setting up the table (b2), updating the edges accordingly"
+  },
+  {
+    "id": 984,
+    "type": "logic_changed",
+    "details": "replaced the unnatural and_join of 'Get in comfortable position' and 'Close the eyelids' with a linear sequence, since falling asleep is a single-track personal routine rather than concurrent work, and updated the edges to match"
+  },
+  {
+    "id": 987,
+    "type": "logic_changed",
+    "details": "reordered the sequence so the bowl is taken out of the cabinet right after opening it (2->3) and getting out ingredients follows (3->5), instead of inserting 'get out ingredients' between opening the cabinet and taking the bowl out"
+  },
+  {
+    "id": 993,
+    "type": "structure_changed",
+    "details": "reordered and_join branches so names ascend by first node ID (b1=['3'], b2=['4','0'])"
+  },
+  {
+    "id": 1003,
+    "type": "logic_changed",
+    "details": "corrected the scenario typo 'Go in to the store' to 'Go into the store'; the walking-step loop, its duplicated 'lift left foot' node, and the edge set were verified consistent and left unchanged"
+  },
+  {
+    "id": 1006,
+    "type": "logic_changed",
+    "details": "removed the weak loop (wait for baking -> continue baking more -> wait again) and linearized it as continue baking more -> wait for the sweets to finish baking -> put on oven mitts -> ... -> packed up, fixing the edges accordingly"
+  },
+  {
+    "id": 1008,
+    "type": "logic_changed",
+    "details": "removed the weak loop of asking the partner and talking about people (asking once suffices) and linearized it as ask partner who'd be good to invite -> talk about different people -> finalize the guest list, replacing edge 0->2/2->0 with 2->6"
+  },
+  {
+    "id": 1010,
+    "type": "logic_changed",
+    "details": "removed the forced loop (attend first year -> retake a failed course -> attend first year) since retaking one course does not mean re-attending the year, and linearized it as attend first year -> retake a failed course -> pass first year with edges updated accordingly"
+  },
+  {
+    "id": 1012,
+    "type": "logic_changed",
+    "details": "Rebuilt the loop around a coherent measure/pour cycle (entry 'pour the measured ingredient into the bowl', retry 'measure out an ingredient', new exit node 'finish adding the ingredients to the bowl') so that the and_join merge node 'start stirring the ingredients' is no longer duplicated as the loop exit, and updated the edges to match."
+  },
+  {
+    "id": 1015,
+    "type": "structure_changed",
+    "details": "wrapped the nested and_join in outer branch b1 into a proper ordered branch list so every and_join branch is a list, keeping branches correctly sorted and all edges consistent"
+  },
+  {
+    "id": 1020,
+    "type": "logic_changed",
+    "details": "flattened the weak 'look for front door -> search other rooms' loop into the natural linear chain look for front door -> search other rooms -> find front door, and updated the edges accordingly (removed 1->3 and 7->1, added 7->3)"
+  },
+  {
+    "id": 1033,
+    "type": "structure_changed",
+    "details": "replaced the unrealistic and_join of 'await wedding date' and 'arrange transportation to wedding' with the natural linear order 3->4->0->1 and updated edges accordingly"
+  },
+  {
+    "id": 1047,
+    "type": "logic_changed",
+    "details": "Removed the forced loop between 'look for bar' and the semantically redundant 'keep looking for bar', linearizing it to 0->7->3 (look, keep looking, find) and dropping the loop edges 0->3 and 7->0."
+  },
+  {
+    "id": 1051,
+    "type": "logic_changed",
+    "details": "swapped the loop entry and retry so the cycle runs 'do that task' -> 'pick the next task from the list' (with node 1 legitimately repeated in linear context and retry), making the entry->exit transition to 'go to the boss' logically compatible, and replaced edge 1->3 with 5->3 accordingly"
+  },
+  {
+    "id": 1072,
+    "type": "structure_changed",
+    "details": "removed the duplicated node '1' from the linear part of the script since it already serves as the loop's exit node, fixing the node-usage violation"
+  },
+  {
+    "id": 1075,
+    "type": "logic_changed",
+    "details": "removed the weak loop (search another spot does not naturally cycle back to looking on the table) and linearized the search as look on table -> search another spot -> find keys, updating edges to match"
+  },
+  {
+    "id": 1080,
+    "type": "logic_changed",
+    "details": "moved 'enter address into form' after 'begin typing info into space' (typing cannot follow typing) and restructured the and_join to merge 'look for space on form' with the card-retrieval branch, updating edges accordingly"
+  },
+  {
+    "id": 1084,
+    "type": "logic_changed",
+    "details": "removed the weak check-loop (wiggle-doorknob entry with 'lock the front door' retry, which is redundant since the door is already locked and confirmed) and flattened it into a linear flow 6->5->2->0->4->1->3->7, dropping the retry edges 0->6 and 6->0"
+  }
+]

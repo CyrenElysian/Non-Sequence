@@ -6,7 +6,7 @@ from collections import defaultdict
 # ---------- 路径配置 ----------
 CHECKPOINT_FILE = "eval_checkpoint_v4-pro.json"
 RESULTS_FILE = "results_v4-pro.json"
-GROUND_TRUTH_FILE = "../intro_structure/stats/processed_data_check_with_stats.json"
+GROUND_TRUTH_FILE = "../introduce/stats/CtrlScript_check_stats_v1.json"
 SUMMARY_FILE = "eval_summary_v4-pro.json"
 BACKUP_SUFFIX = ".backup_before_reeval"
 

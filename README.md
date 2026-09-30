@@ -1,4 +1,495 @@
-### Non-Sequence （详细内容参考 `Comprehensive.md`）
+### 一、总体思路
+
+1. 除了顺序，选择，循环三种基础结构，这里再提出一种特殊结构：**同步汇合（AND-JOIN）**，这里说明放弃构建**并行**结构的原因：
+   - 标注者需要凭空想象时间重叠关系，容易主观臆断。虽然现实中存在大量并行结构事件，但是这种平行的结构很多时候是可以人为解释为线性，例如吃早饭和读早报可以并行执行，也可以顺序解释：先吃饭后读早报，或先读早报后吃饭均可；
+   - 缺乏时间戳证据的 `parallel` 在评估时无法验证，降低了数据的客观性
+2.  **同步汇合（AND-JOIN）（修正版）**：
+   - **同步汇合（AND-JOIN）**是弱化了**同时性**，并结合了**可交换（无序）**特点的一种“并行”结构：
+     - **分支之间无强依赖**，分支(branches)之间没有无明显的时间前后或因果关系，可同时执行，可以顺序执行，也可以执行分支A一段时间后，再执行分支B；简而言之，分支之间无序，排列自由度高
+     - **各分支必须全部完成**，缺少任何一个分支，无法执行某一步骤，导致事件图不连通
+     - **各个分支内的事件有逻辑顺序**，A1->A2表示分支A上的事件A1比同分支上的A2先发生
+   - 简而言之：多个分支（每个分支可包含多个时间） **无强制顺序、允许任意交错或顺序执行**，但 **必须全部完成后才能进入下一事件**。它不要求分支同时开始，仅要求全部结束后的同步
+3. 我们希望设定更困难的生成式任务：根据给定的无序事件集，模型需要自己正确判断事件之间的关系，生成完整的事件图（JSON文件），这里先给出人工生成的示例数据：
+
+
+
+### 二、样本构建样例
+
+1. **标准结构：顺序+选择+循环**
+
+```json
+{
+  "id": 1,
+  "scenario": "online shopping",
+  "unordered_nodes": {
+    "0":"search for products",
+    "1":"add to cart",
+    "2":"choose guest login",
+    "3":"choose account login (VIP)",
+    "4":"enter payment password",
+    "5":"incorrect password",
+    "6":"payment successful",
+    "7":"generate order"
+  },
+  "edges": [
+    "0->1",
+    "1->2",
+    "1->3",
+    "2->4",
+    "3->4",
+    "4->5",
+    "4->6",
+    "5->4",
+    "6->7"
+  ],
+  "script_graph": {
+    "type": "sequence",
+    "script": [
+      "0",
+      "1",
+      {
+        "type": "select",
+        "options": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "type": "loop",
+        "entry": "4",
+        "retry": [
+          "5",
+          "continue"
+        ],
+        "exit": "6"
+      },
+      "7"
+    ]
+  }
+}
+```
+
+2. 同步汇合（AND-JOIN）（**这一条可以不看**）
+
+```json
+{
+  "id": 2,
+  "scenario": "plan a weekend trip",
+  "unordered_nodes": {
+    "0":"decide destination",
+    "1":"check weather forecast",
+    "2":"book hotel",
+    "3":"buy train tickets",
+    "4":"pack luggage based on weather and hotel conditions",
+    "5":"confirm final itinerary",
+    "6":"set alarm for departure",
+    "7":"head to station"
+  },
+  "edges": [
+    "0->1",
+    "0->2",
+    "0->3",
+    "1->4",
+    "2->4",
+    "3->4",
+    "4->5",
+    "5->6",
+    "6->7"
+  ],
+  "script_graph": {
+    "type": "sequence",
+    "script": [
+      "0",
+      {
+        "type": "and_join",
+        "script": ["1", "2", "3"]
+      },
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  }
+}
+```
+
+3. **同步汇合（修正版**）
+
+在实践过程中发现，对于**同步汇合（AND-JOIN）**的定义依然存在问题，原定义中限制了数据为**无序**，事件之间无明显的时间前后和因果关系，事实上大部分 AND‑JOIN 样本**并非完全无序**，而是包含内部线性子链（时间顺序和因果前后顺序），例如：
+
+```json
+{
+  "id": 3,
+  "scenario": "replicate the pasta at the restaurant",
+  "unordered_nodes": {
+    "0":"decided to replicate the pasta at the restaurant",
+    "1":"turn on the stove",
+    "2":"boil water for noodles",
+    "3":"heat sauce in a pot",
+    "4":"put noodles in the water",
+    "5":"combine noodles and sauce",
+    "6":"drain noodles over the sink",
+    "7":"plate noodles and sauce together",
+    "8":"replicate the pasta at the restaurant"
+  },
+  "edges": [
+    "0->1",
+    "1->2",
+    "1->3",
+    "2->4",
+    "4->6",
+    "6->5",
+    "3->5",
+    "5->7",
+    "7->8"
+  ],
+  "script_graph": {
+    "type": "sequence",
+    "script": [
+      "0",
+      "1",
+      {
+        "type": "and_join",
+        "branches_set": {
+          "b1": [
+            "2",
+            "4",
+            "6"
+          ],
+          "b2": [
+            "3"
+          ]
+        }
+      },
+      "5",
+      "7",
+      "8"
+    ]
+  }
+}
+```
+
+**`"branches_set"`** 表示集合元素之间无序，即`b1` `b2`等之间无序，而对于集合中每一个branch，例如
+
+`"b1": [ "2","4","6" ]`中"2" "4" "6"是有序的
+
+经过改写的数据2如下所示：
+
+```json
+{
+  "id": 2,
+  "scenario": "plan a weekend trip",
+  "unordered_nodes": {
+    "0":"decide destination",
+    "1":"check weather forecast",
+    "2":"book hotel",
+    "3":"buy train tickets",
+    "4":"pack luggage based on weather and hotel conditions",
+    "5":"confirm final itinerary",
+    "6":"set alarm for departure",
+    "7":"head to station"
+  },
+  "edges": [
+    "0->1",
+    "0->2",
+    "0->3",
+    "1->4",
+    "2->4",
+    "3->4",
+    "4->5",
+    "5->6",
+    "6->7"
+  ],
+  "script_graph": {
+    "type": "sequence",
+    "script": [
+      "0",
+      {
+        "type": "and_join",
+        "branches_set": {
+          "b1": ["1"],
+          "b2": ["2"],
+          "b3": ["3"]
+        }
+      },
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  }
+}
+```
+
+4. **选择结构与嵌套**
+
+```json
+{
+  "id":4,
+  "scenario":"solve the dinner problem",
+  "unordered_nodes":{
+    "0":"visit the wet market",
+    "1":"cook by oneself",
+    "2":"open the food delivery app",
+    "3":"order from a 30-minute guaranteed fast-food chain",
+    "4":"choose a highly-rated yet remote internet-famous restaurant",
+    "5":"wait for the takeaway",
+    "6":"invite friends to go out for dinner",
+    "7":"queue up at the internet-famous restaurant",
+    "8":"solve the dinner problem"
+  },
+  "edges":[
+    "0->1",
+    "2->3",
+    "2->4",
+    "3->5",
+    "4->5",
+    "6->7",
+    "1->8",
+    "5->8",
+    "7->8"
+  ],
+  "script_graph":
+  {
+    "type":"sequence",
+    "script":
+    [
+      {
+        "type":"select",
+        "options":[
+          {
+            "type":"sequence",
+            "script":["0","1"]
+          },
+          {
+            "type":"sequence",
+            "script":[
+              "2",
+              {
+                "type":"select",
+                "options":["3","4"]
+              },
+              "5"
+            ]
+          },
+          {
+            "type":"sequence",
+            "script":["6","7"]
+          }
+        ]
+      },
+      "8"
+    ]
+  }
+}
+```
+
+5. **循环结构与嵌套**
+
+```json
+{
+  "id": 5,
+  "scenario": "adjust coffee strength until perfect",
+  "unordered_nodes": {
+    "0": "grind coffee beans",
+    "1": "brew a test cup",
+    "2": "taste and evaluate strength",
+    "3": "strength is perfect",
+    "4": "add more ground coffee",
+    "5": "extend brewing time",
+    "6": "re-brew coffee",
+    "7": "enjoy coffee"
+  },
+  "edges": [
+    "0->1",
+    "1->2",
+    "2->3",
+    "2->4",
+    "2->5",
+    "4->6",
+    "5->6",
+    "6->2",
+    "3->7"
+  ],
+  "script_graph": {
+    "type": "sequence",
+    "script": [
+      "0",
+      "1",
+      {
+        "type": "loop",
+        "entry": "2",
+        "retry": [
+          {
+            "type": "select",
+            "options": ["4", "5"]
+          },
+          "6",
+          "continue"
+        ],
+        "exit": "3"
+      },
+      "7"
+    ]
+  }
+}
+```
+
+6. **同步汇合结构与嵌套**
+
+```json
+{
+  "id": 6,
+  "scenario": "replicate the pasta at the restaurant",
+  "unordered_nodes": {
+    "0": "decide to replicate the pasta at the restaurant",
+    "1": "turn on the stove",
+    "2": "boil water for noodles",
+    "3": "heat sauce in a pot",
+    "4": "put noodles in the water",
+    "5": "combine noodles and sauce",
+    "6": "drain noodles over the sink",
+    "7": "plate noodles and sauce together",
+    "8": "choose red sauce",
+    "9": "choose white sauce",
+    "10": "replicate the pasta at the restaurant"
+  },
+  "edges": [
+    "0->1",
+    "1->2",
+    "1->3",
+    "2->4",
+    "4->6",
+    "6->5",
+    "3->5",
+    "5->7",
+    "7->10",
+    "3->8",
+    "3->9",
+    "8->5",
+    "9->5"
+  ],
+  "script_graph": {
+    "type": "sequence",
+    "script": [
+      "0",
+      "1",
+      {
+        "type": "and_join",
+        "branches_set": {
+          "b1": [
+            "2",
+            "4",
+            "6"
+          ],
+          "b2": [
+            "3",
+            {
+              "type": "select",
+              "options": [
+                "8",
+                "9"
+              ]
+            }
+          ]
+        }
+      },
+      "5",
+      "7",
+      "10"
+    ]
+  }
+}
+```
+
+
+
+### 三、约束
+
+1. 数据集结构具体说明
+
+   - `id(int)`：序号
+   - `scenario(string)`：具体场景，目的，**一般**可作为事件链的结束标志（不绝对）
+   - `unordered_nodes(dictionary)`：组成事件链的**无序**事件单元
+   - `edges(list)`：事件图的**所有**关联边（有向边）
+   - `script_graph`：事件链/图的文字描述形式
+2. **通用约束**
+
+   - 完整性约束：图中任何结构（包括嵌套最深处的子结构）都必须有**对应的边和节点**
+   - 单一入口/出口：原则上讲，每个结构都应该有对应且**唯一**的入口节点和出口节点，这样保证了事件不会发散
+   - 连通性约束：不允许有悬挂的节点和边；对于任何嵌套子结构，控制流必须能从该结构的出口结点，**正确地连接到上层结构的下一个节点**
+   - 复杂度约束：为保证可读性和避免过度复杂，应该**限制嵌套深度**
+   - **暂时规定：每个节点只允许在事件图中出现一次**
+3. 事件图（**script_graph**）具体结构格式规范
+
+   - 基本要求：
+   - 每种结构使用`{}`括起来，需要标明`type`（**`branches_set`后的`{}`里不需要注明`type`**，这点需要着重注意），每种`type`有对应的结构**关键字**
+   - `[]`中按照逻辑顺序**线性**罗列事件（**`selcect`** 结构除外，但是要求 **`[]`中节点需要按序号升序排序**，方便后续评估），使用`,`隔开；
+   - `[]`可以嵌套其他结构，其格式要求同上
+   - 顺序
+
+     ```json
+     {
+       "type":"sequence",
+       "script":[]
+     }
+     ```
+   - 选择
+
+     ```json
+     {
+       "type":"select",
+       "options":[]
+     }
+     ```
+     
+     对应单节点，按照节点序号升序输出，例如,  `output "options":["2","3"]`  而不是  `"options":["3","2"]` ；
+     
+     对于选项包含嵌套结构，以各选项的第一个事件序号为准：例如,  `output "options": ["1", {"type":"sequence", "script": ["3", "2"]}]  ` 而不是 `"options": [{"type":"sequence", "script": ["3", "2"]}, "1"]`
+   - 循环
+   
+     ```json
+     {
+       "type":"loop",
+       "entry":"",
+       "retry":[],
+       "exit":""
+     }
+     ```
+   - 同步汇合
+   
+     ```json
+     {
+       "type":"and_join",
+       "branches_set":
+       {
+         "b1":[],
+         "b2":[]
+       }
+     }
+     ```
+4. 结构说明与嵌套规则
+
+   - 顺序：可以包含任何结构，但要保证内部元素（结构）的**严格执行顺序**
+   - 选择
+     - 各选项可以包含任何结构，每个选项通常是一个`sequence`
+     - **所有选型必须最终汇合到同一节点**
+     - 选项间**互斥**，且原则上选项引出的路径需要存在较大差异性
+     - **选项间无依赖边**，即 `edges` 中不能有跨选项的边（选项之间不连通）
+   - 循环
+     - 结构组成：`entry`：循环入口，必须是一个**可执行的动作节点或状态节点**，不能是决策/判断节点；`retry`：循环体，为子事件链，通常是一个`sequence`，可以包含任意子结构；`exit`：循环出口，为单一节点
+     - 循环体逻辑上必须以 `entry` 节点开始；`retry` 链的最后一个元素必须是 **`"continue"`** ，且该序列执行完后必须能回到 `entry`；`exit` 节点必须**有边指向循环外部**的第一个节点
+     - 循环体内不应有其他路径能在不经过 `exit` 的情况下跳出循环，即不允许 `retry` 中有边指向`exit`
+     - 受限于能力，数据结构暂时无法实现**计数类循环**
+     - 构建循环体时应该避免无限循环
+   - 同步汇合
+     - 各分支内部可以包含任何结构，每个分支采用 $b_i(i=1,2,\ldots)$命名，以$b_i:[\ \ ]$呈现，通常是一个`sequence`；
+     - **所有分支必须全部到达汇合点**，汇合点不出现在 `branches_set` 中，但图中必须有一个汇合节点，且每个分支的最后节点都有一条边指向它
+     - **分支间无依赖边**，即 `edges` 中不能有跨分支的边
+
+
+
+### 四、构造思路
 
 1. 利用 **`cut.py`** 对proscript原始数据集进行修改，仅预留"scenario"，"events","gold_edges_for_prediction"
 2. 利用 `covert.py` 将proscript_simple中的数据转化为我们所定义的JSON结构（详见 `Comprehensive.md`），其中已包含**sequence和and_join**结构
@@ -7,14 +498,667 @@
 5. 利用`select_loop.py`调用大模型API对修改后的进行筛选，判断哪些事件链适合引入选择和循环结构（或者都不合适），对合适的样本引入相应结构，具体情况如下：
    - 修正**scenario**与**unordered_nodes**中的拼写错误（仅修正明显的拼写错误，不得改变原有语义）。
    - 识别底层逻辑中**确实包含选择结构或循环结构**的条目。参照后续示例，修改此类条目的关联节点与脚本关系图（必要时允许修改节点信息），确保逻辑正确，并在修改记录中以「structure_changed」类型备注；若修改操作难以执行，则判定此类条目标注错误，将其从最终处理数据集中移除，并在修改记录中备注删除信息。
-   - 对于其余所有条目，选择合适的脚本，通过添加事件节点（数量不宜过多，控制整体复杂度）以引入 select 和 loop 结构，也可以修改原始事件节点含义具体，具体要求如下：
+   - 对于其余所有条目，选择合适的脚本，通过添加事件节点（数量不宜过多，控制整体复杂度）以引入select 和 loop 结构，也可以修改原始事件节点含义具体，具体要求如下：
      - 鼓励打开思维，但是新增逻辑需自然合理，杜绝生硬堆砌；若确实无合适的选择 / 循环结构引入方案，条目可保持原样。
      - 原则上选择结构的分支必须相互独立、逻辑差异显著（例如：选择筷子或勺子用餐这类细微差异，不太符合要求）。
      - 对于选择结构，所有选择分支的末端节点，必须统一关联至选择结构后的同一合并节点；`options` 中节点按大小顺序排列，方便检验
      - 循环结构必须设置明确的终止条件，禁止出现无限循环。
-     - 对于循环结构，循环前置节点需连接至 `entry` 节点，循环出口节点 `exit` 需连接至循环后置节点，同时 `entry` 与 `exit` 之间需建立关联边；循环内部的节点链路，必须形成 $entry \to retry \to exit$ 的完整路径。
+     - 对于循环结构，循环前置节点需连接至 `entry` 节点，循环出口节点 `exit` 需连接至循环后置节点，同时 `entry` 与 `exit` 之间需建立关联边；循环内部的节点链路，必须形成 $ entry \to retry \to exit $的完整路径。
      - 因脚本关系图重构而失效的原有关联关系，需全部删除；与新控制逻辑冲突的旧关联关系，必须移除。
      - 得到新版 `edges` 与 `script_graph`，统一复核校验，着重检查 `unordered_nodes`中的事件是否均唯一的出现在`script_graph`中，`edges` 是否存在少边，多边，悬挂边的问题，`script_graph`逻辑是否存在问题，结构是否满足约束规范
    - **注意事项**：以上所有操作需**一次性同步完成**，即对于一项数据，先修正拼写错误，再检查逻辑是否包含选择/循环结构，若包含则考虑是否修改，若不包含则考虑是否能引入
 6. `select_loop.py` 生成 `processed_data`，利用 `predict.py` 对读取其中的 `sceniro` 和 `unordered_nodes` 内容，预测 `edges` 和 `script_graph` ，与  `processed_data` 进行比较（ `edges` 采用集合相等，`script_graph` 采用字符串匹配）
-7. `evaluaition` 对 `processed_data` 进行 10% 的抽样，并进行了简单的人工检查，结果详见 `Comprehensive.md`
+
+
+
+### 五、改造示例
+
+1. 在 `sequence` 中添加 `loop`
+
+   ```json
+   [
+     {
+       "id": 25,
+       "scenario": "buy a new necktie",
+       "unordered_nodes": {
+         "0": "Order the necktie",
+         "1": "Find a necktie",
+         "2": "Research some neckties",
+         "3": "Go to a necktie website",
+         "4": "Send the necktie to yourself",
+         "5": "buy a new necktie"
+       },
+       "edges": [
+         "2->3",
+         "3->1",
+         "1->0",
+         "0->4",
+         "4->5"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           "2",
+           "3",
+           "1",
+           "0",
+           "4",
+           "5"
+         ]
+       }
+     },
+     {
+       "id": 25,
+       "scenario": "buy a new necktie",
+       "unordered_nodes": {
+         "0": "Order the necktie",
+         "1": "Find a necktie",
+         "2": "Research some neckties",
+         "3": "Go to a necktie website",
+         "4": "Send the necktie to yourself",
+         "5": "buy a new necktie",
+         "6": "feel dissatisfied"
+       },
+       "edges": [
+         "2->3",
+         "3->1",
+         "1->0",
+         "1->6",
+         "6->1",
+         "0->4",
+         "4->5"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           "2",
+           "3",
+           {
+             "type": "loop",
+             "entry": "1",
+             "retry": [
+               "6",
+               "continue"
+             ],
+             "exit": "0"
+           },
+           "4",
+           "5"
+         ]
+       }
+     }
+   ]
+   ```
+
+   需注意在 `edges` 中添加 `"1->0","1->6"`
+
+2. `unordered_nodes`中存在表示循环的词（如 `repeat`)
+
+   ```json
+   [
+     {
+       "id": 80,
+       "scenario": "learn to play chess like a grand master",
+       "unordered_nodes": {
+         "0": "practice a game solo",
+         "1": "repeat until mastered",
+         "2": "setup up a chess board",
+         "3": "challenge others as practice",
+         "4": "read about the movements of the pieces",
+         "5": "learn to play chess like a grand master"
+       },
+       "edges": [
+         "2->0",
+         "4->0",
+         "0->3",
+         "3->1",
+         "1->5"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           {
+             "type": "and_join",
+             "branches_set": {
+               "b1": [
+                 "2"
+               ],
+               "b2": [
+                 "4"
+               ]
+             }
+           },
+           "0",
+           "3",
+           "1",
+           "5"
+         ]
+       }
+     },
+     {
+       "id": 80,
+       "scenario": "learn to play chess like a grand master",
+       "unordered_nodes": {
+         "0": "practice a game solo",
+         "1": "setup up a chess board",
+         "2": "practice with others",
+         "3": "read about the movements of the pieces",
+         "4": "learn to play chess like a grand master",
+         "5": "participate in a chess tournament to test level",
+         "6": "rated as master level"
+       },
+       "edges": [
+         "3->1",
+         "1->5",
+         "5->6",
+         "5->0",
+         "5->2",
+         "0->5",
+         "2->5",
+         "6->4"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           "3",
+           "1",
+           {
+             "type": "loop",
+             "entry": "5",
+             "retry": [
+               {
+                 "type": "select",
+                 "options": [
+                   "0",
+                   "2"
+                 ]
+               }
+             ],
+             "exit": "6"
+           },
+           "4"
+         ]
+       }
+     }
+   ]
+   ```
+
+   删除包含 `repeat` 的节点，并通过增添新节点"5","6"，修改原节点"2"，在引入循环结构的同时使得事件图逻辑更合理，除此之外还在循环体 `retry` 中额外附加了选择结构。需注意修改 `edges` 和 `script_graph` 使其正确描述当前事件链
+
+3. 在 `sequence` 中添加 `select`
+
+   ```json
+   [
+     {
+       "id": 15,
+       "scenario": "deposit funds at the bank",
+       "unordered_nodes": {
+         "0": "walk to car",
+         "1": "walk to a teller",
+         "2": "fill out a deposit slip",
+         "3": "get in the car",
+         "4": "drive to the bank",
+         "5": "leave the office building",
+         "6": "walk in the bank",
+         "7": "deposit funds at the bank"
+       },
+       "edges": [
+         "0->3",
+         "1->7",
+         "2->1",
+         "3->4",
+         "4->6",
+         "5->0",
+         "6->2"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           "5",
+           "0",
+           "3",
+           "4",
+           "6",
+           "2",
+           "1",
+           "7"
+         ]
+       }
+     },
+     {
+       "id": 15,
+       "scenario": "deposit funds at the bank",
+       "unordered_nodes": {
+         "0": "walk to car",
+         "1": "walk to a teller",
+         "2": "fill out a deposit slip",
+         "3": "get in the car",
+         "4": "drive to the bank",
+         "5": "leave the office building",
+         "6": "walk in the bank",
+         "7": "deposit funds at the bank",
+         "8": "go straight to the ATM",
+         "9": "insert card",
+         "10": "select deposit and insert cash",
+         "11": "obtain a receipt after the machine counts"
+       },
+       "edges": [
+         "0->3",
+         "1->7",
+         "2->1",
+         "3->4",
+         "4->6",
+         "5->0",
+         "6->2",
+         "6->8",
+         "8->9",
+         "9->10",
+         "10->11",
+         "11->7"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           "5",
+           "0",
+           "3",
+           "4",
+           "6",
+           {
+             "type": "select",
+             "options": [
+               {
+                 "type": "sequence",
+                 "script": [
+                   "2",
+                   "1"
+                 ]
+               },
+               {
+                 "type": "sequence",
+                 "script": [
+                   "8",
+                   "9",
+                   "10",
+                   "11"
+                 ]
+               }
+             ]
+           },
+           "7"
+         ]
+       }
+     }
+   ]
+   ```
+   
+
+
+
+### 六、错误分析
+
+1. 错误分类
+
+   |     主类别     |      子类别      |       标识符        |                         说明                          |                           示例场景                           |
+   | :------------: | :--------------: | :-----------------: | :---------------------------------------------------: | :----------------------------------------------------------: |
+   |  **结构错误**  |    **边错误**    |    `struct:edge`    |    **事件图逻辑正确，但edges中存在缺边/多边/错边**    |                                                              |
+   |                |     格式错误     |   `struct:graph`    |       **事件图逻辑正确，但违反定义的JSON格式**        |                                                              |
+   |                |     多余节点     |    `struct:node`    |                 事件图中存在多余节点                  |                                                              |
+   |  **逻辑错误**  |   **顺序错误**   |  `logic:sequence`   | 顺序结构（包括`retry`，`branches_set`）**逻辑不正确** |                                                              |
+   |                | **循环逻辑错误** |    `logic:loop`     |                 **循环内路径不正确**                  | 如`retry`没有返回`entry`或逻辑不合理，`entry`指向`exit`的逻辑不合理 |
+   |                |   选择汇合错误   |   `logic:select`    |               分支未正确汇合到同一节点                |                两个选项最终指向不同的结束节点                |
+   |                |   **结构误用**   | `logic`:`confusion` |         模型**明显**误解了结构中各元素的角色          |                如把`and_join`当作`select`使用                |
+   |    **歧义**    |                  |     `ambiguous`     |                模型生成与原标注都可行                 |                                                              |
+   | **原数据错误** |                  |     `original`      |                                                       |                                                              |
+
+2. 建议
+
+   - 先看逻辑，逻辑有误则不必要检查结构错误和歧义；再看歧义，最后看结构是否有问题
+   - 生成的事件图如果错误，不必看参考；若正确，可以看一下生成的边和参考是否正确匹配
+
+3. 简单评估结果
+
+   |    `struct:edge`    |      1      |
+   | :-----------------: | :---------: |
+   |   `struct:graph`    |      0      |
+   |    `struct:node`    |      0      |
+   |  `logic:sequence`   |  9+17+7=33  |
+   |    `logic:loop`     |   0+2+1=3   |
+   |   `logic:select`    |      0      |
+   | `logic`:`confusion` | 10+3+1+1=15 |
+   |     `ambiguous`     |  18+6+1=25  |
+   |     `original`      |  4+8+2=14   |
+
+   共107条数据，包含28条标记正确数据，79条标记错误数据；28条正确数据中，有2条并不正确
+
+4. 特殊样例
+
+   - ```json
+     {
+       "id": 490,
+       "scenario": "browse the selection",
+       "unordered_nodes": {
+         "0": "locate the sunscreen section of the store",
+         "1": "walk to the sunscreen section of the store",
+         "2": "locate the shelves that have sunscreen",
+         "3": "face the shelves that have sunscreen",
+         "4": "pick up different brands to read the labels",
+         "5": "go inside the store",
+         "7": "pick up another brand",
+         "8": "finish browsing"
+       },
+       "edges": [
+         "5->0",
+         "0->1",
+         "1->2",
+         "2->3",
+         "3->4",
+         "4->7",
+         "7->4",
+         "4->8"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           "5",
+           "0",
+           "1",
+           "2",
+           "3",
+           {
+             "type": "loop",
+             "entry": "4",
+             "retry": [
+               "7",
+               "continue"
+             ],
+             "exit": "8"
+           }
+         ]
+       }
+     }
+     ```
+
+     ```json
+     {
+       "type": "loop",
+       "entry": "4",
+       "retry": [
+         "7",
+         "continue"
+       ],
+       "exit": "8"
+     }
+     ```
+
+     这项数据的语义表示为循环较为生硬，但是也不适合表示为其他结构
+
+   - ```json
+     {
+       "id": 340,
+       "scenario": "learn a new sport",
+       "unordered_nodes": {
+         "0": "Sit down at computer",
+         "1": "Decide on which sport is of interest",
+         "2": "search how-to videos on desired sport",
+         "3": "go to youtube.com",
+         "4": "Watch all highest rated videos",
+         "5": "learn a new sport",
+         "6": "evaluate current skill level"
+       },
+       "edges": [
+         "0->3",
+         "1->0",
+         "2->4",
+         "3->2",
+         "4->6",
+         "6->2",
+         "6->5"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           "1",
+           "0",
+           "3",
+           "2",
+           "4",
+           {
+             "type": "loop",
+             "entry": "6",
+             "retry": [
+               "2",
+               "4",
+               "continue"
+             ],
+             "exit": "5"
+           }
+         ]
+       }
+     }
+     ```
+
+     原数据存在错误标注（节点重复使用），并且这项数据由于节点较少，不适合引入循环结构
+
+   - ```json
+     {
+       "id": 294,
+       "scenario": "grill some asparagus",
+       "unordered_nodes": {
+         "0": "put asparagus on plate",
+         "1": "light the grill",
+         "2": "carry plate with asparagus out to grill",
+         "3": "take asparagus out of the refrigerator",
+         "4": "sprinkle asparagus with pepper",
+         "5": "sprinkle asparagus with salt",
+         "6": "serve the grilled asparagus"
+       },
+       "edges": [
+         "0->5",
+         "0->4",
+         "1->6",
+         "2->6",
+         "3->0",
+         "4->2",
+         "5->2"
+       ],
+       "script_graph": {
+         "type": "sequence",
+         "script": [
+           {
+             "type": "and_join",
+             "branches_set": {
+               "b1": [
+                 "1"
+               ],
+               "b2": [
+                 "3",
+                 "0",
+                 {
+                   "type": "and_join",
+                   "branches_set": {
+                     "b21": [
+                       "4"
+                     ],
+                     "b22": [
+                       "5"
+                     ]
+                   }
+                 },
+                 "2"
+               ]
+             }
+           },
+           "6"
+         ]
+       }
+     }
+     ```
+
+     and_join 嵌套 and_join，模型自己学会标记 $b_{ij}$ 
+
+5. 反思
+
+   - `entry` 与 `exit` 是否必须规定有一条边，此要求是否过于严格？
+   - 循环体是否一定要按照 $entry \to retry \to entry$ 的模式，在复查过程中发现部分 $ entry \to retry \to retry $ 更符合显示逻辑，但规定限制了 `retry` 与 `exit` 之间不能存在边，如何退出循环？
+   - 从评估结果来看，`logic:sequence`（顺序错误）和 `ambiguous`（歧义）问题较严重。事实上在顺序错误中只有部分有明显逻辑顺序错误，大部分为细微错误，甚至可以理解为歧义。由于引入非线性（尤其是 `and_join`）的结构，存在多种方式解读事件链的概率大大增加，这位人工评判带来了较大困难
+   - 对 `select` 和 `loop` 的引入率约为 $15 \%$，感觉还是偏低，而且仅有部分引入方式效果很好，大部分较为平庸（这点 `loop` 尤其明显，大部分语义形式单调，甚至不太合理）
+   - 嵌套结构较为简单，仅有少数数据有2层及以上嵌套
+
+6. 总结
+
+   - 循环结构的问题较为严重，目前对循环结构的定义范式存在不足
+   - 后续可以加大结构的复杂度
+
+
+
+### 七、后续处理 2nd
+
+1. **数据质量提高**
+
+   本轮在引入选择和循环结构时使用 `deepseek-v4-pro` 得到新的 `processed_data.json`，使得 `select`（约占7.5%） 和 `loop` （约占15%）结构的引入率提高至 23%，且数据结构复杂程度（嵌套深度大于等于3的数据约占5%），语义表达合理性和丰富性得到了明显提高
+
+2. **循环结构解释**
+
+   第一轮在解释循环结构时，`entry` 是循环入口，`retry` 是循环体，`exit` 是循环出口，要求 `entry` 到 `exit` 必须有一条边，表示条件满足时不进行循环。并在评估时发现，`entry` $\rightarrow$ `exit` 很多时候在逻辑上解释不通顺，这是因为对于大部分的循环，其循环体是要执行的，不进行循环的反而是少数
+
+   目前对循环结构的解释作以下修改：`entry` 是循环入口，**`enrty` 和 `retry` 共同构成循环体**，`exit` 是循环出口，`entry` 到 `exit` 必须有一条边表示循环体的退出通道，允许 `entry` $\rightarrow$ `exit` 逻辑不通顺但不允许不合理
+
+   ~~既可以解释为从 `entry` 退出也可以解释为从  `retry` 退出，只是形式上这条边为 `entry` $\rightarrow$ `exit`~~
+
+3. `count_struct.py` 对数据的嵌套最大深度，以及四种结构的数量进行计数，并将结果作为标注添加到原数据集 `processed_data.json` 得到 `processed_data_with_stats.json` ，作为后续难度参考的其他度量
+
+   - 统计最大嵌套深度对应的正确率（最大深度特定数量较少的情况可以写成区间形式）
+
+   - 统计含 `select` ，`loop`，`and_join` 数据的正确率 （只要包含，无论是否含有其他结构）
+
+   - 统计纯顺序结构的正确率（1类），统计混合结构的正确率（只含两、三种结构的情况各有3类，含四种有1类）
+
+   - 各结构**数量**与正确率的关系（由于单项数据中 `select`，`loop`，`and_join` 大于等于2的情况极少，该项评估已舍弃）
+
+     - 独立分析 `select`，`loop`，`and_join` 数量对正确率的影响
+     - 结合两种/三种非线性结构，计算正确率，即给定向量（select，loop，and_join) 表示结构数量。按照独立分析的结果，对于结构特定数量较少的情况可以写成区间形式
+
+   - 问题：
+
+     - 嵌套深度是否需要结合具体结构
+     - **某些深度/组合样本极少，需要标注样本总量**
+
+     - 混合统计存在一个问题，计算正确率时无法识别错误来因（例如，对于含有 顺序+选择+循环 结构的数据，可能顺序和选择全正确，只有循环出现问题），需要解决**子结构匹配评估**问题
+
+4. **节点重复**
+
+   在评估数据集质量时发现在包含循环的数据中出现重复节点，27/1078 $\approx$ 2.5%，27/171 $\approx$ 15.8%，其中 18/27 $\approx$ 66.7% 语义合理 ，我们允许**存在循环结构的数据拥有重复节点**，并保留语义合理的数据，对不合理的数据进行手动修改
+
+   ```json
+   {
+     "id": 303,
+     "scenario": "have money to buy things",
+     "unordered_nodes": {
+       "0": "attend job interview",
+       "1": "start saving money",
+       "2": "apply for a job",
+       "3": "drive to the interview",
+       "4": "get in the car",
+       "5": "make a purchase",
+       "6": "rejected",
+       "7": "get job offer"
+     },
+     "edges": [
+       "2->4",
+       "4->3",
+       "3->0",
+       "0->6",
+       "0->7",
+       "6->2",
+       "7->1",
+       "1->5"
+     ],
+     "script_graph": {
+       "type": "sequence",
+       "script": [
+         "2",
+         "4",
+         "3",
+         {
+           "type": "loop",
+           "entry": "0",
+           "retry": [
+             "6",
+             "2",
+             "4",
+             "3",
+             "continue"
+           ],
+           "exit": "7"
+         },
+         "1",
+         "5"
+       ]
+     }
+   }
+   ```
+
+   ```json
+   {
+     "id": 874,
+     "scenario": "Negotiate the contract with the interviewer",
+     "unordered_nodes": {
+       "1": "Lower the amount wanted",
+       "2": "Make an offer higher than what is wanted",
+       "3": "Decide on an amount wanted",
+       "4": "Listen to the counter offer",
+       "5": "Receive the job offer from the interviewer",
+       "7": "assess counter offer",
+       "8": "accept counter offer and finalize"
+     },
+     "edges": [
+       "5->3",
+       "3->2",
+       "2->4",
+       "4->7",
+       "7->8",
+       "7->1",
+       "1->2"
+     ],
+     "script_graph": {
+       "type": "sequence",
+       "script": [
+         "5",
+         "3",
+         "2",
+         "4",
+         {
+           "type": "loop",
+           "entry": "7",
+           "retry": [
+             "1",
+             "2",
+             "4",
+             "continue"
+           ],
+           "exit": "8"
+         }
+       ]
+     }
+   }
+   ```
+
+5. 评估结果
+
+   使用 `DeepSeek-V4-flash/pro` 和 `Qwen3.6-plus` 仅根据 scenario 和 unordered_nodes 生成 edges 和 script_graph ，并计算各类别的正确率
+
+6. 问题
+
+   - 正确率普遍较低，缺少软指标
+     - 使用大模型对预测生成的事件图进行打分（逻辑错误：0分；逻辑可接受：0.5分；逻辑正确：1分）
+     - 计算生成的 edges 和 标准 edges 所构成的图的相似度（如生成的图需要几步转换为标准的图）
+   - 部分类别的样本量较少，正确率置信度低
+
+
+
+### 八、后续处理 3rd
+
+1. 新增软指标：查准率P，查全率R，F1分数，IoU指标，图编辑距离GED（增加、删减边的代价记为1）
+2. 利用大模型对原数据进行检查，去除明显的结构和逻辑错误
+3. 人为构建 `gold.json` 数据集，为100条包含各类结构的数据，全部经过人工检验

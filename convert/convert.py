@@ -1,5 +1,3 @@
-# 将proscript_simple中的数据转化为我们所定义的JSON结构
-
 import json
 from collections import defaultdict, deque
 

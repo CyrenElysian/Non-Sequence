@@ -509,6 +509,54 @@
    - **注意事项**：以上所有操作需**一次性同步完成**，即对于一项数据，先修正拼写错误，再检查逻辑是否包含选择/循环结构，若包含则考虑是否修改，若不包含则考虑是否能引入
 6. `select_loop.py` 生成 `processed_data`，利用 `predict.py` 对读取其中的 `sceniro` 和 `unordered_nodes` 内容，预测 `edges` 和 `script_graph` ，与  `processed_data` 进行比较（ `edges` 采用集合相等，`script_graph` 采用字符串匹配）
 
+### 评测代码说明（predict/ 目录）
+
+| 文件 | 作用 |
+| --- | --- |
+| `metrics.py` | **唯一**的指标实现：边集 P/R/F1/IoU、GED 及归一化变体、线性/非线性分组、分层汇总。其它脚本都从它导入，避免同一公式多处重复导致口径漂移。 |
+| `predict.py` | 调用大模型生成 `edges` + `script_graph`，逐条落 checkpoint，最后汇总。 |
+| `stratify.py` | 线性 vs 非线性的**规模对照**实验：按节点数分层 + 精确节点数配对 + 置换检验 + 回归控制。 |
+| `linear_vs_nonlinear.py` | 同一批节点下 **proScript 原版线性脚本 vs LLM 改写非线性脚本** 的配对实验（把"结构非线性"与"节点被改写"分开）。 |
+
+**指标口径（重要）**
+
+- `GED = |Ê Δ E|`：把预测图变成金标图所需的边增删次数，每条边代价为 1。
+- `e_del = |Ê \ E|`（多预测出来的边）、`e_ins = |E \ Ê|`（漏掉的金标边）。
+- `NGED = GED / |E|`：**每条金标边平均需要多少次编辑**。它是**编辑率而不是比例**——
+  分子同时包含漏边与多余边，所以**可以大于 1**（实测最大 2.25）。
+  论文中必须按此解读，不要写成"需要修正的金标边比例"。
+- 若要给出真正的比例，用分项 `missing_rate = |E \ Ê| / |E|`（漏边占金标边比例）；
+  两者之和恰为 NGED，`spurious_rate = |Ê \ E| / |E|` 是多余边的相对规模。
+- `IoU`（即 Jaccard 系数）`= |E ∩ Ê| / |E ∪ Ê|`，与 NGED 分母不同，是两个不同的量，可并列报告。
+- 比率型指标同时给出**逐条宏平均**与**总量相除**两种口径；论文报告比例时建议用后者。
+- P / R / F1 为逐条计算后的**宏平均**。
+
+**运行环境**
+
+本项目使用 conda 环境 `non_seq`：
+
+```bash
+conda activate non_seq
+cd predict
+python predict.py                 # 需要环境变量 DEEPSEEK_API_KEY
+python stratify.py --results results_v4-pro.json --out stratify_pro.md
+python linear_vs_nonlinear.py subset     # 不需要 API
+python linear_vs_nonlinear.py predict    # 需要 API，可断点续跑
+python linear_vs_nonlinear.py analyze    # 不需要 API
+```
+
+> **环境注意**：`non_seq` 当前的 numpy（2.5.3）**BLAS/LAPACK 链接损坏**，
+> 任何矩阵乘法或 `np.linalg` 调用都会触发**无法被 try/except 捕获**的原生崩溃
+> （`Windows fatal exception 0xc06d007f`，进程当场退出、连报错都打不出来）。
+> `stratify.py` 的回归已改为纯 Python 实现，并在启动时用子进程做预检，因此可正常运行；
+> 但若其它脚本出现"无故退出、无任何报错"，请先修复该环境：
+> `conda install -n non_seq --force-reinstall numpy`
+> （或临时改用 `D:\Anaconda\python.exe`，其 numpy 2.3.5 实测正常）。
+
+> **命名注意**：本目录下**不要**再新建与标准库同名的文件（如 `re.py`、`bisect.py`）——
+> 它们会遮蔽标准库模块，导致本目录内其它脚本崩溃（原 `re.py` 正是因此被删除）。
+
+
 
 
 ### 五、改造示例

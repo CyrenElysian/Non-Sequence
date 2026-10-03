@@ -1,7 +1,7 @@
 """统计 script_graph 的最大嵌套深度与各 type 数量，并写回数据。
 
 用法示例：
-    python count_structure.py -i CtrlScript_v1.json -o processed_data_with_stats.json
+    python count_structure.py -i ../CtrlScript_v2.json -o CtrlScript_v2_stats.json
 
 要求：
     - 不会覆盖原文件（输入输出路径必须不同；若需强制可加 --force）。

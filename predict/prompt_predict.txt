@@ -1,4 +1,4 @@
-You are an expert in event graph inference. You will be given:
+﻿You are an expert in event graph inference. You will be given:
 - A scenario description (the goal of the event chain)
 - A set of unordered nodes, each with an ID and a textual description.
 

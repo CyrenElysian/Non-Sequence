@@ -4,10 +4,41 @@ import time
 from openai import OpenAI
 from collections import defaultdict
 
+from metrics import (
+    EDGE_METRIC_KEYS,
+    TYPE_NAMES,
+    compare_graphs,
+    compute_edge_metrics,
+    compute_statistics,
+    get_combo,
+    get_purity_group,
+    nonlinearity_label,
+    print_group,
+    print_summary,
+    refresh_edge_metrics_in_records,
+    summarize_group,
+)
+
 MODEL = "deepseek-v4-flash"
 BASE_URL = "https://api.deepseek.com"
-API_KEY = os.getenv("DEEPSEEK_API_KEY")
-client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
+
+_client = None
+
+
+def get_client():
+    """惰性创建 API 客户端。
+
+    不在模块顶层建客户端，这样本文件可以被 import（做离线重算、单测、
+    或只复用其评估逻辑）而不要求 DEEPSEEK_API_KEY 已设置。
+    """
+    global _client
+    if _client is None:
+        api_key = os.getenv("DEEPSEEK_API_KEY")
+        if not api_key:
+            raise RuntimeError("环境变量 DEEPSEEK_API_KEY 未设置，无法调用模型。")
+        _client = OpenAI(api_key=api_key, base_url=BASE_URL)
+    return _client
+
 
 CHECKPOINT_FILE = "eval_checkpoint_v4-flash.json"
 OUTPUT_FILE = "results_v4-flash.json"
@@ -27,7 +58,7 @@ def build_user_message(item):
     return json.dumps(inp, ensure_ascii=False, indent=2)
 
 def call_model(system_prompt, user_message):
-    response = client.chat.completions.create(
+    response = get_client().chat.completions.create(
         model=MODEL,
         messages=[
             {"role": "system", "content": system_prompt},
@@ -48,85 +79,69 @@ def extract_json(text):
         json_str = text.strip()
     return json.loads(json_str)
 
-def normalize_graph(edges, script_graph):
-    normalized_edges = sorted(set(edges))
-    sg_str = json.dumps(script_graph, sort_keys=True, ensure_ascii=False)
-    return normalized_edges, sg_str
-
-def compare_graphs(gen_edges, gen_sg, ref_edges, ref_sg):
-    gen_e, gen_s = normalize_graph(gen_edges, gen_sg)
-    ref_e, ref_s = normalize_graph(ref_edges, ref_sg)
-    edges_match = gen_e == ref_e
-    sg_match = gen_s == ref_s
-    return edges_match, sg_match
-
-EDGE_METRIC_KEYS = ("precision", "recall", "f1", "iou", "ged", "e_del", "e_ins")
-
-
-def compute_edge_ged(pred_edges, ref_edges):
-    """
-    边集 GED（仅增/删边，代价均为 1）：预测边集 P -> 参考边集 R。
-    ged = |P \\ R| + |R \\ P|；e_del=需删边数，e_ins=需增边数。
-    """
-    pred = set(pred_edges or [])
-    ref = set(ref_edges or [])
-    e_del = len(pred - ref)
-    e_ins = len(ref - pred)
-    return {"ged": e_del + e_ins, "e_del": e_del, "e_ins": e_ins}
+def collect_used_nodes(struct, used_ids):
+    """递归收集 script_graph 中引用到的节点 id（跳过 "continue" 占位符）。"""
+    if isinstance(struct, str):
+        if struct != "continue":
+            used_ids.add(struct)
+    elif isinstance(struct, dict):
+        if "script" in struct:
+            for elem in struct["script"]:
+                collect_used_nodes(elem, used_ids)
+        elif "options" in struct:
+            for opt in struct["options"]:
+                collect_used_nodes(opt, used_ids)
+        elif "entry" in struct:
+            used_ids.add(struct["entry"])
+            for elem in struct.get("retry", []):
+                collect_used_nodes(elem, used_ids)
+            used_ids.add(struct["exit"])
+        elif "branches_set" in struct:
+            for branch in struct["branches_set"].values():
+                for elem in branch:
+                    collect_used_nodes(elem, used_ids)
 
 
-def compute_edge_metrics(pred_edges, ref_edges):
-    """边集 Precision / Recall / F1 / IoU / GED；分母为 0 时记 0.0。"""
-    pred = set(pred_edges or [])
-    ref = set(ref_edges or [])
-    inter = pred & ref
-    union = pred | ref
-    n_inter = len(inter)
-    n_pred = len(pred)
-    n_ref = len(ref)
-    n_union = len(union)
+def node_report(ordered_type_cnt, gen_sg, nodes):
+    """节点使用报告：missing=金标有但没用上，unused=多出来的，duplicated=重复使用。"""
+    node_ids = set(nodes.keys())
+    used = []
+    collect_used_nodes(gen_sg, used)
+    used_set = set(used)
 
-    precision = n_inter / n_pred if n_pred > 0 else 0.0
-    recall = n_inter / n_ref if n_ref > 0 else 0.0
-    f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
-    iou = n_inter / n_union if n_union > 0 else 0.0
-    ged = compute_edge_ged(pred_edges, ref_edges)
+    counts = defaultdict(int)
+    for nid in used:
+        counts[nid] += 1
+    duplicated = sorted(nid for nid, c in counts.items() if c > 1)
+
+    # 金标里允许重复的节点：出现在 loop 结构中的节点
+    loop_nodes = set()
+    if ordered_type_cnt.get("loop", 0) > 0:
+        def walk(s):
+            if isinstance(s, dict):
+                if s.get("type") == "loop":
+                    loop_nodes.add(s.get("entry"))
+                    loop_nodes.add(s.get("exit"))
+                for k in ("script", "options", "retry"):
+                    for e in s.get(k, []) or []:
+                        walk(e)
+                for b in (s.get("branches_set") or {}).values():
+                    for e in b:
+                        walk(e)
+        walk(gen_sg)
+
+    unexpected_dup = [n for n in duplicated if n not in loop_nodes]
+    nodes_valid = (used_set == node_ids) and not unexpected_dup
     return {
-        "precision": precision,
-        "recall": recall,
-        "f1": f1,
-        "iou": iou,
-        **ged,
+        "nodes_valid": nodes_valid,
+        "nodes_missing": sorted(node_ids - used_set),
+        "nodes_extra": sorted(used_set - node_ids),
+        "nodes_duplicated": duplicated,
+        "nodes_unexpected_dup": unexpected_dup,
     }
 
 
-def zero_edge_metrics():
-    """参考边集也为空时的占位指标。"""
-    return {
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
-        "iou": 0.0,
-        "ged": 0,
-        "e_del": 0,
-        "e_ins": 0,
-    }
-
-
-def refresh_edge_metrics_in_records(merged_records, reference_graphs):
-    """按 record['edges'] 与参考边集重新计算指标（兼容旧 checkpoint）。"""
-    for record in merged_records:
-        rid = record.get("id")
-        if rid not in reference_graphs:
-            continue
-        pred_edges = record.get("edges", [])
-        ref_edges = reference_graphs[rid]["edges"]
-        metrics = compute_edge_metrics(pred_edges, ref_edges)
-        for key in EDGE_METRIC_KEYS:
-            record[key] = metrics[key]
-        record["edges_match"] = metrics["ged"] == 0
-
-def evaluate_item(item, template, reference_graphs):
+def evaluate_item(item, template, reference_graphs, ordered_type_cnt=None):
     rid = item["id"]
     nodes = item["unordered_nodes"]
     user_msg = build_user_message(item)
@@ -144,40 +159,15 @@ def evaluate_item(item, template, reference_graphs):
     edges_match, sg_match = compare_graphs(gen["edges"], gen["script_graph"], ref_edges, ref_sg)
     edge_metrics = compute_edge_metrics(gen["edges"], ref_edges)
 
-    # 节点使用一致性检查
-    node_ids = set(nodes.keys())
-    used_ids = set()
-    def collect_nodes(struct):
-        if isinstance(struct, str):
-            if struct != "continue":
-                used_ids.add(struct)
-        elif isinstance(struct, dict):
-            if "script" in struct:
-                for elem in struct["script"]:
-                    collect_nodes(elem)
-            elif "options" in struct:
-                for opt in struct["options"]:
-                    collect_nodes(opt)
-            elif "entry" in struct:
-                used_ids.add(struct["entry"])
-                if "retry" in struct:
-                    for elem in struct["retry"]:
-                        collect_nodes(elem)
-                used_ids.add(struct["exit"])
-            elif "branches_set" in struct:
-                for branch in struct["branches_set"].values():
-                    for elem in branch:
-                        collect_nodes(elem)
-    collect_nodes(gen["script_graph"])
-    nodes_valid = (used_ids == node_ids)
+    node_info = node_report(ordered_type_cnt or {}, gen["script_graph"], nodes)
 
     return {
         "id": rid,
         "edges_match": edges_match,
         "sg_match": sg_match,
-        "nodes_valid": nodes_valid,
         "generated_edges": gen["edges"],
         "generated_sg": gen["script_graph"],
+        **node_info,
         **edge_metrics,
     }
 
@@ -194,157 +184,18 @@ def load_checkpoint():
     return []
 
 # ---------- 指标计算 ----------
-TYPE_NAMES = ["select", "loop", "and_join"]
+# 所有指标实现集中在 metrics.py，此处只做编排与落盘，避免口径漂移。
 
-def get_combo(type_cnt):
-    has = [t for t in TYPE_NAMES if type_cnt.get(t, 0) > 0]
-    if not has:
-        return "sequence"
-    has.sort()
-    return "+".join(has)
+def print_error_report(merged_records):
+    """列出模型调用/解析失败的样本——它们会被计入总分母，必须显式披露。"""
+    failed = [r for r in merged_records if r.get("error")]
+    if not failed:
+        print("\n模型调用失败样本: 0 条")
+        return
+    print(f"\n[!] 模型调用/解析失败样本: {len(failed)} 条（已按空预测计入总分母）")
+    for r in failed:
+        print(f"    id={r['id']}  {r.get('error')}")
 
-def summarize_exact_match(records):
-    n = len(records)
-    if n == 0:
-        return {"n": 0, "edges_match_rate": 0.0, "sg_match_rate": 0.0, "both_match_rate": 0.0}
-    e_ok = sum(1 for r in records if r.get("edges_match"))
-    s_ok = sum(1 for r in records if r.get("sg_match"))
-    b_ok = sum(1 for r in records if r.get("edges_match") and r.get("sg_match"))
-    return {
-        "n": n,
-        "edges_match_count": e_ok,
-        "sg_match_count": s_ok,
-        "both_match_count": b_ok,
-        "edges_match_rate": e_ok / n,
-        "sg_match_rate": s_ok / n,
-        "both_match_rate": b_ok / n,
-    }
-
-def summarize_edge_metrics_mean(records):
-    n = len(records)
-    if n == 0:
-        return {
-            "n": 0,
-            "precision": 0.0,
-            "recall": 0.0,
-            "f1": 0.0,
-            "iou": 0.0,
-            "ged": 0.0,
-            "e_del": 0.0,
-            "e_ins": 0.0,
-        }
-    return {
-        "n": n,
-        "precision": sum(r.get("precision", 0.0) for r in records) / n,
-        "recall": sum(r.get("recall", 0.0) for r in records) / n,
-        "f1": sum(r.get("f1", 0.0) for r in records) / n,
-        "iou": sum(r.get("iou", 0.0) for r in records) / n,
-        "ged": sum(r.get("ged", 0) for r in records) / n,
-        "e_del": sum(r.get("e_del", 0) for r in records) / n,
-        "e_ins": sum(r.get("e_ins", 0) for r in records) / n,
-    }
-
-def summarize_group(records):
-    return {
-        "exact_match": summarize_exact_match(records),
-        "edge_metrics_mean": summarize_edge_metrics_mean(records),
-    }
-
-def compute_statistics(merged_records, reference_stats):
-    """计算汇总指标，打印并返回可写入 eval_summary.json 的结构。"""
-    print("=" * 60)
-    total = len(merged_records)
-    if total == 0:
-        print("没有数据可供统计。")
-        return {}
-
-    summary = {"overall": summarize_group(merged_records)}
-
-    def safe_div(num, den):
-        return f"{num}/{den}" if den > 0 else "0/0"
-
-    def percent(num, den):
-        return f"{num/den*100:.1f}%" if den > 0 else "N/A"
-
-    def fmt_mean(m):
-        return (
-            f"P={m['precision']*100:.1f}% R={m['recall']*100:.1f}% "
-            f"F1={m['f1']*100:.1f}% IoU={m['iou']*100:.1f}% "
-            f"GED={m['ged']:.2f} (E-Del={m['e_del']:.2f} E-Ins={m['e_ins']:.2f})"
-        )
-
-    em = summary["overall"]["exact_match"]
-    mm = summary["overall"]["edge_metrics_mean"]
-    print("1. 总体 — 完全匹配率")
-    print(f"   Edges: {percent(em['edges_match_count'], total)} ({safe_div(em['edges_match_count'], total)})")
-    print(f"   SG:    {percent(em['sg_match_count'], total)} ({safe_div(em['sg_match_count'], total)})")
-    print(f"   Both:  {percent(em['both_match_count'], total)} ({safe_div(em['both_match_count'], total)})")
-    print("   边集指标均值:", fmt_mean(mm))
-
-    depth_groups = defaultdict(list)
-    for r in merged_records:
-        rid = r["id"]
-        depth = reference_stats.get(rid, {}).get("max_depth", 0)
-        if depth >= 3:
-            depth = 3
-        depth_groups[depth].append(r)
-
-    summary["by_depth"] = {}
-    print("\n2. 各最大嵌套深度")
-    for depth in sorted(depth_groups.keys()):
-        recs = depth_groups[depth]
-        key = str(depth) if depth < 3 else "3+"
-        label = f"深度 {depth}" if depth < 3 else "深度 3+"
-        grp = summarize_group(recs)
-        summary["by_depth"][key] = grp
-        em, mm = grp["exact_match"], grp["edge_metrics_mean"]
-        n = em["n"]
-        print(f"   {label} (n={n}):")
-        print(f"      完全匹配 Edges: {percent(em['edges_match_count'], n)} ({safe_div(em['edges_match_count'], n)})")
-        print(f"      完全匹配 SG:    {percent(em['sg_match_count'], n)} ({safe_div(em['sg_match_count'], n)})")
-        print(f"      完全匹配 Both:  {percent(em['both_match_count'], n)} ({safe_div(em['both_match_count'], n)})")
-        print(f"      边集均值: {fmt_mean(mm)}")
-
-    summary["by_structure_type"] = {}
-    print("\n3. 包含特定非线性结构")
-    for tname in TYPE_NAMES:
-        recs = [
-            r for r in merged_records
-            if reference_stats.get(r["id"], {}).get("type_cnt", {}).get(tname, 0) > 0
-        ]
-        if not recs:
-            print(f"   包含 {tname}: 无样本")
-            continue
-        grp = summarize_group(recs)
-        summary["by_structure_type"][tname] = grp
-        em, mm = grp["exact_match"], grp["edge_metrics_mean"]
-        n = em["n"]
-        print(f"   包含 {tname} (n={n}):")
-        print(f"      完全匹配 Edges: {percent(em['edges_match_count'], n)} ({safe_div(em['edges_match_count'], n)})")
-        print(f"      完全匹配 SG:    {percent(em['sg_match_count'], n)} ({safe_div(em['sg_match_count'], n)})")
-        print(f"      完全匹配 Both:  {percent(em['both_match_count'], n)} ({safe_div(em['both_match_count'], n)})")
-        print(f"      边集均值: {fmt_mean(mm)}")
-
-    combo_groups = defaultdict(list)
-    for r in merged_records:
-        combo = get_combo(reference_stats.get(r["id"], {}).get("type_cnt", {}))
-        combo_groups[combo].append(r)
-
-    summary["by_combo"] = {}
-    print("\n4. 纯顺序与混合结构")
-    for combo in sorted(combo_groups.keys()):
-        recs = combo_groups[combo]
-        grp = summarize_group(recs)
-        summary["by_combo"][combo] = grp
-        em, mm = grp["exact_match"], grp["edge_metrics_mean"]
-        n = em["n"]
-        print(f"   {combo} (n={n}):")
-        print(f"      完全匹配 Edges: {percent(em['edges_match_count'], n)} ({safe_div(em['edges_match_count'], n)})")
-        print(f"      完全匹配 SG:    {percent(em['sg_match_count'], n)} ({safe_div(em['sg_match_count'], n)})")
-        print(f"      完全匹配 Both:  {percent(em['both_match_count'], n)} ({safe_div(em['both_match_count'], n)})")
-        print(f"      边集均值: {fmt_mean(mm)}")
-
-    return summary
 
 def save_summary(summary):
     with open(SUMMARY_FILE, "w", encoding="utf-8") as f:
@@ -385,11 +236,9 @@ if __name__ == "__main__":
         print(f"已跳过 {skipped} 条标准答案中不存在的记录，剩余 {len(merged_records)} 条有效记录。")
     # --------------------------------------------------------
 
-    # 获取已处理id集合，用于跳过（后续不再有新数据时其实用不到）
+    # 获取已处理id集合，用于跳过
     processed_ids = {r["id"] for r in merged_records}
 
-    # 注意：此时 dataset 中已经只包含有效 id，所以后续 for 循环不会重复处理
-    # 如果 checkpoint 已经包含了所有有效 id，则不会进入循环
     for item in dataset:
         rid = item["id"]
         if rid in processed_ids:
@@ -397,9 +246,19 @@ if __name__ == "__main__":
             continue
 
         print(f"Processing {rid}...")
-        res = evaluate_item(item, template, reference_graphs)
+        res = evaluate_item(item, template, reference_graphs, reference_stats[rid]["type_cnt"])
 
-        pred_edges = res.get("generated_edges", []) if "error" not in res else []
+        failed = "error" in res
+        if failed:
+            # 失败样本保留 error 标记与原始输出，便于事后定位；
+            # 指标按空预测计算，并照样计入总分母（与论文口径一致）。
+            pred_edges = []
+            pred_sg = {"type": "sequence", "script": []}
+            print(f"    [!] 生成失败: {res['error']}")
+        else:
+            pred_edges = res["generated_edges"]
+            pred_sg = res["generated_sg"]
+
         ref_edges = reference_graphs[rid]["edges"]
         edge_metrics = compute_edge_metrics(pred_edges, ref_edges)
 
@@ -408,11 +267,17 @@ if __name__ == "__main__":
             "scenario": item["scenario"],
             "unordered_nodes": item["unordered_nodes"],
             "edges": pred_edges,
-            "script_graph": res.get("generated_sg", {"type": "sequence", "script": []}) if "error" not in res else {"type": "sequence", "script": []},
+            "script_graph": pred_sg,
             "edges_match": edge_metrics["ged"] == 0,
             "sg_match": res.get("sg_match", False),
+            # 记录金标边集，供 NGED 等比率型指标做"总量相除"
+            "_ref_edges": ref_edges,
+            **{k: v for k, v in res.items() if k.startswith("nodes_")},
             **edge_metrics,
         }
+        if failed:
+            record["error"] = res["error"]
+            record["raw"] = res.get("raw")
 
         merged_records.append(record)
         processed_ids.add(rid)
@@ -426,9 +291,10 @@ if __name__ == "__main__":
         json.dump(merged_records, f, ensure_ascii=False, indent=2)
 
     print(f"\n合并文件已保存至 {OUTPUT_FILE}")
-    # 注意：这里再次 refresh 时会自动跳过无效 id（函数内部有 continue）
     refresh_edge_metrics_in_records(merged_records, reference_graphs)
+    print_error_report(merged_records)
     summary = compute_statistics(merged_records, reference_stats)
     if summary:
+        print_summary(summary)
         save_summary(summary)
-        print(f"评估汇总已保存至 {SUMMARY_FILE}")
+        print(f"\n评估汇总已保存至 {SUMMARY_FILE}")

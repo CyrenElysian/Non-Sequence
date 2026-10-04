@@ -5,9 +5,9 @@
   "unordered_nodes": {
    "0": "walk to train to ride",
    "1": "ask to buy ticket",
-   "2": "walk to ticket booth",
+   "2": "walk to the ticket area",
    "3": "pay for ticket",
-   "4": "walk up to booth",
+   "4": "walk up to the ticket window",
    "5": "ride the train to the destination",
    "6": "walk to ticket machine",
    "7": "select destination and pay by card"
@@ -501,7 +501,7 @@
   "unordered_nodes": {
    "0": "Make payment for the purchase",
    "1": "Drive to the camp",
-   "2": "Walk inside, buy a pack of water bottles",
+   "2": "Walk inside and pick out a pack of bottled water",
    "3": "Drive to nearest store",
    "4": "Put the pack inside the car",
    "5": "Arrive at camp with the pack of water bottles"
@@ -652,13 +652,13 @@
   "scenario": "deposit funds at the bank",
   "unordered_nodes": {
    "0": "walk to car",
-   "1": "walk to a teller",
+   "1": "deposit funds at the teller",
    "2": "fill out a deposit slip",
    "3": "get in the car",
    "4": "drive to the bank",
    "5": "leave the office building",
    "6": "walk in the bank",
-   "7": "deposit funds at the bank",
+   "7": "confirm the deposit is complete",
    "8": "go straight to the ATM",
    "9": "insert card",
    "10": "select deposit and insert cash",
@@ -793,7 +793,7 @@
   "scenario": "learn another language",
   "unordered_nodes": {
    "0": "choose a language to learn",
-   "1": "complete the first program of the lesson",
+   "1": "complete the chosen program step by step and keep practicing",
    "2": "sign up for the online language program",
    "3": "search for online language programs",
    "4": "choose an online language program",
@@ -855,7 +855,7 @@
    "2": "turn on the computer",
    "3": "choose a comic book series",
    "4": "go search online",
-   "5": "press control and p on the keyboard",
+   "5": "open the chosen comic, press Ctrl+P, and confirm printing in the dialog",
    "6": "hold the printed comic book series"
   },
   "edges": [
@@ -1079,7 +1079,7 @@
    "1": "Find a necktie",
    "2": "Research some neckties",
    "3": "Go to a necktie website",
-   "4": "Send the necktie to yourself",
+   "4": "the seller ships the necktie to the buyer's address",
    "5": "Receive the new necktie and wear it",
    "6": "Feel dissatisfied"
   },
@@ -1312,7 +1312,7 @@
    "1": "Pass Grade School level",
    "2": "attend college orientations",
    "3": "pass high school",
-   "4": "apply for colleges",
+   "4": "apply for colleges, get accepted, and confirm enrollment",
    "5": "start college classes"
   },
   "edges": [
@@ -1537,7 +1537,7 @@
   "scenario": "sing in a jazz band",
   "unordered_nodes": {
    "0": "get the part",
-   "1": "set up a tryout",
+   "1": "set up and attend the tryout",
    "2": "practice with the band",
    "3": "make an ad looking for a jazz band to join",
    "4": "go to craigslist",
@@ -2218,7 +2218,7 @@
  },
  {
   "id": 54,
-  "scenario": "go to school yesterday",
+  "scenario": "go to school yesterday (sci-fi premise: use a time machine to return to yesterday)",
   "unordered_nodes": {
    "0": "Test time travel machine",
    "1": "Search internet for time traveling machines",
@@ -2297,19 +2297,19 @@
   "scenario": "dig a hole with some friends",
   "unordered_nodes": {
    "0": "Pull dirt and shovel out of ground",
-   "1": "Get a shovel",
+   "1": "Get some shovels",
    "2": "Get some friends",
    "3": "Push shovel into dirt",
    "4": "Place shovel on ground",
    "5": "hole is deep enough"
   },
   "edges": [
-   "1->4",
-   "2->4",
-   "4->3",
-   "3->5",
+   "1->3",
+   "2->3",
    "3->0",
-   "0->3"
+   "0->3",
+   "0->5",
+   "5->4"
   ],
   "script_graph": {
    "type": "sequence",
@@ -2325,16 +2325,17 @@
       ]
      }
     },
-    "4",
+    "3",
     {
      "type": "loop",
-     "entry": "3",
+     "entry": "0",
      "retry": [
-      "0",
+      "3",
       "continue"
      ],
      "exit": "5"
-    }
+    },
+    "4"
    ]
   }
  },
@@ -2422,13 +2423,13 @@
   "id": 59,
   "scenario": "go to college in another state",
   "unordered_nodes": {
-   "0": "pick the top one and apply",
+   "0": "pick the next unapplied college from the candidate list and apply",
    "1": "look at college options online",
    "2": "decide on a top 3 list",
    "3": "get an acceptance letter",
    "4": "pack some bags",
    "5": "arrive at the out-of-state college",
-   "6": "receive a rejection letter"
+   "6": "receive a rejection letter and rule out that candidate"
   },
   "edges": [
    "1->2",
@@ -2464,7 +2465,7 @@
   "unordered_nodes": {
    "0": "bring up chrome",
    "1": "take out cell phone",
-   "2": "click on first Wikipedia link",
+   "2": "open and read the Wikipedia article on the solar system",
    "3": "search for solar system",
    "4": "unlock cell phone",
    "5": "understand the solar system"
@@ -2871,11 +2872,11 @@
   "scenario": "learn how to play guitar",
   "unordered_nodes": {
    "0": "Ask employee for advice",
-   "1": "Pay for guitar and extra accessories",
+   "1": "pay for the guitar, book, and accessories",
    "2": "Browse for guitars",
    "3": "Drive to music store",
-   "4": "Buy guitar chord/song book",
-   "5": "Buy guitar accessories",
+   "4": "pick out a guitar lesson book",
+   "5": "pick out guitar accessories",
    "6": "Choose guitar liked most",
    "7": "successfully learn how to play guitar",
    "8": "practice playing a song",
@@ -3253,7 +3254,7 @@
    "4": "read about the movements of the pieces",
    "5": "learn to play chess like a grand master",
    "6": "participate in a chess tournament to test level",
-   "7": "rated as master level"
+   "7": "rated at grandmaster level through game evaluation"
   },
   "edges": [
    "4->2",
@@ -3431,7 +3432,7 @@
    "0": "Stay after school to try out for the team",
    "1": "Stay after school for practice",
    "2": "Check daily for team postings",
-   "3": "Read the list of people who made the team",
+   "3": "read the roster of those who made the team and confirm you are on it",
    "4": "Play in basketball games",
    "5": "Figure out when tryouts take place",
    "6": "complete the basketball season"
@@ -3662,7 +3663,7 @@
    "0": "get the laptop",
    "1": "open the laptop up",
    "2": "load up song player",
-   "3": "search for a lot of music",
+   "3": "search for songs, create a new playlist, and add the chosen songs",
    "4": "load up windows",
    "5": "play the new playlist"
   },
@@ -3820,7 +3821,7 @@
    "2": "ask questions about mopeds",
    "3": "look for places that sell mopeds",
    "4": "look at the different mopeds",
-   "5": "choose a particular moped",
+   "5": "choose a particular moped and complete the purchase payment",
    "6": "ride the new moped home"
   },
   "edges": [
@@ -3947,7 +3948,7 @@
   "scenario": "learn a new recipe",
   "unordered_nodes": {
    "0": "search available recipes",
-   "1": "print out the recipe",
+   "1": "print out and read through the recipe",
    "2": "best recipe selected",
    "3": "decide to learn a new recipe",
    "4": "navigate to cooking site",
@@ -4724,7 +4725,7 @@
   "id": 116,
   "scenario": "send a message to others",
   "unordered_nodes": {
-   "0": "open the message application",
+   "0": "open the message app and enter the target recipient's conversation",
    "1": "press the send button",
    "2": "edit the message",
    "3": "take out the cell phone",
@@ -5146,7 +5147,7 @@
  },
  {
   "id": 127,
-  "scenario": "get married in secret",
+  "scenario": "apply for and receive a marriage license",
   "unordered_nodes": {
    "0": "fill out the marriage form",
    "1": "pick up a pen",
@@ -5405,7 +5406,7 @@
    "4": "get seated by staff",
    "5": "finish eating the kale salad",
    "6": "chew and swallow the salad",
-   "7": "take another bite of salad"
+   "7": "pick up the next bite of salad with the fork"
   },
   "edges": [
    "0->4",
@@ -5443,19 +5444,19 @@
   "scenario": "make a short film",
   "unordered_nodes": {
    "0": "wait for actors to show up",
-   "1": "direct the actors",
+   "1": "direct the actors and shoot using the prepared camera",
    "2": "get out camera gear",
    "3": "drive to location",
    "4": "go to the car",
    "5": "complete the short film"
   },
   "edges": [
-   "0->1",
-   "1->5",
-   "2->5",
+   "4->3",
    "3->0",
    "3->2",
-   "4->3"
+   "0->1",
+   "2->1",
+   "1->5"
   ],
   "script_graph": {
    "type": "sequence",
@@ -5466,14 +5467,14 @@
      "type": "and_join",
      "branches_set": {
       "b1": [
-       "0",
-       "1"
+       "0"
       ],
       "b2": [
        "2"
       ]
      }
     },
+    "1",
     "5"
    ]
   }
@@ -5673,7 +5674,7 @@
   "id": 138,
   "scenario": "make a little bit of spending money on MTurk",
   "unordered_nodes": {
-   "0": "Make a payment plan",
+   "0": "set up payment and cash-out arrangements",
    "1": "Do a hit",
    "2": "sign up at MTurk using correct information",
    "3": "Make an Amazon payment account",
@@ -6163,7 +6164,7 @@
    "1": "pick up a pen",
    "2": "revise the composition",
    "3": "pick up a piece of sheet music paper",
-   "4": "pen out the riff to the sheet music",
+   "4": "develop the riff into a complete piece on the sheet music",
    "5": "plug guitar into amp",
    "6": "turn on amp",
    "7": "the composition is polished",
@@ -6288,11 +6289,11 @@
    "0": "Speak with owner",
    "1": "Search out convenience stores for sale",
    "2": "Decide on price",
-   "3": "Wait for loan approval",
+   "3": "obtain loan approval and funds",
    "4": "Put in loan application",
    "5": "Decide on desired store",
    "6": "Travel to bank",
-   "7": "open the convenience store for business"
+   "7": "open for business after completing the purchase and handover of the store"
   },
   "edges": [
    "0->2",
@@ -6433,8 +6434,8 @@
    "3": "get in car",
    "4": "drive to place",
    "5": "introduce yourself to someone new",
-   "6": "go to a bar",
-   "7": "go to a coffee shop"
+   "6": "choose the bar as the destination",
+   "7": "choose the coffee shop as the destination"
   },
   "edges": [
    "1->6",
@@ -6778,7 +6779,7 @@
    "2": "go up to the front desk",
    "3": "get in car",
    "4": "park the car",
-   "5": "obtain the death report from the clerk"
+   "5": "obtain and read the report, asking staff to explain if needed"
   },
   "edges": [
    "0->2",
@@ -6840,7 +6841,7 @@
    "1": "Pull up an instruction youtube video",
    "2": "Practice a lot",
    "3": "Watch the instruction video",
-   "4": "Keep practicing from the video",
+   "4": "adjust the technique based on the feedback",
    "5": "learn how to do a backflip"
   },
   "edges": [
@@ -7636,7 +7637,7 @@
    "2": "invite people to the party",
    "3": "drive back home",
    "4": "shop for party supplies",
-   "5": "wait for guests",
+   "5": "wait for guests to arrive and host everyone at the party",
    "6": "party is a success"
   },
   "edges": [
@@ -7867,7 +7868,7 @@
   "scenario": "attend cooking school",
   "unordered_nodes": {
    "0": "Pay for the cooking class",
-   "1": "Visit the school",
+   "1": "register for the course on site at the school",
    "2": "Wait for the course to begin",
    "3": "Pick the most appealing school",
    "4": "Search for good schools offering cooking courses",
@@ -8110,10 +8111,10 @@
    "0->2",
    "2->4",
    "4->1",
-   "4->7",
    "1->6",
    "6->5",
-   "5->4"
+   "5->4",
+   "6->7"
   ],
   "script_graph": {
    "type": "sequence",
@@ -8121,13 +8122,15 @@
     "3",
     "0",
     "2",
+    "4",
+    "1",
     {
      "type": "loop",
-     "entry": "4",
+     "entry": "6",
      "retry": [
-      "1",
-      "6",
       "5",
+      "4",
+      "1",
       "continue"
      ],
      "exit": "7"
@@ -8139,7 +8142,7 @@
   "id": 199,
   "scenario": "get into better shape",
   "unordered_nodes": {
-   "0": "go to the gym",
+   "0": "go to the gym and complete a workout",
    "1": "pay the fee",
    "2": "search for a gym",
    "3": "go to google",
@@ -8606,7 +8609,7 @@
    "2": "make a list of snacks",
    "3": "pack the snacks up",
    "4": "find out what everyone wants",
-   "5": "everything on the list is in the cart",
+   "5": "everything on the list is in the cart and payment is complete",
    "6": "load the snacks into the car",
    "7": "check the list against the cart",
    "8": "grab the missing item"
@@ -8681,7 +8684,7 @@
    "1": "drive to pageant",
    "2": "get inside car",
    "3": "get ready at home",
-   "4": "kill the auditions",
+   "4": "excel at the audition, pass it, and complete the formal pageant performance",
    "5": "win 1st prize at the pageant"
   },
   "edges": [
@@ -8869,15 +8872,17 @@
    "2": "set up a website",
    "3": "set up an affiliate link",
    "4": "decide on a niche",
-   "5": "earn money from home"
+   "5": "earn money from home",
+   "6": "publish the content with the affiliate link and earn commission from a valid conversion"
   },
   "edges": [
    "0->4",
-   "1->5",
+   "4->2",
    "2->1",
    "2->3",
-   "3->5",
-   "4->2"
+   "1->6",
+   "3->6",
+   "6->5"
   ],
   "script_graph": {
    "type": "sequence",
@@ -8896,6 +8901,7 @@
       ]
      }
     },
+    "6",
     "5"
    ]
   }
@@ -9055,7 +9061,7 @@
    "1": "add party food to cart",
    "2": "add party drinks to cart",
    "3": "send out invites before event",
-   "4": "take items to checkout",
+   "4": "take the items to the checkout and pay for them",
    "5": "set up party items at home",
    "6": "add party decorations to cart",
    "7": "host the party with guests"
@@ -9229,9 +9235,9 @@
    "1": "drive to the animal shelter",
    "2": "park the car",
    "3": "go inside the shelter",
-   "4": "pick out a cat",
+   "4": "pick out a cat and confirm the adoption and handover",
    "5": "take the new pet home",
-   "6": "pick out a dog"
+   "6": "pick out a dog and confirm the adoption and handover"
   },
   "edges": [
    "0->1",
@@ -9388,9 +9394,9 @@
   "scenario": "make scarves to sell",
   "unordered_nodes": {
    "0": "put together a work station",
-   "1": "browse hobbies online",
+   "1": "browse methods for making scarves",
    "2": "order the supplies",
-   "3": "pick a favorite",
+   "3": "choose a scarf style and making method",
    "4": "receive the supplies",
    "5": "finish making the scarves"
   },
@@ -9719,7 +9725,7 @@
    "4": "look for the wild ones",
    "5": "make the wild one feel comfortable",
    "6": "wild ones are comfortable at home",
-   "7": "continue searching for the wild ones"
+   "7": "find the target animal"
   },
   "edges": [
    "4->0",
@@ -9794,7 +9800,7 @@
    "0": "build a barn",
    "1": "shop around for horses",
    "2": "take the horse home",
-   "3": "Choose a horse",
+   "3": "choose and purchase the horse",
    "4": "meet different horses",
    "5": "buy a large plot of land",
    "6": "the horse is settled at home"
@@ -9813,23 +9819,25 @@
     {
      "type": "and_join",
      "branches_set": {
-      "b1": {
-       "type": "sequence",
-       "script": [
-        {
-         "type": "and_join",
-         "branches_set": {
-          "b1": [
-           "1"
-          ],
-          "b2": [
-           "4"
-          ]
-         }
-        },
-        "3"
-       ]
-      },
+      "b1": [
+       {
+        "type": "sequence",
+        "script": [
+         {
+          "type": "and_join",
+          "branches_set": {
+           "b1": [
+            "1"
+           ],
+           "b2": [
+            "4"
+           ]
+          }
+         },
+         "3"
+        ]
+       }
+      ],
       "b2": [
        "5",
        "0"
@@ -10344,12 +10352,11 @@
    "5": "talk with the friend"
   },
   "edges": [
-   "0->2",
-   "1->2",
-   "2->5",
-   "3->2",
+   "0->1",
    "4->1",
-   "4->3"
+   "1->3",
+   "3->2",
+   "2->5"
   ],
   "script_graph": {
    "type": "sequence",
@@ -10361,21 +10368,12 @@
        "0"
       ],
       "b2": [
-       "4",
-       {
-        "type": "and_join",
-        "branches_set": {
-         "b1": [
-          "1"
-         ],
-         "b2": [
-          "3"
-         ]
-        }
-       }
+       "4"
       ]
      }
     },
+    "1",
+    "3",
     "2",
     "5"
    ]
@@ -10893,7 +10891,7 @@
   "unordered_nodes": {
    "0": "buy rafting equipment",
    "1": "go back home",
-   "2": "put all the equipment on",
+   "2": "bring the gear to the rafting site, put it on, and board the raft",
    "3": "get in the car",
    "4": "drive to the store",
    "5": "raft down the white water rapids",
@@ -11119,10 +11117,10 @@
    "0": "wait for delivery",
    "1": "purchase the stamps",
    "2": "open up package",
-   "3": "find a set of stamps",
-   "4": "shop around online",
+   "3": "find a suitable set of stamps",
+   "4": "view and evaluate the current stamp listing",
    "5": "add the stamps to the collection",
-   "6": "browse more listings"
+   "6": "skip the current listing and open the next one"
   },
   "edges": [
    "4->3",
@@ -11402,7 +11400,7 @@
    "1": "Buy ingredients to make pizza",
    "2": "Drive back home",
    "3": "Drive to grocery store",
-   "4": "Roll out pizza dough",
+   "4": "roll out the pizza dough and add the chosen toppings",
    "5": "bake the pizza"
   },
   "edges": [
@@ -11564,13 +11562,13 @@
   "id": 285,
   "scenario": "buy a computer game",
   "unordered_nodes": {
-   "0": "Look at the computer games available",
-   "1": "Choose a game that looks interesting",
+   "0": "view and evaluate the current game",
+   "1": "choose a suitable game",
    "2": "Take the game off of the shelf",
    "3": "Take the game to the cashier",
    "4": "Place the game on the counter",
    "5": "pay for the game",
-   "6": "continue browsing"
+   "6": "skip the current game and check the next one"
   },
   "edges": [
    "0->1",
@@ -11604,7 +11602,7 @@
   "id": 286,
   "scenario": "live in the dorms next year",
   "unordered_nodes": {
-   "0": "set up in the dorm",
+   "0": "confirm the dorm assignment, check in, and set up the room",
    "1": "sign up for classes",
    "2": "order the books online",
    "3": "order school supplies",
@@ -11721,7 +11719,7 @@
  },
  {
   "id": 289,
-  "scenario": "go camping very badly",
+  "scenario": "really want to go camping",
   "unordered_nodes": {
    "0": "gather camping equipment",
    "1": "look online for a camping spot",
@@ -11729,7 +11727,7 @@
    "3": "choose a camping spot",
    "4": "gather camping supplies",
    "5": "drive to the camping site",
-   "6": "endure a terrible camping trip"
+   "6": "complete and enjoy the camping trip"
   },
   "edges": [
    "1->3",
@@ -12085,7 +12083,7 @@
   "unordered_nodes": {
    "0": "enter the store",
    "1": "drive to store",
-   "2": "pick up supplies",
+   "2": "take the chosen supplies and complete the checkout",
    "3": "walk to school supplies",
    "4": "pick out supplies",
    "5": "leave the store with school supplies"
@@ -12283,7 +12281,7 @@
   "id": 303,
   "scenario": "have money to buy things",
   "unordered_nodes": {
-   "0": "get hired for the job",
+   "0": "get hired and start working for pay",
    "1": "start saving money",
    "2": "apply for a job",
    "3": "drive to the interview",
@@ -12481,7 +12479,7 @@
   "id": 308,
   "scenario": "earn extra money this summer",
   "unordered_nodes": {
-   "0": "Get an interview",
+   "0": "get and attend the interview",
    "1": "Go into stores and apply there",
    "2": "Get the job",
    "3": "Apply for jobs online",
@@ -12738,7 +12736,7 @@
    "9": "choose online art classes",
    "10": "enroll in online art course",
    "11": "set up computer and webcam",
-   "12": "watch online lessons",
+   "12": "watch the online lessons and complete the artwork as required",
    "13": "submit artwork digitally"
   },
   "edges": [
@@ -12921,32 +12919,35 @@
   "unordered_nodes": {
    "0": "reach the opposite riverbank",
    "1": "Find shallow water",
-   "2": "Put left foot in the water",
-   "3": "Move the other foot forward",
-   "4": "Put right foot in the water",
+   "2": "put the left foot forward into the water",
+   "3": "shift the weight onto the left foot",
+   "4": "step forward with the right foot",
    "5": "Find a solid spot to take another step",
    "6": "climb out on the opposite bank"
   },
   "edges": [
    "1->5",
-   "5->0",
    "5->2",
    "2->3",
    "3->4",
    "4->5",
+   "4->0",
    "0->6"
   ],
   "script_graph": {
    "type": "sequence",
    "script": [
     "1",
+    "5",
+    "2",
+    "3",
     {
      "type": "loop",
-     "entry": "5",
+     "entry": "4",
      "retry": [
+      "5",
       "2",
       "3",
-      "4",
       "continue"
      ],
      "exit": "0"
@@ -13226,7 +13227,7 @@
  },
  {
   "id": 326,
-  "scenario": "lose 40 pounds before summer",
+  "scenario": "schedule and undergo liposuction surgery",
   "unordered_nodes": {
    "0": "attend liposuction consultation",
    "1": "check in for surgery",
@@ -13264,10 +13265,10 @@
   "id": 327,
   "scenario": "start on varsity",
   "unordered_nodes": {
-   "0": "Receive varsity spot from coach",
+   "0": "coach confirms the varsity starting position",
    "1": "Perform well in pre-season game",
    "2": "Show improved skills at training camp",
-   "3": "Head onto the field at the first varsity game",
+   "3": "enter the first game as a starter",
    "4": "Play the season on JV",
    "5": "Train skills all summer long",
    "6": "Confess commitment to coach",
@@ -13580,7 +13581,7 @@
    "2": "Go in for interviews",
    "3": "Fill out applications",
    "4": "Get a paycheck",
-   "5": "Get hired at a job",
+   "5": "get hired and complete paid work",
    "7": "receive a job rejection"
   },
   "edges": [
@@ -13728,7 +13729,7 @@
    "3": "Call the doctor's office",
    "4": "Check for available appointments",
    "5": "attend the doctor's appointment",
-   "6": "call the doctor's office again"
+   "6": "no suitable slot available; adjust acceptable dates and call again"
   },
   "edges": [
    "3->4",
@@ -14426,7 +14427,7 @@
    "1": "compete in the sports league",
    "2": "qualify for olympic team",
    "3": "go to olympics",
-   "4": "apply for olympic try-outs",
+   "4": "apply for and attend the corresponding tryouts, meeting the requirements",
    "5": "play in the olympics",
    "6": "train and practice regularly"
   },
@@ -14465,7 +14466,7 @@
    "0": "drive back home",
    "1": "walk to the cashier",
    "2": "go to the craft store",
-   "3": "pick out some crochet needles",
+   "3": "pick out knitting needles",
    "4": "pay for the items",
    "5": "work on the blanket every day",
    "6": "pick out yarn",
@@ -16755,50 +16756,50 @@
   }
  },
  {
-     "id": 414,
-     "scenario": "contact each party",
-     "unordered_nodes": {
-         "0": "ask if attending",
-         "3": "leave a voicemail",
-         "4": "receive yes, hang up",
-         "5": "make a list",
-         "7": "dial the number",
-         "8": "get next party from list",
-         "9": "all parties contacted"
-     },
-     "edges": [
-         "5->8",
-         "8->7",
-         "8->9",
-         "7->0",
-         "0->3",
-         "0->4",
-         "3->8",
-         "4->8"
+  "id": 414,
+  "scenario": "contact each party",
+  "unordered_nodes": {
+   "0": "ask if attending",
+   "3": "leave a voicemail",
+   "4": "receive yes, hang up",
+   "5": "make a list",
+   "7": "dial the number",
+   "8": "get next party from list",
+   "9": "all parties contacted"
+  },
+  "edges": [
+   "5->8",
+   "8->7",
+   "8->9",
+   "7->0",
+   "0->3",
+   "0->4",
+   "3->8",
+   "4->8"
+  ],
+  "script_graph": {
+   "type": "sequence",
+   "script": [
+    "5",
+    {
+     "type": "loop",
+     "entry": "8",
+     "retry": [
+      "7",
+      "0",
+      {
+       "type": "select",
+       "options": [
+        "3",
+        "4"
+       ]
+      },
+      "continue"
      ],
-     "script_graph": {
-         "type": "sequence",
-         "script": [
-             "5",
-             {
-                 "type": "loop",
-                 "entry": "8",
-                 "retry": [
-                     "7",
-                     "0",
-                     {
-                         "type": "select",
-                         "options": [
-                             "3",
-                             "4"
-                         ]
-                     },
-                     "continue"
-                 ],
-                 "exit": "9"
-             }
-         ]
-     }
+     "exit": "9"
+    }
+   ]
+  }
  },
  {
   "id": 415,
@@ -28387,44 +28388,44 @@
   }
  },
  {
-     "id": 710,
-     "scenario": "Let the attendees into the party",
-     "unordered_nodes": {
-         "0": "Open the door to let the attendees in",
-         "1": "Listen for a knock at the door",
-         "3": "Walk over to the door of the venue",
-         "4": "Wait for the attendees to arrive",
-         "5": "Order hundreds of drinks to venue",
-         "6": "Let the attendees into the party",
-         "7": "all attendees have arrived"
-     },
-     "edges": [
-         "5->4",
-         "4->1",
-         "1->7",
-         "1->3",
-         "3->0",
-         "0->6",
-         "6->1"
+  "id": 710,
+  "scenario": "Let the attendees into the party",
+  "unordered_nodes": {
+   "0": "Open the door to let the attendees in",
+   "1": "Listen for a knock at the door",
+   "3": "Walk over to the door of the venue",
+   "4": "Wait for the attendees to arrive",
+   "5": "Order hundreds of drinks to venue",
+   "6": "Let the attendees into the party",
+   "7": "all attendees have arrived"
+  },
+  "edges": [
+   "5->4",
+   "4->1",
+   "1->7",
+   "1->3",
+   "3->0",
+   "0->6",
+   "6->1"
+  ],
+  "script_graph": {
+   "type": "sequence",
+   "script": [
+    "5",
+    "4",
+    {
+     "type": "loop",
+     "entry": "1",
+     "retry": [
+      "3",
+      "0",
+      "6",
+      "continue"
      ],
-     "script_graph": {
-         "type": "sequence",
-         "script": [
-             "5",
-             "4",
-             {
-                 "type": "loop",
-                 "entry": "1",
-                 "retry": [
-                     "3",
-                     "0",
-                     "6",
-                     "continue"
-                 ],
-                 "exit": "7"
-             }
-         ]
-     }
+     "exit": "7"
+    }
+   ]
+  }
  },
  {
   "id": 711,

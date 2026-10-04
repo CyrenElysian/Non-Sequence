@@ -203,9 +203,9 @@ def save_summary(summary):
 
 
 if __name__ == "__main__":
-    template = load_prompt_template("prompt_predict.txt")
+    template = load_prompt_template("prompt_predict_v2.txt")
 
-    with open("../introduce/stats/CtrlScript_check_stats_v1.json", "r", encoding="utf-8") as f:
+    with open("../introduce/stats/CtrlScript_check_stats_v3.json", "r", encoding="utf-8") as f:
         dataset = json.load(f)
 
     reference_graphs = {}

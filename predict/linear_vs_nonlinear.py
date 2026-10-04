@@ -429,7 +429,7 @@ def main():
     ap.add_argument("--linear-results", default=LINEAR_RESULTS)
     ap.add_argument("--nonlinear-results", default="results_v4-flash.json")
     ap.add_argument("--checkpoint", default=LINEAR_CHECKPOINT)
-    ap.add_argument("--prompt", default="prompt_predict.txt")
+    ap.add_argument("--prompt", default="prompt_predict_v2.txt")
     ap.add_argument("--out", default=None)
     ap.add_argument("--limit", type=int, default=None, help="predict: 只跑前 N 条（试跑用）")
     ap.add_argument("--sleep", type=float, default=1.0, help="predict: 每条之间的间隔秒数")

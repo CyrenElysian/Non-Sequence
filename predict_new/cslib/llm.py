@@ -62,10 +62,38 @@ def get_client(base_url: str, api_key_env: str = "DEEPSEEK_API_KEY", headers=Non
 
 # ---------------------------------------------------------------- 调用
 
+class FatalAPIError(RuntimeError):
+    """重试也无法恢复的错误（配额耗尽 / 认证失败），应立即终止本次运行。
+
+    配额耗尽时若继续逐条重试，会白白消耗大量时间，并把大批"空预测"
+    失败记录写进 checkpoint（续跑时会被当成已完成而跳过）。
+    """
+
+
+_QUOTA_HINTS = ("insufficient", "quota", "balance", "credit", "billing",
+                "exceeded your current", "no available", "out of budget")
+
+
+def is_fatal_api_error(exc) -> bool:
+    """判断异常是否属于「重试也没用」的类型。"""
+    if type(exc).__name__ in ("AuthenticationError", "PermissionDeniedError"):
+        return True
+    status = getattr(exc, "status_code", None)
+    if status in (401, 402, 403):
+        return True
+    msg = str(exc).lower()
+    if any(h in msg for h in _QUOTA_HINTS):
+        return True
+    return False
+
+
 def call_model(client, model, system_prompt, user_message, *,
                reasoning_effort="high", enable_thinking=True,
                max_retries=3, retry_delay=2.0, max_tokens=None, verbose=True):
-    """调用模型，失败按指数退避重试；全部失败后抛出最后一个异常。"""
+    """调用模型，失败按指数退避重试；全部失败后抛出最后一个异常。
+
+    配额耗尽 / 认证失败等不可恢复错误会立即抛 FatalAPIError，不做无谓重试。
+    """
     last_exc = None
     for attempt in range(max_retries + 1):
         try:
@@ -87,6 +115,8 @@ def call_model(client, model, system_prompt, user_message, *,
             return resp.choices[0].message.content
         except Exception as exc:                      # noqa: BLE001
             last_exc = exc
+            if is_fatal_api_error(exc):
+                raise FatalAPIError(f"{type(exc).__name__}: {str(exc)[:200]}") from exc
             if attempt < max_retries:
                 delay = retry_delay * (2 ** attempt) + random.uniform(0, 1.0)
                 if verbose:

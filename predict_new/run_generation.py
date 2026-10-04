@@ -174,6 +174,10 @@ def build_parser():
     p.add_argument("--reasoning-effort", default="high", help="置空字符串则不加该参数")
     p.add_argument("--checkpoint-every", type=int, default=10)
     p.add_argument("--restart", action="store_true", help="忽略已有 checkpoint 重新开始")
+    p.add_argument("--retry-failed", action="store_true",
+                   help="续跑时把 checkpoint 里已失败的样本重新排队（否则会被当作已完成跳过）")
+    p.add_argument("--max-consecutive-failures", type=int, default=3,
+                   help="连续失败达到该条数即中止运行并保存（0 关闭）；防止配额耗尽后空转")
     p.add_argument("--fail-threshold", type=float, default=0.05,
                    help="失败率超过该值则以非零状态退出")
     p.add_argument("--dry-run", action="store_true", help="只体检金标与计划，不调用 API")
@@ -239,8 +243,18 @@ def main(argv=None):
     if records:
         before = len(records)
         records = [r for r in records if r.get("id") in valid_ids]
+        dropped = before - len(records)
+        n_failed = sum(1 for r in records if r.get("error"))
+        if args.retry_failed and n_failed:
+            records = [r for r in records if not r.get("error")]
+            print(f"从 checkpoint 恢复 {before} 条（丢弃无效 {dropped} 条，"
+                  f"失败 {n_failed} 条重新排队，保留 {len(records)} 条）")
+        else:
+            print(f"从 checkpoint 恢复 {before} 条（有效 {len(records)} 条）")
+            if n_failed:
+                print(f"  [!] 其中 {n_failed} 条是失败样本，默认会被跳过。"
+                      f"若要重试这些样本，请加 --retry-failed")
         metrics_refresh(records, reference_graphs)
-        print(f"从 checkpoint 恢复 {before} 条（有效 {len(records)} 条）")
 
     todo = [it for it in gold_records if it["id"] not in {r["id"] for r in records}]
     if args.limit:
@@ -253,6 +267,8 @@ def main(argv=None):
         client = llm.get_client(args.base_url, args.api_key_env, headers)
         template = open(args.prompt, "r", encoding="utf-8").read()
         done = 0
+        consecutive = 0
+        aborted = None
         try:
             for item in todo:
                 rid = item["id"]
@@ -268,21 +284,44 @@ def main(argv=None):
                     if "edges" not in gen or "script_graph" not in gen:
                         raise ValueError("输出缺少 edges 或 script_graph")
                     rec = evaluate(gen, item, reference_graphs)
+                    consecutive = 0
                     print(f"ok (EM={rec['edges_match'] and rec['sg_match']})")
+                except llm.FatalAPIError as exc:
+                    # 配额耗尽 / 认证失败：立刻停，不写失败记录（续跑时这条会自动重试）
+                    print(f"终止: {str(exc)[:140]}")
+                    aborted = f"API 不可用 —— {exc}"
+                    break
                 except Exception as exc:              # noqa: BLE001
                     rec = failed_record(item, f"{type(exc).__name__}: {exc}", raw)
-                    print(f"失败: {type(exc).__name__}")
+                    consecutive += 1
+                    print(f"失败: {type(exc).__name__}（连续 {consecutive} 次）")
 
                 records.append(rec)
                 done += 1
                 if done % max(1, args.checkpoint_every) == 0:
                     store.atomic_write_json(records, ckpt_path)
+                if args.max_consecutive_failures and consecutive >= args.max_consecutive_failures:
+                    aborted = f"连续 {consecutive} 条失败"
+                    break
                 time.sleep(args.sleep)
         except KeyboardInterrupt:
             print("\n[中断] 保存 checkpoint ...")
             store.atomic_write_json(records, ckpt_path)
             print(f"已保存 {len(records)} 条到 {ckpt_path}")
             return 130
+
+        if aborted:
+            store.atomic_write_json(records, ckpt_path)
+            n_failed = sum(1 for r in records if r.get("error"))
+            print()
+            print("!" * 78)
+            print(f"[!] 运行已中止：{aborted}")
+            print(f"    已保存 {len(records)} 条到 {ckpt_path}")
+            print(f"    其中失败样本 {n_failed} 条")
+            print(f"    恢复：等配额恢复后用**相同的 --tag** 重跑，会自动从断点继续；")
+            print(f"          若想连失败样本一起重试，再加上 --retry-failed")
+            print("!" * 78)
+            return 3
 
     # ---------- 先按当前金标 refresh，再写盘（修正旧版的写盘顺序）
     metrics_refresh(records, reference_graphs)

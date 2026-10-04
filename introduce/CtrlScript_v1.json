@@ -38747,12 +38747,9 @@
             "3": "measure out an ingredient",
             "4": "pour the measured ingredient into the bowl",
             "5": "get a spoon",
-            "6": "Follow the recipe to add ingredients together",
             "8": "take the next ingredient"
         },
         "edges": [
-            "6->1",
-            "6->5",
             "1->8",
             "8->3",
             "8->2",
@@ -38764,7 +38761,6 @@
         "script_graph": {
             "type": "sequence",
             "script": [
-                "6",
                 {
                     "type": "and_join",
                     "branches_set": {

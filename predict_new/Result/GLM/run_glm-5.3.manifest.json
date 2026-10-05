@@ -1,0 +1,41 @@
+{
+  "model": "glm-5.3",
+  "base_url": "https://opencode.ai/zen/go/v1",
+  "headers": [
+    "x-opencode-session"
+  ],
+  "prompt": {
+    "file": "D:\\Python\\Non-Sequence\\predict_new\\prompts\\prompt_v2.txt",
+    "name": "prompt_v2.txt",
+    "sha256_16": "c1141f04ca3204c2",
+    "chars": 9617
+  },
+  "ground_truth": {
+    "file": "D:\\Python\\Non-Sequence\\introduce\\stats\\CtrlScript_v3_stats.json",
+    "sha256": "6f1867992bd642e7144976c1834fccf835b9effeff3b1eaf445c37a3a2206227",
+    "n": 1076,
+    "stats_source": "file",
+    "stats_computed": 0,
+    "stats_from_file": 1076,
+    "stats_mismatch": 0,
+    "stats_mismatch_examples": []
+  },
+  "n_records": 1076,
+  "failure_gate": {
+    "n_failed": 0,
+    "n_total": 1076,
+    "rate": 0.0,
+    "threshold": 0.05,
+    "ok": true
+  },
+  "max_retries": 3,
+  "sleep": 1.0,
+  "reasoning_effort": "high",
+  "files": {
+    "checkpoint": "D:\\Python\\Non-Sequence\\predict_new\\run_glm-5.3.checkpoint.json",
+    "results": "D:\\Python\\Non-Sequence\\predict_new\\run_glm-5.3.results.json",
+    "summary": "D:\\Python\\Non-Sequence\\predict_new\\run_glm-5.3.summary.json"
+  },
+  "created_at": "2026-10-05T08:38:41",
+  "updated_at": "2026-10-05T08:38:41"
+}

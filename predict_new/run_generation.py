@@ -171,7 +171,13 @@ def build_parser():
     p.add_argument("--max-retries", type=int, default=3)
     p.add_argument("--retry-delay", type=float, default=2.0)
     p.add_argument("--max-tokens", type=int, default=None)
-    p.add_argument("--reasoning-effort", default="high", help="置空字符串则不加该参数")
+    p.add_argument("--reasoning-effort", default="high",
+                   help="置空字符串则不加该参数（部分模型不支持，传了会报 400）")
+    p.add_argument("--no-thinking", action="store_true",
+                   help="不发送 thinking 参数（部分模型不支持）")
+    p.add_argument("--protocol", choices=["auto", "chat", "responses"], default="auto",
+                   help="调用协议；auto 会在跑全量前自动探测一次"
+                        "（grok 系列只支持 responses，glm 只支持 chat）")
     p.add_argument("--checkpoint-every", type=int, default=10)
     p.add_argument("--restart", action="store_true", help="忽略已有 checkpoint 重新开始")
     p.add_argument("--retry-failed", action="store_true",
@@ -261,10 +267,23 @@ def main(argv=None):
         todo = todo[:args.limit]
 
     print(f"\n待处理 {len(todo)} 条（已完成 {len(records)} 条）")
+    protocol = args.protocol
     if not todo:
         print("没有需要处理的样本。")
     else:
         client = llm.get_client(args.base_url, args.api_key_env, headers)
+
+        # auto：先探测一次该模型可用哪种协议，避免每条样本都试错（会把请求数翻倍）
+        if protocol == "auto":
+            print("\n[协议探测] 用极小请求确认该模型支持哪种调用协议 ...")
+            protocol = llm.detect_protocol(client, args.model)
+            if protocol is None:
+                print("\n[!] 该模型在两种协议下都不可用，已中止（未写任何失败记录）。")
+                print(f"    模型名是否写对？可用 `--base-url` 对应网关的模型列表核对。")
+                return 3
+        else:
+            print(f"\n[协议] 使用 {protocol}（由 --protocol 指定）")
+
         template = open(args.prompt, "r", encoding="utf-8").read()
         done = 0
         consecutive = 0
@@ -278,6 +297,8 @@ def main(argv=None):
                     raw = llm.call_model(
                         client, args.model, template, build_user_message(item),
                         reasoning_effort=args.reasoning_effort or None,
+                        enable_thinking=not args.no_thinking,
+                        protocol=protocol,
                         max_retries=args.max_retries, retry_delay=args.retry_delay,
                         max_tokens=args.max_tokens)
                     gen = llm.extract_json(raw)
@@ -339,6 +360,7 @@ def main(argv=None):
         "model": args.model,
         "base_url": args.base_url,
         "headers": sorted(headers),
+        "protocol": protocol,
         "prompt": prompt_info,
         "ground_truth": gold_meta,
         "n_records": len(records),

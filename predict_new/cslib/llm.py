@@ -73,30 +73,82 @@ class FatalAPIError(RuntimeError):
 _QUOTA_HINTS = ("insufficient", "quota", "balance", "credit", "billing",
                 "exceeded your current", "no available", "out of budget")
 
+# 400 类错误里，这些关键词表示「该模型不支持这个参数/协议」——重试永远不会成功
+_UNSUPPORTED_HINTS = ("modelprotocolunsupported", "does not support", "not supported",
+                      "unsupported", "unknown parameter", "unrecognized",
+                      "invalid parameter", "not allowed")
+
 
 def is_fatal_api_error(exc) -> bool:
-    """判断异常是否属于「重试也没用」的类型。"""
+    """判断异常是否属于「重试也没用」的类型。
+
+    原则：除 408（超时）与 429（限流，可能瞬时恢复）外，所有 4xx 都是
+    客户端请求本身有问题——重试同样的请求不会有不同结果，一律视为致命。
+    这能避免"模型不支持某参数"时对上千条样本逐一空转重试。
+    """
     if type(exc).__name__ in ("AuthenticationError", "PermissionDeniedError"):
         return True
     status = getattr(exc, "status_code", None)
-    if status in (401, 402, 403):
-        return True
+    if status is not None:
+        if 400 <= status < 500 and status not in (408, 429):
+            return True
+        if status == 429 and any(h in str(exc).lower() for h in _QUOTA_HINTS):
+            return True
+        return False
     msg = str(exc).lower()
     if any(h in msg for h in _QUOTA_HINTS):
+        return True
+    if any(h in msg for h in _UNSUPPORTED_HINTS):
         return True
     return False
 
 
+def _responses_text(resp) -> str:
+    """从 Responses API 的返回对象里取出文本。"""
+    txt = getattr(resp, "output_text", None)
+    if txt:
+        return txt
+    parts = []
+    for item in getattr(resp, "output", None) or []:
+        for block in getattr(item, "content", None) or []:
+            t = getattr(block, "text", None)
+            if t:
+                parts.append(t)
+    return "\n".join(parts)
+
+
+def _is_protocol_error(exc) -> bool:
+    """是否是「该模型不支持这个协议」——需要换另一种协议。"""
+    if getattr(exc, "status_code", None) != 400:
+        return False
+    m = str(exc).lower()
+    return "protocol" in m or "modelprotocolunsupported" in m
+
+
 def call_model(client, model, system_prompt, user_message, *,
-               reasoning_effort="high", enable_thinking=True,
+               reasoning_effort="high", enable_thinking=True, protocol="chat",
                max_retries=3, retry_delay=2.0, max_tokens=None, verbose=True):
     """调用模型，失败按指数退避重试；全部失败后抛出最后一个异常。
 
-    配额耗尽 / 认证失败等不可恢复错误会立即抛 FatalAPIError，不做无谓重试。
+    protocol:
+      "chat"      走 chat.completions（glm / deepseek 等）
+      "responses" 走 Responses API（grok 系列只支持这一种）
+
+    配额耗尽 / 认证失败 / 参数不被支持等不可恢复错误会立即抛 FatalAPIError，
+    不做无谓重试——否则会对上千条样本逐一空转。
     """
     last_exc = None
     for attempt in range(max_retries + 1):
         try:
+            if protocol == "responses":
+                kwargs = {"model": model, "instructions": system_prompt,
+                          "input": user_message}
+                if reasoning_effort:
+                    kwargs["reasoning"] = {"effort": reasoning_effort}
+                if max_tokens:
+                    kwargs["max_output_tokens"] = max_tokens
+                return _responses_text(client.responses.create(**kwargs))
+
             kwargs = {
                 "model": model,
                 "messages": [
@@ -116,7 +168,7 @@ def call_model(client, model, system_prompt, user_message, *,
         except Exception as exc:                      # noqa: BLE001
             last_exc = exc
             if is_fatal_api_error(exc):
-                raise FatalAPIError(f"{type(exc).__name__}: {str(exc)[:200]}") from exc
+                raise FatalAPIError(f"{type(exc).__name__}: {str(exc)[:500]}") from exc
             if attempt < max_retries:
                 delay = retry_delay * (2 ** attempt) + random.uniform(0, 1.0)
                 if verbose:
@@ -124,6 +176,72 @@ def call_model(client, model, system_prompt, user_message, *,
                           f"{str(exc)[:120]}  -> {delay:.1f}s 后重试")
                 time.sleep(delay)
     raise last_exc
+
+
+def _is_connection_error(exc) -> bool:
+    """网络层错误（可重试），区别于"模型不支持"这类确定性错误。"""
+    if type(exc).__name__ in ("APIConnectionError", "APITimeoutError",
+                              "ConnectError", "ReadTimeout", "ConnectTimeout"):
+        return True
+    m = str(exc).lower()
+    return "connection error" in m or "timed out" in m or "connection reset" in m
+
+
+def detect_protocol(client, model, verbose=True, attempts=3):
+    """探测某模型能用哪种协议，返回 "chat" / "responses" / None。
+
+    在跑全量之前探测一次，避免每条样本都试错（那会把请求数翻倍）。
+    网络抖动会重试，只有确定性的"协议不支持"才会切换到另一种协议；
+    网络层最终失败会明确报出来，不会误判成"模型不可用"。
+    """
+    probe = "Reply with exactly: ok"
+    chat_err = _try_protocol(client, "chat", model, probe, attempts)
+    if chat_err is None:
+        if verbose:
+            print(f"  [协议探测] {model} -> chat.completions 可用")
+        return "chat"
+
+    if not _is_protocol_error(chat_err) and _is_connection_error(chat_err):
+        if verbose:
+            print(f"  [协议探测] 网络连接失败（重试 {attempts} 次后仍失败）：")
+            print(f"             {str(chat_err)[:200]}")
+            print(f"             这属于网络/网关问题，不是模型或协议问题；请稍后重试。")
+        return None
+
+    resp_err = _try_protocol(client, "responses", model, probe, attempts)
+    if resp_err is None:
+        if verbose:
+            print(f"  [协议探测] {model} -> responses 可用"
+                  f"（chat 被拒：{str(chat_err)[:100]}）")
+        return "responses"
+
+    if verbose:
+        print(f"  [协议探测] {model} 两种协议都不可用：")
+        print(f"             chat      : {str(chat_err)[:160]}")
+        print(f"             responses : {str(resp_err)[:160]}")
+        if _is_connection_error(resp_err):
+            print(f"             注意：含网络层错误，可能是网关临时不可用，建议稍后重试。")
+    return None
+
+
+def _try_protocol(client, protocol, model, probe, attempts):
+    """按协议发一次极小请求；返回 None 表示成功，否则返回最后一个异常。"""
+    last = None
+    for i in range(attempts):
+        try:
+            if protocol == "chat":
+                client.chat.completions.create(
+                    model=model, messages=[{"role": "user", "content": probe}],
+                    stream=False)
+            else:
+                client.responses.create(model=model, input=probe)
+            return None
+        except Exception as exc:                      # noqa: BLE001
+            last = exc
+            if not _is_connection_error(exc):
+                return exc                            # 确定性错误，无需重试
+            time.sleep(1.5 * (i + 1))
+    return last
 
 
 # ---------------------------------------------------------------- 解析

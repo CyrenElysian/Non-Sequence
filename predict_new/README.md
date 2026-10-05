@@ -118,6 +118,60 @@ python run_generation.py --model deepseek-v4.1-flash \
 python run_generation.py --header x-opencode-session=my-fixed-id --header X-Trace=abc
 ```
 
+### 调用协议：不同模型不一样（已自动处理）
+
+opencode 网关上的模型**并非都支持 chat.completions**。实测：
+
+| 模型 | `chat.completions` | `responses` |
+|---|---|---|
+| `glm-5.3` | ✅ | ❌ `ModelProtocolUnsupported` |
+| `deepseek-v4.1-flash` | ✅ | ✅ |
+| `grok-4.7` / `grok-4.6` | ❌ `ModelProtocolUnsupported` | ✅ |
+
+`--protocol` 默认 `auto`：**跑全量之前用一次极小请求探测**，确定该模型走哪条路，
+然后整轮沿用。既不会用错协议，也不会每条样本都试错（那会让请求数翻倍）。
+
+```bash
+# 自动探测，直接跑
+python run_generation.py --model grok-4.7 --base-url https://opencode.ai/zen/go/v1 \
+  --api-key-env opencode_api --tag grok-4.7
+
+# 也可显式指定
+python run_generation.py --protocol responses ...
+```
+
+探测会区分「协议不支持」（确定性，换协议）与「网络抖动」（重试，不会误判成模型不可用）。
+两种协议都不通时会中止且**不写任何失败记录**。
+
+部分模型不支持 `thinking` 参数时用 `--no-thinking` 关掉；
+`--reasoning-effort` 传空字符串则完全不加该参数。
+
+### 查询网关上有哪些模型
+
+```python
+from cslib import llm
+c = llm.get_client("https://opencode.ai/zen/go/v1", "opencode_api",
+                   llm.build_headers("https://opencode.ai/zen/go/v1"))
+print(sorted(m.id for m in c.models.list().data))
+```
+
+`models.list()` 里**出现某个模型名不等于它能用**——`grok-4.7` 就在列表里，
+但只支持 `responses`。协议探测比模型列表更能说明问题。
+
+### 续跑与失败样本
+
+中断后**用相同的 `--tag`** 重跑即从断点继续（前缀由 `--tag` 决定；
+漏掉 `--tag` 会变成 `run_<model>_<prompt>` 前缀，等于从头开始）。
+
+**失败样本默认会被跳过**（id 已在 checkpoint 中）；要重试它们加 `--retry-failed`。
+
+另有两条保护，避免配额耗尽后空转：
+
+| 参数 / 行为 | 说明 |
+|---|---|
+| `--max-consecutive-failures N` | 连续失败 N 条即中止并保存（默认 3，0 关闭） |
+| 配额 / 认证 / 参数不支持类错误 | 立即抛 `FatalAPIError` 中止，**不重试、不写失败记录**，该条续跑时自动重试 |
+
 输出（`<前缀>` 默认由 model+prompt 派生，或由 `--tag` 指定）：
 
 ```

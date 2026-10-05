@@ -222,6 +222,13 @@ def cmd_predict(args):
     if todo:
         client = llm.get_client(args.base_url, args.api_key_env,
                                 llm.build_headers(args.base_url, args.header))
+        protocol = args.protocol
+        if protocol == "auto":
+            print("\n[协议探测] 确认该模型支持哪种调用协议 ...")
+            protocol = llm.detect_protocol(client, args.model)
+            if protocol is None:
+                print("\n[!] 该模型两种协议都不可用，已中止。")
+                return 3
         template = open(args.prompt, "r", encoding="utf-8").read()
         for i, item in enumerate(todo, 1):
             rid = item["id"]
@@ -234,6 +241,8 @@ def cmd_predict(args):
                                 "unordered_nodes": item["unordered_nodes"]},
                                ensure_ascii=False, indent=2),
                     reasoning_effort=args.reasoning_effort or None,
+                    enable_thinking=not args.no_thinking,
+                    protocol=protocol,
                     max_retries=args.max_retries, retry_delay=args.retry_delay)
                 gen = llm.extract_json(raw)
                 if "edges" not in gen or "script_graph" not in gen:
@@ -414,6 +423,10 @@ def main(argv=None):
     p.add_argument("--header", action="append", default=None, metavar="NAME=VALUE",
                    help="附加请求头（可重复）。opencode 网关必需的 x-opencode-session 会自动补上")
     p.add_argument("--reasoning-effort", default="high")
+    p.add_argument("--no-thinking", action="store_true",
+                   help="不发送 thinking 参数（部分模型不支持）")
+    p.add_argument("--protocol", choices=["auto", "chat", "responses"], default="auto",
+                   help="调用协议；auto 会自动探测（grok 系列只支持 responses）")
     p.add_argument("--max-retries", type=int, default=3)
     p.add_argument("--retry-delay", type=float, default=2.0)
     p.add_argument("--limit", type=int, default=None)

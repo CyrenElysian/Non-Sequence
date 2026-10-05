@@ -1,0 +1,47 @@
+{
+  "model": "google/gemini-3.8-flash",
+  "base_url": "https://api.ofox.io/v1",
+  "wire_api": "chat",
+  "api_key_env": "PACKYCODE_API_KEY",
+  "headers": [],
+  "prompt": {
+    "file": "X:\\Non-Sequence\\predict_new\\prompts\\prompt_v2.txt",
+    "name": "prompt_v2.txt",
+    "sha256_16": "c1141f04ca3204c2",
+    "chars": 9617
+  },
+  "ground_truth": {
+    "file": "X:\\Non-Sequence\\introduce\\stats\\CtrlScript_v3_stats.json",
+    "sha256": "6f1867992bd642e7144976c1834fccf835b9effeff3b1eaf445c37a3a2206227",
+    "n": 1076,
+    "stats_source": "file",
+    "stats_computed": 0,
+    "stats_from_file": 1076,
+    "stats_mismatch": 0,
+    "stats_mismatch_examples": []
+  },
+  "n_records": 1076,
+  "failure_gate": {
+    "n_failed": 0,
+    "n_total": 1076,
+    "rate": 0.0,
+    "threshold": 0.05,
+    "ok": true
+  },
+  "max_retries": 3,
+  "sleep": 1.0,
+  "reasoning_effort": "high",
+  "entrypoint": "run_generation_responses.py",
+  "files": {
+    "checkpoint": "X:\\Non-Sequence\\predict_new\\run_gemini-3.8-flash.checkpoint.json",
+    "results": "X:\\Non-Sequence\\predict_new\\run_gemini-3.8-flash.results.json",
+    "summary": "X:\\Non-Sequence\\predict_new\\run_gemini-3.8-flash.summary.json"
+  },
+  "created_at": "2026-10-05T10:50:06",
+  "updated_at": "2026-10-05T10:53:26",
+  "recovered_ids": [
+    279,
+    545,
+    838
+  ]
+}

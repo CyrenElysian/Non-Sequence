@@ -150,6 +150,45 @@ def failure_gate(records, threshold=0.05):
             "rate": rate, "threshold": threshold, "ok": rate <= threshold}
 
 
+def restore_failed_records(records, saved_results, valid_ids):
+    """补回旧版重试中断时删除的失败占位；不覆盖已得到的答案。"""
+    present = {r["id"] for r in records}
+    restored = 0
+    for row in saved_results:
+        rid = row.get("id")
+        if rid in valid_ids and rid not in present and row.get("error"):
+            records.append(row)
+            present.add(rid)
+            restored += 1
+    return restored
+
+
+def select_pending(gold_records, records, retry_failed=False, ids=None):
+    """已有失败记录留在 checkpoint 中；仅把对应 ID 重新排队。"""
+    by_id = {r["id"]: r for r in records}
+    return [item for item in gold_records
+            if (ids is None or item["id"] in ids)
+            and (item["id"] not in by_id
+                 or (retry_failed and by_id[item["id"]].get("error")))]
+
+
+def replace_record(records, replacement):
+    """重试结束后替换旧失败记录，避免重复 ID。"""
+    for index, record in enumerate(records):
+        if record["id"] == replacement["id"]:
+            records[index] = replacement
+            return
+    records.append(replacement)
+
+
+def positive_seconds(value):
+    import math
+    seconds = float(value)
+    if not math.isfinite(seconds) or seconds <= 0:
+        raise argparse.ArgumentTypeError("秒数必须为正的有限数")
+    return seconds
+
+
 # ---------------------------------------------------------------- 主流程
 
 def build_parser():
@@ -167,17 +206,25 @@ def build_parser():
                    help="附加请求头（可重复）。opencode 网关必需的 x-opencode-session 会自动补上")
     p.add_argument("--tag", default=None, help="输出文件名标签；默认由 model+prompt 派生")
     p.add_argument("--limit", type=int, default=None, help="只处理前 N 条（试跑）")
+    p.add_argument("--ids", type=int, nargs="+", default=None,
+                   help="只生成这些 ID；保留其它 checkpoint 记录，配合 --retry-failed 诊断")
     p.add_argument("--sleep", type=float, default=1.0, help="每条之间的间隔秒数")
     p.add_argument("--max-retries", type=int, default=3)
     p.add_argument("--retry-delay", type=float, default=2.0)
     p.add_argument("--max-tokens", type=int, default=None)
+    p.add_argument("--stream", action="store_true",
+                   help="增量接收模型答案；网关须支持 SSE 并实际转发流内容")
+    p.add_argument("--timeout", type=positive_seconds, default=None,
+                   help="客户端读/写超时秒数；留空沿用 SDK 默认，不改变网关超时")
+    p.add_argument("--connect-timeout", type=positive_seconds, default=None,
+                   help="建立连接的超时秒数；留空沿用 SDK 默认")
     p.add_argument("--reasoning-effort", default="high",
                    help="置空字符串则不加该参数（部分模型不支持，传了会报 400）")
     p.add_argument("--no-thinking", action="store_true",
                    help="不发送 thinking 参数（部分模型不支持）")
     p.add_argument("--protocol", choices=["auto", "chat", "responses"], default="auto",
                    help="调用协议；auto 会在跑全量前自动探测一次"
-                        "（grok 系列只支持 responses，glm 只支持 chat）")
+                        "（协议支持取决于模型和具体网关）")
     p.add_argument("--checkpoint-every", type=int, default=10)
     p.add_argument("--restart", action="store_true", help="忽略已有 checkpoint 重新开始")
     p.add_argument("--retry-failed", action="store_true",
@@ -203,6 +250,9 @@ def main(argv=None):
 
     # ---------- 金标
     gold_records, reference_graphs, reference_stats, gold_meta = dataset.load_gold(args.ground_truth)
+    if args.ids and not set(args.ids).issubset(reference_graphs):
+        unknown = sorted(set(args.ids) - reference_graphs.keys())
+        raise ValueError(f"--ids 包含金标不存在的 ID：{unknown}")
     prompt_info = llm.prompt_meta(args.prompt)
     headers = llm.build_headers(args.base_url, args.header)
 
@@ -216,6 +266,10 @@ def main(argv=None):
     print(f"提示词  : {prompt_info['file']}")
     print(f"          sha256={prompt_info['sha256_16']}  {prompt_info['chars']} chars")
     print(f"模型    : {args.model}  @ {args.base_url}")
+    print(f"接收方式: {'stream' if args.stream else 'non-stream'}；"
+          f"脚本重试 {args.max_retries} 次，SDK 重试 0 次")
+    print(f"超时    : 读/写 {args.timeout or 'SDK 默认'}，"
+          f"连接 {args.connect_timeout or 'SDK 默认'}")
     print(f"请求头  : {sorted(headers) if headers else '（无）'}")
     print(f"输出前缀: {prefix}")
     print("=" * 78)
@@ -240,7 +294,10 @@ def main(argv=None):
         n_lin = sum(1 for s in reference_stats.values()
                     if structures.nonlinearity_label(s["type_cnt"]) == "linear")
         print(f"\n  线性 {n_lin} / 非线性 {len(gold_records) - n_lin}")
-        print(f"  计划处理 {min(args.limit or len(gold_records), len(gold_records))} 条")
+        candidates = [item for item in gold_records
+                      if args.ids is None or item["id"] in args.ids]
+        print(f"  选定金标 {min(args.limit or len(candidates), len(candidates))} 条"
+              "（实际待处理数须结合 checkpoint）")
         return 0
 
     # ---------- 恢复
@@ -250,11 +307,15 @@ def main(argv=None):
         before = len(records)
         records = [r for r in records if r.get("id") in valid_ids]
         dropped = before - len(records)
+        if args.retry_failed:
+            restored = restore_failed_records(
+                records, store.load_json_safe(results_path) or [], valid_ids)
+            if restored:
+                print(f"从完整 results 补回 {restored} 条缺失的失败占位（不覆盖已有答案）")
         n_failed = sum(1 for r in records if r.get("error"))
         if args.retry_failed and n_failed:
-            records = [r for r in records if not r.get("error")]
             print(f"从 checkpoint 恢复 {before} 条（丢弃无效 {dropped} 条，"
-                  f"失败 {n_failed} 条重新排队，保留 {len(records)} 条）")
+                  f"失败 {n_failed} 条重新排队，保留全部 {len(records)} 条记录）")
         else:
             print(f"从 checkpoint 恢复 {before} 条（有效 {len(records)} 条）")
             if n_failed:
@@ -262,7 +323,8 @@ def main(argv=None):
                       f"若要重试这些样本，请加 --retry-failed")
         metrics_refresh(records, reference_graphs)
 
-    todo = [it for it in gold_records if it["id"] not in {r["id"] for r in records}]
+    todo = select_pending(gold_records, records, args.retry_failed,
+                          set(args.ids) if args.ids else None)
     if args.limit:
         todo = todo[:args.limit]
 
@@ -271,7 +333,8 @@ def main(argv=None):
     if not todo:
         print("没有需要处理的样本。")
     else:
-        client = llm.get_client(args.base_url, args.api_key_env, headers)
+        client = llm.get_client(args.base_url, args.api_key_env, headers,
+                                timeout=args.timeout, connect_timeout=args.connect_timeout)
 
         # auto：先探测一次该模型可用哪种协议，避免每条样本都试错（会把请求数翻倍）
         if protocol == "auto":
@@ -284,7 +347,16 @@ def main(argv=None):
         else:
             print(f"\n[协议] 使用 {protocol}（由 --protocol 指定）")
 
-        template = open(args.prompt, "r", encoding="utf-8").read()
+        with open(args.prompt, "r", encoding="utf-8") as prompt_file:
+            template = prompt_file.read()
+        generation_config = {
+            "model": args.model, "base_url": args.base_url, "protocol": protocol,
+            "stream": args.stream, "reasoning_effort": args.reasoning_effort,
+            "enable_thinking": not args.no_thinking, "max_tokens": args.max_tokens,
+            "timeout": args.timeout, "connect_timeout": args.connect_timeout,
+            "prompt_sha256_16": prompt_info["sha256_16"],
+            "gold_sha256": gold_meta["sha256"],
+        }
         done = 0
         consecutive = 0
         aborted = None
@@ -300,7 +372,7 @@ def main(argv=None):
                         enable_thinking=not args.no_thinking,
                         protocol=protocol,
                         max_retries=args.max_retries, retry_delay=args.retry_delay,
-                        max_tokens=args.max_tokens)
+                        max_tokens=args.max_tokens, stream=args.stream)
                     gen = llm.extract_json(raw)
                     if "edges" not in gen or "script_graph" not in gen:
                         raise ValueError("输出缺少 edges 或 script_graph")
@@ -313,11 +385,12 @@ def main(argv=None):
                     aborted = f"API 不可用 —— {exc}"
                     break
                 except Exception as exc:              # noqa: BLE001
-                    rec = failed_record(item, f"{type(exc).__name__}: {exc}", raw)
+                    rec = failed_record(item, llm.format_exception(exc), raw)
                     consecutive += 1
                     print(f"失败: {type(exc).__name__}（连续 {consecutive} 次）")
 
-                records.append(rec)
+                rec["generation_config"] = generation_config.copy()
+                replace_record(records, rec)
                 done += 1
                 if done % max(1, args.checkpoint_every) == 0:
                     store.atomic_write_json(records, ckpt_path)
@@ -339,7 +412,7 @@ def main(argv=None):
             print(f"[!] 运行已中止：{aborted}")
             print(f"    已保存 {len(records)} 条到 {ckpt_path}")
             print(f"    其中失败样本 {n_failed} 条")
-            print(f"    恢复：等配额恢复后用**相同的 --tag** 重跑，会自动从断点继续；")
+            print(f"    恢复：解决 API/网络问题后用**相同的 --tag** 重跑，从断点继续；")
             print(f"          若想连失败样本一起重试，再加上 --retry-failed")
             print("!" * 78)
             return 3
@@ -356,6 +429,13 @@ def main(argv=None):
     store.atomic_write_json(summary, summary_path)
 
     gate = failure_gate(records, args.fail_threshold)
+    previous_manifest = store.load_json_safe(manifest_path) or {}
+    config_keys = ("model", "base_url", "protocol", "stream", "reasoning_effort",
+                   "enable_thinking", "max_tokens", "timeout", "connect_timeout")
+    old_config = {k: previous_manifest[k] for k in config_keys if k in previous_manifest}
+    history = previous_manifest.get("previous_run_configs", [])
+    if old_config and old_config not in history:
+        history.append(old_config)
     store.save_manifest({
         "model": args.model,
         "base_url": args.base_url,
@@ -366,8 +446,18 @@ def main(argv=None):
         "n_records": len(records),
         "failure_gate": gate,
         "max_retries": args.max_retries,
+        "sdk_max_retries": 0,
+        "retry_delay": args.retry_delay,
         "sleep": args.sleep,
         "reasoning_effort": args.reasoning_effort,
+        "enable_thinking": not args.no_thinking,
+        "max_tokens": args.max_tokens,
+        "stream": args.stream,
+        "timeout": args.timeout,
+        "connect_timeout": args.connect_timeout,
+        "selected_ids": args.ids,
+        "n_missing": len(valid_ids - {r["id"] for r in records}),
+        "previous_run_configs": history,
         "files": {"checkpoint": ckpt_path, "results": results_path,
                   "summary": summary_path},
     }, manifest_path)

@@ -3,3 +3,5 @@ _analysis_tmp
 _review_analysis
 COLING_27
 validate_structure.py
+outputs
+tmp

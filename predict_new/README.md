@@ -98,7 +98,8 @@ python run_generation.py --model deepseek-v4-pro --tag v4-pro
 
 关键参数：`--ground-truth`、`--prompt`、`--model`、`--tag`、`--limit`、`--sleep`、
 `--max-retries`、`--retry-delay`、`--checkpoint-every`、`--restart`、
-`--fail-threshold`、`--dry-run`、`--base-url`、`--api-key-env`、`--header`。
+`--fail-threshold`、`--dry-run`、`--base-url`、`--api-key-env`、`--header`、
+`--ids`、`--stream`、`--timeout`、`--connect-timeout`。
 
 **使用 opencode 网关**（`https://opencode.ai/zen/go/v1`）时，该网关**强制要求**
 `x-opencode-session` 请求头，缺失会返回 `400 MissingSessionID`。
@@ -155,8 +156,9 @@ c = llm.get_client("https://opencode.ai/zen/go/v1", "opencode_api",
 print(sorted(m.id for m in c.models.list().data))
 ```
 
-`models.list()` 里**出现某个模型名不等于它能用**——`grok-4.7` 就在列表里，
-但只支持 `responses`。协议探测比模型列表更能说明问题。
+`models.list()` 里**出现某个模型名不等于所选协议能用**。
+上表仅描述此前 opencode 的测试结果；apinebula 上的 Grok 可以使用 `chat`，
+不能把一个网关的限制推广到所有同名模型端点。
 
 ### 续跑与失败样本
 
@@ -164,6 +166,51 @@ print(sorted(m.id for m in c.models.list().data))
 漏掉 `--tag` 会变成 `run_<model>_<prompt>` 前缀，等于从头开始）。
 
 **失败样本默认会被跳过**（id 已在 checkpoint 中）；要重试它们加 `--retry-failed`。
+重试时保留旧失败占位，返回后按 ID 替换；中断不会丢掉尚未重试的记录。
+如果旧版已从 checkpoint 删除失败记录，新版会在 `--retry-failed` 时从同前缀
+results 补回缺失的失败占位，不覆盖已有答案。
+
+`--ids 742` 只生成该 ID，`--ids 742 858` 可指定多条，均保留其它 checkpoint 记录。
+它不能与用于完整报告的样本筛选混淆：运行后的汇总仍包含已有记录。
+
+### 连接错误、超时与流式接收
+
+`APIConnectionError`、`APITimeoutError`、HTTP 524 表示请求未完成，
+不能据此判定模型给出了错误答案。新版打印每次请求耗时和底层异常链，
+以区分连接建立、读超时、TLS/代理或中途断开等情况。
+
+重试仅由脚本控制，SDK 内部重试关闭；`--max-retries 3` 表示最多 4 次请求。
+`--timeout` 为客户端读/写等待秒数，`--connect-timeout` 为连接建立等待秒数；
+留空沿用 SDK 默认。SDK 当前默认读超时为 600 秒、连接超时为 5 秒。
+网关的 524/120 秒等上游限制不受客户端超时控制。
+脚本会尊重服务端数值型 `Retry-After` / `retry_after` 指示。
+
+`--stream` 对 chat 和 Responses 都支持，只改变答案接收方式，不更改提示词或推理参数。
+脚本拼接最终答案内容，不将推理文本作为答案；缺少正常结束事件或被截断的流会计为失败。
+流式接收能否避开网关超时，取决于网关是否及时转发 SSE 内容；它不保证成功。
+
+PowerShell 下可先只重试一条，避免再次等待整批嵌套重试：
+
+```powershell
+python run_generation.py `
+  --model grok-4.7 `
+  --base-url https://apinebula.ai/v1 `
+  --api-key-env Nebula_Grok `
+  --tag grok-4.7 `
+  --protocol chat `
+  --retry-failed --ids 742 `
+  --stream --timeout 600 --connect-timeout 30 `
+  --max-retries 0 --checkpoint-every 1
+```
+
+关闭当前旧进程或等其结束后再启动新命令，避免两个进程写同一 checkpoint。
+单条成功后，去掉 `--ids 742` 并设置 `--max-retries 1 --retry-delay 30` 处理其余失败。
+保留原推理设置；不要只为困难样本改提示词或降低推理预算后直接混入主实验。
+
+新生成的每条记录保存实际 `generation_config`；manifest 保留历史配置。
+旧记录缺少逐条配置时，新的 manifest 无法追溯重建原端点来源，需保留实际执行日志。
+技术失败若最终无法恢复，完整评测必须明确披露数量及计分规则；
+不可仅删除该模型的失败记录而继续与其它模型的全量指标直接比较。
 
 另有两条保护，避免配额耗尽后空转：
 
@@ -189,9 +236,19 @@ Ctrl-C 会保存 checkpoint；重跑时自动续跑。
 python stratify.py --results run_x.results.json --out stratify_x.md
 ```
 
-四段输出：两组规模描述 / 按节点数分层（样本过少的相邻层自动合并）/
-**精确节点数配对 + 配对置换检验 + 自助 CI** / 回归控制（控制节点数、边数、嵌套深度）。
-核心读数是"控制图规模前后 EM 差距的变化"。
+只输出三张表，节点数区间固定为 `<=5`、`6`、`7`、`8`、`>=9`，不自动合并：
+
+1. 每个区间参与统计的线性、非线性脚本数量。
+2. 每个区间两组的 joint EM、精确率、召回率、F1、Jaccard、GED、NGED。
+3. 每个区间的指标差值，统一为线性减非线性。
+
+EM、精确率、召回率、F1、Jaccard 按百分数展示，其差值为百分点（pp）；
+GED、NGED 及其差值使用原始数值。边指标均为逐脚本计算后的宏平均，空组显示 `n.a.`。
+结果未覆盖全部金标时，报告提示缺失数量，表格只统计能按 ID 匹配的记录。
+
+不再执行配对检验、Bootstrap 或回归。旧命令中的 `--permutations`、`--bootstrap`、
+`--seed`、`--min-cell` 仍可传入，但不影响结果。旧的默认 `--bin-edges 0 5 6 7 8 99`
+可兼容，其他分箱设置会被拒绝，以避免改变固定区间。
 
 ### 3.3 `fixed_nodes.py` —— 固定节点对照
 

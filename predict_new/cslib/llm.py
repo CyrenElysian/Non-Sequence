@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import random
 import time
@@ -42,7 +43,8 @@ def build_headers(base_url: str, extra=None):
     return headers
 
 
-def get_client(base_url: str, api_key_env: str = "DEEPSEEK_API_KEY", headers=None):
+def get_client(base_url: str, api_key_env: str = "DEEPSEEK_API_KEY", headers=None,
+               *, timeout=None, connect_timeout=None):
     """惰性创建 OpenAI 客户端（不在模块顶层创建，便于离线 import）。
 
     headers 会作为 default_headers 传入；opencode 网关的会话头由 build_headers 处理。
@@ -54,7 +56,17 @@ def get_client(base_url: str, api_key_env: str = "DEEPSEEK_API_KEY", headers=Non
         raise RuntimeError(
             f"环境变量 {api_key_env} 未设置，无法调用模型。"
             f"（可用 --api-key-env 指定其它变量名）")
-    kwargs = {"api_key": key, "base_url": base_url}
+    # call_model / detect_protocol 已负责重试，禁止 SDK 再嵌套重试。
+    kwargs = {"api_key": key, "base_url": base_url, "max_retries": 0}
+    if timeout is not None or connect_timeout is not None:
+        import httpx
+        from openai import DEFAULT_TIMEOUT
+        for name, value in (("timeout", timeout), ("connect_timeout", connect_timeout)):
+            if value is not None and (not math.isfinite(value) or value <= 0):
+                raise ValueError(f"{name} 必须为正的有限秒数")
+        kwargs["timeout"] = httpx.Timeout(
+            DEFAULT_TIMEOUT.read if timeout is None else timeout,
+            connect=DEFAULT_TIMEOUT.connect if connect_timeout is None else connect_timeout)
     if headers:
         kwargs["default_headers"] = headers
     return OpenAI(**kwargs)
@@ -125,20 +137,113 @@ def _is_protocol_error(exc) -> bool:
     return "protocol" in m or "modelprotocolunsupported" in m
 
 
+def format_exception(exc, max_depth=4):
+    """保留底层连接错误类型/消息；不输出请求对象、请求头或 API key。"""
+    parts, seen = [], set()
+    current = exc
+    for _ in range(max_depth):
+        if current is None or id(current) in seen:
+            break
+        seen.add(id(current))
+        parts.append(f"{type(current).__name__}: {current}")
+        current = current.__cause__ or current.__context__
+    return " <- ".join(parts)
+
+
+def _retry_wait(exc, default):
+    """尊重网关提供的 Retry-After / retry_after，避免在 524 后马上重发。"""
+    response = getattr(exc, "response", None)
+    headers = getattr(response, "headers", None) or {}
+    body = getattr(exc, "body", None)
+    candidates = [headers.get("retry-after"), headers.get("Retry-After")]
+    if isinstance(body, dict):
+        candidates.append(body.get("retry_after"))
+    delay = default
+    for value in candidates:
+        try:
+            seconds = float(value)
+        except (TypeError, ValueError):
+            continue
+        if math.isfinite(seconds) and seconds >= 0:
+            delay = max(delay, seconds)
+    return delay
+
+
+class IncompleteGenerationError(RuntimeError):
+    """响应流未正常结束；不将部分输出当成完整模型答案。"""
+
+
+def _chat_stream_text(stream):
+    parts, finish = [], None
+    try:
+        for chunk in stream:
+            for choice in getattr(chunk, "choices", None) or []:
+                if getattr(choice, "index", 0) != 0:
+                    continue
+                text = getattr(getattr(choice, "delta", None), "content", None)
+                if isinstance(text, str):
+                    parts.append(text)
+                reason = getattr(choice, "finish_reason", None)
+                if reason:
+                    finish = reason
+        if finish != "stop":
+            raise IncompleteGenerationError(
+                f"chat 流未正常完成，finish_reason={finish!r}")
+        text = "".join(parts)
+        if not text.strip():
+            raise IncompleteGenerationError("chat 流已结束但没有答案正文")
+        return text
+    finally:
+        close = getattr(stream, "close", None)
+        if close:
+            close()
+
+
+def _responses_stream_text(stream):
+    parts, completed, final_text = [], False, None
+    try:
+        for event in stream:
+            kind = getattr(event, "type", None)
+            if kind == "response.output_text.delta":
+                parts.append(event.delta)
+            elif kind == "response.completed":
+                completed = True
+                final_text = _responses_text(event.response)
+            elif kind in ("response.failed", "response.incomplete", "error"):
+                response = getattr(event, "response", None)
+                detail = (getattr(response, "error", None)
+                          or getattr(response, "incomplete_details", None)
+                          or getattr(event, "message", None))
+                raise IncompleteGenerationError(f"Responses 流失败：{kind} {detail}")
+        text = final_text or "".join(parts)
+        if not completed or not text.strip():
+            raise IncompleteGenerationError("Responses 流缺少完整结束事件或答案正文")
+        return text
+    finally:
+        close = getattr(stream, "close", None)
+        if close:
+            close()
+
+
 def call_model(client, model, system_prompt, user_message, *,
                reasoning_effort="high", enable_thinking=True, protocol="chat",
-               max_retries=3, retry_delay=2.0, max_tokens=None, verbose=True):
+               max_retries=3, retry_delay=2.0, max_tokens=None, verbose=True,
+               stream=False):
     """调用模型，失败按指数退避重试；全部失败后抛出最后一个异常。
 
     protocol:
       "chat"      走 chat.completions（glm / deepseek 等）
-      "responses" 走 Responses API（grok 系列只支持这一种）
+      "responses" 走 Responses API；可用协议由具体网关决定。
+
+    stream=True 仅改变接收方式，保留提示词、推理参数及输出要求。
+    网关须实际转发增量内容；单纯返回 SSE 并不保证不会超时。
 
     配额耗尽 / 认证失败 / 参数不被支持等不可恢复错误会立即抛 FatalAPIError，
     不做无谓重试——否则会对上千条样本逐一空转。
     """
     last_exc = None
     for attempt in range(max_retries + 1):
+        started = time.monotonic()
         try:
             if protocol == "responses":
                 kwargs = {"model": model, "instructions": system_prompt,
@@ -147,6 +252,9 @@ def call_model(client, model, system_prompt, user_message, *,
                     kwargs["reasoning"] = {"effort": reasoning_effort}
                 if max_tokens:
                     kwargs["max_output_tokens"] = max_tokens
+                if stream:
+                    kwargs["stream"] = True
+                    return _responses_stream_text(client.responses.create(**kwargs))
                 return _responses_text(client.responses.create(**kwargs))
 
             kwargs = {
@@ -155,7 +263,7 @@ def call_model(client, model, system_prompt, user_message, *,
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_message},
                 ],
-                "stream": False,
+                "stream": stream,
             }
             if reasoning_effort:
                 kwargs["reasoning_effort"] = reasoning_effort
@@ -164,17 +272,25 @@ def call_model(client, model, system_prompt, user_message, *,
             if max_tokens:
                 kwargs["max_tokens"] = max_tokens
             resp = client.chat.completions.create(**kwargs)
+            if stream:
+                return _chat_stream_text(resp)
             return resp.choices[0].message.content
         except Exception as exc:                      # noqa: BLE001
             last_exc = exc
+            elapsed = time.monotonic() - started
             if is_fatal_api_error(exc):
-                raise FatalAPIError(f"{type(exc).__name__}: {str(exc)[:500]}") from exc
+                raise FatalAPIError(format_exception(exc)[:500]) from exc
             if attempt < max_retries:
-                delay = retry_delay * (2 ** attempt) + random.uniform(0, 1.0)
+                delay = _retry_wait(
+                    exc, retry_delay * (2 ** attempt) + random.uniform(0, 1.0))
                 if verbose:
                     print(f"      [retry {attempt + 1}/{max_retries}] {type(exc).__name__}: "
-                          f"{str(exc)[:120]}  -> {delay:.1f}s 后重试")
+                          f"{format_exception(exc)[-500:]} "
+                          f"（耗时 {elapsed:.1f}s） -> {delay:.1f}s 后重试")
                 time.sleep(delay)
+            elif verbose:
+                print(f"      [失败详情] {format_exception(exc)[-700:]}"
+                      f"（耗时 {elapsed:.1f}s）", flush=True)
     raise last_exc
 
 
